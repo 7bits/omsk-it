@@ -1,0 +1,17 @@
+# Java files #
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE files #
+.idea/
+*.iml
+
+# Other files and folders #
+target/
+out/
+bin/
+logs/
+hidden.properties
+

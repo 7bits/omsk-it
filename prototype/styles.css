@@ -1,0 +1,466 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(images/pattern.jpg);
+}
+
+.header .site-logo,
+.header .site-nav,
+.header .social-ref,
+.report .reporter,
+.report .description,
+.footer .subscription,
+.footer .tracking,
+.footer .site-minor-logo,
+.tracking .title,
+.tracking .social-ref,
+.site-nav li {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.page {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.light {
+    background-image: url(images/light.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 518px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.header {
+    height: 118px;
+    background-color: #fdfaf5;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.site-logo {
+    width: 222px;
+    height: 119px;
+    margin-top: 20px;
+}
+
+.site-logo img {
+    position: absolute;
+}
+
+.logo-title,
+.logo-minor-title {
+    display: block;
+    margin-left: 64px;
+}
+
+.logo-title {
+    color: #0eaebb;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 25px;
+    margin-top: 12px;
+}
+
+.logo-minor-title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 13px;
+    /*color: #2d3e50;*/
+}
+
+.site-nav {
+    margin-left: 50px;
+    margin-top: 31px;
+}
+
+.site-nav ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.site-nav a {
+    text-decoration: none;
+    border: solid 1px transparent;
+    display: block;
+    height: 52px;
+    line-height: 52px;
+    padding: 0 27px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    margin-left: -3px;
+    color: #2d3e50;
+    border-radius: 5px;
+}
+
+.site-nav a:hover {
+    color: #ffffff;
+    background: #10b7c5;
+    background: linear-gradient(to bottom, #0ba1ae, #10b7c5);
+    border-color: #0faebd;
+}
+
+.header .social-ref {
+    height: 30px;
+    margin-top: 45px;
+    margin-left: 12px;
+}
+
+.header .social-ref a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: 12px;
+}
+
+.twi-ref {
+    background: url(images/twitter-minor-logo.png) no-repeat;
+}
+
+.twi-ref:hover {
+    background: url(images/twitter-minor-logo2.png) no-repeat;
+}
+
+.vk-ref {
+    background: url(images/vk-minor-logo.png) no-repeat;
+}
+
+.vk-ref:hover {
+    background: url(images/vk-minor-logo2.png) no-repeat;
+}
+
+.next-event-registration {
+    height: 304px;
+    text-align: center;
+}
+
+.next-event-registration .title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 34px;
+    color: #ffffff;
+    /*width: 884px;*/
+    padding: 0 20px;
+    height: 181px;
+    margin: 0 auto;
+    line-height: 181px;
+}
+
+.next-event-registration .title .title-line {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.event-date {
+    font-weight: 700;
+}
+
+.event-location {
+    border-bottom: dashed 2px;
+}
+
+.event-location a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.join-button button {
+    width: 273px;
+    height: 61px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    border: outset 1px #38c2cf;
+    border-radius: 5px;
+    background: #10b7c5;
+    background: linear-gradient(to top, #0ba1ae, #10b7c5);
+}
+
+.join-button button:hover {
+    background: #18cfdf;
+    background: linear-gradient(to bottom, #18cfdf, #0ba9b7);
+}
+
+.join-button button:active {
+    /*border: inset 1px #38c2cf;*/
+    background: #0ba9b7;
+    background: linear-gradient(to top, #18cfdf, #0ba9b7);
+}
+
+.next-event-program {
+    background-color: #ffffff;
+    border-radius: 10px 10px 5px 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.program-header {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 29px;
+    color: #fefcf9;
+    font-weight: 700;
+    height: 87px;
+    line-height: 87px;
+    padding-left: 33px;
+    padding-right: 33px;
+    border-radius: 5px 5px 0 0;
+    background: #10b7c5;
+    background: linear-gradient(to top, #0ba1ae, #10b7c5);
+}
+
+.program-content {
+    color: #2d3e50;
+}
+
+.bottom-line {
+    border: none;
+    background-color: #dedede;
+    color: #dedede;
+    height: 1px;
+    margin: 0 20px;
+}
+
+.report .reporter {
+    width: 207px;
+    height: 217px;
+    text-align: center;
+    margin-top: 37px;
+}
+
+.reporter .name {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.reporter .name a {
+    text-decoration: none;
+    color: #2d3e50;
+}
+
+.reporter .name a:hover {
+    text-decoration: underline;
+}
+
+.reporter .position {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 15px;
+}
+
+.reporter .position a {
+    text-decoration: none;
+    color: #2d3e50;
+}
+
+.reporter .position a:hover {
+    text-decoration: underline;
+}
+
+.reporter .photo {
+    width: 122px;
+    height: 122px;
+    line-height: 122px;
+    margin: 0 auto;
+    padding-top: 5px;
+}
+
+.report .description {
+    margin-left: -4px;
+    width: 743px;
+    margin-top: 34px;
+}
+
+.description .title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.description .title a {
+    text-decoration: none;
+    color: #2d3e50;
+}
+
+.description .title a:hover {
+    text-decoration: underline;
+}
+
+.description .text {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 18px;
+    padding: 10px 12px 30px 12px;
+}
+
+.events-history {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    padding: 25px 35px 0 35px;
+}
+
+.events-history a {
+    color: #ffffff;
+}
+
+.action .title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 27px;
+    color: #ffffff;
+    padding: 70px 35px 20px 35px;
+}
+
+.action .buttons {
+    height: 350px;
+}
+
+.action .buttons button {
+    width: 309px;
+    height: 270px;
+    vertical-align: top;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border-color: transparent;
+    padding-top: 110px;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.action .buttons button:active {
+    background-color: #f3f1f1;
+}
+
+.button-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 35px;
+}
+
+.button-img:hover {
+    padding-top: 25px;
+}
+
+.action .buttons button img {
+    display: block;
+    margin: 0 auto;
+}
+
+.action .buttons button span {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 25px;
+    color: #2d3e50;
+    display: block;
+    height: 57px;
+    margin: 0 auto;
+}
+
+.left-button span {
+    width: 170px;
+}
+
+.middle-button span {
+    width: 250px;
+}
+
+.right-button span {
+    width: 230px;
+}
+
+.middle-button {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.footer {
+    height: 271px;
+    background-color: #0c93a1;
+}
+
+.subscription {
+    margin-top: 35px;
+}
+
+.subscription .title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    padding-bottom: 12px;
+}
+
+.subscribe-email {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    color: #2d3e50;
+    width: 254px;
+    height: 38px;
+    background-color: #ffffff;
+    border: solid 2px #aaf0f7;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.subscribe-email:focus {
+    outline: none;
+    border-color: #1a737c;
+}
+
+.subscribe-button {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 21px;
+    color: #2d3e50;
+    width: 156px;
+    height: 47px;
+    margin-left: 17px;
+    background-color: #aaf0f7;
+    border: outset 1px #8adde6;
+    border-radius: 5px;
+}
+
+.subscribe-button:hover {
+    background-color: #c3f9fe;
+}
+
+.subscribe-button:active {
+    background-color: #aaf0f7;
+    /*border: inset 1px #8adde6;*/
+}
+
+.tracking {
+    margin-top: 31px;
+    margin-left: 84px;
+}
+
+.tracking .title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    height: 61px;
+    line-height: 61px;
+}
+
+.tracking .social-ref {
+    height: 61px;
+    line-height: 61px;
+}
+
+.tracking .social-ref a img {
+    margin-left: 5px;
+}
+
+.site-minor-logo {
+    width: 58px;
+    height: 128px;
+    margin-left: 33px;
+    margin-top: 31px;
+}
+
+.copyright {
+    margin-top: 10px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+}
