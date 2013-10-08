@@ -190,13 +190,15 @@ body {
     background: linear-gradient(to top, #18cfdf, #0ba9b7);
 }
 
-.content .next-event-program {
+.content .next-event-program,
+.content .past-event-program {
     background-color: #ffffff;
     border-radius: 10px 10px 5px 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-.next-event-program .program-header {
+.next-event-program .program-header,
+.past-event-program .program-header {
     font-family: 'PT Sans', sans-serif;
     font-size: 29px;
     color: #fefcf9;
@@ -210,7 +212,8 @@ body {
     background: linear-gradient(to top, #0ba1ae, #10b7c5);
 }
 
-.next-event-program .program-content {
+.next-event-program .program-content,
+.past-event-program .program-content {
     color: #2d3e50;
 }
 
@@ -467,4 +470,76 @@ body {
     font-family: 'PT Sans', sans-serif;
     font-size: 16px;
     color: #ffffff;
+}
+
+/*second page*/
+
+.content .past-event-program {
+    margin-top: 61px;
+}
+
+.content .empty-space {
+    height: 102px;
+}
+
+.past-event-program .program-header {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.past-event-program .order {
+    font-size: 29px;
+    font-weight: 700;
+}
+
+.past-event-program .date {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.past-event-program .location {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.past-event-program .location a {
+    text-decoration: none;
+    border-bottom: solid 1px;
+    color: #ffffff;
+}
+
+.past-event-program .program-content {
+    padding-bottom: 30px;
+    padding-left: 4px;
+}
+
+.past-event-program .report {
+    width: 319px;
+    margin-left: -4px;
+    min-height: 337px;
+    margin-top: 22px;
+    border-right: solid 1px #dedede;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.past-event-program .reporter,
+.past-event-program .description {
+    display: block;
+}
+
+.past-event-program .reporter {
+    margin-top: 9px;
+    height: 207px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.past-event-program .description {
+    margin-top: 0;
+    width: 276px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
