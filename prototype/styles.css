@@ -760,7 +760,8 @@ body {
     margin: 9px 25px 9px 9px;
 }
 
-.content .questions {
+.content .questions,
+.content .contacts {
     font-family: 'PT Sans', sans-serif;
     font-size: 25px;
     color: #ffffff;
@@ -768,8 +769,34 @@ body {
     margin-bottom: -40px;
 }
 
-.content .questions a {
+.content .questions a,
+.content .contacts a {
     text-decoration: none;
     color: #00e7fc;
     border-bottom: solid 1px;
+}
+
+.content .questions {
+    padding: 0 10px;
+}
+
+/*to-companies page*/
+
+.content .advertisement {
+    padding-top: 50px;
+    font-family: 'PT Sans', sans-serif;
+    color: #ffffff;
+}
+
+.advertisement .title {
+    font-size: 35px;
+}
+
+.advertisement .text {
+    font-size: 26px;
+    padding-top: 40px;
+}
+
+.content .contacts {
+    padding: 0 30px;
 }
