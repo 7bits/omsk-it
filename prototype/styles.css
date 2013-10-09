@@ -133,7 +133,6 @@ body {
 }
 
 .content .next-event-registration {
-    height: 304px;
     text-align: center;
 }
 
@@ -191,14 +190,16 @@ body {
 }
 
 .content .next-event-program,
-.content .past-event-program {
+.content .past-event-program,
+.content .detail-report {
     background-color: #ffffff;
     border-radius: 10px 10px 5px 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 .next-event-program .program-header,
-.past-event-program .program-header {
+.past-event-program .program-header,
+.detail-report .report-header {
     font-family: 'PT Sans', sans-serif;
     font-size: 29px;
     color: #fefcf9;
@@ -210,10 +211,12 @@ body {
     border-radius: 5px 5px 0 0;
     background: #10b7c5;
     background: linear-gradient(to top, #0ba1ae, #10b7c5);
+    margin-top: 61px;
 }
 
 .next-event-program .program-content,
-.past-event-program .program-content {
+.past-event-program .program-content,
+.detail-report .report-content {
     color: #2d3e50;
 }
 
@@ -313,10 +316,6 @@ body {
     padding: 70px 35px 20px 35px;
 }
 
-.action .buttons {
-    height: 350px;
-}
-
 .action .buttons button {
     width: 309px;
     height: 270px;
@@ -384,6 +383,7 @@ body {
 .footer {
     height: 271px;
     background-color: #0c93a1;
+    margin-top: 90px;
 }
 
 .footer .subscription {
@@ -474,14 +474,6 @@ body {
 
 /*second page*/
 
-.content .past-event-program {
-    margin-top: 61px;
-}
-
-.content .empty-space {
-    height: 102px;
-}
-
 .past-event-program .program-header {
     font-family: 'PT Sans', sans-serif;
     font-size: 18px;
@@ -542,4 +534,72 @@ body {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+
+/*third page*/
+
+.detail-report .report-content {
+    padding: 43px 50px;
+}
+
+.detail-report .reporter {
+    height: 80px;
+    position: relative;
+}
+
+.detail-report .reporter .photo {
+    position: absolute;
+    top: 0;
+    padding-top: 0;
+    width: 80px;
+    height: 80px;
+}
+
+.detail-report .reporter .photo img {
+    width: 80px;
+    height: 80px;
+}
+
+.detail-report .reporter .name,
+.detail-report .reporter .position {
+    margin-left: 100px;
+}
+
+.detail-report .reporter .name {
+    padding-top: 10px;
+}
+
+.detail-report .description {
+    margin-top: 40px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+}
+
+.report-content .presentation {
+    margin-top: 40px;
+}
+
+.report-content .video {
+    margin-top: 50px;
+}
+
+.report-content .reporter-other-reports {
+    margin-top: 70px;
+}
+
+.reporter-other-reports .title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 26px;
+}
+
+.reporter-other-reports .refs a {
+    text-decoration: none;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2d3e50;
+}
+
+.reporter-other-reports .refs a:hover {
+    border-bottom: solid 1px;
 }
