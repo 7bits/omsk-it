@@ -191,7 +191,8 @@ body {
 
 .content .next-event-program,
 .content .past-event-program,
-.content .detail-report {
+.content .detail-report,
+.content .reporter-review {
     background-color: #ffffff;
     border-radius: 10px 10px 5px 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -199,7 +200,8 @@ body {
 
 .next-event-program .program-header,
 .past-event-program .program-header,
-.detail-report .report-header {
+.detail-report .report-header,
+.reporter-review .review-header {
     font-family: 'PT Sans', sans-serif;
     font-size: 29px;
     color: #fefcf9;
@@ -216,7 +218,8 @@ body {
 
 .next-event-program .program-content,
 .past-event-program .program-content,
-.detail-report .report-content {
+.detail-report .report-content,
+.reporter-review .review-content {
     color: #2d3e50;
 }
 
@@ -602,4 +605,83 @@ body {
 
 .reporter-other-reports .refs a:hover {
     border-bottom: solid 1px;
+}
+
+/*4th page*/
+
+.reporter-review .review-content {
+    padding: 43px 47px 0 47px;
+}
+
+.reporter-review .photo {
+    padding-left: 20px;
+}
+
+.reporter-review .photo img {
+    width: 190px;
+    height: 190px;
+}
+
+.reporter-review .photo,
+.reporter-review .short-description {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.reporter-review .short-description {
+    width: 592px;
+    margin-left: 50px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    padding-top: 5px;
+}
+
+.short-description .contact-email {
+    padding-top: 15px;
+}
+
+.short-description .contact-email a {
+    color: #00b7c8;
+}
+
+.review-content .reports-history {
+    padding-top: 45px;
+}
+
+.reports-history .title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 27px;
+    padding-bottom: 5px;
+}
+
+.reports-history .report {
+    border-bottom: solid 1px #dedede;
+    padding-bottom: 38px;
+    padding-top: 33px;
+}
+
+.reporter-review .report .presentation,
+.reporter-review .report .description {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.reporter-review .report .description {
+    width: 539px;
+    margin-left: 20px;
+    margin-top: 0;
+}
+
+.reporter-review .report .description .title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    padding-bottom: 15px;
+}
+
+.reporter-review .report .description .text {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    padding-bottom: 0;
 }
