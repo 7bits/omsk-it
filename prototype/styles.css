@@ -305,10 +305,12 @@ body {
     padding: 10px 12px 30px 12px;
 }
 
-.content .events-history {
+.content .events-history,
+.content .events-archive {
     font-family: 'PT Sans', sans-serif;
     font-size: 24px;
     padding: 25px 35px 0 35px;
+    color: #ffffff;
 }
 
 .content .events-history a {
@@ -799,4 +801,39 @@ body {
 
 .content .contacts {
     padding: 0 30px;
+}
+
+/*rules page*/
+
+.content .about {
+    padding-top: 70px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 26px;
+    color: #ffffff;
+}
+
+.about .project-name {
+    color: #06eaff;
+}
+
+.text .long-line {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.events-archive a {
+    color: #00e7fc;
+}
+
+.recomendations .text a {
+    text-decoration: none;
+    color: #2d3e50;
+}
+
+.recomendations .text a:hover {
+    border-bottom: solid 1px;
+}
+
+.text .long-line a {
+    color: #00b7c8;
 }
