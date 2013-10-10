@@ -505,8 +505,12 @@ body {
 
 .past-event-program .location a {
     text-decoration: none;
-    border-bottom: solid 1px;
+    /*border-bottom: solid 1px;*/
     color: #ffffff;
+}
+
+.past-event-program .location a:hover {
+    border-bottom: solid 1px;
 }
 
 .past-event-program .program-content {
@@ -647,6 +651,11 @@ body {
 
 .short-description .contact-email a {
     color: #00b7c8;
+    text-decoration: none;
+}
+
+.short-description .contact-email a:hover {
+    border-bottom: solid 1px;
 }
 
 .review-content .reports-history {
@@ -775,6 +784,11 @@ body {
 .content .contacts a {
     text-decoration: none;
     color: #00e7fc;
+    /*border-bottom: solid 1px;*/
+}
+
+.content .questions a:hover,
+.content .contacts a:hover {
     border-bottom: solid 1px;
 }
 
@@ -822,7 +836,12 @@ body {
 }
 
 .events-archive a {
+    text-decoration: none;
     color: #00e7fc;
+}
+
+.events-archive a:hover {
+    border-bottom: solid 1px;
 }
 
 .recomendations .text a {
