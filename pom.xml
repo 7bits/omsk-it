@@ -20,6 +20,7 @@
         <junit.version>4.11</junit.version>
         <log4j.version>1.2.17</log4j.version>
         <spring.version>3.2.4.RELEASE</spring.version>
+        <javaee.api.version>7.0</javaee.api.version>
     </properties>
 
     <dependencies>
@@ -42,15 +43,16 @@
         </dependency>
 
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${javaee.api.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>1.0.2</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
         </dependency>
     </dependencies>
 

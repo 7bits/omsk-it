@@ -15,4 +15,6 @@ public interface CompanyDao {
     List<Company> findAllCompanies();
 
     Company findCompanyById(final Long id);
+
+    Company findCompanyByName(final String name);
 }
