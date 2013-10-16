@@ -53,6 +53,8 @@ public class JpaCompanyDao implements CompanyDao {
         return entityManager.find(Company.class, id);
     }
 
+    //public Company findByQuery(String query, Map<String, Object> parameters, Class modelClass);
+
     @Override
     public Company findCompanyByName(String name) {
 
