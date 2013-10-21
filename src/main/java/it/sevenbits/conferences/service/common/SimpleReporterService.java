@@ -19,34 +19,34 @@ public class SimpleReporterService implements ReporterService {
     @Override
     public Reporter addReporter(Reporter reporter) {
 
-        return reporterDao.addReporter(reporter);
+        return reporterDao.add(reporter);
     }
 
     @Transactional
     @Override
     public boolean removeReporter(Long id) {
 
-        return reporterDao.removeReporter(id);
+        return reporterDao.remove(id);
     }
 
     @Transactional
     @Override
     public Reporter updateReporter(Reporter reporter) {
 
-        return reporterDao.updateReporter(reporter);
+        return reporterDao.update(reporter);
     }
 
     @Transactional
     @Override
     public List<Reporter> findAllReporters() {
 
-        return reporterDao.findAllReporters();
+        return reporterDao.findAll();
     }
 
     @Transactional
     @Override
     public Reporter findReporterById(Long id) {
 
-        return reporterDao.findReporterById(id);
+        return reporterDao.findById(id);
     }
 }

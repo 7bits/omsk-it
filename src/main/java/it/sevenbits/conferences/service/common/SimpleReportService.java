@@ -19,34 +19,34 @@ public class SimpleReportService implements ReportService {
     @Override
     public Report addReport(Report report) {
 
-        return reportDao.addReport(report);
+        return reportDao.add(report);
     }
 
     @Transactional
     @Override
     public boolean removeReport(Long id) {
 
-        return reportDao.removeReport(id);
+        return reportDao.remove(id);
     }
 
     @Transactional
     @Override
     public Report updateReport(Report report) {
 
-        return reportDao.updateReport(report);
+        return reportDao.update(report);
     }
 
     @Transactional
     @Override
     public List<Report> findAllReports() {
 
-        return reportDao.findAllReports();
+        return reportDao.findAll();
     }
 
     @Transactional
     @Override
     public Report findReportById(Long id) {
 
-        return reportDao.findReportById(id);
+        return reportDao.findById(id);
     }
 }

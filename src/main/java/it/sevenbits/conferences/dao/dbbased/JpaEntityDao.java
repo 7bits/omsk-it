@@ -1,7 +1,6 @@
 package it.sevenbits.conferences.dao.dbbased;
 
 import it.sevenbits.conferences.dao.EntityDao;
-import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,13 +8,17 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Map;
 
-@Repository
 public class JpaEntityDao<Entity> implements EntityDao<Entity> {
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    private Class<Entity> clazz;
+    private final Class<Entity> entityClass;
+
+    public JpaEntityDao(final Class<Entity> entityClass) {
+
+        this.entityClass = entityClass;
+    }
 
     @Override
     public Entity add(Entity entity) {
@@ -27,7 +30,7 @@ public class JpaEntityDao<Entity> implements EntityDao<Entity> {
     @Override
     public boolean remove(final Long id) {
 
-        Entity entity = entityManager.find(clazz, id);
+        Entity entity = entityManager.find(entityClass, id);
 
         if (entity != null) {
             entityManager.remove(entity);
@@ -46,20 +49,23 @@ public class JpaEntityDao<Entity> implements EntityDao<Entity> {
     public List<Entity> findAll() {
 
         return entityManager.
-                createQuery("from " + clazz.getName().toLowerCase(), clazz).
+                createQuery("from " + entityClass.getName().toLowerCase(), entityClass).
                 getResultList();
     }
 
     @Override
     public Entity findById(final Long id) {
 
-        return entityManager.find(clazz, id);
+//        if (type == null) {
+//            return null;
+//        }
+        return entityManager.find(entityClass, id);
     }
 
     @Override
     public List<Entity> findByQuery(final String query, final Map<String, Object> parameters) {
 
-        TypedQuery<Entity> typedQuery = entityManager.createQuery(query, clazz);
+        TypedQuery<Entity> typedQuery = entityManager.createQuery(query, entityClass);
 
         for (Map.Entry<String, Object> parameter: parameters.entrySet()) {
 

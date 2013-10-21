@@ -19,34 +19,34 @@ public class SimpleSuggestionService implements SuggestionService {
     @Override
     public Suggestion addSuggestion(Suggestion suggestion) {
 
-        return suggestionDao.addSuggestion(suggestion);
+        return suggestionDao.add(suggestion);
     }
 
     @Transactional
     @Override
     public boolean removeSuggestion(Long id) {
 
-        return suggestionDao.removeSuggestion(id);
+        return suggestionDao.remove(id);
     }
 
     @Transactional
     @Override
     public Suggestion updateSuggestion(Suggestion suggestion) {
 
-        return suggestionDao.updateSuggestion(suggestion);
+        return suggestionDao.update(suggestion);
     }
 
     @Transactional
     @Override
     public List<Suggestion> findAllSuggestions() {
 
-        return suggestionDao.findAllSuggestions();
+        return suggestionDao.findAll();
     }
 
     @Transactional
     @Override
     public Suggestion findSuggestionById(Long id) {
 
-        return suggestionDao.findSuggestionById(id);
+        return suggestionDao.findById(id);
     }
 }

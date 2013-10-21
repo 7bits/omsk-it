@@ -19,34 +19,34 @@ public class SimpleConferenceService implements ConferenceService {
     @Override
     public Conference addConference(Conference conference) {
 
-        return conferenceDao.addConference(conference);
+        return conferenceDao.add(conference);
     }
 
     @Transactional
     @Override
     public boolean removeConference(Long id) {
 
-        return conferenceDao.removeConference(id);
+        return conferenceDao.remove(id);
     }
 
     @Transactional
     @Override
     public Conference updateConference(Conference conference) {
 
-        return conferenceDao.updateConference(conference);
+        return conferenceDao.update(conference);
     }
 
     @Transactional
     @Override
     public List<Conference> findAllConferences() {
 
-        return conferenceDao.findAllConferences();
+        return conferenceDao.findAll();
     }
 
     @Transactional
     @Override
     public Conference findConferenceById(Long id) {
 
-        return conferenceDao.findConferenceById(id);
+        return conferenceDao.findById(id);
     }
 }

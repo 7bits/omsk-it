@@ -4,68 +4,16 @@ import it.sevenbits.conferences.dao.CompanyDao;
 import it.sevenbits.conferences.domain.Company;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.List;
-
 @Repository
-public class JpaCompanyDao implements CompanyDao {
+public class JpaCompanyDao extends JpaEntityDao<Company> implements CompanyDao {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    public JpaCompanyDao() {
 
-    @Override
-    public Company addCompany(Company company) {
-
-        entityManager.persist(company);
-        return company;
+        super(Company.class);
     }
 
-    @Override
-    public boolean removeCompany(Long id) {
+    public JpaCompanyDao(Class<Company> companyClass) {
 
-        Company company = entityManager.find(Company.class, id);
-
-        if (company != null) {
-            entityManager.remove(company);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public Company updateCompany(Company company) {
-
-        return entityManager.merge(company);
-    }
-
-    @Override
-    public List<Company> findAllCompanies() {
-
-        return entityManager.
-                createQuery("select c from company c", Company.class).
-                getResultList();
-    }
-
-    @Override
-    public Company findCompanyById(Long id) {
-
-        return entityManager.find(Company.class, id);
-    }
-
-    //public Company findByQuery(String query, Map<String, Object> parameters, Class modelClass);
-
-    @Override
-    public Company findCompanyByName(String name) {
-
-        List<Company> result = entityManager.
-                createQuery("select c from company c where c.name = :name", Company.class).
-                setParameter("name", name).
-                getResultList();
-
-        if (result.isEmpty()) {
-            return null;
-        }
-        return result.get(0);
+        super(companyClass);
     }
 }

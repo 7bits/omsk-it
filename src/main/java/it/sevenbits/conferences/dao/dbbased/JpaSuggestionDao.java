@@ -4,52 +4,16 @@ import it.sevenbits.conferences.dao.SuggestionDao;
 import it.sevenbits.conferences.domain.Suggestion;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.List;
-
 @Repository
-public class JpaSuggestionDao implements SuggestionDao {
+public class JpaSuggestionDao extends JpaEntityDao<Suggestion> implements SuggestionDao {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    public JpaSuggestionDao() {
 
-    @Override
-    public Suggestion addSuggestion(Suggestion suggestion) {
-
-        entityManager.persist(suggestion);
-        return suggestion;
+        super(Suggestion.class);
     }
 
-    @Override
-    public boolean removeSuggestion(Long id) {
+    public JpaSuggestionDao(Class<Suggestion> suggestionClass) {
 
-        Suggestion suggestion = entityManager.find(Suggestion.class, id);
-
-        if (suggestion != null) {
-            entityManager.remove(suggestion);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public Suggestion updateSuggestion(Suggestion suggestion) {
-
-        return entityManager.merge(suggestion);
-    }
-
-    @Override
-    public List<Suggestion> findAllSuggestions() {
-
-        return entityManager.
-                createQuery("select s from suggestion s", Suggestion.class).
-                getResultList();
-    }
-
-    @Override
-    public Suggestion findSuggestionById(Long id) {
-
-        return entityManager.find(Suggestion.class, id);
+        super(suggestionClass);
     }
 }

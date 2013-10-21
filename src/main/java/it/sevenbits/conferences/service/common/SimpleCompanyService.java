@@ -19,41 +19,42 @@ public class SimpleCompanyService implements CompanyService {
     @Override
     public Company addCompany(Company company) {
 
-        return companyDao.addCompany(company);
+        return companyDao.add(company);
     }
 
     @Transactional
     @Override
     public boolean removeCompany(Long id) {
 
-        return companyDao.removeCompany(id);
+        return companyDao.remove(id);
     }
 
     @Transactional
     @Override
     public Company updateCompany(Company company) {
 
-        return companyDao.updateCompany(company);
+        return companyDao.update(company);
     }
 
     @Transactional
     @Override
     public List<Company> findAllCompanies() {
 
-        return companyDao.findAllCompanies();
+        return companyDao.findAll();
     }
 
     @Transactional
     @Override
     public Company findCompanyById(Long id) {
 
-        return companyDao.findCompanyById(id);
+        return companyDao.findById(id);
     }
 
     @Transactional
     @Override
     public Company findCompanyByName(String name) {
 
-        return companyDao.findCompanyByName(name);
+//        return companyDao.findByName(name);
+        return null;
     }
 }

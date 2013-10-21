@@ -4,52 +4,16 @@ import it.sevenbits.conferences.dao.ReportDao;
 import it.sevenbits.conferences.domain.Report;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.List;
-
 @Repository
-public class JpaReportDao implements ReportDao {
+public class JpaReportDao extends JpaEntityDao<Report> implements ReportDao {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    public JpaReportDao() {
 
-    @Override
-    public Report addReport(Report report) {
-
-        entityManager.persist(report);
-        return report;
+        super(Report.class);
     }
 
-    @Override
-    public boolean removeReport(Long id) {
+    public JpaReportDao(Class<Report> reportClass) {
 
-        Report report = entityManager.find(Report.class, id);
-
-        if (report != null) {
-            entityManager.remove(report);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public Report updateReport(Report report) {
-
-        return entityManager.merge(report);
-    }
-
-    @Override
-    public List<Report> findAllReports() {
-
-        return entityManager.
-                createQuery("select r from report r", Report.class).
-                getResultList();
-    }
-
-    @Override
-    public Report findReportById(Long id) {
-
-        return entityManager.find(Report.class, id);
+        super(reportClass);
     }
 }

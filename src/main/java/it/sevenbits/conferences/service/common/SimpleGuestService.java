@@ -19,34 +19,34 @@ public class SimpleGuestService implements GuestService {
     @Override
     public Guest addGuest(Guest guest) {
 
-        return guestDao.addGuest(guest);
+        return guestDao.add(guest);
     }
 
     @Transactional
     @Override
     public boolean removeGuest(Long id) {
 
-        return guestDao.removeGuest(id);
+        return guestDao.remove(id);
     }
 
     @Transactional
     @Override
     public Guest updateGuest(Guest guest) {
 
-        return guestDao.updateGuest(guest);
+        return guestDao.update(guest);
     }
 
     @Transactional
     @Override
     public List<Guest> findAllGuests() {
 
-        return guestDao.findAllGuests();
+        return guestDao.findAll();
     }
 
     @Transactional
     @Override
     public Guest findGuestById(Long id) {
 
-        return guestDao.findGuestById(id);
+        return guestDao.findById(id);
     }
 }

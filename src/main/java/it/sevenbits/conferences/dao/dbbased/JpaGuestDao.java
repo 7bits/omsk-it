@@ -4,52 +4,16 @@ import it.sevenbits.conferences.dao.GuestDao;
 import it.sevenbits.conferences.domain.Guest;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.List;
-
 @Repository
-public class JpaGuestDao implements GuestDao {
+public class JpaGuestDao extends JpaEntityDao<Guest> implements GuestDao {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    public JpaGuestDao() {
 
-    @Override
-    public Guest addGuest(Guest guest) {
-
-        entityManager.persist(guest);
-        return guest;
+        super(Guest.class);
     }
 
-    @Override
-    public boolean removeGuest(Long id) {
+    public JpaGuestDao(Class<Guest> guestClass) {
 
-        Guest guest = entityManager.find(Guest.class, id);
-
-        if (guest != null) {
-            entityManager.remove(guest);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public Guest updateGuest(Guest guest) {
-
-        return entityManager.merge(guest);
-    }
-
-    @Override
-    public List<Guest> findAllGuests() {
-
-        return entityManager.
-                createQuery("select g from guest g", Guest.class).
-                getResultList();
-    }
-
-    @Override
-    public Guest findGuestById(Long id) {
-
-        return entityManager.find(Guest.class, id);
+        super(guestClass);
     }
 }
