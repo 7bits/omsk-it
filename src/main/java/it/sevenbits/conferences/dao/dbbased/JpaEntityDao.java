@@ -1,6 +1,7 @@
 package it.sevenbits.conferences.dao.dbbased;
 
 import it.sevenbits.conferences.dao.EntityDao;
+import org.apache.log4j.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 
 public class JpaEntityDao<Entity> implements EntityDao<Entity> {
+
+    private static final Logger logger = Logger.getLogger(JpaEntityDao.class);
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -21,9 +24,14 @@ public class JpaEntityDao<Entity> implements EntityDao<Entity> {
     }
 
     @Override
-    public Entity add(Entity entity) {
+    public Entity add(final Entity entity) {
 
-        entityManager.persist(entity);
+        try {
+            entityManager.persist(entity);
+        } catch (Exception e) {
+            logger.error("Can not add an entity to the database", e);
+            return null;
+        }
         return entity;
     }
 
@@ -49,27 +57,31 @@ public class JpaEntityDao<Entity> implements EntityDao<Entity> {
     public List<Entity> findAll() {
 
         return entityManager.
-                createQuery("from " + entityClass.getName().toLowerCase(), entityClass).
+                createQuery("from " + entityClass.getName(), entityClass).
                 getResultList();
     }
 
     @Override
     public Entity findById(final Long id) {
 
-//        if (type == null) {
-//            return null;
-//        }
         return entityManager.find(entityClass, id);
     }
 
     @Override
     public List<Entity> findByQuery(final String query, final Map<String, Object> parameters) {
 
+        if (query == null || query.isEmpty()) {
+            return null;
+        }
+
         TypedQuery<Entity> typedQuery = entityManager.createQuery(query, entityClass);
 
-        for (Map.Entry<String, Object> parameter: parameters.entrySet()) {
+        if (parameters != null && !parameters.isEmpty()) {
 
-            typedQuery.setParameter(parameter.getKey(), parameter.getValue());
+            for (Map.Entry<String, Object> parameter: parameters.entrySet()) {
+
+                typedQuery.setParameter(parameter.getKey(), parameter.getValue());
+            }
         }
         return typedQuery.getResultList();
     }
