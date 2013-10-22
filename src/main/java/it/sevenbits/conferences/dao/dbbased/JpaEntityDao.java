@@ -26,6 +26,10 @@ public class JpaEntityDao<Entity> implements EntityDao<Entity> {
     @Override
     public Entity add(final Entity entity) {
 
+        if (entity == null || entityManager.contains(entity)) {
+            return null;
+        }
+
         try {
             entityManager.persist(entity);
         } catch (Exception e) {
@@ -38,6 +42,10 @@ public class JpaEntityDao<Entity> implements EntityDao<Entity> {
     @Override
     public boolean remove(final Long id) {
 
+        if (id == null) {
+            return false;
+        }
+
         Entity entity = entityManager.find(entityClass, id);
 
         if (entity != null) {
@@ -49,6 +57,10 @@ public class JpaEntityDao<Entity> implements EntityDao<Entity> {
 
     @Override
     public Entity update(final Entity entity) {
+
+        if (entity == null) {
+            return null;
+        }
 
         return entityManager.merge(entity);
     }
@@ -63,6 +75,10 @@ public class JpaEntityDao<Entity> implements EntityDao<Entity> {
 
     @Override
     public Entity findById(final Long id) {
+
+        if (id == null) {
+            return null;
+        }
 
         return entityManager.find(entityClass, id);
     }

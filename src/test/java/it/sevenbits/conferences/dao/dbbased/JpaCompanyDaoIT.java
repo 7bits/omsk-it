@@ -54,10 +54,33 @@ public class JpaCompanyDaoIT {
     }
 
     @Test
+    public void testDoubleAdd() {
+
+        Company company = new Company();
+        company.setName("someCompany");
+        assertEquals(companyDao.add(company), company);
+
+        company.setName("newName");
+        assertNull(companyDao.add(company));
+    }
+
+    @Test
+    public void testAddNull() {
+
+        assertNull(companyDao.add(null));
+    }
+
+    @Test
     public void testRemove() {
 
         assertTrue(companyDao.remove(testCompanyId));
         assertFalse(companyDao.remove(testCompanyId));
+    }
+
+    @Test
+    public void testRemoveNull() {
+
+        assertFalse(companyDao.remove(null));
     }
 
     @Test
@@ -67,6 +90,12 @@ public class JpaCompanyDaoIT {
 
         assertEquals(companyDao.update(testCompany), testCompany);
         assertEquals(testCompany.getName(), companyDao.findById(testCompanyId).getName());
+    }
+
+    @Test
+    public void testUpdateNull() {
+
+        assertNull(companyDao.update(null));
     }
 
     @Test
@@ -83,6 +112,12 @@ public class JpaCompanyDaoIT {
     public void testFindById() {
 
         assertEquals(companyDao.findById(testCompanyId), testCompany);
+    }
+
+    @Test
+    public void testFindByNullId() {
+
+        assertNull(companyDao.findById(null));
     }
 
     @Test
