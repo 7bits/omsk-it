@@ -2,7 +2,7 @@ insert into `company`(id, name, site, location) values(1, "7bits", "http://7bits
 insert into `company`(id, name, site, location) values(2, "Luxoft", "http://www.luxoft.ru/", null);
 insert into `company`(id, name, site, location) values(3, "Thumbtack", "http://thumbtack.ru/", null);
 
-insert into `conference`(id, company_id, ordinal_number, date) values(1, 2, 10, ('2013-09-07'));
+insert into `conference`(id, company_id, ordinal_number, date) values(1, 2, 10, 1378562400);
 
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(1, 3, "Алексей", "Зиновьев", null, null, null, "Программист", null);
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(2, 2, "Сергей", "Назаренко", null, null, null, "Project manager", null);

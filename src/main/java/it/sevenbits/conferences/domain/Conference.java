@@ -1,7 +1,8 @@
 package it.sevenbits.conferences.domain;
 
+import org.joda.time.DateTime;
+
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "conference")
@@ -10,7 +11,7 @@ public class Conference {
     private Long id;
     private Company company;
     private Long ordinalNumber;
-    private Date date;
+    private Long date;
 
     @Id
     @GeneratedValue
@@ -42,13 +43,23 @@ public class Conference {
         this.ordinalNumber = ordinalNumber;
     }
 
-    @Column(name = "date", columnDefinition = "DATETIME")
-    @Temporal(TemporalType.TIMESTAMP)
-    public Date getDate() {
+    @Column(name = "date")
+    public Long getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Long date) {
         this.date = date;
+    }
+
+    @Transient
+    public String getHumanReadableDate() {
+
+        if (date == null) {
+            return "";
+        } else {
+            DateTime dateTime = new DateTime(date);
+            return dateTime.toString("dd MMMM yyyy");
+        }
     }
 }
