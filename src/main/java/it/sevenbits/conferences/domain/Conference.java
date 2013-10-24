@@ -58,7 +58,7 @@ public class Conference {
         if (date == null) {
             return "";
         } else {
-            DateTime dateTime = new DateTime(date);
+            DateTime dateTime = new DateTime(date * 1000L);
             return dateTime.toString("dd MMMM yyyy");
         }
     }

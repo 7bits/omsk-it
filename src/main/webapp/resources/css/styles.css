@@ -4,6 +4,10 @@ body {
     background-image: url(../images/pattern.jpg);
 }
 
+button {
+    cursor: pointer;
+}
+
 .header .site-logo,
 .header .site-nav,
 .header .social-ref,
@@ -433,6 +437,7 @@ body {
     background-color: #aaf0f7;
     border: outset 1px #8adde6;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .subscribe-form .submit-button:hover {

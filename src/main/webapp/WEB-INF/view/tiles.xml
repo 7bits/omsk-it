@@ -12,6 +12,23 @@
     </definition>
 
     <definition name="index" extends="base">
-        <put-attribute name="title" value="OmskIT index page" />
+        <put-attribute name="title" value="Омские IT-субботники (OmskIT)" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/content-index.jsp" />
+    </definition>
+
+    <definition name="rules" extends="base">
+        <put-attribute name="title" value="Правила" />
+    </definition>
+
+    <definition name="archive" extends="base">
+        <put-attribute name="title" value="Архив" />
+    </definition>
+
+    <definition name="to-reporters" extends="base">
+        <put-attribute name="title" value="Докладчикам" />
+    </definition>
+
+    <definition name="to-companies" extends="base">
+        <put-attribute name="title" value="Компаниям" />
     </definition>
 </tiles-definitions>
