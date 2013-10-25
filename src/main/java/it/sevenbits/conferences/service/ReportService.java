@@ -1,5 +1,6 @@
 package it.sevenbits.conferences.service;
 
+import it.sevenbits.conferences.domain.Conference;
 import it.sevenbits.conferences.domain.Report;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface ReportService {
     List<Report> findAllReports();
 
     Report findReportById(final Long id);
+
+    List<Report> findAllReportsByConference(final Conference conference);
 }
