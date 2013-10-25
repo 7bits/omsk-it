@@ -1,17 +1,19 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <div class="header">
     <div class="page">
         <div class="site-logo">
-            <a href=""><img src="resources/images/site-logo.png"></a>
+            <a href='<c:url value="/"/>'><img src='<c:url value="/resources/images/site-logo.png"/>'></a>
             <span class="title">СУББОТНИКИ</span>
             <span class="minor-title">Мини-конференции. Омск</span>
         </div>
 
         <div class="site-nav">
             <ul>
-                <li><a href="rules">Правила</a></li>
-                <li><a href="archive">Архив</a></li>
-                <li><a href="to-reporters">Докладчикам</a></li>
-                <li><a href="to-companies">Компаниям</a></li>
+                <li><a href='<c:url value="/rules"/>'>Правила</a></li>
+                <li><a href='<c:url value="/archive"/>'>Архив</a></li>
+                <li><a href='<c:url value="/to-reporters"/>'>Докладчикам</a></li>
+                <li><a href='<c:url value="/to-companies"/>'>Компаниям</a></li>
             </ul>
         </div>
 
