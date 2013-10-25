@@ -1,6 +1,6 @@
 package it.sevenbits.conferences.domain;
 
-import org.joda.time.DateTime;
+import it.sevenbits.conferences.utils.DateTimeConverter;
 
 import javax.persistence.*;
 
@@ -55,11 +55,6 @@ public class Conference {
     @Transient
     public String getHumanReadableDate() {
 
-        if (date == null) {
-            return "";
-        } else {
-            DateTime dateTime = new DateTime(date * 1000L);
-            return dateTime.toString("dd MMMM yyyy");
-        }
+        return DateTimeConverter.fromLong(date);
     }
 }
