@@ -838,6 +838,7 @@ button {
 .text .long-line {
     display: inline-block;
     vertical-align: middle;
+    width: 830px;
 }
 
 .events-archive a {
@@ -858,6 +859,6 @@ button {
     border-bottom: solid 1px;
 }
 
-.text .long-line a {
+.text .blue-ref a {
     color: #00b7c8;
 }

@@ -8,7 +8,7 @@
             </div>
 
             <div class="subscribe-form">
-                <form action="subscribe">
+                <form action='<c:url value="/subscribe"/>'>
                     <input class="input-email" type="email" name="email" placeholder="Электронная почта">
                     <input class="submit-button" type="submit" value="Отправить">
                 </form>

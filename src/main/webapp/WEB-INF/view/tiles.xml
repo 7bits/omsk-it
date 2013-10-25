@@ -18,6 +18,7 @@
 
     <definition name="rules" extends="base">
         <put-attribute name="title" value="Правила" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/content-rules.jsp" />
     </definition>
 
     <definition name="archive" extends="base">
