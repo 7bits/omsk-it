@@ -40,6 +40,10 @@ button {
     right: 0;
 }
 
+.resource-not-found {
+    font-family: 'PT Sans', sans-serif;
+}
+
 .header {
     height: 118px;
     background-color: #fdfaf5;
@@ -655,16 +659,17 @@ button {
     padding-top: 5px;
 }
 
-.short-description .contact-email {
-    padding-top: 15px;
+.short-description .position {
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
 
-.short-description .contact-email a {
+.short-description .position a {
     color: #00b7c8;
     text-decoration: none;
 }
 
-.short-description .contact-email a:hover {
+.short-description .position a:hover {
     border-bottom: solid 1px;
 }
 
@@ -688,6 +693,10 @@ button {
 .reporter-review .report .description {
     display: inline-block;
     vertical-align: top;
+}
+
+.reporter-review .report .presentation {
+    width: 291px;
 }
 
 .reporter-review .report .description {

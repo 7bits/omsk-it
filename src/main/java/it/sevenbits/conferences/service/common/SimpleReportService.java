@@ -3,6 +3,7 @@ package it.sevenbits.conferences.service.common;
 import it.sevenbits.conferences.dao.ReportDao;
 import it.sevenbits.conferences.domain.Conference;
 import it.sevenbits.conferences.domain.Report;
+import it.sevenbits.conferences.domain.Reporter;
 import it.sevenbits.conferences.service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,5 +60,13 @@ public class SimpleReportService implements ReportService {
         Map<String, Object> params = new HashMap<>();
         params.put("conference", conference);
         return reportDao.findByQuery("select r from Report r where r.conference = :conference", params);
+    }
+
+    @Override
+    public List<Report> findAllReportsByReporter(Reporter reporter) {
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("reporter", reporter);
+        return reportDao.findByQuery("select r from Report r where r.reporter = :reporter", params);
     }
 }
