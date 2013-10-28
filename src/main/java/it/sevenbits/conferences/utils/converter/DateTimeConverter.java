@@ -1,4 +1,4 @@
-package it.sevenbits.conferences.utils;
+package it.sevenbits.conferences.utils.converter;
 
 import org.joda.time.DateTime;
 

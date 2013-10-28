@@ -1,6 +1,6 @@
 package it.sevenbits.conferences.domain;
 
-import it.sevenbits.conferences.utils.DateTimeConverter;
+import it.sevenbits.conferences.utils.converter.DateTimeConverter;
 
 import javax.persistence.*;
 

@@ -23,6 +23,7 @@
 
     <definition name="archive" extends="base">
         <put-attribute name="title" value="Архив" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/content-archive.jsp" />
     </definition>
 
     <definition name="to-reporters" extends="base">
