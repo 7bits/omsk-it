@@ -5,7 +5,7 @@
         <div class="next-event-registration">
             <div class="title">
                 <span class="line">
-                    <c:out value="${conference.ordinalNumber}"/> IT-субботник пройдет
+                    <c:out value="${conference.ordinalNumber}"/>-й IT-субботник пройдет
                     <span class="event-date"><c:out value="${conference.humanReadableDate}"/></span>
                     <br>в компании
                     <span class="event-location"><a href='<c:url value="${conference.company.site}"/>'><c:out value="${conference.company.name}"/></a></span>

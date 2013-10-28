@@ -3,9 +3,11 @@
 <div class="header">
     <div class="page">
         <div class="site-logo">
-            <a href='<c:url value="/"/>'><img src='<c:url value="/resources/images/site-logo.png"/>'></a>
-            <span class="title">СУББОТНИКИ</span>
-            <span class="minor-title">Мини-конференции. Омск</span>
+            <a href='<c:url value="/"/>'>
+                <img src='<c:url value="/resources/images/site-logo.png"/>'>
+                <span class="title">СУББОТНИКИ</span>
+                <span class="minor-title">Мини-конференции. Омск</span>
+            </a>
         </div>
 
         <div class="site-nav">

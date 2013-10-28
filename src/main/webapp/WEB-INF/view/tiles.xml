@@ -27,10 +27,12 @@
 
     <definition name="to-reporters" extends="base">
         <put-attribute name="title" value="Докладчикам" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/content-to-reporters.jsp" />
     </definition>
 
     <definition name="to-companies" extends="base">
         <put-attribute name="title" value="Компаниям" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/content-to-companies.jsp" />
     </definition>
 
     <definition name="report" extends="base">

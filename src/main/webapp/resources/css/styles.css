@@ -52,6 +52,10 @@ button {
     margin-top: 20px;
 }
 
+.header .site-logo a {
+    text-decoration: none;
+}
+
 .header .site-logo img {
     position: absolute;
 }
@@ -72,6 +76,7 @@ button {
 .site-logo .minor-title {
     font-family: 'PT Sans', sans-serif;
     font-size: 13px;
+    color: #000000;
     /*color: #2d3e50;*/
 }
 
@@ -781,7 +786,7 @@ button {
     font-family: 'PT Sans', sans-serif;
     font-size: 25px;
     color: #ffffff;
-    margin-top: 80px;
+    margin-top: 65px;
     margin-bottom: -40px;
 }
 
