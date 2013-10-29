@@ -54,19 +54,19 @@
             </div>
 
             <div class="buttons">
-                <button class="left-button">
+                <button class="js-guests-button left-button">
                     <div class="button-img"><img src='<c:url value="/resources/images/left-button.png"/>'></div>
                     <img src='<c:url value="/resources/images/button-shape.png"/>'>
                     <span>Предложить тему доклада</span>
                 </button>
 
-                <button class="middle-button">
+                <button class="js-reporters-button middle-button">
                     <div class="button-img"><img src='<c:url value="/resources/images/middle-button.png"/>'></div>
                     <img src='<c:url value="/resources/images/button-shape.png"/>'>
                     <span>Выступить с докладом на субботнике</span>
                 </button>
 
-                <button class="right-button">
+                <button class="js-companies-button right-button">
                     <div class="button-img"><img src='<c:url value="/resources/images/right-button.png"/>'></div>
                     <img src='<c:url value="/resources/images/button-shape.png"/>'>
                     <span>Провести субботник у себя в офисе</span>

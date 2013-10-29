@@ -11,6 +11,9 @@
         <link rel="stylesheet" href='<c:url value="/resources/css/styles.css"/>'>
         <link rel="icon" href='<c:url value="/resources/images/favicon.ico"/>' type="image/x-icon">
         <link rel="shortcut icon" href='<c:url value="/resources/images/favicon.ico"/>' type="image/x-icon">
+
+        <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.10.2.min.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/buttons-action.js"/>'></script>
     </head>
 
     <body>
