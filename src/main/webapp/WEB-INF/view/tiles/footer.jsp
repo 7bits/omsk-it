@@ -8,11 +8,12 @@
             </div>
 
             <div class="subscribe-form">
-                <form action='<c:url value="/subscribe"/>'>
+                <form class="js-subscribe-form" action='<c:url value="/subscribe"/>' method="POST">
                     <input class="input-email" type="email" name="email" placeholder="Электронная почта">
-                    <input class="submit-button" type="submit" value="Отправить">
+                    <input class="js-subscribe-button submit-button" type="submit" value="Отправить">
                 </form>
             </div>
+            <span class="response"><c:out value="${message}"/></span>
         </div>
 
         <div class="tracking">

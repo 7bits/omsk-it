@@ -25,6 +25,7 @@
         <hibernate.version>4.2.6.Final</hibernate.version>
         <joda.time.version>2.3</joda.time.version>
         <apache.tiles.version>3.0.1</apache.tiles.version>
+        <jackson.version>1.9.13</jackson.version>
     </properties>
 
     <dependencies>
@@ -107,6 +108,18 @@
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-extras</artifactId>
             <version>${apache.tiles.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>1.4.0</version>
         </dependency>
     </dependencies>
 

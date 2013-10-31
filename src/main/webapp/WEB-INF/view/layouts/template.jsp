@@ -14,6 +14,12 @@
 
         <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.10.2.min.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/buttons-action.js"/>'></script>
+        <script type="text/javascript">
+            var subscribeUrl = '<c:url value="/subscribe"/>';
+            var toGuestsUrl = '<c:url value="/to-reporters#suggest"/>';
+            var toReportersUrl = '<c:url value="/to-reporters"/>';
+            var toCompaniesUrl = '<c:url value="/to-companies"/>';
+        </script>
     </head>
 
     <body>

@@ -44,6 +44,13 @@ button {
     font-family: 'PT Sans', sans-serif;
 }
 
+.response {
+    font-family: 'PT Sans', sans-serif;
+    display: inline-block;
+    padding: 10px;
+    height: 10px;
+}
+
 .header {
     height: 118px;
     background-color: #fdfaf5;
@@ -488,7 +495,7 @@ button {
 }
 
 .footer .copyright {
-    margin-top: 10px;
+    margin-top: 20px;
     font-family: 'PT Sans', sans-serif;
     font-size: 16px;
     color: #ffffff;
