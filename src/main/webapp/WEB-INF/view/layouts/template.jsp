@@ -19,6 +19,7 @@
             var toGuestsUrl = '<c:url value="/to-reporters#suggest"/>';
             var toReportersUrl = '<c:url value="/to-reporters"/>';
             var toCompaniesUrl = '<c:url value="/to-companies"/>';
+            var applyForReportUrl = '<c:url value="/apply-for-report"/>';
         </script>
     </head>
 

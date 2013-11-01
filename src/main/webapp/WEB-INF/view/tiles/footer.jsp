@@ -13,7 +13,7 @@
                     <input class="js-subscribe-button submit-button" type="submit" value="Отправить">
                 </form>
             </div>
-            <span class="response"><c:out value="${message}"/></span>
+            <span class="js-subscribe-response response"></span>
         </div>
 
         <div class="tracking">
