@@ -52,7 +52,7 @@ public class SubscribeController {
             subscription.setEmail(subscriptionForm.getEmail());
             subscriptionService.addSubscription(subscription);
             response.setStatus("SUCCESS");
-            response.setResult(Collections.singletonMap("message", "(" + subscription.getEmail() + ") Подписка прошла успешно."));
+            response.setResult(Collections.singletonMap("message", "Подписка на " + subscription.getEmail() + " прошла успешно."));
         }
 
         return response;

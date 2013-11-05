@@ -12,8 +12,6 @@
         <link rel="icon" href='<c:url value="/resources/images/favicon.ico"/>' type="image/x-icon">
         <link rel="shortcut icon" href='<c:url value="/resources/images/favicon.ico"/>' type="image/x-icon">
 
-        <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.10.2.min.js"/>'></script>
-        <script type="text/javascript" src='<c:url value="/resources/js/buttons-action.js"/>'></script>
         <script type="text/javascript">
             var subscribeUrl = '<c:url value="/subscribe"/>';
             var toGuestsUrl = '<c:url value="/to-reporters#suggest"/>';
@@ -21,6 +19,8 @@
             var toCompaniesUrl = '<c:url value="/to-companies"/>';
             var applyForReportUrl = '<c:url value="/apply-for-report"/>';
         </script>
+        <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.10.2.min.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/buttons-action.js"/>'></script>
     </head>
 
     <body>
