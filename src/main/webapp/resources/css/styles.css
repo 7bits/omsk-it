@@ -47,6 +47,7 @@ button {
 .response {
     font-family: 'PT Sans', sans-serif;
     display: inline-block;
+    vertical-align: middle;
     padding: 10px;
     height: 10px;
 }
@@ -213,7 +214,8 @@ button {
 .content .past-event-program,
 .content .detail-report,
 .content .reporter-review,
-.content .recomendations {
+.content .recomendations,
+.content .apply-form {
     background-color: #ffffff;
     border-radius: 10px 10px 5px 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -223,7 +225,8 @@ button {
 .past-event-program .program-header,
 .detail-report .report-header,
 .reporter-review .review-header,
-.recomendations .title {
+.recomendations .title,
+.apply-form .title {
     font-family: 'PT Sans', sans-serif;
     font-size: 29px;
     color: #fefcf9;
@@ -242,7 +245,8 @@ button {
 .past-event-program .program-content,
 .detail-report .report-content,
 .reporter-review .review-content,
-.recomendations .text {
+.recomendations .text,
+.apply-form .form-content {
     color: #2d3e50;
 }
 
@@ -425,7 +429,10 @@ button {
     padding-bottom: 12px;
 }
 
-.subscribe-form .input-email {
+.subscribe-form .input-email,
+.field .small-input,
+.field .wide-input,
+.field .big-input {
     font-family: 'PT Sans', sans-serif;
     font-size: 20px;
     color: #2d3e50;
@@ -438,7 +445,10 @@ button {
     padding-right: 15px;
 }
 
-.subscribe-form .input-email:focus {
+.subscribe-form .input-email:focus,
+.field .small-input:focus,
+.field .wide-input:focus,
+.field .big-input:focus {
     outline: none;
     border-color: #1a737c;
 }
@@ -751,7 +761,8 @@ button {
 }
 
 .invite .join-button button,
-.request .join-button button {
+.request .join-button button,
+.apply-form .submit-button {
     background: #10b7c5;
     background: linear-gradient(to top, #0ba1ae, #10b7c5);
     font-family: 'PT Sans', sans-serif;
@@ -763,13 +774,15 @@ button {
 }
 
 .invite .join-button button:hover,
-.request .join-button button:hover {
+.request .join-button button:hover,
+.apply-form .submit-button:hover {
     background: #18cfdf;
     background: linear-gradient(to bottom, #18cfdf, #0ba9b7);
 }
 
 .invite .join-button button:active,
-.request .join-button button:active {
+.request .join-button button:active,
+.apply-form .submit-button:active {
     background: #0ba9b7;
     background: linear-gradient(to top, #18cfdf, #0ba9b7);
 }
@@ -882,4 +895,100 @@ button {
 
 .text .blue-ref a {
     color: #00b7c8;
+}
+
+/*apply-for-report page*/
+
+.form-content {
+    font-family: 'PT Sans', sans-serif;
+}
+
+.form-content .info {
+    font-size: 15px;
+    padding: 20px 30px;
+}
+
+.attention {
+    color: #f06009;
+}
+
+.form-content .field {
+    padding: 5px 30px;
+}
+
+.field .left-label,
+.field .top-label {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.field .left-label {
+    display: inline-block;
+    vertical-align: middle;
+    width: 210px;
+}
+
+.field .top-label {
+    display: block;
+    padding-top: 10px;
+}
+
+.field .small-input {
+    vertical-align: middle;
+}
+
+.field .wide-input,
+.field .big-input {
+    display: block;
+    width: 860px;
+}
+
+.field .big-input {
+    height: 150px;
+}
+
+.field .field-info {
+    font-size: 15px;
+}
+
+.small-input + .field-info {
+    display: inline-block;
+    vertical-align: middle;
+    width: 300px;
+    padding-left: 20px;
+}
+
+.wide-input + .field-info,
+.big-input + .field-info {
+    display: block;
+}
+
+.apply-form .submit-button {
+    margin: 15px 30px 20px 0;
+    padding: 10px 30px;
+    cursor: pointer;
+}
+
+.apply-form .reset-button {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.apply-form .reset-button:hover {
+    border-bottom: solid 1px;
+}
+
+.apply-form .reset-button:active {
+    border-bottom: none;
+}
+
+.apply-form .apply-response {
+    font-size: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    /*font-weight: 700;*/
+    /*color: #f06009;*/
 }

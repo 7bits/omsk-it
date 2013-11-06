@@ -1,9 +1,7 @@
 package it.sevenbits.conferences.web.controller;
 
-import it.sevenbits.conferences.domain.Subscription;
-import it.sevenbits.conferences.service.SubscriptionService;
+import it.sevenbits.conferences.web.form.ApplyForReportForm;
 import it.sevenbits.conferences.web.form.JsonResponse;
-import it.sevenbits.conferences.web.form.SubscriptionForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -14,27 +12,32 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-public class SubscribeController {
+public class ApplyForReportController {
 
     @Autowired
-    private SubscriptionService subscriptionService;
-
-    @Autowired
-    @Qualifier("subscriptionValidator")
+    @Qualifier("applyForReportValidator")
     private Validator validator;
 
-    @RequestMapping(value = "/subscribe", method = RequestMethod.POST)
+    @RequestMapping(value = "/apply-for-report", method = RequestMethod.GET)
+    public ModelAndView showForm() {
+
+        ModelAndView modelAndView = new ModelAndView("apply-for-report");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/apply-for-report", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse subscribe(@ModelAttribute(value = "subscriptionForm") SubscriptionForm subscriptionForm, BindingResult bindingResult) {
+    public JsonResponse submitForm(@ModelAttribute(value = "applyForReportForm") ApplyForReportForm applyForReportForm, BindingResult bindingResult) {
 
         JsonResponse response = new JsonResponse();
-        validator.validate(subscriptionForm, bindingResult);
+        validator.validate(applyForReportForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
 
@@ -45,14 +48,13 @@ public class SubscribeController {
                     errors.put(fieldError.getField(), fieldError.getDefaultMessage());
                 }
             }
+            errors.put("message", "Форма заполнена неверно.");
             response.setResult(errors);
         } else {
 
-            Subscription subscription = new Subscription();
-            subscription.setEmail(subscriptionForm.getEmail());
-            subscriptionService.addSubscription(subscription);
+            // todo - form data save
             response.setStatus("SUCCESS");
-            response.setResult(Collections.singletonMap("message", "Подписка на " + subscription.getEmail() + " прошла успешно."));
+            response.setResult(Collections.singletonMap("message", "Заявка отправлена."));
         }
 
         return response;

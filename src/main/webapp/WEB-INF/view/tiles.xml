@@ -45,4 +45,9 @@
         <put-attribute name="title" value="Информация о докладчике" />
         <put-attribute name="content" value="/WEB-INF/view/tiles/content-reporter.jsp" />
     </definition>
+
+    <definition name="apply-for-report" extends="base">
+        <put-attribute name="title" value="Подать заявку на выступление" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/content-apply-for-report.jsp" />
+    </definition>
 </tiles-definitions>
