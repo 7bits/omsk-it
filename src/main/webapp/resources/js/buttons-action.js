@@ -34,7 +34,10 @@ $(document).ready(function() {
 
     $(".js-apply-reset").click(function() {
 
-        window.location.href = toReportersUrl;
+        $(".js-apply-response").empty();
+        $(".js-input").css("background-color", "#ffffff");
+        $(".js-field-info").css("display", "inline");
+        $(".js-field-response").empty();
     });
 });
 
@@ -86,10 +89,12 @@ function doAjaxApplyForReportPost() {
 
             $(".js-apply-response").html(response.result.message);
             $(".js-input").css("background-color", "#ffffff");
-            $(".js-field-info").empty().css("color", "#f06009");
+            $(".js-field-info").css("display", "none");
+            $(".js-field-response").empty();
 
             if (response.status == "SUCCESS") {
                 $(".js-apply-form")[0].reset();
+                $(".js-field-info").css("display", "inline");
             } else {
                 if (response.result.firstName != null) {
                     $(".js-first-name-response").html(response.result.firstName);

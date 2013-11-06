@@ -52,6 +52,7 @@ public class ApplyForReportController {
             response.setResult(errors);
         } else {
 
+            // todo - form data save
             response.setStatus("SUCCESS");
             response.setResult(Collections.singletonMap("message", "Заявка отправлена."));
         }
