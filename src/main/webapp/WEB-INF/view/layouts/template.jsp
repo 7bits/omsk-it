@@ -18,6 +18,7 @@
             var toReportersUrl = '<c:url value="/to-reporters"/>';
             var toCompaniesUrl = '<c:url value="/to-companies"/>';
             var applyForReportUrl = '<c:url value="/apply-for-report"/>';
+            var applyForThemeUrl = '<c:url value="/apply-for-theme"/>'
         </script>
         <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.10.2.min.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/buttons-action.js"/>'></script>

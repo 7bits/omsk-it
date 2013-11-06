@@ -39,6 +39,18 @@ $(document).ready(function() {
         $(".js-field-info").css("display", "inline");
         $(".js-field-response").empty();
     });
+
+
+    $(".js-theme-button").click(function() {
+
+        window.location.href = applyForThemeUrl;
+    });
+
+    $(".js-theme-form-button").click(function(event) {
+
+        event.preventDefault();
+        doAjaxApplyForThemePost();
+    });
 });
 
 function doAjaxSubscriptionPost() {
@@ -149,6 +161,52 @@ function doAjaxApplyForReportPost() {
                 if (response.result.reporterWishes != null) {
                     $(".js-reporter-wishes-response").empty().css("color", "#f06009").html(response.result.reporterWishes);
                     $(".js-reporter-wishes-input").css("background-color", "#fff5e5");
+                }
+            }
+        },
+
+        error: function(jqXHR, textStatus, errorThrown) {
+
+            console.log(jqXHR);
+            console.log(jqXHR.responseText);
+            $(".js-apply-response").html(textStatus + ": " + errorThrown + "; see console logs");
+        }
+    });
+}
+
+
+function doAjaxApplyForThemePost() {
+
+    var formdata = $(".js-theme-form").serialize();
+
+    $.ajax({
+
+        url: applyForThemeUrl,
+        type: "POST",
+        data: formdata,
+        dataType: "json",
+
+        success: function(response) {
+
+            $(".js-apply-response").html(response.result.message);
+            $(".js-input").css("background-color", "#ffffff");
+            $(".js-field-info").css("display", "none");
+            $(".js-field-response").empty();
+
+            if (response.status == "SUCCESS") {
+                $(".js-theme-form")[0].reset();
+                $(".js-field-info").css("display", "inline");
+            } else {
+                if (response.result.senderSpecialization != null) {
+                    $(".js-senderSpecialization-response").empty().css("color", "#f06009").html(response.result.senderSpecialization);
+                }
+
+                if (response.result.favoriteTheme != null) {
+                    $(".js-favoriteTheme-response").empty().css("color", "#f06009").html(response.result.favoriteTheme);
+                }
+
+                if (response.result.themeRequest != null) {
+                    $(".js-themeRequest-response").empty().css("color", "#f06009").html(response.result.themeRequest);
                 }
             }
         },

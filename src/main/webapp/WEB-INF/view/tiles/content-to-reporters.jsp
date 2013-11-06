@@ -39,7 +39,7 @@
                 позволит нам понять, чего хочет аудитория, и учесть это.
             </div>
 
-            <div class="join-button">
+            <div class="js-theme-button join-button">
                 <button>Предложить тему</button>
             </div>
         </div>
