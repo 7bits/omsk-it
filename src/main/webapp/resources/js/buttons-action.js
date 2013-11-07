@@ -43,13 +43,13 @@ $(document).ready(function() {
 
     $(".js-theme-button").click(function() {
 
-        window.location.href = applyForThemeUrl;
+        window.location.href = suggestUrl;
     });
 
     $(".js-theme-form-button").click(function(event) {
 
         event.preventDefault();
-        doAjaxApplyForThemePost();
+        doAjaxSuggestPost();
     });
 });
 
@@ -175,20 +175,20 @@ function doAjaxApplyForReportPost() {
 }
 
 
-function doAjaxApplyForThemePost() {
+function doAjaxSuggestPost() {
 
     var formdata = $(".js-theme-form").serialize();
 
     $.ajax({
 
-        url: applyForThemeUrl,
+        url: suggestUrl,
         type: "POST",
         data: formdata,
         dataType: "json",
 
         success: function(response) {
 
-            $(".js-apply-response").html(response.result.message);
+            $(".js-suggest-response").html(response.result.message);
             $(".js-input").css("background-color", "#ffffff");
             $(".js-field-info").css("display", "none");
             $(".js-field-response").empty();
@@ -215,7 +215,7 @@ function doAjaxApplyForThemePost() {
 
             console.log(jqXHR);
             console.log(jqXHR.responseText);
-            $(".js-apply-response").html(textStatus + ": " + errorThrown + "; see console logs");
+            $(".js-suggest-response").html(textStatus + ": " + errorThrown + "; see console logs");
         }
     });
 }
