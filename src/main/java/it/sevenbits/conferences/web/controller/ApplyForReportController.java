@@ -1,5 +1,11 @@
 package it.sevenbits.conferences.web.controller;
 
+import it.sevenbits.conferences.domain.Company;
+import it.sevenbits.conferences.domain.Report;
+import it.sevenbits.conferences.domain.Reporter;
+import it.sevenbits.conferences.service.CompanyService;
+import it.sevenbits.conferences.service.ReportService;
+import it.sevenbits.conferences.service.ReporterService;
 import it.sevenbits.conferences.web.form.ApplyForReportForm;
 import it.sevenbits.conferences.web.form.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +26,15 @@ import java.util.Map;
 
 @Controller
 public class ApplyForReportController {
+
+    @Autowired
+    private CompanyService companyService;
+
+    @Autowired
+    private ReporterService reporterService;
+
+    @Autowired
+    private ReportService reportService;
 
     @Autowired
     @Qualifier("applyForReportValidator")
@@ -52,7 +67,28 @@ public class ApplyForReportController {
             response.setResult(errors);
         } else {
 
-            // todo - form data save
+            Company company = new Company();
+            Reporter reporter = new Reporter();
+            Report report = new Report();
+
+            company.setName(applyForReportForm.getJob());
+            reporter.setCompany(company);
+            reporter.setFirstName(applyForReportForm.getFirstName());
+            reporter.setSecondName(applyForReportForm.getSecondName());
+            reporter.setEmail(applyForReportForm.getEmail());
+            reporter.setJobPosition(applyForReportForm.getJobPosition());
+            reporter.setSpeechExperience(applyForReportForm.getSpeechExperience());
+            report.setReporter(reporter);
+            report.setTitle(applyForReportForm.getTitle());
+            report.setDescription(applyForReportForm.getDescription());
+            report.setKeyTechnologies(applyForReportForm.getKeyTechnologies());
+            report.setOtherConferences(applyForReportForm.getOtherConferences());
+            report.setReporterWishes(applyForReportForm.getReporterWishes());
+
+            companyService.addCompany(company);
+            reporterService.addReporter(reporter);
+            reportService.addReport(report);
+
             response.setStatus("SUCCESS");
             response.setResult(Collections.singletonMap("message", "Заявка отправлена."));
         }
