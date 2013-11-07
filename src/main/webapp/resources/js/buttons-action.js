@@ -114,52 +114,52 @@ function doAjaxApplyForReportPost() {
                 }
 
                 if (response.result.secondName != null) {
-                    $(".js-second-name-response").empty().css("color", "#f06009").html(response.result.secondName);
+                    $(".js-second-name-response").html(response.result.secondName);
                     $(".js-second-name-input").css("background-color", "#fff5e5");
                 }
 
                 if (response.result.email != null) {
-                    $(".js-email-response").empty().css("color", "#f06009").html(response.result.email);
+                    $(".js-email-response").html(response.result.email);
                     $(".js-email-input").css("background-color", "#fff5e5");
                 }
 
                 if (response.result.job != null) {
-                    $(".js-job-response").empty().css("color", "#f06009").html(response.result.job);
+                    $(".js-job-response").html(response.result.job);
                     $(".js-job-input").css("background-color", "#fff5e5");
                 }
 
                 if (response.result.jobPosition != null) {
-                    $(".js-job-position-response").empty().css("color", "#f06009").html(response.result.jobPosition);
+                    $(".js-job-position-response").html(response.result.jobPosition);
                     $(".js-job-position-input").css("background-color", "#fff5e5");
                 }
 
                 if (response.result.title != null) {
-                    $(".js-title-response").empty().css("color", "#f06009").html(response.result.title);
+                    $(".js-title-response").html(response.result.title);
                     $(".js-title-input").css("background-color", "#fff5e5");
                 }
 
                 if (response.result.description != null) {
-                    $(".js-description-response").empty().css("color", "#f06009").html(response.result.description);
+                    $(".js-description-response").html(response.result.description);
                     $(".js-description-input").css("background-color", "#fff5e5");
                 }
 
                 if (response.result.keyTechnologies != null) {
-                    $(".js-key-technologies-response").empty().css("color", "#f06009").html(response.result.keyTechnologies);
+                    $(".js-key-technologies-response").html(response.result.keyTechnologies);
                     $(".js-key-technologies-input").css("background-color", "#fff5e5");
                 }
 
                 if (response.result.otherConferences != null) {
-                    $(".js-other-conferences-response").empty().css("color", "#f06009").html(response.result.otherConferences);
+                    $(".js-other-conferences-response").html(response.result.otherConferences);
                     $(".js-other-conferences-input").css("background-color", "#fff5e5");
                 }
 
                 if (response.result.speechExperience != null) {
-                    $(".js-speech-experience-response").empty().css("color", "#f06009").html(response.result.speechExperience);
+                    $(".js-speech-experience-response").html(response.result.speechExperience);
                     $(".js-speech-experience-input").css("background-color", "#fff5e5");
                 }
 
                 if (response.result.reporterWishes != null) {
-                    $(".js-reporter-wishes-response").empty().css("color", "#f06009").html(response.result.reporterWishes);
+                    $(".js-reporter-wishes-response").html(response.result.reporterWishes);
                     $(".js-reporter-wishes-input").css("background-color", "#fff5e5");
                 }
             }
@@ -198,15 +198,15 @@ function doAjaxSuggestPost() {
                 $(".js-field-info").css("display", "inline");
             } else {
                 if (response.result.senderSpecialization != null) {
-                    $(".js-senderSpecialization-response").empty().css("color", "#f06009").html(response.result.senderSpecialization);
+                    $(".js-senderSpecialization-response").html(response.result.senderSpecialization);
                 }
 
                 if (response.result.favoriteTheme != null) {
-                    $(".js-favoriteTheme-response").empty().css("color", "#f06009").html(response.result.favoriteTheme);
+                    $(".js-favoriteTheme-response").html(response.result.favoriteTheme);
                 }
 
                 if (response.result.themeRequest != null) {
-                    $(".js-themeRequest-response").empty().css("color", "#f06009").html(response.result.themeRequest);
+                    $(".js-themeRequest-response").html(response.result.themeRequest);
                 }
             }
         },
