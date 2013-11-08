@@ -1,5 +1,8 @@
 package it.sevenbits.conferences.web.form;
 
+/**
+ * POJO class for the apply-for-report form representation.
+ */
 public class ApplyForReportForm {
 
     private String firstName;

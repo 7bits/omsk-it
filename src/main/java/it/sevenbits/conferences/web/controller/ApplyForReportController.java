@@ -24,6 +24,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Controller for /apply-for-report page.
+ */
 @Controller
 public class ApplyForReportController {
 

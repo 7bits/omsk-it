@@ -13,6 +13,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Simple implementation of the ReportService.
+ */
 @Service
 public class SimpleReportService implements ReportService {
 

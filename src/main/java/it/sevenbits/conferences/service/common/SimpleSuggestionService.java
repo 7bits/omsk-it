@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Simple implementation of the SuggestionService.
+ */
 @Service
 public class SimpleSuggestionService implements SuggestionService {
 

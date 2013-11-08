@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Simple implementation of the CompanyService.
+ */
 @Service
 public class SimpleCompanyService implements CompanyService {
 

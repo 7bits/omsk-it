@@ -9,6 +9,9 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Java Persistence API based implementation of the EntityDao.
+ */
 public class JpaEntityDao<Entity> implements EntityDao<Entity> {
 
     private static final Logger logger = Logger.getLogger(JpaEntityDao.class);

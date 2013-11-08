@@ -2,6 +2,9 @@ package it.sevenbits.conferences.domain;
 
 import javax.persistence.*;
 
+/**
+ * POJO class for Guests model.
+ */
 @Entity
 @Table(name = "guest")
 public class Guest {

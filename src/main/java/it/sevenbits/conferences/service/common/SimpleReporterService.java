@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Simple implementation of the ReporterService.
+ */
 @Service
 public class SimpleReporterService implements ReporterService {
 

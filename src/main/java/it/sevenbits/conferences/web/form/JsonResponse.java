@@ -1,5 +1,10 @@
 package it.sevenbits.conferences.web.form;
 
+/**
+ * POJO class for server json response representation.
+ * Status - SUCCESS or FAIL.
+ * Result - an Object with some result information, for example a Map with form fields errors and a message.
+ */
 public class JsonResponse {
 
     private String status;

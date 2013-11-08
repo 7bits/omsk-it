@@ -10,6 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Simple implementation of the ConferenceService.
+ */
 @Service
 public class SimpleConferenceService implements ConferenceService {
 

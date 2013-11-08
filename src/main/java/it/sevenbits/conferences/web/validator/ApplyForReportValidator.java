@@ -10,6 +10,9 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+/**
+ * Validator for apply-for-report form.
+ */
 @Component
 public class ApplyForReportValidator implements Validator {
 

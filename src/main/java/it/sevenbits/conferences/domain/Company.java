@@ -2,6 +2,9 @@ package it.sevenbits.conferences.domain;
 
 import javax.persistence.*;
 
+/**
+ * POJO class for Companies model.
+ */
 @Entity
 @Table(name = "company")
 public class Company {

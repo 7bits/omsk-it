@@ -2,6 +2,9 @@ package it.sevenbits.conferences.domain;
 
 import javax.persistence.*;
 
+/**
+ * POJO class for Suggestions model.
+ */
 @Entity
 @Table(name = "suggestion")
 public class Suggestion {

@@ -2,6 +2,9 @@ package it.sevenbits.conferences.domain;
 
 import javax.persistence.*;
 
+/**
+ * POJO class for Subscriptions model.
+ */
 @Entity
 @Table(name = "subscription")
 public class Subscription {

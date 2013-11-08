@@ -19,6 +19,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Controller for subscription.
+ */
 @Controller
 public class SubscribeController {
 

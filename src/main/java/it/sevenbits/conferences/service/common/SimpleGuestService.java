@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Simple implementation of the GuestService.
+ */
 @Service
 public class SimpleGuestService implements GuestService {
 

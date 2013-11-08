@@ -4,6 +4,9 @@ import it.sevenbits.conferences.utils.converter.DateTimeConverter;
 
 import javax.persistence.*;
 
+/**
+ * POJO class for Conferences model.
+ */
 @Entity
 @Table(name = "conference")
 public class Conference {

@@ -13,6 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Controller for /archive page.
+ */
 @Controller
 public class ArchiveController {
 
