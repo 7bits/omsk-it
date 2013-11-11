@@ -1,6 +1,8 @@
 package it.sevenbits.conferences.web.controller;
 
 
+import it.sevenbits.conferences.domain.Suggestion;
+import it.sevenbits.conferences.service.SuggestionService;
 import it.sevenbits.conferences.web.form.JsonResponse;
 import it.sevenbits.conferences.web.form.SuggestionForm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +28,16 @@ import java.util.Map;
 public class SuggestController {
 
     @Autowired
+    private SuggestionService suggestionService;
+
+    @Autowired
     @Qualifier("suggestionValidator")
     private Validator validator;
 
     @RequestMapping(value = "/suggest", method = RequestMethod.GET)
     public ModelAndView showForm() {
 
-        ModelAndView modelAndView = new ModelAndView("suggest");
+        ModelAndView modelAndView = new ModelAndView("suggest", "suggestionForm", new SuggestionForm());
         return modelAndView;
     }
 
@@ -56,7 +61,28 @@ public class SuggestController {
             response.setResult(errors);
         } else {
 
-            // todo - form data save
+            Suggestion suggestion = new Suggestion();
+
+            if (suggestionForm.getSenderSpecialization().equals("other")) {
+                suggestion.setSenderSpecialization(suggestionForm.getSenderSpecializationOther());
+            } else {
+                suggestion.setSenderSpecialization(suggestionForm.getSenderSpecialization());
+            }
+            String[] favoriteTheme = new String[suggestionForm.getFavoriteTheme().length];
+            int i =0;
+            for (String field: suggestionForm.getFavoriteTheme()) {
+                if (field.equals("other")) {
+                    favoriteTheme[i] = suggestionForm.getFavoriteThemeOther();
+                } else {
+                    favoriteTheme[i] = field;
+                }
+                i++;
+            }
+            suggestion.setFavoriteTheme(favoriteTheme);
+            suggestion.setThemeRequest(suggestionForm.getThemeRequest());
+
+            suggestionService.addSuggestion(suggestion);
+
             response.setStatus("SUCCESS");
             response.setResult(Collections.singletonMap("message", "Предложение принято."));
         }

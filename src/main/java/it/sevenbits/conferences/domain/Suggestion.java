@@ -11,7 +11,7 @@ public class Suggestion {
 
     private Long id;
     private String senderSpecialization;
-    private String favoriteTheme;
+    private String[] favoriteTheme;
     private String themeRequest;
     private String reporterRequest;
 
@@ -36,11 +36,11 @@ public class Suggestion {
     }
 
     @Column(name = "favorite_theme")
-    public String getFavoriteTheme() {
+    public String[] getFavoriteTheme() {
         return favoriteTheme;
     }
 
-    public void setFavoriteTheme(String favoriteTheme) {
+    public void setFavoriteTheme(String[] favoriteTheme) {
         this.favoriteTheme = favoriteTheme;
     }
 
