@@ -992,3 +992,29 @@ button {
     /*font-weight: 700;*/
     /*color: #f06009;*/
 }
+
+/*suggest page*/
+
+.suggestion-form .field {
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.suggestion-form .small-input {
+    height: 35px;
+    margin-left: 25px;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    input[type="checkbox"], input[type="radio"] {
+        background: url(../images/checkbox.png); /* Переключатель выключен */
+        height: 18px; /* Высота картинки */
+        width: 18px; /* Ширина картинки */
+        -webkit-appearance: none; /* Прячем чекбокс */
+        border: none;
+        cursor: pointer; /* Курсор в виде руки */
+    }
+    input[type="checkbox"]:checked, input[type="radio"]:checked {
+        background-position: 0 -18px; /* Переключатель включен */
+        border: none;
+    }
+}

@@ -46,7 +46,7 @@ $(document).ready(function() {
         window.location.href = suggestUrl;
     });
 
-    $(".js-theme-form-button").click(function(event) {
+    $(".js-suggestion-form-button").click(function(event) {
 
         event.preventDefault();
         doAjaxSuggestPost();
@@ -177,7 +177,7 @@ function doAjaxApplyForReportPost() {
 
 function doAjaxSuggestPost() {
 
-    var formdata = $(".js-theme-form").serialize();
+    var formdata = $(".js-suggestion-form").serialize();
 
     $.ajax({
 
@@ -194,17 +194,21 @@ function doAjaxSuggestPost() {
             $(".js-field-response").empty();
 
             if (response.status == "SUCCESS") {
-                $(".js-theme-form")[0].reset();
+                $(".js-suggestion-form")[0].reset();
                 $(".js-field-info").css("display", "inline");
             } else {
                 if (response.result.senderSpecialization != null) {
                     $(".js-senderSpecialization-response").html(response.result.senderSpecialization);
                 }
-
+                if (response.result.senderSpecializationOther != null) {
+                    $(".js-senderSpecializationOther-response").html(response.result.senderSpecializationOther);
+                }
+                if (response.result.favoriteThemeOther != null) {
+                    $(".js-favoriteThemeOther-response").html(response.result.favoriteThemeOther);
+                }
                 if (response.result.favoriteTheme != null) {
                     $(".js-favoriteTheme-response").html(response.result.favoriteTheme);
                 }
-
                 if (response.result.themeRequest != null) {
                     $(".js-themeRequest-response").html(response.result.themeRequest);
                 }
