@@ -2,6 +2,9 @@
 
 <div class="content">
     <div class="page">
+        <div class="guest-form-div">
+            <%@ include file="/WEB-INF/view/jsp/register.jsp" %>
+        </div>
         <div class="next-event-registration">
             <div class="title">
                 <span class="line">
@@ -13,7 +16,7 @@
             </div>
 
             <div class="join-button">
-                <button>Зарегистрироваться</button>
+                <button class="js-register-button">Зарегистрироваться</button>
             </div>
         </div>
 
