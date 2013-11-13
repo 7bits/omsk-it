@@ -62,14 +62,20 @@ public class SuggestController {
         } else {
 
             Suggestion suggestion = new Suggestion();
-
-            if (suggestionForm.getSenderSpecialization().equals("other")) {
-                suggestion.setSenderSpecialization(suggestionForm.getSenderSpecializationOther());
-            } else {
-                suggestion.setSenderSpecialization(suggestionForm.getSenderSpecialization());
-            }
-            String[] favoriteTheme = new String[suggestionForm.getFavoriteTheme().length];
             int i =0;
+
+            String[] senderSpecialization = new String[suggestionForm.getSenderSpecialization().length];
+            for (String field: suggestionForm.getSenderSpecialization()) {
+                if (field.equals("other")) {
+                    senderSpecialization[i] = suggestionForm.getSenderSpecializationOther();
+                } else {
+                    senderSpecialization[i] = field;
+                }
+                i++;
+            }
+
+            String[] favoriteTheme = new String[suggestionForm.getFavoriteTheme().length];
+            i = 0;
             for (String field: suggestionForm.getFavoriteTheme()) {
                 if (field.equals("other")) {
                     favoriteTheme[i] = suggestionForm.getFavoriteThemeOther();
@@ -78,6 +84,8 @@ public class SuggestController {
                 }
                 i++;
             }
+
+            suggestion.setSenderSpecialization(senderSpecialization);
             suggestion.setFavoriteTheme(favoriteTheme);
             suggestion.setThemeRequest(suggestionForm.getThemeRequest());
 

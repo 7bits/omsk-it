@@ -51,6 +51,20 @@ $(document).ready(function() {
         event.preventDefault();
         doAjaxSuggestPost();
     });
+
+    $(".js-register-button").click(function() {
+        $(".guest-form-div").css("display", "block");
+        $(".guest-form-div").append("<div class='overlay'></div>");
+    });
+
+    $(".js-guest-form-button").click(function(event) {
+        event.preventDefault();
+        doAjaxGuestPost();
+    });
+
+    $(".js-form-close-button").click(function() {
+         $(".guest-form-div").css("display", "none");
+    });
 });
 
 function doAjaxSubscriptionPost() {
@@ -202,15 +216,74 @@ function doAjaxSuggestPost() {
                 }
                 if (response.result.senderSpecializationOther != null) {
                     $(".js-senderSpecializationOther-response").html(response.result.senderSpecializationOther);
-                }
-                if (response.result.favoriteThemeOther != null) {
-                    $(".js-favoriteThemeOther-response").html(response.result.favoriteThemeOther);
+                    $(".js-sender-specialization-other-input").css("background-color", "#fff5e5");
                 }
                 if (response.result.favoriteTheme != null) {
                     $(".js-favoriteTheme-response").html(response.result.favoriteTheme);
                 }
+                if (response.result.favoriteThemeOther != null) {
+                    $(".js-favoriteThemeOther-response").html(response.result.favoriteThemeOther);
+                    $(".js-sender-favorite-theme-input").css("background-color", "#fff5e5");
+                }
                 if (response.result.themeRequest != null) {
                     $(".js-themeRequest-response").html(response.result.themeRequest);
+                }
+            }
+        },
+
+        error: function(jqXHR, textStatus, errorThrown) {
+
+            console.log(jqXHR);
+            console.log(jqXHR.responseText);
+            $(".js-suggest-response").html(textStatus + ": " + errorThrown + "; see console logs");
+        }
+    });
+}
+
+function doAjaxGuestPost() {
+
+    var formdata = $(".js-guest-form").serialize();
+
+    $.ajax({
+
+        url: guestUrl,
+        type: "POST",
+        data: formdata,
+        dataType: "json",
+
+        success: function(response) {
+
+            $(".js-guest-response").html(response.result.message);
+            $(".js-input").css("background-color", "#ffffff");
+            $(".js-field-info").css("display", "none");
+            $(".js-field-response").empty();
+
+            if (response.status == "SUCCESS") {
+                $(".js-guest-form")[0].reset();
+                $(".js-field-info").css("display", "inline");
+            } else {
+                if (response.result.firstName != null) {
+                    $(".js-firstName-response").html(response.result.firstName);
+                    $(".js-first-name-input").css("background-color", "#fff5e5");
+                }
+                if (response.result.secondName != null) {
+                    $(".js-secondName-response").html(response.result.secondName);
+                    $(".js-second-name-input").css("background-color", "#fff5e5");
+                }
+                if (response.result.email != null) {
+                    $(".js-email-response").html(response.result.email);
+                    $(".js-email-input").css("background-color", "#fff5e5");
+                }
+                if (response.result.job != null) {
+                    $(".js-job-response").html(response.result.job);
+                    $(".js-job-input").css("background-color", "#fff5e5");
+                }
+                if (response.result.jobPosition != null) {
+                    $(".js-jobPosition-response").html(response.result.jobPosition);
+                }
+                if (response.result.jobPositionOther != null) {
+                    $(".js-jobPosition-response").html(response.result.jobPositionOther);
+                    $(".js-job-position-other-input").css("background-color", "#fff5e5");
                 }
             }
         },

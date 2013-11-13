@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Suggestion {
 
     private Long id;
-    private String senderSpecialization;
+    private String[] senderSpecialization;
     private String[] favoriteTheme;
     private String themeRequest;
     private String reporterRequest;
@@ -27,11 +27,11 @@ public class Suggestion {
     }
 
     @Column(name = "sender_specialization")
-    public String getSenderSpecialization() {
+    public String[] getSenderSpecialization() {
         return senderSpecialization;
     }
 
-    public void setSenderSpecialization(String senderSpecialization) {
+    public void setSenderSpecialization(String[] senderSpecialization) {
         this.senderSpecialization = senderSpecialization;
     }
 

@@ -1,9 +1,5 @@
 package it.sevenbits.conferences.web.validator;
 
-
-import it.sevenbits.conferences.service.ReportService;
-import it.sevenbits.conferences.service.ReporterService;
-import it.sevenbits.conferences.web.form.ApplyForReportForm;
 import it.sevenbits.conferences.web.form.SuggestionForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,12 +12,6 @@ import org.springframework.validation.Validator;
  */
 @Component
 public class SuggestionValidator implements Validator {
-
-    @Autowired
-    private ReportService reportService;
-
-    @Autowired
-    private ReporterService reporterService;
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -36,7 +26,7 @@ public class SuggestionValidator implements Validator {
 
         validateSenderSpecialization(form, errors);
         validateFavoriteTheme(form, errors);
-        validateThemeRequest(form, errors);
+//        validateThemeRequest(form, errors);
 //        validateReporterRequest(form, errors);
     }
 
@@ -44,8 +34,10 @@ public class SuggestionValidator implements Validator {
 
         ValidationUtils.rejectIfEmpty(errors, "senderSpecialization", "senderSpecialization.empty", "Надо что то выбрать");
         if (errors.getFieldErrorCount("senderSpecialization") == 0) {
-            if (form.getSenderSpecialization().equals("other")) {
-                ValidationUtils.rejectIfEmptyOrWhitespace(errors, "senderSpecializationOther", "senderSpecializationOther.empty", "Поле не должно быть пустым");
+            for (String field: form.getSenderSpecialization()) {
+                if (field.equals("other")) {
+                    ValidationUtils.rejectIfEmptyOrWhitespace(errors, "senderSpecializationOther", "senderSpecializationOther.empty", "Поле не должно быть пустым");
+                }
             }
         }
     }
@@ -62,9 +54,8 @@ public class SuggestionValidator implements Validator {
         }
     }
 
-    private void validateThemeRequest(SuggestionForm form, Errors errors) {
-
+//    private void validateThemeRequest(SuggestionForm form, Errors errors) {
 //        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "themeRequest", "themeRequest.empty", "Поле должно быть заполнено.");
-    }
+//    }
 }
 

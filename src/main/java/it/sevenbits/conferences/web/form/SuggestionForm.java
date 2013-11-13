@@ -5,18 +5,18 @@ package it.sevenbits.conferences.web.form;
  */
 public class SuggestionForm {
 
-    private String senderSpecialization;
+    private String[] senderSpecialization;
     private String senderSpecializationOther;
     private String[] favoriteTheme;
     private String favoriteThemeOther;
     private String themeRequest;
 //    private String reporterRequest;
 
-    public String getSenderSpecialization() {
+    public String[] getSenderSpecialization() {
         return senderSpecialization;
     }
 
-    public void setSenderSpecialization(String senderSpecialization) {
+    public void setSenderSpecialization(String[] senderSpecialization) {
         this.senderSpecialization = senderSpecialization;
     }
 

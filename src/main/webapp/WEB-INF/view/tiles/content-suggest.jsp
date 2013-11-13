@@ -16,13 +16,13 @@
                      </div>
                      <div class="field">
                          <span class="top-label" >Какова Ваша основная специализация?<span class="attention">*</span></span>
-                         <input type="radio" name="senderSpecialization" value="Разработчик">Разработчик<br>
-                         <input type="radio" name="senderSpecialization" value="Менеджер">Менеджер<br>
-                         <input type="radio" name="senderSpecialization" value="Дизайнер">Дизайнер<br>
-                         <input type="radio" name="senderSpecialization" value="Верстальщик">Верстальщик<br>
-                         <input type="radio" name="senderSpecialization" value="Тестировщик">Тестировщик (инженер по качеству)<br>
-                         <input type="radio" name="senderSpecialization" value="other">Другое:
-                         <input class="small-input" type="text" name="senderSpecializationOther">
+                         <input type="checkbox" name="senderSpecialization" value="Разработчик">Разработчик<br>
+                         <input type="checkbox" name="senderSpecialization" value="Менеджер">Менеджер<br>
+                         <input type="checkbox" name="senderSpecialization" value="Дизайнер">Дизайнер<br>
+                         <input type="checkbox" name="senderSpecialization" value="Верстальщик">Верстальщик<br>
+                         <input type="checkbox" name="senderSpecialization" value="Тестировщик">Тестировщик (инженер по качеству)<br>
+                         <input type="checkbox" name="senderSpecialization" value="other">Другое:
+                         <input class="js-sender-specialization-other-input js-input small-input" type="text" name="senderSpecializationOther">
                          <span class="js-field-response js-senderSpecialization-response attention"></span>
                          <span class="js-field-response js-senderSpecializationOther-response attention"></span>
                      </div>
@@ -34,7 +34,7 @@
                          <input type="checkbox" name="favoriteTheme" value="Разработка под Android">Разработка под Android<br>
                          <input type="checkbox" name="favoriteTheme" value="Тестировщик">...<br>
                          <input type="checkbox" name="favoriteTheme" value="other">Другое:
-                         <input class ="small-input" type="text" name="favoriteThemeOther">
+                         <input class ="js-sender-favorite-theme-input js-input small-input" type="text" name="favoriteThemeOther">
                          <span class="js-field-response js-favoriteTheme-response attention"></span>
                          <span class="js-field-response js-favoriteThemeOther-response attention"></span>
                      </div>
