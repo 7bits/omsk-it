@@ -53,9 +53,12 @@
                 </span>
                 <input type="radio" name="jobPosition" value="Руководитель компании">Руководитель компании<br>
                 <input type="radio" name="jobPosition" value="Менеджер проекта">Менеджер проекта<br>
-                <input type="radio" name="jobPosition" value="...">...<br>
+                <input type="radio" name="jobPosition" value="Тимлид команды">Тимлид команды<br>
+                <input type="radio" name="jobPosition" value="Разработчик">Разработчик<br>
                 <input type="radio" name="jobPosition" value="Дизайнер">Дизайнер<br>
                 <input type="radio" name="jobPosition" value="Тестировщик">Тестировщик<br>
+                <input type="radio" name="jobPosition" value="Аналитик">Аналитик<br>
+                <input type="radio" name="jobPosition" value="Системный администритор">Системный администритор<br>
                 <input type="radio" name="jobPosition" value="other">Другое:
                 <input type="text" name="jobPositionOther" class="js-job-position-other-input js-input small-input small-input-other">
                 <span class="js-field-response js-jobPosition-response attention"></span>

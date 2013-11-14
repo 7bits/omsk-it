@@ -32,7 +32,14 @@
                          <input type="checkbox" name="favoriteTheme" value="Базы данных">Базы данных<br>
                          <input type="checkbox" name="favoriteTheme" value="iOS-разработка">iOS-разработка<br>
                          <input type="checkbox" name="favoriteTheme" value="Разработка под Android">Разработка под Android<br>
-                         <input type="checkbox" name="favoriteTheme" value="Тестировщик">...<br>
+                         <input type="checkbox" name="favoriteTheme" value="Фронтенд (верстка, JS)">Фронтенд (верстка, JS)<br>
+                         <input type="checkbox" name="favoriteTheme" value="Разработка десктопных приложений">Разработка десктопных приложений<br>
+                         <input type="checkbox" name="favoriteTheme" value="Проектирование интерфейсов">Проектирование интерфейсов<br>
+                         <input type="checkbox" name="favoriteTheme" value="Дизайн">Дизайн<br>
+                         <input type="checkbox" name="favoriteTheme" value="Автоматизированное, нагрузочное и другие виды тестирования">Автоматизированное, нагрузочное и другие виды тестирования<br>
+                         <input type="checkbox" name="favoriteTheme" value="Высоконагруженные приложения">Высоконагруженные приложения<br>
+                         <input type="checkbox" name="favoriteTheme" value="Управление проектами (процессы)">Управление проектами (процессы)<br>
+                         <input type="checkbox" name="favoriteTheme" value="Управление людьми">Управление людьми<br>
                          <input type="checkbox" name="favoriteTheme" value="other">Другое:
                          <input class ="js-sender-favorite-theme-input js-input small-input" type="text" name="favoriteThemeOther">
                          <span class="js-field-response js-favoriteTheme-response attention"></span>
