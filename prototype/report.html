@@ -14,47 +14,47 @@
 
         <div class="header">
             <div class="page">
-                <div class="site-logo">
-                    <a href="index.html"><img src="images/site-logo.png"></a>
-                    <span class="title">СУББОТНИКИ</span>
-                    <span class="minor-title">Мини-конференции. Омск</span>
+                <div class="inline-item">
+                    <a href='<c:url value="/"/>'>
+                        <img class="logo-img" src="images/site-logo.png">
+                        <span class="logo-title logo-title-top">СУББОТНИКИ</span>
+                        <span class="logo-title logo-title-bottom">Мини-конференции. Омск</span>
+                    </a>
                 </div>
-
-                <div class="site-nav">
+        
+                <div class="site-nav  inline-item">
                     <ul>
-                        <li><a href="rules.html">Правила</a></li>
-                        <li><a href="archive.html">Архив</a></li>
-                        <li><a href="to-reporters.html">Докладчикам</a></li>
-                        <li><a href="to-companies.html">Компаниям</a></li>
+                        <a href='<c:url value="/rules"/>'><li class="inline-item menu-item">Правила</li></a>
+                        <a href='<c:url value="/archive"/>'><li class="inline-item menu-item">Архив</li></a>
+                        <a href='<c:url value="/to-reporters"/>'><li class="inline-item menu-item">Докладчикам</li></a>
+                        <a href='<c:url value="/to-companies"/>'><li class="inline-item menu-item">Компаниям</li></a>
                     </ul>
                 </div>
-
-                <div class="social-ref">
-                    <a class="twitter" href="#"></a>
-                    <a class="vkontakte" href="#"></a>
+        
+                <div class="social-ref  inline-item">
+                    <a class="twitter inline-item social-icon" href="https://twitter.com/OmskIT"></a>
+                    <a class="vkontakte inline-item social-icon" href="http://vk.com/omskit"></a>
                 </div>
             </div>
         </div>
 
         <div class="content">
             <div class="page">
-                <div class="detail-report">
-                    <div class="report-header">
+                <div class="box">
+                    <h1 class="title">
                         «Портирование JavaScript-библиотеки под Android и iOS»
-                    </div>
+                    </h1>
 
                     <div class="report-content">
-                        <div class="reporter">
-                            <div class="photo">
-                                <img src="images/photos/azinoviev.png">
-                            </div>
-
-                            <div class="name">
-                                <a href="#">Алексей Зиновьев</a>
-                            </div>
-
-                            <div class="position">
-                                Программист, <a href="#">Thumbtack</a>
+                        <div class="reporter inline-item">
+                            <img class="photo" src="images/photos/azinoviev.png">
+                            <div class="personal">
+                                <h3 class="name">
+                                    <a href="#">Алексей Зиновьев</a>
+                                </h3>
+                                <div class="position">
+                                    Программист, <a href="#" target="_blank">Thumbtack</a>
+                                </div>
                             </div>
                         </div>
 
@@ -70,12 +70,12 @@
                             <iframe src="http://player.vimeo.com/video/71227794" width="635" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                         </div>
 
-                        <div class="reporter-other-reports">
-                            <div class="title">
+                        <div class="reporter-reports">
+                            <div class="reporter-reports-title">
                                 Другие доклады Алексея Зиновьева:
                             </div>
 
-                            <div class="refs">
+                            <div class="reporter-reports-refs">
                                 <p><a href="#">«ALMADA-2013 или самый простой способ пожить в общаге МГУ»</a></p>
                                 <p><a href="#">«Google I/O - туда и обратно»</a></p>
                                 <p><a href="#">«MyBatis и Hibernate на одном проекте. Как подружить?»</a></p>
@@ -89,35 +89,32 @@
         <div class="footer">
             <div class="page">
                 <div class="subscription">
-                    <div class="title">
+                    <div class="subscription-title">
                         Узнайте о начале регистрации вовремя:
                     </div>
-
-                    <div class="subscribe-form">
-                        <form action="index.html">
-                            <input class="input-email" type="email" name="email" placeholder="Электронная почта">
-                            <input class="submit-button" type="submit" value="Отправить">
-                        </form>
-                    </div>
+                    <form class="js-subscribe-form subscribe-form" action='<c:url value="/subscribe"/>' method="POST">
+                        <input class="input-email" type="email" name="email" placeholder="Электронная почта">
+                        <input class="js-subscribe-button subscribe-button" type="submit" value="Отправить">
+                    </form>
+                    <span class="js-subscribe-response response"></span>
                 </div>
-
-                <div class="tracking">
-                    <div class="title">
-                        Следите за новостями:
-                    </div>
-
-                    <div class="social-ref">
-                        <a href="#"><img src="images/twitter-logo.png"></a>
-                        <a href="#"><img src="images/vk-logo.png"></a>
-                    </div>
-                </div>
-
+        
                 <div class="site-minor-logo">
-                    <a href="index.html"><img src="images/site-minor-logo.png"></a>
+                    <a href='<c:url value="/"/>'><img src="images/site-minor-logo.png"></a>
                 </div>
-
+                <div class="tracking inline-item">
+                    <div class="tracking-title inline-item">
+                       Следите за новостями:
+                    </div>
+                    <div class="inline-item">
+                        <a href="https://twitter.com/OmskIT"><img src="images/twitter-logo.png"></a>
+                        <a href="http://vk.com/omskit"><img src="images/vk-logo.png"></a>
+                    </div>
+                </div>
+        
+        
                 <div class="copyright">
-                    &#169; OmskIT, 2013
+                    &copy; OmskIT, 2013
                 </div>
             </div>
         </div>

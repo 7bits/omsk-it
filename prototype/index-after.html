@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <meta charset="utf-8">
+        <title>OmskIT</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon"> 
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    </head>
+
+<body>
+    <div class="light">
+        <div class="header">
+            <div class="page">
+                <div class="inline-item">
+                    <a href='<c:url value="/"/>'>
+                        <img class="logo-img" src="images/site-logo.png">
+                        <span class="logo-title logo-title-top">СУББОТНИКИ</span>
+                        <span class="logo-title logo-title-bottom">Мини-конференции. Омск</span>
+                    </a>
+                </div>
+        
+                <div class="site-nav  inline-item">
+                    <ul>
+                        <a href='<c:url value="/rules"/>'><li class="inline-item menu-item">Правила</li></a>
+                        <a href='<c:url value="/archive"/>'><li class="inline-item menu-item">Архив</li></a>
+                        <a href='<c:url value="/to-reporters"/>'><li class="inline-item menu-item">Докладчикам</li></a>
+                        <a href='<c:url value="/to-companies"/>'><li class="inline-item menu-item">Компаниям</li></a>
+                    </ul>
+                </div>
+        
+                <div class="social-ref  inline-item">
+                    <a class="twitter inline-item social-icon" href="https://twitter.com/OmskIT"></a>
+                    <a class="vkontakte inline-item social-icon" href="http://vk.com/omskit"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="page">
+                <div class="next-event">
+                    Следующий (11-й) субботник пройдёт
+                    <span class="event-date">5 октября 2013 года</span>
+                    <p class="next-event-text">
+                        Чтобы не пропустить начало регистрации, следите за нами в <a href="#">Твиттере</a> и <a href="#">ВКонтакте</a>.
+                        <br>Или оставьте свой e-mail, мы сообщим вам сами:
+                    </p>
+                    </span>
+                    <form class="js-subscribe-form subscribe-form" action='<c:url value="/subscribe"/>' method="POST">
+                        <input class="input-email" type="email" name="email" placeholder="Электронная почта">
+                        <input class="js-subscribe-button button-submit" type="submit" value="Отправить">
+                    </form>
+                </div>
+
+                <div class="box">
+                    <h1 class="title">
+                        10-ый IT-субботник
+                        <span class="title-text">прошел
+                        <span class="title-date">7 сентября 2013 года</span>
+                        в компании</span>
+                        <a href="#"  target="_blank"><span class="event-location">Luxoft</span></a>
+                    </h1>
+                    <div class="report">
+                        <div class="reporter inline-item">
+                            <h3 class="name">
+                                <a href="#">Алексей Зиновьев</a>
+                            </h3>
+                            <div class="position" target="_blank">
+                                Программист, <a href="#">Thumbtack</a>
+                            </div>
+                            <img class="photo" src="images/photos/azinoviev.png">
+                        </div>
+                        <div class="description inline-item">
+                            <h2 class="description-title"><a href="#">«ALMADA-2013 или самый простой способ пожить в общаге МГУ»</a></h2>
+                            <div class="text">
+                                Итоги Microsoft School on ALgorithms for MAssive DAta (ALMADA).
+                                Свежие алгоритмы BigData.
+                                Внутренняя кухня подразделения Microsoft Research.
+                                Заметки о Computer Science.
+                            </div>
+                        </div>
+                        <hr class="bottom-line">
+                    </div>
+
+                    <div class="report">
+                        <div class="reporter inline-item">
+                            <h3 class="name">
+                                <a href="#">Сергей Назаренко</a>
+                            </h3>
+                            <div class="position">
+                                Project manager, <a href="#" target="_blank">Luxoft</a>
+                            </div>
+                            <img src="images/photos/snazarenko.png">
+                        </div>
+                        <div class="description inline-item">
+                            <h2 class="description-title"><a href="#">«Почему они мне не подчиняются?»</a></h2>
+                            <div class="text">
+                                Возможно, некоторые и вас, на заре своей карьеры попадали в ситуацию, когда при
+                                завершении задачи оказывалось, что результат не соответствует ожиданиям начальства,
+                                заказчика или коллег. В данном докладе, в интерактивном формате, докладчик и аудитория
+                                попробуют проанализировать возможные причины таких ситуаций, и выработать практические
+                                рекомендации на каждый день.
+                            </div>
+                        </div>
+                        <hr class="bottom-line">
+                    </div>
+
+                    <div class="report">
+                        <div class="reporter inline-item">
+                            <h3 class="name">
+                                <a href="#">Анна Тарасенко</a>
+                            </h3>
+
+                            <div class="position">
+                                Руководитель, <a href="#" target="_blank">7bits</a>
+                            </div>
+                            <img class="photo" src="images/photos/atarasenko.png">
+                        </div>
+                        <div class="description inline-item">
+                            <h2 class="description-title"><a href="#">«Выращиваем разработчиков с нуля. Опыт летней стажировки-2013»</a></h2>
+                            <div class="text">
+                                Докладчик расскажет о программе стажировки в компании 7bits летом 2013 года, в которой
+                                участвовали разработчики и дизайнеры. Поделится программой, успехами и неудачами.
+                                Докладчик надеется на обратную связь слушателей, чтобы сделать следующую стажировку еще
+                                лучше.
+                            </div>
+                        </div>
+                        <hr class="bottom-line">
+                    </div>
+                </div>
+
+                <div class="events-history">
+                    <a href="#">Материалы предыдущих субботников</a>
+                </div>
+
+                <div class="action">
+                    <div class="action-text">
+                        Чтобы стать активным участником IT-субботников, вы можете:
+                    </div>
+
+                    <div class="buttons">
+                        <a href="#" class="left-button">
+                            <div class="button inline-item">
+                                <div class="button-img">
+                                    <img src="images/left-button.png">
+                                </div>
+                                <img class="img-center" src="images/button-shape.png">
+                                <span>Предложить тему доклада</span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="middle-button">
+                            <div class="button inline-item">
+                                <div class="button-img">
+                                    <img src="images/middle-button.png">
+                                </div>
+                                <img class="img-center" src="images/button-shape.png">
+                                <span>Выступить с докладом на субботнике</span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="right-button">
+                            <div class="button inline-item">
+                                <div class="button-img">
+                                    <img src="images/right-button.png">
+                                </div>
+                                <img class="img-center" src="images/button-shape.png">
+                                <span>Провести субботник у себя в офисе</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="page">
+                <div class="subscription">
+                    <div class="subscription-title">
+                        Узнайте о начале регистрации вовремя:
+                    </div>
+                    <form class="js-subscribe-form subscribe-form" action='<c:url value="/subscribe"/>' method="POST">
+                        <input class="input-email" type="email" name="email" placeholder="Электронная почта">
+                        <input class="js-subscribe-button subscribe-button" type="submit" value="Отправить">
+                    </form>
+                    <span class="js-subscribe-response response"></span>
+                </div>
+        
+                <div class="site-minor-logo">
+                    <a href='<c:url value="/"/>'><img src="images/site-minor-logo.png"></a>
+                </div>
+                <div class="tracking inline-item">
+                    <div class="tracking-title inline-item">
+                       Следите за новостями:
+                    </div>
+                    <div class="inline-item">
+                        <a href="https://twitter.com/OmskIT"><img src="images/twitter-logo.png"></a>
+                        <a href="http://vk.com/omskit"><img src="images/vk-logo.png"></a>
+                    </div>
+                </div>
+        
+        
+                <div class="copyright">
+                    &copy; OmskIT, 2013
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+</body>
+</html>

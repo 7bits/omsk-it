@@ -14,127 +14,118 @@
 
         <div class="header">
             <div class="page">
-                <div class="site-logo">
-                    <a href="index.html"><img src="images/site-logo.png"></a>
-                    <span class="title">СУББОТНИКИ</span>
-                    <span class="minor-title">Мини-конференции. Омск</span>
+                <div class="inline-item">
+                    <a href='<c:url value="/"/>'>
+                        <img class="logo-img" src="images/site-logo.png">
+                        <span class="logo-title logo-title-top">СУББОТНИКИ</span>
+                        <span class="logo-title logo-title-bottom">Мини-конференции. Омск</span>
+                    </a>
                 </div>
-
-                <div class="site-nav">
+        
+                <div class="site-nav  inline-item">
                     <ul>
-                        <li><a href="rules.html">Правила</a></li>
-                        <li><a href="archive.html">Архив</a></li>
-                        <li><a href="to-reporters.html">Докладчикам</a></li>
-                        <li><a href="to-companies.html">Компаниям</a></li>
+                        <a href='<c:url value="/rules"/>'><li class="inline-item menu-item">Правила</li></a>
+                        <a href='<c:url value="/archive"/>'><li class="inline-item menu-item">Архив</li></a>
+                        <a href='<c:url value="/to-reporters"/>'><li class="inline-item menu-item">Докладчикам</li></a>
+                        <a href='<c:url value="/to-companies"/>'><li class="inline-item menu-item">Компаниям</li></a>
                     </ul>
                 </div>
-
-                <div class="social-ref">
-                    <a class="twitter" href="#"></a>
-                    <a class="vkontakte" href="#"></a>
+        
+                <div class="social-ref  inline-item">
+                    <a class="twitter inline-item social-icon" href="https://twitter.com/OmskIT"></a>
+                    <a class="vkontakte inline-item social-icon" href="http://vk.com/omskit"></a>
                 </div>
             </div>
         </div>
 
         <div class="content">
             <div class="page">
-                <div class="reporter-review">
-                    <div class="review-header">
+                <div class="box">
+                    <h1 class="title">
                         Алексей Зиновьев
-                    </div>
+                    </h1>
 
-                    <div class="review-content">
-                        <div class="title">
-                            <div class="photo">
-                                <img src="images/photos/azinoviev.png">
+                    <div class="reporter-about">
+                        <img class="photo" src="images/photos/azinoviev.png">
+                        <div class="short-description">
+                            программист (<a href="" target="_blank"><span class="position">Тамтэк</span></a>), аспирант ОмГУ, математик, участник GDG Omsk, большой фанат Maps API
+                            <br><a href="mailto:zaleslaw.sin@gmail.com">zaleslaw.sin@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="reports-history">
+                        <div class="reporter-reports-title">
+                            Выступил с докладами:
+                        </div>
+
+                        <div class="report">
+                            <div class="presentation inline-item">
+                                <iframe src="http://www.slideshare.net/slideshow/embed_code/26104592" width="291" height="216" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen></iframe>
                             </div>
 
-                            <div class="short-description">
-                                программист (Тамтэк), аспирант ОмГУ, математик, участник GDG Omsk, большой фанат Maps API
+                            <div class="description inline-item">
+                                <h2 class="description-title">
+                                    <a href="#">«ALMADA-2013 или самый простой способ пожить в общаге МГУ»</a>
+                                </h2>
 
-                                <div class="contact-email">
-                                    <a href="mailto:zaleslaw.sin@gmail.com">zaleslaw.sin@gmail.com</a>
+                                <div class="text">
+                                    Итоги Microsoft School on ALgorithms for MAssive DAta (ALMADA).
+                                    Свежие алгоритмы BigData.
+                                    Внутренняя кухня подразделения Microsoft Research.
+                                    Заметки о Computer Science.
                                 </div>
                             </div>
                         </div>
 
-                        <div class="reports-history">
-                            <div class="title">
-                                Выступил с докладами:
+                        <div class="report">
+                            <div class="presentation inline-item">
+                                <iframe src="http://www.slideshare.net/slideshow/embed_code/24616198" width="291" height="216" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen></iframe>
                             </div>
 
-                            <div class="report">
-                                <div class="presentation">
-                                    <iframe src="http://www.slideshare.net/slideshow/embed_code/26104592" width="291" height="216" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen></iframe>
-                                </div>
+                            <div class="description inline-item">
+                                <h2 class="description-title">
+                                    <a href="#">«Портирование JavaScript-библиотеки под Android и iOS»</a>
+                                </h2>
 
-                                <div class="description">
-                                    <div class="title">
-                                        <a href="#">«ALMADA-2013 или самый простой способ пожить в общаге МГУ»</a>
-                                    </div>
-
-                                    <div class="text">
-                                        Итоги Microsoft School on ALgorithms for MAssive DAta (ALMADA).
-                                        Свежие алгоритмы BigData.
-                                        Внутренняя кухня подразделения Microsoft Research.
-                                        Заметки о Computer Science.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="report">
-                                <div class="presentation">
-                                    <iframe src="http://www.slideshare.net/slideshow/embed_code/24616198" width="291" height="216" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen></iframe>
-                                </div>
-
-                                <div class="description">
-                                    <div class="title">
-                                        <a href="#">«Портирование JavaScript-библиотеки под Android и iOS»</a>
-                                    </div>
-
-                                    <div class="text">
-                                        Короткий рассказ о том, как судьба столкнула докладчика с задачей портирования одной JavaScript - библиотеки под Android и iOS
-                                    </div>
+                                <div class="text">
+                                    Короткий рассказ о том, как судьба столкнула докладчика с задачей портирования одной JavaScript - библиотеки под Android и iOS
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
 
         <div class="footer">
             <div class="page">
                 <div class="subscription">
-                    <div class="title">
+                    <div class="subscription-title">
                         Узнайте о начале регистрации вовремя:
                     </div>
-
-                    <div class="subscribe-form">
-                        <form action="index.html">
-                            <input class="input-email" type="email" name="email" placeholder="Электронная почта">
-                            <input class="submit-button" type="submit" value="Отправить">
-                        </form>
-                    </div>
+                    <form class="js-subscribe-form subscribe-form" action='<c:url value="/subscribe"/>' method="POST">
+                        <input class="input-email" type="email" name="email" placeholder="Электронная почта">
+                        <input class="js-subscribe-button subscribe-button" type="submit" value="Отправить">
+                    </form>
+                    <span class="js-subscribe-response response"></span>
                 </div>
-
-                <div class="tracking">
-                    <div class="title">
-                        Следите за новостями:
-                    </div>
-
-                    <div class="social-ref">
-                        <a href="#"><img src="images/twitter-logo.png"></a>
-                        <a href="#"><img src="images/vk-logo.png"></a>
-                    </div>
-                </div>
-
+        
                 <div class="site-minor-logo">
-                    <a href="index.html"><img src="images/site-minor-logo.png"></a>
+                    <a href='<c:url value="/"/>'><img src="images/site-minor-logo.png"></a>
                 </div>
-
+                <div class="tracking inline-item">
+                    <div class="tracking-title inline-item">
+                       Следите за новостями:
+                    </div>
+                    <div class="inline-item">
+                        <a href="https://twitter.com/OmskIT"><img src="images/twitter-logo.png"></a>
+                        <a href="http://vk.com/omskit"><img src="images/vk-logo.png"></a>
+                    </div>
+                </div>
+        
+        
                 <div class="copyright">
-                    &#169; OmskIT, 2013
+                    &copy; OmskIT, 2013
                 </div>
             </div>
         </div>

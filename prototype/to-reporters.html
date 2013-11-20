@@ -14,72 +14,79 @@
 
         <div class="header">
             <div class="page">
-                <div class="site-logo">
-                    <a href="index.html"><img src="images/site-logo.png"></a>
-                    <span class="title">СУББОТНИКИ</span>
-                    <span class="minor-title">Мини-конференции. Омск</span>
+                <div class="inline-item">
+                    <a href='<c:url value="/"/>'>
+                        <img class="logo-img" src="images/site-logo.png">
+                        <span class="logo-title logo-title-top">СУББОТНИКИ</span>
+                        <span class="logo-title logo-title-bottom">Мини-конференции. Омск</span>
+                    </a>
                 </div>
-
-                <div class="site-nav">
+        
+                <div class="site-nav  inline-item">
                     <ul>
-                        <li><a href="rules.html">Правила</a></li>
-                        <li><a href="archive.html">Архив</a></li>
-                        <li><a href="to-reporters.html">Докладчикам</a></li>
-                        <li><a href="to-companies.html">Компаниям</a></li>
+                        <a href='<c:url value="/rules"/>'><li class="inline-item menu-item">Правила</li></a>
+                        <a href='<c:url value="/archive"/>'><li class="inline-item menu-item">Архив</li></a>
+                        <a href='<c:url value="/to-reporters"/>'><li class="inline-item menu-item">Докладчикам</li></a>
+                        <a href='<c:url value="/to-companies"/>'><li class="inline-item menu-item">Компаниям</li></a>
                     </ul>
                 </div>
-
-                <div class="social-ref">
-                    <a class="twitter" href="#"></a>
-                    <a class="vkontakte" href="#"></a>
+        
+                <div class="social-ref  inline-item">
+                    <a class="twitter inline-item social-icon" href="https://twitter.com/OmskIT"></a>
+                    <a class="vkontakte inline-item social-icon" href="http://vk.com/omskit"></a>
                 </div>
             </div>
         </div>
 
         <div class="content">
             <div class="page">
-                <div class="invite">
-                    <div class="info">
+                <div class="text-content-up">
                         Быть докладчиком на IT-субботнике очень круто!<br>
                         Поделитесь своим бесценным опытом с омским IT-сообществом. Приходите выступать на субботниках. Если нужно, мы поможем с составлением доклада и презентации.<br>
                         <br>
                         Хотите что-нибудь рассказать на одном из Омских IT-субботников? Тогда заполните специальную форму, и мы с вами свяжемся!
-                    </div>
 
-                    <div class="join-button">
-                        <button>Подать заявку на выступление</button>
-                    </div>
+                    <a href="">
+                        <div class="center-div">
+                            <span class="button-submit">
+                            Подать заявку на выступление
+                            </span>
+                        </div>
+                    </a>
                 </div>
 
-                <div class="recomendations">
-                    <div class="title">
+                <div class="box">
+                    <h1 class="title">
                         Рекомендации докладчикам
-                    </div>
+                    </h1>
 
-                    <div class="text">
+                    <div class="list">
                         <ol>
                             <li><span class="list-num">1</span> <b>Презентация с котиками</b></li>
                             <li><span class="list-num">2</span> Не использовать корпоративную символику</li>
                             <li><span class="list-num">3</span> Никакой рекламы</li>
                             <li><span class="list-num">4</span> ...</li>
                             <li><span class="list-num">5</span> PROFIT!</li>
-                        </ul>
+                        </ol>
                     </div>
                 </div>
-
+                <a name="suggest"></a>
                 <div class="request">
-                    <div class="info">
+                    <div class="text-content-down">
                         Если Вы хотите услышать доклад по определенной тебе, но не знаете, кто мог бы об этом
                         рассказать, предложите тему. Мы не обещаем, что удовлетворим абсолютно все заявки, но это
                         позволит нам понять, чего хочет аудитория, и учесть это.
                     </div>
-
-                    <div class="join-button">
-                        <button>Предложить тему</button>
+                    <div class="center-div">                        
+                        <a href="">
+                            <span class="button-submit">
+                                Предложить тему                                
+                            </span>
+                        </a>
                     </div>
                 </div>
 
-                <div class="questions">
+                <div class="questions blue-ref">
                     Возникли вопросы? Читайте <a href="rules.html">правила</a> или пишите организаторам на <a href="mailto:aloha@7bits.it">aloha@7bits.it</a>
                 </div>
             </div>
@@ -88,35 +95,32 @@
         <div class="footer">
             <div class="page">
                 <div class="subscription">
-                    <div class="title">
+                    <div class="subscription-title">
                         Узнайте о начале регистрации вовремя:
                     </div>
-
-                    <div class="subscribe-form">
-                        <form action="index.html">
-                            <input class="input-email" type="email" name="email" placeholder="Электронная почта">
-                            <input class="submit-button" type="submit" value="Отправить">
-                        </form>
-                    </div>
+                    <form class="js-subscribe-form subscribe-form" action='<c:url value="/subscribe"/>' method="POST">
+                        <input class="input-email" type="email" name="email" placeholder="Электронная почта">
+                        <input class="js-subscribe-button subscribe-button" type="submit" value="Отправить">
+                    </form>
+                    <span class="js-subscribe-response response"></span>
                 </div>
-
-                <div class="tracking">
-                    <div class="title">
-                        Следите за новостями:
-                    </div>
-
-                    <div class="social-ref">
-                        <a href="#"><img src="images/twitter-logo.png"></a>
-                        <a href="#"><img src="images/vk-logo.png"></a>
-                    </div>
-                </div>
-
+        
                 <div class="site-minor-logo">
-                    <a href="index.html"><img src="images/site-minor-logo.png"></a>
+                    <a href='<c:url value="/"/>'><img src="images/site-minor-logo.png"></a>
                 </div>
-
+                <div class="tracking inline-item">
+                    <div class="tracking-title inline-item">
+                       Следите за новостями:
+                    </div>
+                    <div class="inline-item">
+                        <a href="https://twitter.com/OmskIT"><img src="images/twitter-logo.png"></a>
+                        <a href="http://vk.com/omskit"><img src="images/vk-logo.png"></a>
+                    </div>
+                </div>
+        
+        
                 <div class="copyright">
-                    &#169; OmskIT, 2013
+                    &copy; OmskIT, 2013
                 </div>
             </div>
         </div>
