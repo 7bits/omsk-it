@@ -11,9 +11,19 @@
         <put-attribute name="footer" value="/WEB-INF/view/tiles/footer.jsp" />
     </definition>
 
-    <definition name="index" extends="base">
+    <definition name="index-reg" extends="base">
         <put-attribute name="title" value="Омские IT-субботники (OmskIT)" />
-        <put-attribute name="content" value="/WEB-INF/view/tiles/content-index.jsp" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/content-index-reg.jsp" />
+    </definition>
+
+    <definition name="index-after" extends="base">
+        <put-attribute name="title" value="Омские IT-субботники (OmskIT)" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/content-index-after.jsp" />
+    </definition>
+
+    <definition name="index-before" extends="base">
+        <put-attribute name="title" value="Омские IT-субботники (OmskIT)" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/content-index-before.jsp" />
     </definition>
 
     <definition name="rules" extends="base">

@@ -62,4 +62,9 @@ public class SimpleConferenceService implements ConferenceService {
 
         return conferenceDao.findByQuery("select c from Conference c where c.ordinalNumber = (select max(ordinalNumber) from Conference)", null).iterator().next();
     }
+
+    @Override
+    public Conference findPastConference() {
+        return conferenceDao.findByQuery("select c from Conference c where c.ordinalNumber = (select max(ordinalNumber) from Conference) - 1", null).iterator().next();
+    }
 }

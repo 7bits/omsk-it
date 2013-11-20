@@ -23,7 +23,13 @@ $(document).ready(function() {
     $(".js-subscribe-button").click(function(event) {
 
         event.preventDefault();
-        doAjaxSubscriptionPost();
+        var formdata = $(".js-subscribe-form").serialize();
+        doAjaxSubscriptionPost(formdata);
+    });
+    $(".js-subscribe-button-top").click(function(event) {
+        event.preventDefault();
+        var formdata = $(".js-subscribe-form-top").serialize();
+        doAjaxSubscriptionPost(formdata);
     });
 
     $(".js-apply-form-button").click(function(event) {
@@ -67,9 +73,9 @@ $(document).ready(function() {
     });
 });
 
-function doAjaxSubscriptionPost() {
+function doAjaxSubscriptionPost(formdata) {
 
-    var formdata = $(".js-subscribe-form").serialize();
+//    var formdata = $(".js-subscribe-form").serialize();
 
     $.ajax({
 

@@ -1,6 +1,7 @@
 package it.sevenbits.conferences.web.controller;
 
 import it.sevenbits.conferences.domain.Conference;
+import it.sevenbits.conferences.domain.Report;
 import it.sevenbits.conferences.service.ConferenceService;
 import it.sevenbits.conferences.service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 /**
  * Controller for main page.
@@ -24,12 +27,32 @@ public class WelcomeController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView showIndex() {
 
-        ModelAndView modelAndView = new ModelAndView("index");
-
         Conference conference = conferenceService.findNextConference();
-        modelAndView.addObject("conference", conference);
-        modelAndView.addObject("reports", reportService.findAllReportsByConference(conference));
+        long today = System.currentTimeMillis()/1000;
 
+        if (conference.getDate() < today) {
+            Conference newConference = new Conference();
+            newConference.setDate(today); //todo change date
+            newConference.setOrdinalNumber(conference.getOrdinalNumber() + 1);
+            conferenceService.addConference(newConference);
+            conference = newConference;
+        }
+
+        List<Report> reports = reportService.findAllReportsByConference(conference);
+        ModelAndView modelAndView;
+
+        if (reports.isEmpty()) {
+            modelAndView = new ModelAndView("index-after");
+            Conference pastConference = conferenceService.findPastConference();
+            modelAndView.addObject("pastConference", pastConference);
+            modelAndView.addObject("reports", reportService.findAllReportsByConference(pastConference));
+            modelAndView.addObject("conference", conference);
+        } else {
+            modelAndView = new ModelAndView("index-before");
+            modelAndView.addObject("conference", conference);
+            modelAndView.addObject("reports", reportService.findAllReportsByConference(conference));
+
+        }
         return modelAndView;
     }
 }

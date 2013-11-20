@@ -3,23 +3,21 @@
 
 <div class="content">
     <div class="page">
-        <div class="detail-report">
-            <div class="report-header">
+        <div class="box">
+            <h1 class="title">
                 &laquo;<c:out value="${report.title}"/>&raquo;
-            </div>
+            </h1>
 
             <div class="report-content">
-                <div class="reporter">
-                    <div class="photo">
-                        <img src='<c:url value="${report.reporter.photo}"/>'>
-                    </div>
-
-                    <div class="name">
-                        <a href='<c:url value="/reporter/${report.reporter.id}"/>'><c:out value="${report.reporter.firstName}"/>&nbsp;<c:out value="${report.reporter.secondName}"/></a>
-                    </div>
-
-                    <div class="position">
-                        <c:out value="${report.reporter.jobPosition}"/>, <a href='<c:url value="${report.reporter.company.site}"/>'><c:out value="${report.reporter.company.name}"/></a>
+                <div class="reporter inline-item">
+                    <img class="photo" src='<c:url value="${report.reporter.photo}"/>'>
+                    <div class="personal">
+                        <h3 class="name">
+                            <a href='<c:url value="/reporter/${report.reporter.id}"/>'><c:out value="${report.reporter.firstName}"/>&nbsp;<c:out value="${report.reporter.secondName}"/></a>
+                        </h3>
+                        <div class="position">
+                            <c:out value="${report.reporter.jobPosition}"/>, <a href='<c:url value="${report.reporter.company.site}"/>' target="_blank"><c:out value="${report.reporter.company.name}"/></a>
+                        </div>
                     </div>
                 </div>
 
@@ -51,11 +49,11 @@
                 <c:set var="totalReports" value="${fn:length(otherReports)}"/>
                 <c:if test="${totalReports > 1}">
                     <div class="reporter-other-reports">
-                        <div class="title">
+                        <div class="reporter-reports-title">
                             Другие доклады автора:
                         </div>
 
-                        <div class="refs">
+                        <div class="reporter-reports-refs">
                             <c:forEach items="${otherReports}" var="otherReport">
                                 <c:if test="${otherReport.id != report.id}">
                                     <p><a href='<c:url value="/report/${otherReport.id}"/>'>&laquo;<c:out value="${otherReport.title}"/>&raquo;</a></p>

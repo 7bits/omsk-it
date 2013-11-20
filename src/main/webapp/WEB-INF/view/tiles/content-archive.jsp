@@ -3,37 +3,35 @@
 <div class="content">
     <div class="page">
         <c:forEach items="${conferences}" var="conference">
-            <div class="past-event-program">
-                <div class="program-header">
-                    <span class="order"><c:out value="${conference.ordinalNumber}"/>-й IT-субботник</span>
-                    <span>прошел</span>
-                    <span class="date"><c:out value="${conference.humanReadableDate}"/></span>
+            <div class="box">
+                <h1 class="title">
+                    <c:out value="${conference.ordinalNumber}"/>-й IT-субботник
+                    <span class="title-text">прошел
+                    <span class="title-date"><c:out value="${conference.humanReadableDate}"/></span>
                     <span>в компании</span>
-                    <span class="location"><a href='<c:url value="${conference.company.site}"/>'><c:out value="${conference.company.name}"/></a></span>
-                </div>
+                    <a href='<c:url value="${conference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${conference.company.name}"/></span></a>
+                </h1>
 
                 <div class="program-content">
                     <c:forEach items="${reports}" var="report">
                         <c:if test="${report.conference.id == conference.id}">
-                            <div class="report">
-                                <div class="reporter">
-                                    <div class="name">
+                            <div class="report center-item">
+                                <div class="reporter inline-item">
+                                    <h3 class="name">
                                         <a href='<c:url value="/reporter/${report.reporter.id}"/>'><c:out value="${report.reporter.firstName}"/>&nbsp;<c:out value="${report.reporter.secondName}"/></a>
-                                    </div>
+                                    </h3>
 
                                     <div class="position">
-                                        <c:out value="${report.reporter.jobPosition}"/>, <a href='<c:url value="${report.reporter.company.site}"/>'><c:out value="${report.reporter.company.name}"/></a>
+                                        <c:out value="${report.reporter.jobPosition}"/>, <a href='<c:url value="${report.reporter.company.site}"/>' target="_blank"><c:out value="${report.reporter.company.name}"/></a>
                                     </div>
 
-                                    <div class="photo">
-                                        <img src='<c:url value="${report.reporter.photo}"/>'>
-                                    </div>
+                                    <img class="photo" src='<c:url value="${report.reporter.photo}"/>'>
                                 </div>
 
                                 <div class="description">
-                                    <div class="title">
+                                    <h2 class="description-title">
                                         <a href='<c:url value="/report/${report.id}"/>'>&laquo;<c:out value="${report.title}"/>&raquo;</a>
-                                    </div>
+                                    </h2>
                                 </div>
                             </div>
                         </c:if>

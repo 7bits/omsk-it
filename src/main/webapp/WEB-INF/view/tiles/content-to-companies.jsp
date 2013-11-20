@@ -1,23 +1,23 @@
 <div class="content">
     <div class="page">
         <div class="advertisement">
-            <div class="title">
+            <div class="advertisement-title">
                 Вместе мы можем сделать IT-субботники еще лучше!
             </div>
 
-            <div class="text">
+            <div class="text-content-up">
                 Если у вас есть свободное помещение в офисе в первую субботу месяца, чай, печеньки и
                 желание пригласить гостей и пообщаться с IT-сообществом на актуальные темы, проведите
                 IT-субботник у себя в компании.
             </div>
         </div>
 
-        <div class="recomendations">
-            <div class="title">
+        <div class="box">
+            <h1 class="title">
                 Требования к компаниям
-            </div>
+            </h1>
 
-            <div class="text">
+            <div class="list">
                 <ol>
                     <li><span class="list-num">1</span> Большое помещение и много стульев</li>
                     <li><span class="list-num">2</span> Наличие проектора</li>
@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="contacts">
+        <div class="text-content-down blue-ref">
             Заявки присылайте на <a href="mailto:admin@omskit.org">admin@omskit.org</a>
         </div>
     </div>

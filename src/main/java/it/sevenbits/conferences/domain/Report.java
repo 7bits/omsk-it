@@ -60,7 +60,7 @@ public class Report {
         this.title = title;
     }
 
-    @Column(name = "description", length = 500)
+    @Column(name = "description", length = 1000)
     public String getDescription() {
         return description;
     }
