@@ -3,8 +3,8 @@ insert into `company`(id, name, site, location) values(2, "ЕСТ", "http://www.
 insert into `company`(id, name, site, location) values(3, "Гехтсофт", "http://www.gehtsoft.com", null);
 insert into `company`(id, name, site, location) values(4, "Тик-Так Коуч", "http://tiktokcoach.ru/", null);
 
-insert into `conference`(id, company_id, ordinal_number, date) values(1, 1, 12, 1383994800);
-insert into `conference`(id, company_id, ordinal_number, date) values(2, 1, 13, 1388833200);
+insert into `conference`(id, company_id, ordinal_number, date, registration) values(1, 1, 12, 1383994800, false);
+insert into `conference`(id, company_id, ordinal_number, date, registration) values(2, 1, 13, 1388833200, true);
 
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(2, 2, "Дмитрий", "Голушко", null, "/resources/images/photos/dgolushko.jpg", null, "Java Developer", null);
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(3, 3, "Александр", "Самолов", null, "/resources/images/photos/asamolov.jpg", null, "Технический директор", null);

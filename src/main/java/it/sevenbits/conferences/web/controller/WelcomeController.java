@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
+import static it.sevenbits.conferences.utils.date.NextDateConference.getNextDate;
+
 /**
  * Controller for main page.
  */
@@ -32,7 +34,7 @@ public class WelcomeController {
 
         if (conference.getDate() < today) {
             Conference newConference = new Conference();
-            newConference.setDate(today); //todo change date
+            newConference.setDate(getNextDate(today)); //todo change date
             newConference.setOrdinalNumber(conference.getOrdinalNumber() + 1);
             conferenceService.addConference(newConference);
             conference = newConference;
@@ -48,10 +50,13 @@ public class WelcomeController {
             modelAndView.addObject("reports", reportService.findAllReportsByConference(pastConference));
             modelAndView.addObject("conference", conference);
         } else {
-            modelAndView = new ModelAndView("index-before");
+            if (conference.isRegistration()) {
+                modelAndView = new ModelAndView("index-reg");
+            }   else {
+                modelAndView = new ModelAndView("index-before");
+            }
             modelAndView.addObject("conference", conference);
             modelAndView.addObject("reports", reportService.findAllReportsByConference(conference));
-
         }
         return modelAndView;
     }

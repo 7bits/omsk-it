@@ -19,7 +19,7 @@
 
         <div class="box">
             <h1 class="title">
-                Программа <c:out value="${findNextConference.ordinalNumber}"/>-го IT-субботника
+                Программа <c:out value="${conference.ordinalNumber}"/>-го IT-субботника
             </h1>
             <c:forEach items="${reports}" var="report">
                 <div class="report">

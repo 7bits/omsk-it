@@ -15,6 +15,7 @@ public class Conference {
     private Company company;
     private Long ordinalNumber;
     private Long date;
+    private boolean registration;
 
     @Id
     @GeneratedValue
@@ -51,9 +52,21 @@ public class Conference {
         return date;
     }
 
+
+    @Column(name="registration")
+    public boolean isRegistration() {
+        return registration;
+    }
+
+    public void setRegistration(boolean registration) {
+        this.registration = registration;
+    }
+
     public void setDate(Long date) {
         this.date = date;
     }
+
+
 
     @Transient
     public String getHumanReadableDate() {
