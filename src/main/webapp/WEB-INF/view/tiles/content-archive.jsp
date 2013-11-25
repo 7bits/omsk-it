@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<script type="text/javascript" src='<c:url value="/resources/js/image-center.js"/>'></script>
 <div class="content">
     <div class="page">
         <c:forEach items="${conferences}" var="conference">
@@ -17,14 +18,15 @@
                         <c:if test="${report.conference.id == conference.id}">
                             <div class="report center-item">
                                 <div class="reporter inline-item">
-                                    <h3 class="name">
-                                        <a href='<c:url value="/reporter/${report.reporter.id}"/>'><c:out value="${report.reporter.firstName}"/>&nbsp;<c:out value="${report.reporter.secondName}"/></a>
-                                    </h3>
+                                    <div class="reporter-title">
+                                        <h3 class="name">
+                                            <a href='<c:url value="/reporter/${report.reporter.id}"/>'><c:out value="${report.reporter.firstName}"/>&nbsp;<c:out value="${report.reporter.secondName}"/></a>
+                                        </h3>
 
-                                    <div class="position">
-                                        <c:out value="${report.reporter.jobPosition}"/>, <a href='<c:url value="${report.reporter.company.site}"/>' target="_blank"><c:out value="${report.reporter.company.name}"/></a>
+                                        <div class="position">
+                                            <c:out value="${report.reporter.jobPosition}"/>, <a href='<c:url value="${report.reporter.company.site}"/>' target="_blank"><c:out value="${report.reporter.company.name}"/></a>
+                                        </div>
                                     </div>
-
                                     <img class="photo" src='<c:url value="${report.reporter.photo}"/>'>
                                 </div>
 
