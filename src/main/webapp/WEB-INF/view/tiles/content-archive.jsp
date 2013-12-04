@@ -27,7 +27,7 @@
                                             <c:out value="${report.reporter.jobPosition}"/>, <a href='<c:url value="${report.reporter.company.site}"/>' target="_blank"><c:out value="${report.reporter.company.name}"/></a>
                                         </div>
                                     </div>
-                                    <img class="photo" src='<c:url value="${report.reporter.photo}"/>'>
+                                    <img class="photo" src='/resources/images/photos/<c:url value="${report.reporter.photo}"/>'>
                                 </div>
 
                                 <div class="description">

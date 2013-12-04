@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby "1.9.3"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
@@ -27,18 +28,20 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+
 gem 'rails_admin'
 
+# Use mysql as the database for Active Record
 gem 'mysql2'
 
 gem 'carrierwave'
-gem 'mini_magick'
+gem 'mini_magick' 
 
 gem 'unicorn'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+  # gem 'sdoc', require: false
 end
 
 # Use ActiveModel has_secure_password
@@ -60,3 +63,6 @@ group :development do
   gem "capistrano"
   gem "rvm-capistrano"
 end
+
+gem 'therubyracer'
+gem 'libv8'
