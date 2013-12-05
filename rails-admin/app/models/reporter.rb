@@ -1,3 +1,4 @@
+# coding: utf-8
 class Reporter < ActiveRecord::Base
   self.table_name = 'reporter'
   belongs_to :company
@@ -8,23 +9,45 @@ class Reporter < ActiveRecord::Base
   rails_admin do
     list do
       field :id
-      field :first_name
-      field :second_name
-      field :photo
-      field :email
-      field :company
+      field :first_name do
+        label "Имя"
+      end
+      field :second_name do
+        label "Фамилия"
+      end
+      field :photo do
+        label "Фото"
+      end
+      field :email do
+        label "E-mail"
+      end
+      field :company do
+        label "Компания"
+      end
       field :self_description
       field :job_position
       field :speech_experience
     end
     edit do
       field :id
-      field :first_name
-      field :second_name
-      field :photo
-      field :email
-      field :company
-      field :reports
+      field :first_name do
+        label "Имя"
+      end
+      field :second_name do
+        label "Фамилия"
+      end
+      field :photo do
+        label "Фото"
+      end
+      field :email do
+        label "E-mail"
+      end
+      field :company do
+        label "Компания"
+      end
+      field :reports do
+        label "Доклад"
+      end
       field :self_description
       field :job_position
       field :speech_experience

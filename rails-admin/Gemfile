@@ -35,7 +35,7 @@ gem 'rails_admin'
 gem 'mysql2'
 
 gem 'carrierwave'
-gem 'mini_magick' 
+gem 'mini_magick'
 
 gem 'unicorn'
 
@@ -64,5 +64,5 @@ group :development do
   gem "rvm-capistrano"
 end
 
-gem 'therubyracer'
-gem 'libv8'
+#gem 'therubyracer'
+#gem 'libv8'
