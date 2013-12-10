@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Vector;
 
 /**
  * Simple implementation of the ConferenceService.
@@ -64,7 +65,21 @@ public class SimpleConferenceService implements ConferenceService {
     }
 
     @Override
-    public Conference findPastConference() {
+    public Conference findLastConference() {
         return conferenceDao.findByQuery("select c from Conference c where c.ordinalNumber = (select max(ordinalNumber) from Conference) - 1", null).iterator().next();
+    }
+
+    @Override
+    public List<Conference> findPastConference() {
+        List<Conference> conferences = findAllConferences();
+        List<Conference> pastConferences = new Vector<Conference>();
+        long today = System.currentTimeMillis()/1000;
+
+        for (Conference conference : conferences) {
+            if (conference.getDate() < today) {
+                pastConferences.add(conference);
+            }
+        }
+        return pastConferences;
     }
 }
