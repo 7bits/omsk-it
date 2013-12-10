@@ -31,3 +31,7 @@ ssh root@192.168.1.228 '
     /etc/init.d/tomcat7 start;
 '
 
+echo "Deploy rails_admin"
+pwd
+cd rails-admin/
+cap deploy

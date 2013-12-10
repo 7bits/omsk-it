@@ -32,7 +32,7 @@ insert into `report`(id, conference_id, reporter_id, title, description, present
 insert into `report`(id, conference_id, reporter_id, title, description, presentation, video, other_conferences, key_technologies, reporter_wishes) values(36, 12, 31, "HWdTech.DS - message-oriented middleware, продолжение", "Евгений ответит на вопрос, заданный на 1-й части доклада: \"Почему не Erlang?\" Средства управления платформой: ServiceManager Библиотека сервисов Управление конфигурацией Взаимозаменяемость компонентов", null, null, null, null, null);
 
 -- 11 IT-субботник
-insert into `conference`(id, company_id, ordinal_number, date, registration) values(11, 1, 11, null, false);
+insert into `conference`(id, company_id, ordinal_number, date, registration) values(11, 1, 11, 0000, false);
 
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(27, 2, " Екатерина", "Боброва", null, "nophoto.png", null, null, null);
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(28, 6, "Алексей", "Родионов", null, "nophoto.png", null, null, null);
@@ -41,7 +41,7 @@ insert into `report`(id, conference_id, reporter_id, title, description, present
 insert into `report`(id, conference_id, reporter_id, title, description, presentation, video, other_conferences, key_technologies, reporter_wishes) values(32, 11, 28, "Как мы делали свой Travis CI: Vagrant + KVM", "Автор расскажет, как его команда построила гибкую VM-based систему непрерывной интеграции с помощью Vagrant и Linux KVM.", null, null, null, null, null);
 
 -- 10 IT-субботник
-insert into `conference`(id, company_id, ordinal_number, date, registration) values(10, 7, 10, null, false);
+insert into `conference`(id, company_id, ordinal_number, date, registration) values(10, 7, 10, 0000, false);
 
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(2, 2, "Алексей", "Зиновьев", null, "nophoto.png", null, null, null);
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(26, 7, "Сергей", "Назаренко", null, "nophoto.png", null, null, null);
@@ -52,7 +52,7 @@ insert into `report`(id, conference_id, reporter_id, title, description, present
 insert into `report`(id, conference_id, reporter_id, title, description, presentation, video, other_conferences, key_technologies, reporter_wishes) values(30, 10, 1, "Выращиваем разработчиков с нуля. Опыт летней стажировки-2013", "Докладчик расскажет о программе стажировки в компании 7bits летом 2013 года, в которой участвовали разработчики и дизайнеры. Поделится программой, успехами и неудачами. Докладчик надеется на обратную связь слушателей, чтобы сделать следующую стажировку еще лучше.", null, null, null, null, null);	
 
 -- 9 IT-субботник
-insert into `conference`(id, company_id, ordinal_number, date, registration) values(9, 1, 9, null, false);
+insert into `conference`(id, company_id, ordinal_number, date, registration) values(9, 1, 9, 0000, false);
 
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(23, 8, "Михаил", "Подгурский", null, "nophoto.png", null, "начальник отдела банковских систем УБСДИТ", null);
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(24, 2, "Александр", "Шиповалов", null, "nophoto.png", null, "инженер по тестированию", null);
@@ -81,7 +81,7 @@ insert into `report`(id, conference_id, reporter_id, title, description, present
 insert into `report`(id, conference_id, reporter_id, title, description, presentation, video, other_conferences, key_technologies, reporter_wishes) values(21, 7, 21, "\"Другой\" outsource и production development", "ассказ об аутсорсе, которым занимается компания (C++ проекты), а также о попытках перейти на продуктовую разработку и что из этого получилось", null, null, null, null, null);
 
 -- 6 IT-субботник
-insert into `conference`(id, company_id, ordinal_number, date, registration) values(6, 1, 6, null, false);
+insert into `conference`(id, company_id, ordinal_number, date, registration) values(6, 1, 6, 0000, false);
 
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(17, 11, "Ксения", "Дмитриева", null, "nophoto.png", null, "консультант по безопасности", null);
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(18, 12, "Сергей", "Корсаков", null, "nophoto.png", null, "PM", null);
@@ -92,7 +92,7 @@ insert into `report`(id, conference_id, reporter_id, title, description, present
 
 
 -- 5 IT-субботник
-insert into `conference`(id, company_id, ordinal_number, date, registration) values(5, 1, 5, null, false);
+insert into `conference`(id, company_id, ordinal_number, date, registration) values(5, 1, 5, 0000, false);
 
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(14, 7, "Максим", "Юнусов", null, "nophoto.png", null, "Group Manager", null);
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(15, 14, "Евгений", "Тюменцев", null, "nophoto.png", null, "старший преподаватель", null);
@@ -103,7 +103,7 @@ insert into `report`(id, conference_id, reporter_id, title, description, present
 insert into `report`(id, conference_id, reporter_id, title, description, presentation, video, other_conferences, key_technologies, reporter_wishes) values(17, 5, 16, "Тексты в интерфейсах", "Почему 37 важнее, чем 42? Как выглядит хорошо структурированная шизофрения? Почему импотенты любят уникальные предложения? Ну и другие речевые чудеса в нашем с вами интернет-пространстве. Разговор, как всегда, для менеджеров и сочувствующих", null, null, null, null, null);
 
 -- 4 IT-субботник
-insert into `conference`(id, company_id, ordinal_number, date, registration) values(4, 1, 4, null, false);
+insert into `conference`(id, company_id, ordinal_number, date, registration) values(4, 1, 4, 0000, false);
 
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(12, 15, "Леонид", "Бабиенко", null, "nophoto.png", null, "генеральный директор", null);
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(13, 2, "Дмитрий", "Пашкевич", null, "nophoto.png", null, "директор", null);
@@ -113,7 +113,7 @@ insert into `report`(id, conference_id, reporter_id, title, description, present
 insert into `report`(id, conference_id, reporter_id, title, description, presentation, video, other_conferences, key_technologies, reporter_wishes) values(14, 4, 1, "Принцип YAGNI в управлении проектами", "Почему управление проектом может быть делом всей команды, как можно избежать срывов сроков и сверхурочной работы. Доклад адресован разработчикам может быть даже больше, чем менеджерам.", null, null, null, null, null);
 
 -- 3 IT-субботник
-insert into `conference`(id, company_id, ordinal_number, date, registration) values(3, 1, 3, null, false);
+insert into `conference`(id, company_id, ordinal_number, date, registration) values(3, 1, 3, 0000, false);
 
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(8, null, "Сергей", "Сусиков", null, "nophoto.png", null, "self-employed", null);
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(9, 2, "Денис", "Нелюбин", null, "nophoto.png", null, null, null);
@@ -125,7 +125,7 @@ insert into `report`(id, conference_id, reporter_id, title, description, present
 insert into `report`(id, conference_id, reporter_id, title, description, presentation, video, other_conferences, key_technologies, reporter_wishes) values(11, 3, 11, "Распределение человеческих ресурсов по проектам без простоев и скамейки запасных", "Доклад для тех, кто руководит менеджерами проектов и распределяет ресурсы по проектам: - как решить проблему распределения ресурсов между проектами. - сколько надо народу в фирме. - зачем нужно специализироваться на одной технологии, а не хвататься за все подряд.", null, null, null, null, null);
 
 -- 2 IT-субботник
-insert into `conference`(id, company_id, ordinal_number, date, registration) values(2, 1, 2, null, false);
+insert into `conference`(id, company_id, ordinal_number, date, registration) values(2, 1, 2, 0000, false);
 
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(4, null, "Юлия", "Миттова", null, "nophoto.png", null, null, null);
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(5, 16, "Александр", "Омельницкий", null, "nophoto.png", null, null, null);
@@ -138,7 +138,7 @@ insert into `report`(id, conference_id, reporter_id, title, description, present
 insert into `report`(id, conference_id, reporter_id, title, description, presentation, video, other_conferences, key_technologies, reporter_wishes) values(7, 2, 7, "Web-scale. Взорвётся всё.", "Я хочу рассказать о некотором числе неприятных и не всегда очевидных особенностей инструментов, которые мы эксплуатируем ежедневно: MySQL, MongoDB, Python, Linux & FreeBSD.", null, null, null, null, null);
 
 -- 1 IT-субботник
-insert into `conference`(id, company_id, ordinal_number, date, registration) values(1, 1, 1, null, false);
+insert into `conference`(id, company_id, ordinal_number, date, registration) values(1, 1, 1, 0000, false);
 
 insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(3, 7, "Серик", "Бейсенов", null, "nophoto.png", null, null, null);
 

@@ -34,7 +34,7 @@ public class WelcomeController {
 
         if (conference.getDate() < today) {
             Conference newConference = new Conference();
-            newConference.setDate(getNextDate(today)); //todo change date
+            newConference.setDate(getNextDate(today));
             newConference.setOrdinalNumber(conference.getOrdinalNumber() + 1);
             conferenceService.addConference(newConference);
             conference = newConference;
