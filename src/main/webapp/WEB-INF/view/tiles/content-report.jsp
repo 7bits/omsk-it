@@ -10,7 +10,7 @@
 
             <div class="report-content">
                 <div class="reporter inline-item">
-                    <img class="photo" src='<c:url value="${report.reporter.photo}"/>'>
+                    <img class="photo" src='/resources/images/photos/<c:url value="${report.reporter.photo}"/>'>
                     <div class="personal">
                         <h3 class="name">
                             <a href='<c:url value="/reporter/${report.reporter.id}"/>'><c:out value="${report.reporter.firstName}"/>&nbsp;<c:out value="${report.reporter.secondName}"/></a>
@@ -56,7 +56,7 @@
                         <div class="reporter-reports-refs">
                             <c:forEach items="${otherReports}" var="otherReport">
                                 <c:if test="${otherReport.id != report.id}">
-                                    <p><a href='<c:url value="/report/${otherReport.id}"/>'>&laquo;<c:out value="${otherReport.title}"/>&raquo;</a></p>
+                                    <p><a href='<c:url value="/report/${otherReport.id}"/>'>&laquo;<c:out value="${otherReport.title}"/>&raquo;</a> - "${otherReport.conference.humanReadableDate}"</p>
                                 </c:if>
                             </c:forEach>
                         </div>

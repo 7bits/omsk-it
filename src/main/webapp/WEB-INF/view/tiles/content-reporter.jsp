@@ -9,7 +9,7 @@
             </h1>
 
             <div class="reporter-about">
-                <img class="photo" src='<c:url value="${reporter.photo}"/>'>
+                <img class="photo" src='/resources/images/photos/<c:url value="${reporter.photo}"/>'>
                 <div class="short-description">
                     <c:out value="${reporter.jobPosition}"/>, <a href='<c:url value="${reporter.company.site}"/>' target="_blank"><span class="position"><c:out value="${reporter.company.name}"/></span></a>
                     <br>
@@ -49,6 +49,7 @@
                                     <div class="text">
                                         <c:out value="${report.description}"/>
                                     </div>
+                                    <p>"${report.conference.humanReadableDate}"</p>
                                 </div>
                             </div>
                         </c:forEach>
