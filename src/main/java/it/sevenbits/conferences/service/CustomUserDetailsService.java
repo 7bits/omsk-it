@@ -1,6 +1,7 @@
 package it.sevenbits.conferences.service;
 
 import it.sevenbits.conferences.dao.UserDao;
+import it.sevenbits.conferences.service.common.SimpleUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
@@ -10,7 +11,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -20,12 +20,12 @@ import java.util.List;
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UserDao userDao;
+    private SimpleUserService userService;
 
     public UserDetails loadUserByUsername(String login)
             throws UsernameNotFoundException {
 
-        it.sevenbits.conferences.domain.User domainUser = userDao.getUser(login);
+        it.sevenbits.conferences.domain.User domainUser = userService.getUser(login);
 
         boolean enabled = true;
         boolean accountNonExpired = true;
