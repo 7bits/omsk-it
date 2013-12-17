@@ -1,4 +1,4 @@
-CREATE TABLE roles (
+CREATE TABLE role (
   id int(6) NOT NULL AUTO_INCREMENT,
   role varchar(20) NOT NULL,
   PRIMARY KEY (id)
@@ -18,6 +18,6 @@ CREATE TABLE user_roles (
   KEY role (role_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO roles (role) VALUES ('admin'), ('moderator');
+INSERT INTO role (role) VALUES ('admin'), ('moderator');
 INSERT INTO user (login, password) VALUES ('moder', '111111'), ('adm', '222222');
 INSERT INTO user_roles (user_id, role_id) VALUES (1, 2), (2, 1);
