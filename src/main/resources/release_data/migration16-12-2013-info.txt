@@ -1,0 +1,1 @@
+This is migration connected with a SpringSecurity.
