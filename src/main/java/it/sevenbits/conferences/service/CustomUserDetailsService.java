@@ -20,7 +20,7 @@ import java.util.List;
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private SimpleUserService userService;
+    private UserService userService;
 
     public UserDetails loadUserByUsername(String login)
             throws UsernameNotFoundException {
