@@ -7,7 +7,6 @@ class Conference < ActiveRecord::Base
   rails_admin do
     label "Субботник"
     label_plural "СУбботники"
-    object_label_method :ordinal_number
 
     list do
       field :id
@@ -23,6 +22,9 @@ class Conference < ActiveRecord::Base
       field :registration do
         label "Регистрация"
       end
+      field :report do
+        label "Доклады"
+      end
     end
 
     edit do
@@ -37,6 +39,9 @@ class Conference < ActiveRecord::Base
       end
       field :registration do
         label "Регистрация"
+      end
+      field :report do
+        label "Доклады"
       end
     end
   end
