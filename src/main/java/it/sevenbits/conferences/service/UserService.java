@@ -29,7 +29,7 @@ public interface UserService {
     /**
      * @see it.sevenbits.conferences.dao.EntityDao#findById(Long)
      */
-    User findById(Long id);
+    User findUserById(Long id);
 
     /**
      * To find the user with the necessary login.

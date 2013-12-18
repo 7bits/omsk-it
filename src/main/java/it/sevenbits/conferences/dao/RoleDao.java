@@ -2,8 +2,7 @@ package it.sevenbits.conferences.dao;
 
 import it.sevenbits.conferences.domain.Role;
 
-public interface RoleDao {
-
-    public Role getRole(int id);
-
-}
+/**
+ * Interface for Roles model access.
+ */
+public interface RoleDao extends EntityDao<Role> {}

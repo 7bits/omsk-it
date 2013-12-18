@@ -43,7 +43,7 @@ public class SimpleUserService implements UserService {
 
     @Transactional
     @Override
-    public User findById(Long id) {
+    public User findUserById(Long id) {
         return userDao.findById(id);
     }
 

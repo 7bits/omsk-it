@@ -1,7 +1,6 @@
-package it.sevenbits.conferences.service;
+package it.sevenbits.conferences.service.common;
 
-import it.sevenbits.conferences.dao.UserDao;
-import it.sevenbits.conferences.service.common.SimpleUserService;
+import it.sevenbits.conferences.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
