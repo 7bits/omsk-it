@@ -182,6 +182,8 @@
                     <!-- server = server id from ~/.m2/settings.xml -->
                     <server>localhost-tomcat</server>
                     <url>http://localhost:8080/manager/text</url>
+                    <username>user</username>
+                    <password>user</password>
                 </configuration>
             </plugin>
 

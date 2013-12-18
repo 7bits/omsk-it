@@ -17,12 +17,12 @@ public class User {
     @Id
     @GeneratedValue
     private Integer id;
-
-    @Column(name = "login")
     private String login;
-
-    @Column(name = "password")
     private String password;
+    private String firstName;
+    private String secondName;
+    private String email;
+    private String jobPosition;
 
     @OneToOne(cascade= CascadeType.ALL)
     @JoinTable(name="user_roles",
@@ -39,6 +39,7 @@ public class User {
         this.id = id;
     }
 
+    @Column(name = "login")
     public String getLogin() {
         return login;
     }
@@ -47,12 +48,49 @@ public class User {
         this.login = login;
     }
 
+    @Column(name = "password")
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Column(name = "first_name")
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    @Column(name = "second_name")
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    @Column(name = "email")
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Column(name = "job_position")
+    public String getJobPosition() {
+        return jobPosition;
+    }
+
+    public void setJobPosition(String jobPosition) {
+        this.jobPosition = jobPosition;
     }
 
     public Role getRole() {

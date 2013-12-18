@@ -1,0 +1,2 @@
+Swap fields:  first_name, second_name, email, job_position between tables user and guest;
+Delete row job from table guest;
