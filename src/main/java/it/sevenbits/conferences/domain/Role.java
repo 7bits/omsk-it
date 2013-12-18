@@ -1,6 +1,7 @@
 package it.sevenbits.conferences.domain;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,6 +19,7 @@ public class Role {
     @GeneratedValue
     private Integer id;
 
+    @Column(name = "role")
     private String role;
 
     @OneToMany(cascade= CascadeType.ALL)
