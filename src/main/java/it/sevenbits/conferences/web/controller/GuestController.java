@@ -66,16 +66,17 @@ public class GuestController {
             Guest guest = new Guest();
 
             guest.setConference(conferenceService.findNextConference());
-            guest.setFirstName(guestForm.getFirstName());
-            guest.setSecondName(guestForm.getSecondName());
-            guest.setEmail(guestForm.getEmail());
-            guest.setJob(guestForm.getJob());
-
-            if (guestForm.getJobPosition().equals("other")) {
-                guest.setJobPosition(guestForm.getJobPositionOther());
-            } else {
-                guest.setJobPosition(guestForm.getJobPosition());
-            }
+            //TODO: Need to do new form and new logic of this action (new guest)
+//            guest.setFirstName(guestForm.getFirstName());
+//            guest.setSecondName(guestForm.getSecondName());
+//            guest.setEmail(guestForm.getEmail());
+//            guest.setJob(guestForm.getJob());
+//
+//            if (guestForm.getJobPosition().equals("other")) {
+//                guest.setJobPosition(guestForm.getJobPositionOther());
+//            } else {
+//                guest.setJobPosition(guestForm.getJobPosition());
+//            }
 
             guestService.addGuest(guest);
 

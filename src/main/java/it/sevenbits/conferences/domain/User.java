@@ -23,6 +23,7 @@ public class User {
     private String secondName;
     private String email;
     private String jobPosition;
+    private boolean enabled;
 
     @OneToOne(cascade= CascadeType.ALL)
     @JoinTable(name="user_roles",
@@ -91,6 +92,15 @@ public class User {
 
     public void setJobPosition(String jobPosition) {
         this.jobPosition = jobPosition;
+    }
+
+    @Column(name = "enabled")
+    public boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public Role getRole() {
