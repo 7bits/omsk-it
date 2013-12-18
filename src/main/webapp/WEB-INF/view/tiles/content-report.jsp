@@ -10,7 +10,17 @@
 
             <div class="report-content">
                 <div class="reporter inline-item">
-                    <img class="photo" src='/resources/images/photos/<c:url value="${report.reporter.photo}"/>'>
+                    <c:choose>
+                        <c:when test="${report.reporter.photo == '' }">
+                            <img class="photo" src='/resources/images/photos/nophoto.png'>
+                        </c:when>
+                        <c:when test="${report.reporter.photo == null }">
+                            <img class="photo" src='/resources/images/photos/nophoto.png'>
+                        </c:when>
+                        <c:otherwise>
+                            <img class="photo" src='/resources/images/photos/<c:url value="${report.reporter.photo}"/>'>
+                        </c:otherwise>
+                    </c:choose>
                     <div class="personal">
                         <h3 class="name">
                             <a href='<c:url value="/reporter/${report.reporter.id}"/>'><c:out value="${report.reporter.firstName}"/>&nbsp;<c:out value="${report.reporter.secondName}"/></a>

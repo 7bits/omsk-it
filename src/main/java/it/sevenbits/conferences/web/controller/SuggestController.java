@@ -64,30 +64,33 @@ public class SuggestController {
             Suggestion suggestion = new Suggestion();
             int i =0;
 
-            String[] senderSpecialization = new String[suggestionForm.getSenderSpecialization().length];
+            StringBuilder senderSpecialization = new StringBuilder();
             for (String field: suggestionForm.getSenderSpecialization()) {
                 if (field.equals("other")) {
-                    senderSpecialization[i] = suggestionForm.getSenderSpecializationOther();
+                    senderSpecialization.append(suggestionForm.getSenderSpecializationOther());
                 } else {
-                    senderSpecialization[i] = field;
+                    senderSpecialization.append(field);
                 }
+                senderSpecialization.append(", ");
                 i++;
             }
 
-            String[] favoriteTheme = new String[suggestionForm.getFavoriteTheme().length];
+            StringBuilder favoriteTheme = new StringBuilder();
             i = 0;
             for (String field: suggestionForm.getFavoriteTheme()) {
                 if (field.equals("other")) {
-                    favoriteTheme[i] = suggestionForm.getFavoriteThemeOther();
+                    favoriteTheme.append(suggestionForm.getFavoriteThemeOther());
                 } else {
-                    favoriteTheme[i] = field;
+                    favoriteTheme.append(field);
                 }
+                favoriteTheme.append(", ");
                 i++;
             }
 
-            suggestion.setSenderSpecialization(senderSpecialization);
-            suggestion.setFavoriteTheme(favoriteTheme);
+            suggestion.setSenderSpecialization(senderSpecialization.toString());
+            suggestion.setFavoriteTheme(favoriteTheme.toString());
             suggestion.setThemeRequest(suggestionForm.getThemeRequest());
+            suggestion.setReporterRequest(suggestionForm.getReporterRequest());
 
             suggestionService.addSuggestion(suggestion);
 

@@ -9,7 +9,17 @@
             </h1>
 
             <div class="reporter-about">
-                <img class="photo" src='/resources/images/photos/<c:url value="${reporter.photo}"/>'>
+                <c:choose>
+                    <c:when test="${report.reporter.photo == '' }">
+                        <img class="photo" src='/resources/images/photos/nophoto.png'>
+                    </c:when>
+                    <c:when test="${report.reporter.photo == null }">
+                        <img class="photo" src='/resources/images/photos/nophoto.png'>
+                    </c:when>
+                    <c:otherwise>
+                        <img class="photo" src='/resources/images/photos/<c:url value="${report.reporter.photo}"/>'>
+                    </c:otherwise>
+                </c:choose>
                 <div class="short-description">
                     <c:out value="${reporter.jobPosition}"/>, <a href='<c:url value="${reporter.company.site}"/>' target="_blank"><span class="position"><c:out value="${reporter.company.name}"/></span></a>
                     <br>
