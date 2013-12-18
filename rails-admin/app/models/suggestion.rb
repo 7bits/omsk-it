@@ -5,7 +5,7 @@ class Suggestion < ActiveRecord::Base
   rails_admin do
     label "Предложение"
     label_plural "Предложения"
-    object_label_method :title
+    object_label_method :sender_specialization
 
     list do
       field :id

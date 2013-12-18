@@ -10,7 +10,7 @@ public class SuggestionForm {
     private String[] favoriteTheme;
     private String favoriteThemeOther;
     private String themeRequest;
-//    private String reporterRequest;
+    private String reporterRequest;
 
     public String[] getSenderSpecialization() {
         return senderSpecialization;
@@ -50,5 +50,13 @@ public class SuggestionForm {
 
     public void setThemeRequest(String themeRequest) {
         this.themeRequest = themeRequest;
+    }
+
+    public String getReporterRequest() {
+        return reporterRequest;
+    }
+
+    public void setReporterRequest(String reporterRequest) {
+        this.reporterRequest = reporterRequest;
     }
 }
