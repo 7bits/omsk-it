@@ -9,6 +9,7 @@
         <meta charset="utf-8">
         <title><tiles:getAsString name="title" /></title>
         <link rel="stylesheet" href='<c:url value="/resources/css/styles.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/login-style.css"/>'>
         <link rel="icon" href='<c:url value="/resources/images/favicon.ico"/>' type="image/x-icon">
         <link rel="shortcut icon" href='<c:url value="/resources/images/favicon.ico"/>' type="image/x-icon">
 

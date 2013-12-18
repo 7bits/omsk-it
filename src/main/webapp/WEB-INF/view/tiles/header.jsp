@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 
 <div class="header">
     <div class="page">
@@ -22,6 +23,9 @@
         <div class="social-ref  inline-item">
             <a class="twitter inline-item social-icon" href="https://twitter.com/OmskIT"></a>
             <a class="vkontakte inline-item social-icon" href="http://vk.com/omskit"></a>
+        </div>
+        <div class="login-form inline-item">
+            <%@ include file="/WEB-INF/view/tiles/login-form.jsp" %>
         </div>
     </div>
 </div>
