@@ -57,6 +57,16 @@
                      <span class="js-field-response js-themeRequest-respons attentione"></span>
                  </div>
                  <div class="field">
+                      <span class="top-label">Кого Вы хотели бы услышать на ИТ-субботнике в качестве докладчика?</span>
+                      <span class="field-info long-info">
+                          <span class="js-field-response js-description-response attention"></span>
+                          <span class="js-field-info">Укажите фамилию, имя и место работы - все, что знаете. Расскажите нам о человеке, даже если Вы не знаете конкретной темы, но уверены, что это хороший докладчик.</span>
+                      </span>
+                      <br>
+                      <textarea class="small-input wide-input big-input" name="reporterRequest"></textarea>
+                      <span class="js-field-response js-reporterRequest-respons attentione"></span>
+                  </div>
+                 <div class="field">
                      <input class="js-suggestion-form-button button-submit" type="submit" value="Отправить">
                      <div class="js-suggest-response"></div>
                  </div>

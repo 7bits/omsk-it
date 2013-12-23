@@ -4,9 +4,18 @@ class Reporter < ActiveRecord::Base
   belongs_to :company
   has_many :reports
   mount_uploader :photo, PhotoUploader
-  #attr_accessible :photo, :photo_cache, :remove_photo
+
+  after_initialize do
+    if new_record?
+      self.photo ||= 'nophoto.png'
+    end
+  end
 
   rails_admin do
+    label "Докладчик"
+    label_plural "Докладчики"
+    object_label_method :second_name
+
     list do
       field :id
       field :first_name do
@@ -28,8 +37,8 @@ class Reporter < ActiveRecord::Base
       field :job_position
       field :speech_experience
     end
+
     edit do
-      field :id
       field :first_name do
         label "Имя"
       end
@@ -52,10 +61,5 @@ class Reporter < ActiveRecord::Base
       field :job_position
       field :speech_experience
     end
-  end
-
-  before_save :default_value
-  def default_value
-    self.photo ||= "nophoto.png"
   end
 end

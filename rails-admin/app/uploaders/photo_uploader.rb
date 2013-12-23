@@ -20,6 +20,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
     "nophoto.png"
+    #'../../../../resources/images/photos/' + [version_name, 'nophoto.png'].compact.join('_')
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #    ActionController::Base.helpers.asset_path("nophoto.png")
@@ -47,8 +48,13 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  def filename
+     #"something.jpg" if original_filename
+    if original_filename.nil?
+      "nophoto.png"
+    else
+      original_filename
+    end
+  end
 
 end
