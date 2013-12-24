@@ -8,7 +8,7 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 /**
- *  Validator for suggestion form
+ *  Validator for users registration form
  */
 @Component
 public class UserRegistrationValidator implements Validator {

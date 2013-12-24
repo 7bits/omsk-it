@@ -219,7 +219,7 @@ function doAjaxApplyForUsersRegistrationPost() {
             $(".js-field-response").empty();
 
             if (response.status == "SUCCESS") {
-                $(".js-apply-form")[0].reset();
+                $(".js-apply-user-registration-form")[0].reset();
                 $(".js-field-info").css("display", "inline");
             } else {
                 if (response.result.firstName != null) {
@@ -248,12 +248,9 @@ function doAjaxApplyForUsersRegistrationPost() {
                 }
             }
         },
-
-        error: function(jqXHR, textStatus, errorThrown) {
-
-            console.log(jqXHR);
-            console.log(jqXHR.responseText);
-            $(".js-apply-response").html(textStatus + ": " + errorThrown + "; see console logs");
+        error: function(textStatus) {
+            console.log(textStatus);
+            $(".js-apply-response").html("Произошла ошибка, просим прощение за неудобства.");
         }
     });
 }

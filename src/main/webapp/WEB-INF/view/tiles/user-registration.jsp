@@ -31,10 +31,10 @@
 
                 <div class="field">
                     <span class="left-label">Пароль&nbsp;<span class="attention">*</span></span>
-                    <input class="js-password-input js-input small-input" type="text" name="password">
+                    <input class="js-password-input js-input small-input" type="password" name="password">
                     <span class="field-info">
                         <span class="js-field-response js-password-response attention"></span>
-                        <span class="js-field-info">На русском языке</span>
+                        <span class="js-field-info"></span>
                     </span>
                 </div>
 
@@ -43,7 +43,7 @@
                     <input class="js-email-input js-input small-input" type="text" name="email">
                     <span class="field-info">
                         <span class="js-field-response js-email-response attention"></span>
-                        <span class="js-field-info">Информационное письмо придет примерно за сутки до начала мероприятия</span>
+                        <span class="js-field-info"></span>
                     </span>
                 </div>
 

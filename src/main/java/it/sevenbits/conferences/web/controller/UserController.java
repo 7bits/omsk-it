@@ -27,10 +27,17 @@ import java.util.UUID;
 
 
 @Controller
+@RequestMapping(value = "user")
 public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private MailSenderUtility mailSenderUtility;
+
+    @Autowired
+    private RoleService roleService;
 
     @RequestMapping(value = "/confirmation", method = RequestMethod.GET)
     public ModelAndView confirmUser(
@@ -43,25 +50,19 @@ public class UserController {
             user.setEnabled(true);
             userService.updateUser(user);
         }
-        ModelAndView modelAndView = new ModelAndView("base");
+        ModelAndView modelAndView = new ModelAndView("redirect:/");
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    public ModelAndView showUsersRegistrationPage() {
+        ModelAndView modelAndView = new ModelAndView("user-registration");
+        return  modelAndView;
     }
 
     @Autowired
     @Qualifier("userRegistrationValidator")
     private Validator validator;
-
-    @Autowired
-    private MailSenderUtility mailSenderUtility;
-
-    @Autowired
-    private RoleService roleService;
-
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public ModelAndView showUserRegistrationPage() {
-        ModelAndView modelAndView = new ModelAndView("user-registration");
-        return  modelAndView;
-    }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     @ResponseBody
