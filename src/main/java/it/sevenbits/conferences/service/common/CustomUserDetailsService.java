@@ -38,7 +38,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 accountNonExpired,
                 credentialsNonExpired,
                 accountNonLocked,
-                getAuthorities(domainUser.getRole().getId())
+                getAuthorities(domainUser.getRole().getId().intValue())
         );
     }
 

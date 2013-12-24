@@ -3,6 +3,7 @@ package it.sevenbits.conferences.domain;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -16,27 +17,28 @@ public class User {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
     private String login;
     private String password;
     private String firstName;
     private String secondName;
     private String email;
     private String jobPosition;
+    private String confirmationToken;
     private boolean enabled;
 
-    @OneToOne(cascade= CascadeType.ALL)
+    @OneToOne(cascade= CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name="user_roles",
             joinColumns = {@JoinColumn(name="user_id", referencedColumnName="id")},
             inverseJoinColumns = {@JoinColumn(name="role_id", referencedColumnName="id")}
     )
     private Role role;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -92,6 +94,15 @@ public class User {
 
     public void setJobPosition(String jobPosition) {
         this.jobPosition = jobPosition;
+    }
+
+    @Column(name = "confirmation_token")
+    public String getConfirmationToken() {
+        return confirmationToken;
+    }
+
+    public void setConfirmationToken(String confirmationToken) {
+        this.confirmationToken = confirmationToken;
     }
 
     @Column(name = "enabled")

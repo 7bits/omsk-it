@@ -41,6 +41,11 @@
         <put-attribute name="content" value="/WEB-INF/view/tiles/content-to-reporters.jsp" />
     </definition>
 
+    <definition name="user-registration" extends="base">
+        <put-attribute name="title" value="Регистрация" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/user-registration.jsp" />
+    </definition>
+
     <definition name="to-companies" extends="base">
         <put-attribute name="title" value="Компаниям" />
         <put-attribute name="content" value="/WEB-INF/view/tiles/content-to-companies.jsp" />

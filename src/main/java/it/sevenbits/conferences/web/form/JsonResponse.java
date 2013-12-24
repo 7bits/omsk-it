@@ -7,6 +7,9 @@ package it.sevenbits.conferences.web.form;
  */
 public class JsonResponse {
 
+    public final static String STATUS_SUCCESS = "SUCCESS";
+    public final static String STATUS_FAIL = "FAIL";
+
     private String status;
     private Object result;
 

@@ -3,6 +3,7 @@ package it.sevenbits.conferences.domain;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -17,23 +18,23 @@ public class Role {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
 
     @Column(name = "role")
     private String role;
 
-    @OneToMany(cascade= CascadeType.ALL)
+    @OneToMany(cascade= CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name="user_roles",
             joinColumns = {@JoinColumn(name="role_id", referencedColumnName="id")},
             inverseJoinColumns = {@JoinColumn(name="user_id", referencedColumnName="id")}
     )
     private Set<User> userRoles;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

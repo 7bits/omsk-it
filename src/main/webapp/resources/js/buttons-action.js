@@ -38,6 +38,12 @@ $(document).ready(function() {
         doAjaxApplyForReportPost();
     });
 
+    $(".js-apply-user-registration-form-button").click(function(event) {
+
+        event.preventDefault();
+        doAjaxApplyForUsersRegistrationPost();
+    });
+
     $(".js-apply-reset").click(function() {
 
         $(".js-apply-response").empty();
@@ -181,6 +187,64 @@ function doAjaxApplyForReportPost() {
                 if (response.result.reporterWishes != null) {
                     $(".js-reporter-wishes-response").html(response.result.reporterWishes);
                     $(".js-reporter-wishes-input").css("background-color", "#fff5e5");
+                }
+            }
+        },
+
+        error: function(jqXHR, textStatus, errorThrown) {
+
+            console.log(jqXHR);
+            console.log(jqXHR.responseText);
+            $(".js-apply-response").html(textStatus + ": " + errorThrown + "; see console logs");
+        }
+    });
+}
+
+function doAjaxApplyForUsersRegistrationPost() {
+
+    var formdata = $(".js-apply-user-registration-form").serialize();
+
+    $.ajax({
+
+        url: userRegistrationUrl,
+        type: "POST",
+        data: formdata,
+        dataType: "json",
+
+        success: function(response) {
+
+            $(".js-apply-response").html(response.result.message);
+            $(".js-input").css("background-color", "#ffffff");
+            $(".js-field-info").css("display", "none");
+            $(".js-field-response").empty();
+
+            if (response.status == "SUCCESS") {
+                $(".js-apply-form")[0].reset();
+                $(".js-field-info").css("display", "inline");
+            } else {
+                if (response.result.firstName != null) {
+                    $(".js-first-name-response").html(response.result.firstName);
+                    $(".js-first-name-input").css("background-color", "#fff5e5");
+                }
+
+                if (response.result.secondName != null) {
+                    $(".js-second-name-response").html(response.result.secondName);
+                    $(".js-second-name-input").css("background-color", "#fff5e5");
+                }
+
+                if (response.result.email != null) {
+                    $(".js-email-response").html(response.result.email);
+                    $(".js-email-input").css("background-color", "#fff5e5");
+                }
+
+                if (response.result.jobPosition != null) {
+                    $(".js-job-position-response").html(response.result.jobPosition);
+                    $(".js-job-position-input").css("background-color", "#fff5e5");
+                }
+
+                if (response.result.password != null) {
+                    $(".js-job-position-response").html(response.result.password);
+                    $(".js-job-position-input").css("background-color", "#fff5e5");
                 }
             }
         },

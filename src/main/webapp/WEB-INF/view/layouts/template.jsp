@@ -21,6 +21,7 @@
             var applyForReportUrl = '<c:url value="/apply-for-report"/>';
             var suggestUrl = '<c:url value="/suggest"/>'
             var guestUrl =  '<c:url value="/register"/>'
+            var userRegistrationUrl = '<c:url value="/registration"/>'
         </script>
         <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.10.2.min.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/buttons-action.js"/>'></script>

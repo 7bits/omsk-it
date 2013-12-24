@@ -1,0 +1,1 @@
+Added row confirmation_token in table User;

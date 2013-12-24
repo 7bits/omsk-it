@@ -13,4 +13,5 @@
     <context:component-scan base-package="it.sevenbits.conferences.dao"/>
     <context:component-scan base-package="it.sevenbits.conferences.service"/>
     <context:component-scan base-package="it.sevenbits.conferences.web.validator"/>
+    <context:component-scan base-package="it.sevenbits.conferences.utils.mail"/>
 </beans>
