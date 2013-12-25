@@ -16,20 +16,12 @@ import java.util.Set;
 @Table(name="role")
 public class Role {
 
-    @Id
-    @GeneratedValue
     private Long id;
-
-    @Column(name = "role")
     private String role;
-
-    @OneToMany(cascade= CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name="user_roles",
-            joinColumns = {@JoinColumn(name="role_id", referencedColumnName="id")},
-            inverseJoinColumns = {@JoinColumn(name="user_id", referencedColumnName="id")}
-    )
     private Set<User> userRoles;
 
+    @Id
+    @GeneratedValue
     public Long getId() {
         return id;
     }
@@ -38,6 +30,7 @@ public class Role {
         this.id = id;
     }
 
+    @Column(name = "role")
     public String getRole() {
         return role;
     }
@@ -46,6 +39,11 @@ public class Role {
         this.role = role;
     }
 
+    @OneToMany(cascade= CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name="user_roles",
+            joinColumns = {@JoinColumn(name="role_id", referencedColumnName="id")},
+            inverseJoinColumns = {@JoinColumn(name="user_id", referencedColumnName="id")}
+    )
     public Set<User> getUserRoles() {
         return userRoles;
     }

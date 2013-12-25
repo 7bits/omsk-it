@@ -15,8 +15,6 @@ import javax.persistence.Table;
 @Table(name="user")
 public class User {
 
-    @Id
-    @GeneratedValue
     private Long id;
     private String login;
     private String password;
@@ -26,14 +24,10 @@ public class User {
     private String jobPosition;
     private String confirmationToken;
     private boolean enabled;
-
-    @OneToOne(cascade= CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name="user_roles",
-            joinColumns = {@JoinColumn(name="user_id", referencedColumnName="id")},
-            inverseJoinColumns = {@JoinColumn(name="role_id", referencedColumnName="id")}
-    )
     private Role role;
 
+    @Id
+    @GeneratedValue
     public Long getId() {
         return id;
     }
@@ -114,6 +108,11 @@ public class User {
         this.enabled = enabled;
     }
 
+    @OneToOne(cascade= CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name="user_roles",
+            joinColumns = {@JoinColumn(name="user_id", referencedColumnName="id")},
+            inverseJoinColumns = {@JoinColumn(name="role_id", referencedColumnName="id")}
+    )
     public Role getRole() {
         return role;
     }
