@@ -7,6 +7,8 @@ import it.sevenbits.conferences.web.form.GuestForm;
 import it.sevenbits.conferences.web.form.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -26,6 +28,8 @@ import java.util.Map;
 @Controller
 public class GuestController {
 
+    private final String ANONYMOUS_USER = "anonymousUser";
+
     @Autowired
     private ConferenceService conferenceService;
 
@@ -42,6 +46,24 @@ public class GuestController {
 //        ModelAndView modelAndView = new ModelAndView("register", "guestForm", new GuestForm());
 //        return modelAndView;
 //    }
+
+    private boolean isAnonymousUser() {
+        String authUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
+        boolean isAnonymous = authUser.equals(ANONYMOUS_USER);
+        return  isAnonymous;
+    }
+
+    @RequestMapping(value = "/guest-check", method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResponse checkGuest() {
+        JsonResponse response = new JsonResponse();
+        if (isAnonymousUser()) {
+            response.setStatus(JsonResponse.STATUS_FAIL);
+        } else {
+            response.setStatus(JsonResponse.STATUS_SUCCESS);
+        }
+        return response;
+    }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody

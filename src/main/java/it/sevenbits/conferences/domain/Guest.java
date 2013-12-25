@@ -11,6 +11,7 @@ public class Guest {
 
     private Long id;
     private Conference conference;
+    private User user;
 
     @Id
     @GeneratedValue
@@ -33,4 +34,13 @@ public class Guest {
         this.conference = conference;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

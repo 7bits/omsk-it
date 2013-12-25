@@ -1,0 +1,4 @@
+Added connection with table user by adding user_id row.
+
+
+

@@ -65,8 +65,7 @@ $(document).ready(function() {
     });
 
     $(".js-register-button").click(function() {
-        $(".guest-form-div").css("display", "block");
-        $(".guest-form-div").append("<div class='overlay'></div>");
+        doAjaxGuestCheck();
     });
 
     $(".js-guest-form-button").click(function(event) {
@@ -362,4 +361,21 @@ function doAjaxGuestPost() {
             $(".js-suggest-response").html(textStatus + ": " + errorThrown + "; see console logs");
         }
     });
+}
+
+function doAjaxGuestCheck() {
+    $.ajax({
+        url: guestCheckUrl,
+        type: "POST",
+        data: "",
+        dataType: "json",
+        success: function(response) {
+            if (response.status == "SUCCESS") {
+                alert("Все хорошо!");
+            } else {
+                $(".guest-form-div").css("display", "block");
+                $(".guest-form-div").append("<div class='overlay'></div>");
+            }
+        }
+    })
 }
