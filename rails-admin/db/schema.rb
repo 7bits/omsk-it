@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131127115710) do
+ActiveRecord::Schema.define(version: 20131225134610) do
+
+  create_table "admins", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "company", force: true do |t|
     t.string "location"
@@ -29,11 +47,6 @@ ActiveRecord::Schema.define(version: 20131127115710) do
   add_index "conference", ["company_id"], name: "FK_3ub4p96dtvd4f21e78ig9jeos", using: :btree
 
   create_table "guest", force: true do |t|
-    t.string  "email"
-    t.string  "first_name"
-    t.string  "job"
-    t.string  "job_position"
-    t.string  "second_name"
     t.integer "conference_id", limit: 8
   end
 
@@ -80,33 +93,39 @@ ActiveRecord::Schema.define(version: 20131127115710) do
 
   add_index "reporter", ["company_id"], name: "FK_h0q7t84r4k4cmonm1rbg15jgm", using: :btree
 
+  create_table "role", force: true do |t|
+    t.string "role"
+  end
+
   create_table "subscription", force: true do |t|
     t.string "email", null: false
   end
 
   create_table "suggestion", force: true do |t|
-    t.binary "favorite_theme",        limit: 255
+    t.string "favorite_theme"
     t.string "reporter_request"
-    t.binary "sender_specialization", limit: 255
+    t.string "sender_specialization"
     t.string "theme_request"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "user", force: true do |t|
+    t.string  "confirmationToken"
+    t.string  "email"
+    t.boolean "enabled",           null: false
+    t.string  "firstName"
+    t.string  "jobPosition"
+    t.string  "login"
+    t.string  "password"
+    t.string  "secondName"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  create_table "user_roles", id: false, force: true do |t|
+    t.integer "role_id", limit: 8, default: 0, null: false
+    t.integer "user_id", limit: 8,             null: false
+  end
+
+  add_index "user_roles", ["role_id"], name: "FK_5q4rc4fh1on6567qk69uesvyf", using: :btree
+  add_index "user_roles", ["user_id"], name: "FK_g1uebn6mqk9qiaw45vnacmyo2", using: :btree
+  add_index "user_roles", ["user_id"], name: "UK_g1uebn6mqk9qiaw45vnacmyo2", unique: true, using: :btree
 
 end
