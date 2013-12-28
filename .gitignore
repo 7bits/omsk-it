@@ -15,4 +15,4 @@ out/
 bin/
 logs/
 hidden.properties
-
+password.properties
