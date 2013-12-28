@@ -52,8 +52,8 @@ public class Conference {
         return date;
     }
 
-
-    @Column(name="registration")
+    @Basic
+    @Column(name = "registration", columnDefinition = "BIT", length = 1)
     public boolean isRegistration() {
         return registration;
     }
