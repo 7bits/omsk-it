@@ -22,7 +22,7 @@
                     <li><span class="list-num">2</span>
                         <span class="long-line">
                             Субботники проходят <b>в омских IT-фирмах</b> ( <a href="http://7bits.it/" target="_blank">IT-лофт</a>, <a href="http://www.estaxi.ru/" target="_blank">ЕСТ</a>, <a href="http://www.gehtsoft.com/" target="_blank">Гехтсофт</a>, <a href="http://tiktokcoach.ru/" target="_blank">Тик-Так Коуч</a> ).
-                        </span>.
+                        </span>
                     </li>
                     <li><span class="list-num">3</span> Если вам нужна помощь с докладом (прослушать, поревьювить) - мы поможем!</li>
                     <li><span class="list-num">4</span> Регистрация на каждое мероприятие <b>обязательна</b>.</li>
@@ -31,7 +31,7 @@
                     <li><span class="list-num">7</span>
                         <span class="long-line blue-ref">
                         Вы всегда можете помочь в организации, написав организаторам на
-                            <a href="mailto:admin@omskit.org">admin@omskit.org</a>>
+                            <a href="mailto:admin@omskit.org">admin@omskit.org</a>
                         </span>
                     </li>
                 </ol>
