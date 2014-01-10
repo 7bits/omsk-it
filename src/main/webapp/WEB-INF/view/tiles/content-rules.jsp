@@ -21,7 +21,12 @@
                     <li><span class="list-num">1</span> <b>Это бесплатно!</b></li>
                     <li><span class="list-num">2</span>
                         <span class="long-line">
-                            Субботники проходят <b>в омских IT-фирмах</b> ( <a href="http://7bits.it/" target="_blank">IT-лофт</a>, <a href="http://www.estaxi.ru/" target="_blank">ЕСТ</a>, <a href="http://www.gehtsoft.com/" target="_blank">Гехтсофт</a>, <a href="http://tiktokcoach.ru/" target="_blank">Тик-Так Коуч</a> ).
+                            Субботники проходят <b>в омских IT-фирмах</b> (
+                            <c:set var="totalCompanies" value="${fn:length(companies)}"/>
+                            <c:forEach items="${companies}" var="company" varStatus="companyCounter">
+                                <a href='<c:url value="${company.site}"/>' target="_blank"><c:out value="${company.name}"/></a><c:if test="${companyCounter.count < totalCompanies}">,&nbsp;</c:if>
+                            </c:forEach>
+                        ).
                         </span>
                     </li>
                     <li><span class="list-num">3</span> Если вам нужна помощь с докладом (прослушать, поревьювить) - мы поможем!</li>

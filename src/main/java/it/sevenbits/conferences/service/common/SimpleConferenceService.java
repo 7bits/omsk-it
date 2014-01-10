@@ -2,12 +2,15 @@ package it.sevenbits.conferences.service.common;
 
 import it.sevenbits.conferences.dao.ConferenceDao;
 import it.sevenbits.conferences.dao.ReportDao;
+import it.sevenbits.conferences.domain.Company;
 import it.sevenbits.conferences.domain.Conference;
 import it.sevenbits.conferences.service.ConferenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
@@ -81,5 +84,20 @@ public class SimpleConferenceService implements ConferenceService {
             }
         }
         return pastConferences;
+    }
+
+    @Override
+    public List<Company> findAllCompany() {
+        List<Conference>  conferences = conferenceDao.findByQuery("select c from Conference c group by c.company", null);
+        Iterator<Conference> conferenceIterator = conferences.iterator();
+        List<Company> companies = new ArrayList<Company>();
+        Company company;
+        while (conferenceIterator.hasNext()) {
+            company = conferenceIterator.next().getCompany();
+            if (null != company) {
+                companies.add(company);
+            }
+        }
+        return companies;
     }
 }

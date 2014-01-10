@@ -1,5 +1,6 @@
 package it.sevenbits.conferences.service;
 
+import it.sevenbits.conferences.domain.Company;
 import it.sevenbits.conferences.domain.Conference;
 
 import java.util.List;
@@ -55,4 +56,11 @@ public interface ConferenceService {
      * @see it.sevenbits.conferences.dao.EntityDao#findByQuery(String, java.util.Map)
      */
     List<Conference> findPastConference();
+
+    /**
+     * Find an all Company
+     * @return the found all Company that held the conference, or null if the Conference does not exist or an error occurs.
+     * @see it.sevenbits.conferences.dao.EntityDao#findByQuery(String, java.util.Map)
+     */
+    List<Company> findAllCompany();
 }
