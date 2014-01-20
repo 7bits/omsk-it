@@ -183,7 +183,7 @@
                 <rp.build.warname>omsk-it</rp.build.warname>
                 <server.tomcat>localhost-tomcat</server.tomcat>
                 <server.url>http://localhost:8080/manager/text</server.url>
-                <server.path>${rp.build.warname}</server.path>
+                <server.path>/${rp.build.warname}</server.path>
             </properties>
             <build>
                 <resources>
