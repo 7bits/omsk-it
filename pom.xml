@@ -183,7 +183,7 @@
                 <rp.build.warname>omsk-it</rp.build.warname>
                 <server.tomcat>localhost-tomcat</server.tomcat>
                 <server.url>http://localhost:8080/manager/text</server.url>
-                <server.path>${rp.build.warname}</server.path>
+                <!--<server.path>${rp.build.warname}</server.path>-->
             </properties>
             <build>
                 <resources>
@@ -208,6 +208,25 @@
                 <resources>
                     <resource>
                         <directory>${basedir}/src/main/resources/test/</directory>
+                        <includes>
+                            <include>*.*</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <rp.build.warname>ROOT</rp.build.warname>
+                <server.tomcat>production-tomcat</server.tomcat>
+                <server.url>http://162.243.36.248/manager/text</server.url>
+                <server.path>/</server.path>
+            </properties>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>${basedir}/src/main/resources/production/</directory>
                         <includes>
                             <include>*.*</include>
                         </includes>
