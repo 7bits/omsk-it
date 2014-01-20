@@ -5,20 +5,11 @@ package it.sevenbits.conferences.web.form;
  */
 public class UserRegistrationForm {
 
-    private String login;
     private String password;
     private String firstName;
     private String secondName;
     private String email;
     private String jobPosition;
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
 
     public String getPassword() {
         return password;

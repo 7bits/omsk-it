@@ -6,7 +6,7 @@
             <h1 class="title">
                 Регистрация на сайте
             </h1>
-            <form class="js-apply-user-registration-form form-content" action='<c:url value="/registration"/>' method="POST">
+            <form class="js-apply-user-registration-form form-content" action='<c:url value="/user/registration"/>' method="POST">
                 <div class="form-info">
                     Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
                 </div>

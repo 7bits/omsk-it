@@ -4,7 +4,7 @@
         <h1 class="title">
             Регистрация на <c:out value="${conference.ordinalNumber}"/>-й IT-субботник (<c:out value="${conference.humanReadableDate}"/>, <c:out value="${conference.company.name}"/>)
         </h1>
-        <form class="js-guest-form form-content" action='<c:url value="/reg"/>' method="POST">
+        <form class="js-guest-form form-content" action='<c:url value="/register"/>' method="POST">
             <div class="form-info">
                 Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
             </div>
@@ -38,6 +38,16 @@
                     <span class="js-field-response js-email-response attention"></span>
                 </span>
             </div>
+
+            <div class="field">
+                <span class="left-label">Пароль&nbsp;<span class="attention">*</span></span>
+                <input class="js-password-input js-input small-input" type="password" name="password">
+                    <span class="field-info">
+                        <span class="js-field-response js-password-response attention"></span>
+                        <span class="js-field-info"></span>
+                    </span>
+            </div>
+
             <div class="field long">
                 <span class="left-label">
                     Место работы/учебы<span class="attention">*</span>

@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Simple implementation of the GuestService.
@@ -51,5 +53,19 @@ public class SimpleGuestService implements GuestService {
     public Guest findGuestById(Long id) {
 
         return guestDao.findById(id);
+    }
+
+    @Transactional
+    @Override
+    public Guest findGuestWithLoginAndConferenceLike(final String login, final long conference_id) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("login", login);
+        params.put("conference_id", conference_id);
+        String query = "SELECT g FROM Guest g WHERE g.conference.id =:conference_id AND g.user.login =:login";
+        List<Guest> guestsList = guestDao.findByQuery(query,params);
+        if (guestsList == null || guestsList.isEmpty()) {
+            return null;
+        }
+        return guestsList.get(0);
     }
 }

@@ -21,9 +21,7 @@ public class UserRegistrationValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-
         UserRegistrationForm form = (UserRegistrationForm) target;
-
         validateFirstName(errors);
         validateSecondName(errors);
         validateEmail(form, errors);

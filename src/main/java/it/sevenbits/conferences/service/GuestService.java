@@ -34,4 +34,13 @@ public interface GuestService {
      * @see it.sevenbits.conferences.dao.EntityDao#findById(Long)
      */
     Guest findGuestById(final Long id);
+
+    /**
+     * Search guest which login and conference like necessary.
+     * @param login user's login
+     * @param conference_id guest's conference
+     * @return guest - if he is exists
+     *         null  - if doesnt exist
+     */
+    Guest findGuestWithLoginAndConferenceLike(final String login, final long conference_id);
 }

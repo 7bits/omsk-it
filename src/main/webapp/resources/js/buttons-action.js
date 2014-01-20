@@ -242,8 +242,8 @@ function doAjaxApplyForUsersRegistrationPost() {
                 }
 
                 if (response.result.password != null) {
-                    $(".js-job-position-response").html(response.result.password);
-                    $(".js-job-position-input").css("background-color", "#fff5e5");
+                    $(".js-password-response").html(response.result.password);
+                    $(".js-password-input").css("background-color", "#fff5e5");
                 }
             }
         },
@@ -350,6 +350,10 @@ function doAjaxGuestPost() {
                 if (response.result.jobPositionOther != null) {
                     $(".js-jobPosition-response").html(response.result.jobPositionOther);
                     $(".js-job-position-other-input").css("background-color", "#fff5e5");
+                }
+                if (response.result.password != null) {
+                    $(".js-password-response").html(response.result.password);
+                    $(".js-password-input").css("background-color", "#fff5e5");
                 }
             }
         },

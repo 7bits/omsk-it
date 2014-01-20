@@ -44,4 +44,21 @@ public class MailSenderUtility {
         message.setText(THANKS_FOR_REGISTRATION + confirmation_url);
         mailSender.send(message);
     }
+
+    /**
+     * Send message with link for confirmation account and registration for current conference.
+     * @param login Users login
+     * @param confirmation_token Users confirmation token
+     */
+    public void sendConfirmationTokenAndConferenceStatus(String login, String confirmation_token) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(SERVICE_MAILBOX);
+        message.setTo(login);
+        message.setSubject("Подтверждение регистрации");
+        String confirmation_url = "http://omsk-it/omsk-it/user/confirmation?confirmation_token=" +
+                confirmation_token + "&confirmation_login=" + login + "&conference_status=1"
+        ;
+        message.setText(THANKS_FOR_REGISTRATION + confirmation_url);
+        mailSender.send(message);
+    }
 }

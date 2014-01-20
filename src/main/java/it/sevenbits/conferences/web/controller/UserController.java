@@ -1,7 +1,11 @@
 package it.sevenbits.conferences.web.controller;
 
+import it.sevenbits.conferences.domain.Conference;
+import it.sevenbits.conferences.domain.Guest;
 import it.sevenbits.conferences.domain.Role;
 import it.sevenbits.conferences.domain.User;
+import it.sevenbits.conferences.service.ConferenceService;
+import it.sevenbits.conferences.service.GuestService;
 import it.sevenbits.conferences.service.RoleService;
 import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
@@ -39,16 +43,30 @@ public class UserController {
     @Autowired
     private RoleService roleService;
 
+    @Autowired
+    private ConferenceService conferenceService;
+
+    @Autowired
+    private GuestService guestService;
+
     @RequestMapping(value = "/confirmation", method = RequestMethod.GET)
     public ModelAndView confirmUser(
             @RequestParam(value = "confirmation_token", required = true) final String received_confirmation_token,
-            @RequestParam(value = "confirmation_login", required = true) final String confirmation_login
+            @RequestParam(value = "confirmation_login", required = true) final String confirmation_login,
+            @RequestParam(value = "conference_status", required = false) final Long conference_status
     ) {
 
         User user = userService.getUser(confirmation_login);
         if (user.getConfirmationToken().equals(received_confirmation_token)) {
             user.setEnabled(true);
-            userService.updateUser(user);
+            user = userService.updateUser(user);
+        }
+        if (conference_status == 1) {
+            Guest guest = new Guest();
+            guest.setUser(user);
+            Conference currentConference = conferenceService.findNextConference();
+            guest.setConference(currentConference);
+            guestService.addGuest(guest);
         }
         ModelAndView modelAndView = new ModelAndView("redirect:/");
         return modelAndView;
@@ -82,7 +100,6 @@ public class UserController {
             errors.put("message", "Форма заполнена неверно.");
             response.setResult(errors);
         } else {
-            User userTest = userService.findUserById(1l);
             response.setStatus(JsonResponse.STATUS_SUCCESS);
             User user = new User();
             user.setFirstName(userRegistrationForm.getFirstName());

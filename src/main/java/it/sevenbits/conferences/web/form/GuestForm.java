@@ -5,15 +5,49 @@ package it.sevenbits.conferences.web.form;
  */
 public class GuestForm {
 
-//    private Conference conference;
-    private String job;
+    private String jobPosition;
+    private String firstName;
+    private String secondName;
+    private String password;
+    private String email;
 
-    public String getJob() {
-        return job;
+    public String getJobPosition() {
+        return jobPosition;
     }
 
-    public void setJob(String job) {
-        this.job = job;
+    public void setJobPosition(String jobPosition) {
+        this.jobPosition = jobPosition;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
