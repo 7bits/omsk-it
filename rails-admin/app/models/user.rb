@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   self.table_name = 'user'
   #has_many :role, through: :user_roles
   has_and_belongs_to_many :role, :join_table => :user_roles
+  has_many :guest
 
   rails_admin do
     label "Пользователь"
@@ -38,6 +39,9 @@ class User < ActiveRecord::Base
       field :password do
         label "Пароль"
       end
+      field :guest do
+        label "Участник конференции"
+      end
     end
 
     edit do
@@ -67,6 +71,9 @@ class User < ActiveRecord::Base
       end
       field :password do
         label "Пароль"
+      end
+      field :guest do
+        label "Участник конференции"
       end
     end
   end

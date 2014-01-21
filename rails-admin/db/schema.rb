@@ -48,9 +48,11 @@ ActiveRecord::Schema.define(version: 20131225134610) do
 
   create_table "guest", force: true do |t|
     t.integer "conference_id", limit: 8
+    t.integer "user_id",       limit: 8
   end
 
   add_index "guest", ["conference_id"], name: "FK_mc7l13tehohwfbtw0bvr15ews", using: :btree
+  add_index "guest", ["user_id"], name: "FK_chdaocwoknpkpjjcb6dyv8os8", using: :btree
 
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"
@@ -109,14 +111,14 @@ ActiveRecord::Schema.define(version: 20131225134610) do
   end
 
   create_table "user", force: true do |t|
-    t.string  "confirmationToken"
+    t.string  "confirmation_token"
     t.string  "email"
-    t.boolean "enabled",           null: false
-    t.string  "firstName"
-    t.string  "jobPosition"
+    t.boolean "enabled"
+    t.string  "first_name"
+    t.string  "job_position"
     t.string  "login"
     t.string  "password"
-    t.string  "secondName"
+    t.string  "second_name"
   end
 
   create_table "user_roles", id: false, force: true do |t|
