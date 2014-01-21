@@ -51,5 +51,5 @@ public interface ReportService {
      * @return the found Reports list, or null in case of an error.
      * @see it.sevenbits.conferences.dao.EntityDao#findByQuery(String, java.util.Map)
      */
-    List<Report> findAllReportsByUser(final User user);
+    List<Report> findAllPresentedReportsByUser(final User user);
 }

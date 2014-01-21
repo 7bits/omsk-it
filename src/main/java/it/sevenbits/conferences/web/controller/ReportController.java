@@ -25,7 +25,7 @@ public class ReportController {
 
         Report report = reportService.findReportById(Long.parseLong(reportId));
         modelAndView.addObject("report", report);
-        modelAndView.addObject("otherReports", reportService.findAllReportsByUser(report.getUser()));
+        modelAndView.addObject("otherReports", reportService.findAllPresentedReportsByUser(report.getUser()));
 
         return modelAndView;
     }

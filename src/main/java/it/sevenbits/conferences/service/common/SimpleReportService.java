@@ -66,10 +66,10 @@ public class SimpleReportService implements ReportService {
     }
 
     @Override
-    public List<Report> findAllReportsByUser(User user) {
+    public List<Report> findAllPresentedReportsByUser(User user) {
 
         Map<String, Object> params = new HashMap<>();
         params.put("user", user);
-        return reportDao.findByQuery("select r from Report r where r.user = :user", params);
+        return reportDao.findByQuery("select r from Report r where r.user = :user where r.conference not null", params);
     }
 }
