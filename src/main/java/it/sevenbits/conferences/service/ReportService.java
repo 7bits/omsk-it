@@ -2,7 +2,7 @@ package it.sevenbits.conferences.service;
 
 import it.sevenbits.conferences.domain.Conference;
 import it.sevenbits.conferences.domain.Report;
-import it.sevenbits.conferences.domain.Reporter;
+import it.sevenbits.conferences.domain.User;
 
 import java.util.List;
 
@@ -47,9 +47,9 @@ public interface ReportService {
 
     /**
      * Finds all Reports, which belong to the Reporter.
-     * @param reporter a Reporter whose reports should be find.
+     * @param user a User whose reports should be find.
      * @return the found Reports list, or null in case of an error.
      * @see it.sevenbits.conferences.dao.EntityDao#findByQuery(String, java.util.Map)
      */
-    List<Report> findAllReportsByReporter(final Reporter reporter);
+    List<Report> findAllReportsByUser(final User user);
 }

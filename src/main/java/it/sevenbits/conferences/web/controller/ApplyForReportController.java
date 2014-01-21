@@ -2,14 +2,15 @@ package it.sevenbits.conferences.web.controller;
 
 import it.sevenbits.conferences.domain.Company;
 import it.sevenbits.conferences.domain.Report;
-import it.sevenbits.conferences.domain.Reporter;
+import it.sevenbits.conferences.domain.User;
 import it.sevenbits.conferences.service.CompanyService;
 import it.sevenbits.conferences.service.ReportService;
-import it.sevenbits.conferences.service.ReporterService;
+import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.web.form.ApplyForReportForm;
 import it.sevenbits.conferences.web.form.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -32,12 +33,11 @@ public class ApplyForReportController {
 
     @Autowired
     private CompanyService companyService;
-
-    @Autowired
-    private ReporterService reporterService;
-
     @Autowired
     private ReportService reportService;
+    @Autowired
+    private UserService userService;
+
 
     @Autowired
     @Qualifier("applyForReportValidator")
@@ -48,6 +48,12 @@ public class ApplyForReportController {
 
         ModelAndView modelAndView = new ModelAndView("apply-for-report");
         return modelAndView;
+    }
+
+    private User getLoggedUser() {
+        String userLogin = SecurityContextHolder.getContext().getAuthentication().getName();
+        User loggedUser = userService.getUser(userLogin);
+        return  loggedUser;
     }
 
     @RequestMapping(value = "/apply-for-report", method = RequestMethod.POST)
@@ -71,17 +77,10 @@ public class ApplyForReportController {
         } else {
 
             Company company = new Company();
-            Reporter reporter = new Reporter();
             Report report = new Report();
-
+            User currentUser = getLoggedUser();
             company.setName(applyForReportForm.getJob());
-            reporter.setCompany(company);
-            reporter.setFirstName(applyForReportForm.getFirstName());
-            reporter.setSecondName(applyForReportForm.getSecondName());
-            reporter.setEmail(applyForReportForm.getEmail());
-            reporter.setJobPosition(applyForReportForm.getJobPosition());
-            reporter.setSpeechExperience(applyForReportForm.getSpeechExperience());
-            report.setReporter(reporter);
+            report.setUser(currentUser);
             report.setTitle(applyForReportForm.getTitle());
             report.setDescription(applyForReportForm.getDescription());
             report.setKeyTechnologies(applyForReportForm.getKeyTechnologies());
@@ -89,7 +88,6 @@ public class ApplyForReportController {
             report.setReporterWishes(applyForReportForm.getReporterWishes());
 
             companyService.addCompany(company);
-            reporterService.addReporter(reporter);
             reportService.addReport(report);
 
             response.setStatus("SUCCESS");

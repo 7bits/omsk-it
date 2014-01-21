@@ -11,7 +11,7 @@ public class Report {
 
     private Long id;
     private Conference conference;
-    private Reporter reporter;
+    private User user;
     private String title;
     private String description;
     private String presentation;
@@ -42,13 +42,13 @@ public class Report {
     }
 
     @ManyToOne
-    @JoinColumn(name = "reporter_id")
-    public Reporter getReporter() {
-        return reporter;
+    @JoinColumn(name = "user_id")
+    public User getUser() {
+        return user;
     }
 
-    public void setReporter(Reporter reporter) {
-        this.reporter = reporter;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Column(name = "title")

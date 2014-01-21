@@ -1,7 +1,6 @@
 package it.sevenbits.conferences.web.validator;
 
 import it.sevenbits.conferences.service.ReportService;
-import it.sevenbits.conferences.service.ReporterService;
 import it.sevenbits.conferences.web.form.ApplyForReportForm;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +18,6 @@ public class ApplyForReportValidator implements Validator {
     @Autowired
     private ReportService reportService;
 
-    @Autowired
-    private ReporterService reporterService;
-
     @Override
     public boolean supports(Class<?> clazz) {
 
@@ -33,11 +29,11 @@ public class ApplyForReportValidator implements Validator {
 
         ApplyForReportForm form = (ApplyForReportForm) target;
 
-        validateFirstName(form, errors);
+        /*validateFirstName(form, errors);
         validateSecondName(form, errors);
         validateEmail(form, errors);
         validateJob(form, errors);
-        validateJobPosition(form, errors);
+        validateJobPosition(form, errors);*/
         validateTitle(form, errors);
         validateDescription(form, errors);
         validateKeyTechnologies(form, errors);
@@ -46,7 +42,7 @@ public class ApplyForReportValidator implements Validator {
         validateReporterWishes(form, errors);
     }
 
-    private void validateFirstName(ApplyForReportForm form, Errors errors) {
+    /*private void validateFirstName(ApplyForReportForm form, Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "firstName.empty", "Поле должно быть заполнено.");
     }
@@ -76,7 +72,7 @@ public class ApplyForReportValidator implements Validator {
     private void validateJobPosition(ApplyForReportForm form, Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "jobPosition", "jobPosition.empty", "Поле должно быть заполнено.");
-    }
+    }*/
 
     private void validateTitle(ApplyForReportForm form, Errors errors) {
 
