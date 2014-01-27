@@ -20,14 +20,14 @@
                                 <div class="reporter inline-item">
                                     <div class="reporter-title">
                                         <h3 class="name">
-                                            <a href='<c:url value="/reporter/${report.reporter.id}"/>'><c:out value="${report.reporter.firstName}"/>&nbsp;<c:out value="${report.reporter.secondName}"/></a>
+                                            <a href='<c:url value="/reporter/${report.user.id}"/>'><c:out value="${report.user.firstName}"/>&nbsp;<c:out value="${report.user.secondName}"/></a>
                                         </h3>
 
                                         <div class="position">
-                                            <c:out value="${report.reporter.jobPosition}"/>, <a href='<c:url value="${report.reporter.company.site}"/>' target="_blank"><c:out value="${report.reporter.company.name}"/></a>
+                                            <c:out value="${report.user.jobPosition}"/>, <a href='<c:url value="${report.user.company.site}"/>' target="_blank"><c:out value="${report.user.company.name}"/></a>
                                         </div>
                                     </div>
-                                    <img class="photo" src='/resources/images/photos/<c:url value="${report.reporter.photo}"/>'>
+                                    <img class="photo" src='/resources/images/photos/<c:url value="${report.user.photo}"/>'>
                                 </div>
 
                                 <div class="description">

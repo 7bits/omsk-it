@@ -23,8 +23,10 @@ public class User {
     private String email;
     private String jobPosition;
     private String confirmationToken;
+    private String photo;
     private boolean enabled;
     private Role role;
+    private Company company;
 
     @Id
     @GeneratedValue
@@ -121,4 +123,22 @@ public class User {
         this.role = role;
     }
 
+    @Column(name = "photo")
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    @OneToOne
+    @JoinColumn(name="company_id")
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 }
