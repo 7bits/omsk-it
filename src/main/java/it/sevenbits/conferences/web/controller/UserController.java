@@ -43,8 +43,7 @@ public class UserController {
     public ModelAndView userInformation(
             @PathVariable(value = "userId") final Long userId) {
         ModelAndView modelAndView = new ModelAndView("user-information");
-        /*Integer user_id = userId;*/
-        User user = userService.findUserById(/*user_id.longValue()*/userId);
+        User user = userService.findUserById(userId);
         List<Report> reports = reportService.findAllPresentedReportsByUser(user);
         modelAndView.addObject("reports",reports);
         modelAndView.addObject("user",user);
