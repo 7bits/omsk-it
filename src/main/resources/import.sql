@@ -42,11 +42,11 @@ insert into `report`(id, conference_id, user_id, title, description, presentatio
 -- 11 IT-субботник
 insert into `conference`(id, company_id, ordinal_number, date, registration) values(11, 1, 11, 0000, false);
 
-insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(27, 2, " Екатерина", "Боброва", null, "nophoto.png", null, null, null);
-insert into `reporter`(id, company_id, first_name, second_name, email, photo, self_description, job_position, speech_experience) values(28, 6, "Алексей", "Родионов", null, "nophoto.png", null, null, null);
+insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (27, 'bobrova@gmail.com', '111111',' Екатерина', 'Боброва', 'bobrova@gmail.com', null, 1111111, true, 'nophoto.png', 2, null);
+insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (28, 'rodionov@gmail.com', '111111', 'Алексей', 'Родионов', 'godionov@gmail.com', null, 1111111, true, 'nophoto.png', 6, null);
 
-insert into `report`(id, conference_id, reporter_id, title, description, presentation, video, other_conferences, key_technologies, reporter_wishes) values(31, 11, 27, "Обзор фреймворка Thucydides", "Обзор основанного на Selenuim фреймворка Thucydides. Он предназначен для написания тестов, имитирующих действия пользователя в браузере, и построения отчетов по их прохождению. Сейчас Thucydides - активно развивающийся open source проект, поддерживающий основные браузеры, параллельный запуск тестов, параметризацию тестов.", null, null, null, null, null);
-insert into `report`(id, conference_id, reporter_id, title, description, presentation, video, other_conferences, key_technologies, reporter_wishes) values(32, 11, 28, "Как мы делали свой Travis CI: Vagrant + KVM", "Автор расскажет, как его команда построила гибкую VM-based систему непрерывной интеграции с помощью Vagrant и Linux KVM.", null, null, null, null, null);
+insert into `report`(id, conference_id, user_id, title, description, presentation, video, other_conferences, key_technologies, reporter_wishes) values(31, 11, 27, "Обзор фреймворка Thucydides", "Обзор основанного на Selenuim фреймворка Thucydides. Он предназначен для написания тестов, имитирующих действия пользователя в браузере, и построения отчетов по их прохождению. Сейчас Thucydides - активно развивающийся open source проект, поддерживающий основные браузеры, параллельный запуск тестов, параметризацию тестов.", null, null, null, null, null);
+insert into `report`(id, conference_id, user_id, title, description, presentation, video, other_conferences, key_technologies, reporter_wishes) values(32, 11, 28, "Как мы делали свой Travis CI: Vagrant + KVM", "Автор расскажет, как его команда построила гибкую VM-based систему непрерывной интеграции с помощью Vagrant и Linux KVM.", null, null, null, null, null);
 
 -- 10 IT-субботник
 insert into `conference`(id, company_id, ordinal_number, date, registration) values(10, 7, 10, 0000, false);
