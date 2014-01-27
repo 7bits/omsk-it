@@ -28,9 +28,9 @@ insert into `conference`(id, company_id, ordinal_number, date, registration) val
 -- 12 IT-субботник
 insert into `conference`(id, company_id, ordinal_number, date, registration) values(12, 1, 12, 1383994800, false);
 
-insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id) values (6, 'golush@gmail.com', '111111', 'Дмитрий', 'Голушко', 'golush@gmail.com', 'Java Developer', 1111111, true, 'dgolushko.png', 3);
-insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id) values (7, 'samol@gmail.com', '111111', 'Александр', 'Самолов', 'samol@gmail.com', 'Технический директор', 1111111, true, 'nophoto.png', 4);
-insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id) values (8, 'tumen@gmail.com', '111111', 'Евгений', 'Тюменцев', 'tumen@gmail.com', 'Управляющий партнер Тик-Так Коуч ', 1111111, true, 'nophoto.png', 5);
+insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (6, 'golush@gmail.com', '111111', 'Дмитрий', 'Голушко', 'golush@gmail.com', 'Java Developer', 1111111, true, 'dgolushko.png', 3, null);
+insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (7, 'samol@gmail.com', '111111', 'Александр', 'Самолов', 'samol@gmail.com', 'Технический директор', 1111111, true, 'nophoto.png', 4, null);
+insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (8, 'tumen@gmail.com', '111111', 'Евгений', 'Тюменцев', 'tumen@gmail.com', 'Управляющий партнер Тик-Так Коуч ', 1111111, true, 'nophoto.png', 5, null);
 INSERT INTO user_roles (user_id, role_id) VALUES (6, 2);
 INSERT INTO user_roles (user_id, role_id) VALUES (7, 2);
 INSERT INTO user_roles (user_id, role_id) VALUES (8, 2);

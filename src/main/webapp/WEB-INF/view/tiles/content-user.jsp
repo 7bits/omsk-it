@@ -5,16 +5,16 @@
     <div class="page">
         <div class="box">
             <h1 class="title">
-                <c:out value="${reporter.firstName}"/>&nbsp;<c:out value="${reporter.secondName}"/>
+                <c:out value="${user.firstName}"/>&nbsp;<c:out value="${user.secondName}"/>
             </h1>
 
             <div class="reporter-about">
-                <img class="photo" src='/resources/images/photos/<c:url value="${reporter.photo}"/>'>
+                <img class="photo" src='/resources/images/photos/<c:url value="${user.photo}"/>'>
                 <div class="short-description">
-                    <c:out value="${reporter.jobPosition}"/>, <a href='<c:url value="${reporter.company.site}"/>' target="_blank"><span class="position"><c:out value="${reporter.company.name}"/></span></a>
+                    <c:out value="${user.jobPosition}"/>, <a href='<c:url value="${user.company.site}"/>' target="_blank"><span class="position"><c:out value="${user.company.name}"/></span></a>
                     <br>
-                    <c:out value="${reporter.selfDescription}"/>
-                    <c:if test="${reporter.selfDescription == null}">
+                    <c:out value="${user.selfDescription}"/>
+                    <c:if test="${user.selfDescription == null}">
                         Докладчик ничего о себе не написал.
                     </c:if>
                 </div>

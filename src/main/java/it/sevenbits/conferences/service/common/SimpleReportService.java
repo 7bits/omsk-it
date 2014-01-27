@@ -70,6 +70,6 @@ public class SimpleReportService implements ReportService {
 
         Map<String, Object> params = new HashMap<>();
         params.put("user", user);
-        return reportDao.findByQuery("select r from Report r where r.user = :user where r.conference not null", params);
+        return reportDao.findByQuery("select r from Report r where r.user = :user and r.conference is not null", params);
     }
 }

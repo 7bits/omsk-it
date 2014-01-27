@@ -24,6 +24,7 @@ public class User {
     private String jobPosition;
     private String confirmationToken;
     private String photo;
+    private String selfDescription;
     private boolean enabled;
     private Role role;
     private Company company;
@@ -140,5 +141,14 @@ public class User {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    @Column(name = "self_description")
+    public String getSelfDescription() {
+        return selfDescription;
+    }
+
+    public void setSelfDescription(String selfDescription) {
+        this.selfDescription = selfDescription;
     }
 }

@@ -1,13 +1,7 @@
 package it.sevenbits.conferences.web.controller;
 
-import it.sevenbits.conferences.domain.Conference;
-import it.sevenbits.conferences.domain.Guest;
-import it.sevenbits.conferences.domain.Role;
-import it.sevenbits.conferences.domain.User;
-import it.sevenbits.conferences.service.ConferenceService;
-import it.sevenbits.conferences.service.GuestService;
-import it.sevenbits.conferences.service.RoleService;
-import it.sevenbits.conferences.service.UserService;
+import it.sevenbits.conferences.domain.*;
+import it.sevenbits.conferences.service.*;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
 import it.sevenbits.conferences.web.form.JsonResponse;
 import it.sevenbits.conferences.web.form.UserRegistrationForm;
@@ -17,17 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.Validator;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 
 @Controller
@@ -48,6 +35,21 @@ public class UserController {
 
     @Autowired
     private GuestService guestService;
+
+    @Autowired
+    private ReportService reportService;
+
+    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    public ModelAndView userInformation(
+            @PathVariable(value = "userId") final Long userId) {
+        ModelAndView modelAndView = new ModelAndView("user-information");
+        /*Integer user_id = userId;*/
+        User user = userService.findUserById(/*user_id.longValue()*/userId);
+        List<Report> reports = reportService.findAllPresentedReportsByUser(user);
+        modelAndView.addObject("reports",reports);
+        modelAndView.addObject("user",user);
+        return  modelAndView;
+    }
 
     @RequestMapping(value = "/confirmation", method = RequestMethod.GET)
     public ModelAndView confirmUser(

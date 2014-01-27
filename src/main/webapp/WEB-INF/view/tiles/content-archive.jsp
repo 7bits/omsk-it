@@ -20,7 +20,7 @@
                                 <div class="reporter inline-item">
                                     <div class="reporter-title">
                                         <h3 class="name">
-                                            <a href='<c:url value="/reporter/${report.user.id}"/>'><c:out value="${report.user.firstName}"/>&nbsp;<c:out value="${report.user.secondName}"/></a>
+                                            <a href='<c:url value="/user/${report.user.id}"/>'><c:out value="${report.user.firstName}"/>&nbsp;<c:out value="${report.user.secondName}"/></a>
                                         </h3>
 
                                         <div class="position">
