@@ -1,7 +1,6 @@
 .login-form {
     position: absolute;
     margin-top: -7px;
-    margin-left: 29px;
 }
 
 .login-container {
@@ -76,7 +75,7 @@
     font-family: 'PT Sans', sans-serif;
     width:100px;
     height:40px;
-    left:50%;
+    left: 54%;
     -moz-box-shadow: 0 5px #008080;
     -webkit-box-shadow: 0 5px #008080;
     box-shadow:0 5px #008080;
