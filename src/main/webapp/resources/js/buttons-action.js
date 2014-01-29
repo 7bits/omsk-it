@@ -74,8 +74,16 @@ $(document).ready(function() {
     });
 
     $(".js-form-close-button").click(function() {
-         $(".guest-form-div").css("display", "none");
+        $(".guest-form-div").css("display", "none");
     });
+
+    $(".close-login-button").click(function() {
+        $(".login-container").css("display", "none");
+    })
+
+    $(".login-form-open-button").click(function() {
+        $(".login-container").css("display", "block");
+    })
 });
 
 function doAjaxSubscriptionPost(formdata) {

@@ -11,6 +11,13 @@
                 Подать заявку на выступление
             </h1>
              <form class="js-apply-form form-content" action='<c:url value="/apply-for-report"/>' method="POST">
+                 <div class="login-form-open">
+                     Если вы зарегистрированы, то залогиньтесь.
+                 </div>
+                 <div class="login-form-open-button">
+                     Логин
+                 </div>
+
                 <div class="form-info">
                     Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
                 </div>

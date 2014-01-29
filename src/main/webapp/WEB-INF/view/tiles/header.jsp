@@ -27,5 +27,6 @@
         <div class="login-form inline-item">
             <%@ include file="/WEB-INF/view/tiles/login-form.jsp" %>
         </div>
+        <%@ include file="/WEB-INF/view/tiles/login-popup-window.jsp" %>
     </div>
 </div>

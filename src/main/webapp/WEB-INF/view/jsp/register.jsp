@@ -5,6 +5,12 @@
             Регистрация на <c:out value="${conference.ordinalNumber}"/>-й IT-субботник (<c:out value="${conference.humanReadableDate}"/>, <c:out value="${conference.company.name}"/>)
         </h1>
         <form class="js-guest-form form-content" action='<c:url value="/register"/>' method="POST">
+            <div class="login-form-open">
+                Если вы зарегистрированы, то залогиньтесь.
+            </div>
+            <div class="login-form-open-button">
+                Логин
+            </div>
             <div class="form-info">
                 Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
             </div>
