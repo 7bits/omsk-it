@@ -15,7 +15,6 @@ import java.util.Collection;
 import java.util.List;
 
 @Service
-@Transactional(readOnly=true)
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
@@ -26,7 +25,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         it.sevenbits.conferences.domain.User domainUser = userService.getUser(login);
 
-        boolean enabled = true;
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
         boolean accountNonLocked = true;

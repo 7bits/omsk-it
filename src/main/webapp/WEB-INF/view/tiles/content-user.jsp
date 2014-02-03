@@ -9,7 +9,7 @@
             </h1>
 
             <div class="reporter-about">
-                <img class="photo" src='/resources/images/photos/<c:url value="${user.photo}"/>'>
+                <img class="photo" src='<c:url value="/resources/images/photos/${user.photo}" />' />
                 <div class="short-description">
                     <c:out value="${user.jobPosition}"/>, <a href='<c:url value="${user.company.site}"/>' target="_blank"><span class="position"><c:out value="${user.company.name}"/></span></a>
                     <br>

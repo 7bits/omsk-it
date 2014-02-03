@@ -19,10 +19,11 @@
             var toReportersUrl = '<c:url value="/to-reporters"/>';
             var toCompaniesUrl = '<c:url value="/to-companies"/>';
             var applyForReportUrl = '<c:url value="/apply-for-report"/>';
-            var suggestUrl = '<c:url value="/suggest"/>'
-            var guestUrl =  '<c:url value="/register"/>'
-            var guestCheckUrl = '<c:url value="/guest-check"/>'
-            var userRegistrationUrl = '<c:url value="/user/registration"/>'
+            var suggestUrl = '<c:url value="/suggest"/>';
+            var guestUrl =  '<c:url value="/register"/>';
+            var guestCheckUrl = '<c:url value="/guest-check"/>';
+            var userRegistrationUrl = '<c:url value="/user/registration"/>';
+            var loginUrl = '<c:url value="/user/login"/>';
         </script>
         <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.10.2.min.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/buttons-action.js"/>'></script>

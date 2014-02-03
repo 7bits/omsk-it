@@ -2,11 +2,19 @@ package it.sevenbits.conferences.web.controller;
 
 import it.sevenbits.conferences.domain.*;
 import it.sevenbits.conferences.service.*;
+import it.sevenbits.conferences.service.common.CustomUserDetailsService;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
 import it.sevenbits.conferences.web.form.JsonResponse;
+import it.sevenbits.conferences.web.form.LoginForm;
 import it.sevenbits.conferences.web.form.UserRegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -118,6 +126,47 @@ public class UserController {
             mailSenderUtility.sendConfirmationToken(userRegistrationForm.getEmail(),confirmation_token);
             response.setStatus(JsonResponse.STATUS_SUCCESS);
             response.setResult(Collections.singletonMap("message", "На ваш email послано письмо для подтверждения."));
+        }
+        return response;
+    }
+
+    @Autowired
+    @Qualifier("loginValidator")
+    private Validator loginValidator;
+
+    @Autowired
+    private CustomUserDetailsService customUserDetailsService;
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResponse login(@ModelAttribute(value = "loginForm") final LoginForm loginForm, BindingResult bindingResult) {
+        JsonResponse response = new JsonResponse();
+        loginValidator.validate(loginForm, bindingResult);
+        if (bindingResult.hasErrors()) {
+            response.setStatus(JsonResponse.STATUS_FAIL);
+            Map<String, String> errors = new HashMap<>();
+            for (FieldError fieldError: bindingResult.getFieldErrors()) {
+                if (!errors.containsKey(fieldError.getField())) {
+                    errors.put(fieldError.getField(), fieldError.getDefaultMessage());
+                }
+            }
+            errors.put("message", "Логин или пароль введены неверно");
+            response.setResult(errors);
+        } else {
+            User user = userService.getUser(loginForm.getLogin());
+            if (user == null || !user.getPassword().equals(loginForm.getPassword())) {
+                Map<String, String> errors = new HashMap<>();
+                errors.put("message","Логин или пароль введены неверно");
+                response.setResult(errors);
+                response.setStatus(JsonResponse.STATUS_FAIL);
+            } else {
+                UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getLogin(), user.getPassword());
+                UserDetails userDetails = customUserDetailsService.loadUserByUsername(user.getEmail());
+                token.setDetails(userDetails);
+                SecurityContext context = SecurityContextHolder.getContext();
+                context.setAuthentication(token);
+                response.setStatus(JsonResponse.STATUS_SUCCESS);
+            }
         }
         return response;
     }

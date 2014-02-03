@@ -84,6 +84,11 @@ $(document).ready(function() {
     $(".login-form-open-button").click(function() {
         $(".login-container").css("display", "block");
     })
+
+    $(".login-confirm-button").click(function(event) {
+        event.preventDefault();
+        doAjaxLoginPost();
+    });
 });
 
 function doAjaxSubscriptionPost(formdata) {
@@ -387,6 +392,24 @@ function doAjaxGuestCheck() {
             } else {
                 $(".guest-form-div").css("display", "block");
                 $(".guest-form-div").append("<div class='overlay'></div>");
+            }
+        }
+    })
+}
+
+function doAjaxLoginPost() {
+    var formData = $(".popup-login-form").serialize();
+    $.ajax({
+        url: loginUrl,
+        type: "POST",
+        data: formData,
+        dataType: "json",
+        success: function(response) {
+            if (response.status == "SUCCESS") {
+                $(".login-container").css("display", "none");
+                alert("Вы вошли в систему!");
+            } else {
+                $(".login-message-error").html(response.result.message);
             }
         }
     })
