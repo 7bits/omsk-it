@@ -2,10 +2,13 @@ package it.sevenbits.conferences.web.controller;
 
 import it.sevenbits.conferences.domain.Company;
 import it.sevenbits.conferences.domain.Report;
+import it.sevenbits.conferences.domain.Role;
 import it.sevenbits.conferences.domain.User;
 import it.sevenbits.conferences.service.CompanyService;
 import it.sevenbits.conferences.service.ReportService;
+import it.sevenbits.conferences.service.RoleService;
 import it.sevenbits.conferences.service.UserService;
+import it.sevenbits.conferences.utils.mail.MailSenderUtility;
 import it.sevenbits.conferences.web.form.ApplyForReportForm;
 import it.sevenbits.conferences.web.form.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * Controller for /apply-for-report page.
@@ -37,11 +41,17 @@ public class ApplyForReportController {
     private ReportService reportService;
     @Autowired
     private UserService userService;
-
+    @Autowired
+    private RoleService roleService;
+    @Autowired
+    private MailSenderUtility mailSenderUtility;
 
     @Autowired
-    @Qualifier("applyForReportValidator")
-    private Validator validator;
+    @Qualifier("anonymousApplyForReportValidator")
+    private Validator anonymousApplyForReportValidator;
+    @Autowired
+    @Qualifier("userApplyForReportValidator")
+    private Validator userApplyForReportValidator;
 
     @RequestMapping(value = "/apply-for-report", method = RequestMethod.GET)
     public ModelAndView showForm() {
@@ -50,6 +60,12 @@ public class ApplyForReportController {
         return modelAndView;
     }
 
+
+    /**
+     * Try to get logged user
+     * @return user - if any user is logged
+     *         null - if user isn/t logged
+     */
     private User getLoggedUser() {
         String userLogin = SecurityContextHolder.getContext().getAuthentication().getName();
         User loggedUser = userService.getUser(userLogin);
@@ -61,10 +77,16 @@ public class ApplyForReportController {
     public JsonResponse submitForm(@ModelAttribute(value = "applyForReportForm") ApplyForReportForm applyForReportForm, BindingResult bindingResult) {
 
         JsonResponse response = new JsonResponse();
-        validator.validate(applyForReportForm, bindingResult);
+        boolean isLogged = false;
+
+        if (getLoggedUser() != null) {
+            userApplyForReportValidator.validate(applyForReportForm, bindingResult);
+            isLogged = true;
+        } else {
+            anonymousApplyForReportValidator.validate(applyForReportForm, bindingResult);
+        }
 
         if (bindingResult.hasErrors()) {
-
             response.setStatus("FAIL");
             Map<String, String> errors = new HashMap<>();
             for (FieldError fieldError: bindingResult.getFieldErrors()) {
@@ -76,22 +98,49 @@ public class ApplyForReportController {
             response.setResult(errors);
         } else {
 
-            Company company = new Company();
-            Report report = new Report();
-            User currentUser = getLoggedUser();
-            company.setName(applyForReportForm.getJob());
-            report.setUser(currentUser);
-            report.setTitle(applyForReportForm.getTitle());
-            report.setDescription(applyForReportForm.getDescription());
-            report.setKeyTechnologies(applyForReportForm.getKeyTechnologies());
-            report.setOtherConferences(applyForReportForm.getOtherConferences());
-            report.setReporterWishes(applyForReportForm.getReporterWishes());
+            if (isLogged) {
+                User currentUser = getLoggedUser();
 
-            companyService.addCompany(company);
-            reportService.addReport(report);
+                Company company = new Company();
+                company.setName(applyForReportForm.getJob());
+                companyService.addCompany(company);
 
+                Report report = new Report();
+                report.setUser(currentUser);
+                report.setTitle(applyForReportForm.getTitle());
+                report.setDescription(applyForReportForm.getDescription());
+                report.setKeyTechnologies(applyForReportForm.getKeyTechnologies());
+                report.setOtherConferences(applyForReportForm.getOtherConferences());
+                report.setReporterWishes(applyForReportForm.getReporterWishes());
+
+                reportService.addReport(report);
+                response.setResult(Collections.singletonMap("message", "Заявка отправлена."));
+            } else {
+                User user = new User();
+                user.setFirstName(applyForReportForm.getFirstName());
+                user.setSecondName(applyForReportForm.getSecondName());
+                user.setEmail(applyForReportForm.getEmail());
+                user.setLogin(applyForReportForm.getEmail());
+                user.setPassword(applyForReportForm.getPassword());
+                user.setJobPosition(applyForReportForm.getJobPosition());
+                user.setEnabled(false);
+                Role role = roleService.findRoleById(1l);
+                user.setRole(role);
+                String confirmation_token = UUID.randomUUID().toString();
+                user.setConfirmationToken(confirmation_token);
+                userService.updateUser(user);
+
+                Report report = new Report();
+                report.setTitle(applyForReportForm.getTitle());
+                report.setDescription(applyForReportForm.getDescription());
+                report.setKeyTechnologies(applyForReportForm.getKeyTechnologies());
+                report.setOtherConferences(applyForReportForm.getOtherConferences());
+                report.setReporterWishes(applyForReportForm.getReporterWishes());
+                Report addedReport = reportService.addReport(report);
+                mailSenderUtility.sendConfirmationTokenAndReportStatus(user.getEmail(), confirmation_token, addedReport.getId());
+                response.setResult(Collections.singletonMap("message", "Вам на почту выслано письмо для подтверждения регистрации."));
+            }
             response.setStatus("SUCCESS");
-            response.setResult(Collections.singletonMap("message", "Заявка отправлена."));
         }
 
         return response;

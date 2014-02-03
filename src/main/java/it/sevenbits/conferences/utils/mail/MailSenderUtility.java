@@ -13,7 +13,7 @@ public class MailSenderUtility {
 
     private static final String SERVICE_MAILBOX = "naturalexchangeco@gmail.com";
 
-    private static final String THANKS_FOR_REGISTRATION = "Чтобы подтвердить регистрацию на нашем сайте, пройдите по ссылке: ";
+    private static final String REGISTRATION_INFO_TEXT = "Чтобы подтвердить регистрацию на нашем сайте, пройдите по ссылке: ";
 
     @Autowired
     private JavaMailSender mailSender;
@@ -33,32 +33,49 @@ public class MailSenderUtility {
     /**
      * Send message with link for confirmation account.
      * @param login Users login
-     * @param confirmation_token Users confirmation token
+     * @param confirmationToken Users confirmation token
      */
-    public void sendConfirmationToken(String login, String confirmation_token) {
+    public void sendConfirmationToken(String login, String confirmationToken) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(login);
         message.setSubject("Подтверждение регистрации");
-        String confirmation_url = "http://omsk-it/omsk-it/user/confirmation?confirmation_token=" + confirmation_token + "&confirmation_login=" + login;
-        message.setText(THANKS_FOR_REGISTRATION + confirmation_url);
+        String confirmationUrl = "http://omskit.local/omsk-it/user/confirmation?confirmation_token=" + confirmationToken + "&confirmation_login=" + login;
+        message.setText(REGISTRATION_INFO_TEXT + confirmationUrl);
         mailSender.send(message);
     }
 
     /**
      * Send message with link for confirmation account and registration for current conference.
      * @param login Users login
-     * @param confirmation_token Users confirmation token
+     * @param confirmationToken Users confirmation token
      */
-    public void sendConfirmationTokenAndConferenceStatus(String login, String confirmation_token) {
+    public void sendConfirmationTokenAndConferenceStatus(String email, String confirmationToken) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SERVICE_MAILBOX);
-        message.setTo(login);
+        message.setTo(email);
         message.setSubject("Подтверждение регистрации");
-        String confirmation_url = "http://omsk-it/omsk-it/user/confirmation?confirmation_token=" +
-                confirmation_token + "&confirmation_login=" + login + "&conference_status=1"
+        String confirmationUrl = "http://omskit.local/omsk-it/user/confirmation?confirmation_token=" +
+                confirmationToken + "&confirmation_login=" + email + "&conference_status=1"
         ;
-        message.setText(THANKS_FOR_REGISTRATION + confirmation_url);
+        message.setText(REGISTRATION_INFO_TEXT + confirmationUrl + " Ждем вас в субботу");
+        mailSender.send(message);
+    }
+
+    /**
+     * Send message with link for confirmation account and consideration user as reporter.
+     * @param login Users login
+     * @param confirmationToken Users confirmation token
+     */
+    public void sendConfirmationTokenAndReportStatus(String email, String confirmationToken, Long reportId) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(SERVICE_MAILBOX);
+        message.setTo(email);
+        message.setSubject("Подтверждение регистрации");
+        String confirmationUrl = "http://omskit.local/omsk-it/user/confirmation?confirmation_token=" +
+                confirmationToken + "&confirmation_login=" + email + "&report_status=" + reportId
+        ;
+        message.setText(REGISTRATION_INFO_TEXT + confirmationUrl + " Ваша заявка на доклад будет рассмотрена.");
         mailSender.send(message);
     }
 }

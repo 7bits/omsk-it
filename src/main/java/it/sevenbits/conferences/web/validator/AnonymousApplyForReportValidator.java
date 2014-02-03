@@ -13,7 +13,7 @@ import org.springframework.validation.Validator;
  * Validator for apply-for-report form.
  */
 @Component
-public class ApplyForReportValidator implements Validator {
+public class AnonymousApplyForReportValidator implements Validator {
 
     @Autowired
     private ReportService reportService;
@@ -29,11 +29,11 @@ public class ApplyForReportValidator implements Validator {
 
         ApplyForReportForm form = (ApplyForReportForm) target;
 
-        /*validateFirstName(form, errors);
+        validateFirstName(form, errors);
         validateSecondName(form, errors);
         validateEmail(form, errors);
-        validateJob(form, errors);
-        validateJobPosition(form, errors);*/
+        validatePassword(form, errors);
+        validateJobPosition(form, errors);
         validateTitle(form, errors);
         validateDescription(form, errors);
         validateKeyTechnologies(form, errors);
@@ -42,7 +42,7 @@ public class ApplyForReportValidator implements Validator {
         validateReporterWishes(form, errors);
     }
 
-    /*private void validateFirstName(ApplyForReportForm form, Errors errors) {
+    private void validateFirstName(ApplyForReportForm form, Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "firstName.empty", "Поле должно быть заполнено.");
     }
@@ -64,15 +64,14 @@ public class ApplyForReportValidator implements Validator {
         }
     }
 
-    private void validateJob(ApplyForReportForm form, Errors errors) {
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "job", "job.empty", "Поле должно быть заполнено.");
+    private void validatePassword(ApplyForReportForm form, Errors errors) {
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "password.empty", "Поле должно быть заполнено.");
     }
 
     private void validateJobPosition(ApplyForReportForm form, Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "jobPosition", "jobPosition.empty", "Поле должно быть заполнено.");
-    }*/
+    }
 
     private void validateTitle(ApplyForReportForm form, Errors errors) {
 

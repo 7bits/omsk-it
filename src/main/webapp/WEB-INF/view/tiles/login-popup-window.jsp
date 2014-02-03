@@ -8,7 +8,7 @@
                 <tbody>
                 <tr>
                     <td>Логин:</td>
-                    <td><input type="text" name="login" class="login-input"/></td>
+                    <td><input type="text" name="login" class="login-input" autocomplete="on"/></td>
                 </tr>
                 <tr>
                     <td>Пароль:</td>

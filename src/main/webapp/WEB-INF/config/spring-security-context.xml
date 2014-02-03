@@ -13,7 +13,7 @@
         <intercept-url pattern="/admin/*" access="ROLE_ADMIN" />
 
         <form-login login-page="/user-login.html"
-                    authentication-failure-url="/error-login.html" />
+                    authentication-failure-url="/error-login.html" always-use-default-target="false" />
         <logout/>
 
     </http>

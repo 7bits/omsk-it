@@ -138,6 +138,10 @@
     border: 1px solid #333333;
 }
 
+.login-main-form {
+    margin-left: 25%;
+}
+
 .close-login-button:hover {
     background-color: #e0e0e0;
 }

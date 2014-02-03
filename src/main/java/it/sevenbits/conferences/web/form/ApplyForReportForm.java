@@ -8,6 +8,7 @@ public class ApplyForReportForm {
     private String firstName;
     private String secondName;
     private String email;
+    private String password;
     private String job;
     private String jobPosition;
     private String title;
@@ -103,5 +104,13 @@ public class ApplyForReportForm {
 
     public void setReporterWishes(String reporterWishes) {
         this.reporterWishes = reporterWishes;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

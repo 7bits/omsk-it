@@ -161,6 +161,11 @@ function doAjaxApplyForReportPost() {
                     $(".js-email-input").css("background-color", "#fff5e5");
                 }
 
+                if (response.result.password != null) {
+                    $(".js-password-response").html(response.result.password);
+                    $(".js-password-input").css("background-color", "#fff5e5");
+                }
+
                 if (response.result.job != null) {
                     $(".js-job-response").html(response.result.job);
                     $(".js-job-input").css("background-color", "#fff5e5");
@@ -407,7 +412,7 @@ function doAjaxLoginPost() {
         success: function(response) {
             if (response.status == "SUCCESS") {
                 $(".login-container").css("display", "none");
-                alert("Вы вошли в систему!");
+                window.location.reload();
             } else {
                 $(".login-message-error").html(response.result.message);
             }

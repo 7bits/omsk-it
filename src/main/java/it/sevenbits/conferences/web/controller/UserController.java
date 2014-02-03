@@ -9,9 +9,7 @@ import it.sevenbits.conferences.web.form.LoginForm;
 import it.sevenbits.conferences.web.form.UserRegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -31,19 +29,14 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
     @Autowired
     private MailSenderUtility mailSenderUtility;
-
     @Autowired
     private RoleService roleService;
-
     @Autowired
     private ConferenceService conferenceService;
-
     @Autowired
     private GuestService guestService;
-
     @Autowired
     private ReportService reportService;
 
@@ -60,22 +53,28 @@ public class UserController {
 
     @RequestMapping(value = "/confirmation", method = RequestMethod.GET)
     public ModelAndView confirmUser(
-            @RequestParam(value = "confirmation_token", required = true) final String received_confirmation_token,
-            @RequestParam(value = "confirmation_login", required = true) final String confirmation_login,
-            @RequestParam(value = "conference_status", required = false) final Long conference_status
+            @RequestParam(value = "confirmation_token", required = true) final String receivedConfirmationToken,
+            @RequestParam(value = "confirmation_login", required = true) final String confirmationLogin,
+            @RequestParam(value = "conference_status", required = false) final Long conferenceStatus,
+            @RequestParam(value = "report_status", required = false) final Long reportStatus
     ) {
 
-        User user = userService.getUser(confirmation_login);
-        if (user.getConfirmationToken().equals(received_confirmation_token)) {
+        User user = userService.getUser(confirmationLogin);
+        if (user != null || (user.getConfirmationToken().equals(receivedConfirmationToken) && !user.getEnabled())) {
             user.setEnabled(true);
             user = userService.updateUser(user);
-        }
-        if (conference_status == 1) {
-            Guest guest = new Guest();
-            guest.setUser(user);
-            Conference currentConference = conferenceService.findNextConference();
-            guest.setConference(currentConference);
-            guestService.addGuest(guest);
+            if (conferenceStatus != null && conferenceStatus == 1) {
+                Guest guest = new Guest();
+                guest.setUser(user);
+                Conference currentConference = conferenceService.findNextConference();
+                guest.setConference(currentConference);
+                guestService.addGuest(guest);
+            }
+            if (reportStatus != null) {
+                Report report = reportService.findReportById(reportStatus);
+                report.setUser(user);
+                reportService.updateReport(report);
+            }
         }
         ModelAndView modelAndView = new ModelAndView("redirect:/");
         return modelAndView;
@@ -109,7 +108,6 @@ public class UserController {
             errors.put("message", "Форма заполнена неверно.");
             response.setResult(errors);
         } else {
-            response.setStatus(JsonResponse.STATUS_SUCCESS);
             User user = new User();
             user.setFirstName(userRegistrationForm.getFirstName());
             user.setSecondName(userRegistrationForm.getSecondName());
@@ -136,6 +134,12 @@ public class UserController {
 
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView getLoginPage() {
+        ModelAndView modelAndView = new ModelAndView("login");
+        return modelAndView;
+    }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
@@ -166,6 +170,7 @@ public class UserController {
                 SecurityContext context = SecurityContextHolder.getContext();
                 context.setAuthentication(token);
                 response.setStatus(JsonResponse.STATUS_SUCCESS);
+
             }
         }
         return response;
