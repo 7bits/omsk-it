@@ -8,12 +8,11 @@
 
     <http auto-config="true">
 
-        <intercept-url pattern="/sec/moderation.html" access="ROLE_MODERATOR" />
         <intercept-url pattern="/archive" access="ROLE_MODERATOR" />
-        <intercept-url pattern="/admin/*" access="ROLE_ADMIN" />
 
-        <form-login login-page="/user-login.html"
-                    authentication-failure-url="/error-login.html" always-use-default-target="false" />
+        <form-login login-page="/user/login"
+                    authentication-failure-url="/user/login" always-use-default-target="false"
+                />
         <logout/>
 
     </http>

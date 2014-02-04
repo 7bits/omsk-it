@@ -25,8 +25,8 @@
             <a class="vkontakte inline-item social-icon" href="http://vk.com/omskit"></a>
         </div>
         <div class="login-form inline-item">
-            <%@ include file="/WEB-INF/view/tiles/plugin-login-form.jsp" %>
+            <%@ include file="/WEB-INF/view/jsp/plugin-login-form.jsp" %>
         </div>
-        <%@ include file="/WEB-INF/view/tiles/login-popup-window.jsp" %>
+        <%@ include file="/WEB-INF/view/jsp/login-popup-window.jsp" %>
     </div>
 </div>

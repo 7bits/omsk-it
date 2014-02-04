@@ -7,7 +7,7 @@
         <b class="error">Invalid login or password.</b>
     </c:if>
 </p>
-<form method="post" action="<c:url value='j_spring_security_check'/>">
+<form method="post" action="<c:url value='/j_spring_security_check'/>">
     <table>
         <tbody>
             <sec:authorize  ifAnyGranted="ROLE_ADMIN, ROLE_USER, ROLE_MODERATOR" >

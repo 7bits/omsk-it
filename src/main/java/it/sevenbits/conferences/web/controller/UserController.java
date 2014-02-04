@@ -20,6 +20,8 @@ import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.*;
 
 
@@ -143,7 +145,7 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse login(@ModelAttribute(value = "loginForm") final LoginForm loginForm, BindingResult bindingResult) {
+    public JsonResponse login(@ModelAttribute(value = "loginForm") final LoginForm loginForm, BindingResult bindingResult, HttpServletRequest request) {
         JsonResponse response = new JsonResponse();
         loginValidator.validate(loginForm, bindingResult);
         if (bindingResult.hasErrors()) {
@@ -167,10 +169,12 @@ public class UserController {
                 UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getLogin(), user.getPassword());
                 UserDetails userDetails = customUserDetailsService.loadUserByUsername(user.getEmail());
                 token.setDetails(userDetails);
-                SecurityContext context = SecurityContextHolder.getContext();
-                context.setAuthentication(token);
+                SecurityContext securityContext = SecurityContextHolder.getContext();
+                securityContext.setAuthentication(token);
                 response.setStatus(JsonResponse.STATUS_SUCCESS);
-
+                // Create a new session and add the security context.
+                HttpSession session = request.getSession(true);
+                session.setAttribute("SPRING_SECURITY_CONTEXT", securityContext);
             }
         }
         return response;

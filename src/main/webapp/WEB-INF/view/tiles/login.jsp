@@ -7,7 +7,11 @@
                 Вход на сайт
             </h1>
             <form class = "login-main-form" method="post" action="<c:url value='/j_spring_security_check'/>">
-
+                <p>
+                    <c:if test="${error == true}">
+                        <b class="error">Invalid login or password.</b>
+                    </c:if>
+                </p>
                 <div class="field">
                     <span class="left-label">E-mail</span>
                     <input class="js-login-input js-input small-input" type="text" name="j_username" id="j_username" size="30" maxlength="40"/>
