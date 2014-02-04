@@ -2,7 +2,7 @@
 class Report < ActiveRecord::Base
   self.table_name = 'report'
   belongs_to :conference
-  belongs_to :reporter
+  belongs_to :user
 
   rails_admin do
     label "Доклад"
@@ -17,9 +17,6 @@ class Report < ActiveRecord::Base
       field :conference do
         label "конференция"
       end
-      field :reporter do
-        label "докладчик"
-      end
     end
 
     edit do
@@ -28,9 +25,6 @@ class Report < ActiveRecord::Base
       end
       field :conference do
         label "конференция"
-      end
-      field :reporter do
-        label "докладчик"
       end
       field :description, :text do
         label "описание"

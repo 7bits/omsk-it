@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   #has_many :role, through: :user_roles
   has_and_belongs_to_many :role, :join_table => :user_roles
   has_many :guest
+  has_many :report
+  mount_uploader :photo, PhotoUploader
+
 
   rails_admin do
     label "Пользователь"
@@ -36,11 +39,17 @@ class User < ActiveRecord::Base
       field :role do
         label "Роли"
       end
-      field :password do
-        label "Пароль"
-      end
       field :guest do
         label "Участник конференции"
+      end
+      field :report do
+        label "Доклад"
+      end
+      field :photo do
+        label "Фото"
+        formatted_value do
+          bindings[:view].tag(:img, { :src => bindings[:object].image }) << value
+        end
       end
     end
 
@@ -69,11 +78,17 @@ class User < ActiveRecord::Base
       field :role do
         label "Роли"
       end
-      field :password do
-        label "Пароль"
-      end
       field :guest do
         label "Участник конференции"
+      end
+      field :report do
+        label "Доклад"
+      end
+      field :photo do
+        label "Фото"
+        formatted_value do
+          bindings[:view].tag(:img, { :src => bindings[:object].image }) << value
+        end
       end
     end
   end

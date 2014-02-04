@@ -1,4 +1,5 @@
 # coding: utf-8
+require 'date'
 class Conference < ActiveRecord::Base
   self.table_name = 'conference'
   belongs_to :company
@@ -6,7 +7,7 @@ class Conference < ActiveRecord::Base
 
   rails_admin do
     label "Субботник"
-    label_plural "СУбботники"
+    label_plural "Субботники"
 
     list do
       field :id
@@ -16,8 +17,11 @@ class Conference < ActiveRecord::Base
       field :company do
         label "Место проведения"
       end
-      field :date do
+      field :date, :timestamp do
         label "Дата проведения"
+        formatted_value do # used in form views
+          Time.at(value).to_datetime
+        end
       end
       field :registration do
         label "Регистрация"

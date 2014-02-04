@@ -2,7 +2,6 @@
 class Company < ActiveRecord::Base
   self.table_name = 'company'
   has_many :conference
-  has_many :reporter
 
   rails_admin do
     label "Компания"
@@ -34,9 +33,6 @@ class Company < ActiveRecord::Base
       end
       field :conference do
         label "Субботники"
-      end
-      field :reporter do
-        label "Докладчики"
       end
     end
 
