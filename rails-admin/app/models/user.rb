@@ -47,9 +47,6 @@ class User < ActiveRecord::Base
       end
       field :photo do
         label "Фото"
-        formatted_value do
-          bindings[:view].tag(:img, { :src => bindings[:object].image }) << value
-        end
       end
     end
 
@@ -86,9 +83,6 @@ class User < ActiveRecord::Base
       end
       field :photo do
         label "Фото"
-        formatted_value do
-          bindings[:view].tag(:img, { :src => bindings[:object].image }) << value
-        end
       end
     end
   end
