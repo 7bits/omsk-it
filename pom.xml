@@ -215,5 +215,24 @@
                 </resources>
             </build>
         </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <rp.build.warname>ROOT</rp.build.warname>
+                <server.tomcat>test-tomcat</server.tomcat>
+                <server.url>http://192.168.1.228:8080/manager/text</server.url>
+                <server.path>/</server.path>
+            </properties>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>${basedir}/src/main/resources/production/</directory>
+                        <includes>
+                            <include>*.*</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
     </profiles>
 </project>
