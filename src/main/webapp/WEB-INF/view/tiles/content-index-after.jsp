@@ -28,13 +28,20 @@
                 <div class="report">
                     <div class="reporter inline-item">
                         <div class="name">
-                            <a href='<c:url value="/reporter/${report.reporter.id}"/>'><c:out value="${report.reporter.firstName}"/>&nbsp;<c:out value="${report.reporter.secondName}"/></a>
+                            <a href='<c:url value="/reporter/${report.user.id}"/>'><c:out value="${report.user.firstName}"/>&nbsp;<c:out value="${report.user.secondName}"/></a>
                         </div>
 
                         <div class="position">
-                            <c:out value="${report.reporter.jobPosition}"/>, <a href='<c:url value="${report.reporter.company.site}"/>' target="_blank"><c:out value="${report.reporter.company.name}"/></a>
+                            <c:out value="${report.user.jobPosition}"/>, <a href='<c:url value="${report.user.company.site}"/>' target="_blank"><c:out value="${report.user.company.name}"/></a>
                         </div>
-                         <img class="photo" src='<c:url value="/resources/images/photos/${report.user.photo}" />' />
+                        <c:choose>
+                            <c:when test="${report.user.photo == null}">
+                                <img class="photo" src='<c:url value="/resources/images/photos/nophoto.png" />' />
+                            </c:when>
+                            <c:otherwise>
+                                <img class="photo" src='<c:url value="/resources/images/photos/${report.user.photo}" />' />
+                            </c:otherwise>
+                        </c:choose>
                     </div>
 
                     <div class="description inline-item">

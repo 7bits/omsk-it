@@ -27,7 +27,14 @@
                                             <c:out value="${report.user.jobPosition}"/>, <a href='<c:url value="${report.user.company.site}"/>' target="_blank"><c:out value="${report.user.company.name}"/></a>
                                         </div>
                                     </div>
-                                    <img class="photo" src='<c:url value="/resources/images/photos/${report.user.photo}" />' />
+                                    <c:choose>
+                                        <c:when test="${report.user.photo == null}">
+                                            <img class="photo" src='<c:url value="/resources/images/photos/nophoto.png" />' />
+                                        </c:when>
+                                        <c:otherwise>
+                                            <img class="photo" src='<c:url value="/resources/images/photos/${report.user.photo}" />' />
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
 
                                 <div class="description">
