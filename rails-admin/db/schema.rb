@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131225134610) do
+ActiveRecord::Schema.define(version: 20140213104210) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -76,24 +76,11 @@ ActiveRecord::Schema.define(version: 20131225134610) do
     t.string  "title"
     t.string  "video"
     t.integer "conference_id",     limit: 8
-    t.integer "reporter_id",       limit: 8
+    t.integer "user_id",           limit: 8
   end
 
   add_index "report", ["conference_id"], name: "FK_qnjt6x5yp8961pntheemo8rh", using: :btree
-  add_index "report", ["reporter_id"], name: "FK_oxy74m7bhlikdpajhcxrcesco", using: :btree
-
-  create_table "reporter", force: true do |t|
-    t.string  "email"
-    t.string  "first_name"
-    t.string  "job_position"
-    t.string  "photo"
-    t.string  "second_name"
-    t.string  "self_description"
-    t.string  "speech_experience"
-    t.integer "company_id",        limit: 8
-  end
-
-  add_index "reporter", ["company_id"], name: "FK_h0q7t84r4k4cmonm1rbg15jgm", using: :btree
+  add_index "report", ["user_id"], name: "FK_bewieeqpf679t5x8g8grd176f", using: :btree
 
   create_table "role", force: true do |t|
     t.string "role"
@@ -118,8 +105,13 @@ ActiveRecord::Schema.define(version: 20131225134610) do
     t.string  "job_position"
     t.string  "login"
     t.string  "password"
+    t.string  "photo",                        default: "nophoto.png"
     t.string  "second_name"
+    t.string  "self_description"
+    t.integer "company_id",         limit: 8
   end
+
+  add_index "user", ["company_id"], name: "FK_bteyn2vjkuydkfqefgaje2rhr", using: :btree
 
   create_table "user_roles", id: false, force: true do |t|
     t.integer "role_id", limit: 8, default: 0, null: false

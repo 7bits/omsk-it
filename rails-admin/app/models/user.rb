@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   has_many :report
   mount_uploader :photo, PhotoUploader
 
-
   rails_admin do
     label "Пользователь"
     label_plural "Пользователи"
