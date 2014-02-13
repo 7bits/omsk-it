@@ -33,16 +33,9 @@
                         </div>
 
                         <div class="position">
-                            <c:out value="${report.user.jobPosition}"/>, <a href='<c:url value="${report.user.company.site}"/>' target="_blank"><c:out value="${report.user.company.name}"/></a>
+                            <%@ include file="/WEB-INF/view/jsp/job-position-viewing.jsp" %>
                         </div>
-                        <c:choose>
-                            <c:when test="${report.user.photo == null}">
-                                <img class="photo" src='<c:url value="/resources/images/photos/nophoto.png" />' />
-                            </c:when>
-                            <c:otherwise>
-                                <img class="photo" src='<c:url value="/resources/images/photos/${report.user.photo}" />' />
-                            </c:otherwise>
-                        </c:choose>
+                        <%@ include file="/WEB-INF/view/jsp/photo-viewing.jsp" %>
                     </div>
 
                     <div class="description inline-item">

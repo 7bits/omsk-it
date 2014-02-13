@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140213104210) do
+ActiveRecord::Schema.define(version: 20140213134012) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20140213104210) do
     t.string  "job_position"
     t.string  "login"
     t.string  "password"
-    t.string  "photo",                        default: "nophoto.png"
+    t.string  "photo"
     t.string  "second_name"
     t.string  "self_description"
     t.integer "company_id",         limit: 8

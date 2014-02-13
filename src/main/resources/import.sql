@@ -29,8 +29,8 @@ insert into `conference`(id, company_id, ordinal_number, date, registration) val
 insert into `conference`(id, company_id, ordinal_number, date, registration) values(12, 1, 12, 1383994800, false);
 
 insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (10, 'golush@gmail.com', '111111', 'Дмитрий', 'Голушко', 'golush@gmail.com', 'Java Developer', 1111111, true, 'dgolushko.png', 3, null);
-insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (30, 'samol@gmail.com', '111111', 'Александр', 'Самолов', 'samol@gmail.com', 'Технический директор', 1111111, true, 'nophoto.png', 4, null);
-insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (31, 'tumen@gmail.com', '111111', 'Евгений', 'Тюменцев', 'tumen@gmail.com', 'Управляющий партнер Тик-Так Коуч ', 1111111, true, 'nophoto.png', 5, null);
+insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (30, 'samol@gmail.com', '111111', 'Александр', 'Самолов', 'samol@gmail.com', 'Технический директор', 1111111, true, null, 4, null);
+insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (31, 'tumen@gmail.com', '111111', 'Евгений', 'Тюменцев', 'tumen@gmail.com', 'Управляющий партнер Тик-Так Коуч ', 1111111, true, null, 5, null);
 INSERT INTO user_roles (user_id, role_id) VALUES (10, 2);
 INSERT INTO user_roles (user_id, role_id) VALUES (30, 2);
 INSERT INTO user_roles (user_id, role_id) VALUES (31, 2);
@@ -42,8 +42,8 @@ insert into `report`(id, conference_id, user_id, title, description, presentatio
 -- 11 IT-субботник
 insert into `conference`(id, company_id, ordinal_number, date, registration) values(11, 1, 11, 0000, false);
 
-insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (27, 'bobrova@gmail.com', '111111',' Екатерина', 'Боброва', 'bobrova@gmail.com', null, 1111111, true, 'nophoto.png', 2, null);
-insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (28, 'rodionov@gmail.com', '111111', 'Алексей', 'Родионов', 'godionov@gmail.com', null, 1111111, true, 'nophoto.png', 6, null);
+insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (27, 'bobrova@gmail.com', '111111',' Екатерина', 'Боброва', 'bobrova@gmail.com', null, 1111111, true, null, 2, null);
+insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (28, 'rodionov@gmail.com', '111111', 'Алексей', 'Родионов', 'godionov@gmail.com', null, 1111111, true, null, 6, null);
 
 insert into `report`(id, conference_id, user_id, title, description, presentation, video, other_conferences, key_technologies, reporter_wishes) values(31, 11, 27, "Обзор фреймворка Thucydides", "Обзор основанного на Selenuim фреймворка Thucydides. Он предназначен для написания тестов, имитирующих действия пользователя в браузере, и построения отчетов по их прохождению. Сейчас Thucydides - активно развивающийся open source проект, поддерживающий основные браузеры, параллельный запуск тестов, параметризацию тестов.", null, null, null, null, null);
 insert into `report`(id, conference_id, user_id, title, description, presentation, video, other_conferences, key_technologies, reporter_wishes) values(32, 11, 28, "Как мы делали свой Travis CI: Vagrant + KVM", "Автор расскажет, как его команда построила гибкую VM-based систему непрерывной интеграции с помощью Vagrant и Linux KVM.", null, null, null, null, null);

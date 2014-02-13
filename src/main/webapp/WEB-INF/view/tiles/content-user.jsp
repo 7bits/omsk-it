@@ -10,15 +10,30 @@
 
             <div class="reporter-about">
                 <c:choose>
-                    <c:when test="${report.user.photo == null}">
+                    <c:when test="${user.photo == null}">
+                        <img class="photo" src='<c:url value="/resources/images/photos/nophoto.png" />' />
+                    </c:when>
+                    <c:when test="${user.photo eq ''}">
                         <img class="photo" src='<c:url value="/resources/images/photos/nophoto.png" />' />
                     </c:when>
                     <c:otherwise>
-                        <img class="photo" src='<c:url value="/resources/images/photos/${report.user.photo}" />' />
+                        <img class="photo" src='<c:url value="/resources/images/photos/${user.photo}" />' />
                     </c:otherwise>
                 </c:choose>
                 <div class="short-description">
-                    <c:out value="${user.jobPosition}"/>, <a href='<c:url value="${user.company.site}"/>' target="_blank"><span class="position"><c:out value="${user.company.name}"/></span></a>
+                    <span class="position">
+                        <c:choose>
+                            <c:when test="${user.jobPosition == null}">
+                                <a href='<c:url value="${user.company.site}"/>' target="_blank"><c:out value="${user.company.name}"/></a>
+                            </c:when>
+                            <c:when test="${user.jobPosition eq ''}">
+                                <a href='<c:url value="${user.company.site}"/>' target="_blank"><c:out value="${user.company.name}"/></a>
+                            </c:when>
+                            <c:otherwise>
+                                <c:out value="${user.jobPosition}"/>, <a href='<c:url value="${user.company.site}"/>' target="_blank"><c:out value="${user.company.name}"/></a>
+                            </c:otherwise>
+                        </c:choose>
+                    </span>
                     <br>
                     <c:out value="${user.selfDescription}"/>
                     <c:if test="${user.selfDescription == null}">

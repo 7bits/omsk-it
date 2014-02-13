@@ -10,13 +10,13 @@
 
             <div class="report-content">
                 <div class="reporter inline-item">
-                    <img class="photo" src='<c:url value="/resources/images/photos/${report.user.photo}" />' />
+                    <%@ include file="/WEB-INF/view/jsp/photo-viewing.jsp" %>
                     <div class="personal">
                         <h3 class="name">
                             <a href='<c:url value="/user/${report.user.id}"/>'><c:out value="${report.user.firstName}"/>&nbsp;<c:out value="${report.user.secondName}"/></a>
                         </h3>
                         <div class="position">
-                            <c:out value="${report.user.jobPosition}"/>, <a href='<c:url value="${report.user.company.site}"/>' target="_blank"><c:out value="${report.user.company.name}"/></a>
+                            <%@ include file="/WEB-INF/view/jsp/job-position-viewing.jsp" %>
                         </div>
                     </div>
                 </div>
