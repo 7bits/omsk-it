@@ -25,6 +25,7 @@ set :deploy_via, :copy # Указание на то, что стоит хран�
 
 # set :command_prefix, [". `/usr/local/rvm/bin/rvm . do rvm env --path`"]
 before 'deploy:assets:precompile','deploy:setup', 'rvm:install_rvm', 'rvm:install_ruby' # интеграция rvm с capistrano настолько хороша, что при выполнении cap deploy:setup установит себя и указанный в rvm_ruby_string руби.
+after  'deploy:update', 'deploy:migrate'
 
 #after 'deploy:update_code', :roles => :app do
 #  # Здесь для примера вставлен только один конфиг с приватными данными - database.yml. Обычно для таких вещей создают папку /srv/myapp/shared/config и кладут файлы туда. При каждом деплое создаются ссылки на них в нужные места приложения.
