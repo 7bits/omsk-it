@@ -89,7 +89,23 @@ $(document).ready(function() {
         event.preventDefault();
         doAjaxLoginPost();
     });
+
+    $(".vkAuthButton").click(function(event) {
+        event.preventDefault();
+        vkAuthButtonFunc();
+    })
 });
+
+function vkAuthButtonFunc() {
+    var url = "https://oauth.vk.com/authorize";
+    var client_id = "client_id=4193643&";
+    var scope = " scope=SETTINGS&";
+    var redirect_uri = "redirect_uri=http://saturdays.omskit.org/vklogin&";
+    var response_type = "response_type=code";
+    var data = client_id + scope + redirect_uri + response_type;
+    //window.open(url + "?" + data,"window",'width=200,height=400');
+    window.location.replace(url + "?" + data);
+}
 
 function doAjaxSubscriptionPost(formdata) {
 
