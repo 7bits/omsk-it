@@ -105,6 +105,11 @@
     text-align: center;
 }
 
+a:visited {
+    color:#FFFFFF;
+    text-decoration:none
+}
+
 .login-form-open {
     display: inline-block;
     font-size: 18px;

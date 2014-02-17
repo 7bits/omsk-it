@@ -16,9 +16,11 @@
                 <div class="login-form-open">
                     Если вы зарегистрированы, то залогиньтесь.
                 </div>
-                <div class="login-form-open-button">
-                    Логин
-                </div>
+                <a href='<c:url value="/user/login"/>'>
+                    <div class="login-form-open-button">
+                        Логин
+                    </div>
+                </a>
             </sec:authorize>
             <div class="form-info">
                 Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)

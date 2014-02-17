@@ -77,13 +77,13 @@ $(document).ready(function() {
         $(".guest-form-div").css("display", "none");
     });
 
-    $(".close-login-button").click(function() {
-        $(".login-container").css("display", "none");
-    })
-
-    $(".login-form-open-button").click(function() {
-        $(".login-container").css("display", "block");
-    })
+//    $(".close-login-button").click(function() {
+//        $(".login-container").css("display", "none");
+//    })
+//
+//    $(".login-form-open-button").click(function() {
+//        $(".login-container").css("display", "block");
+//    })
 
     $(".login-confirm-button").click(function(event) {
         event.preventDefault();
