@@ -155,7 +155,6 @@ a:visited .login-form-open-button {
 .login-form-plugin-container {
     float:right;
     width: 336px;
-    text-align: right;
 }
 
 .login-form-plugin-container .login {
@@ -170,12 +169,23 @@ a:visited .login-form-open-button {
     border: solid 2px rgb(170,240,247);
 }
 
-.login-form-plugin-container .enter {
+.login-form-plugin-container .enter{
     font-family: 'PT Sans', sans-serif;
     color: #FFFFFF;
     font-size: 16px;
     width: 60px;
     height: 31px;
+}
+
+.login-form-plugin-container .logout{
+    font-family: 'PT Sans', sans-serif;
+    color: #FFFFFF;
+    font-size: 16px;
+    width: 60px;
+    float: right;
+    text-align: center;
+    padding-top: 4px;
+    height: 25px;
 }
 
 .login-form-plugin-container a {
@@ -190,4 +200,10 @@ a:visited .login-form-open-button {
 .float-container {
     height: 53px;
     width: 100%;
+}
+
+.login-form-plugin-container .logged-name {
+    float: right;
+    margin-top: 4px;
+    margin-right: 10px;
 }

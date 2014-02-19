@@ -11,13 +11,13 @@
     <div class="float-container">
         <div class="login-form-plugin-container">
             <sec:authorize  ifAnyGranted="ROLE_ADMIN, ROLE_USER, ROLE_MODERATOR" >
-                <div>
-                    <sec:authentication property="principal.username"/>
-                </div>
-                <div class="href">
-                    <a href="<c:url value="/j_spring_security_logout" />" >
+                <a href="<c:url value="/j_spring_security_logout" />" >
+                    <div class="inline-item logout login-form-button">
                         Выйти
-                    </a>
+                    </div>
+                </a>
+                <div class="inline-item logged-name">
+                    <sec:authentication property="principal.username"/>
                 </div>
             </sec:authorize>
             <sec:authorize ifNotGranted="ROLE_ADMIN, ROLE_USER, ROLE_MODERATOR">
