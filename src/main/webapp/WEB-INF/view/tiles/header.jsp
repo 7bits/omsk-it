@@ -3,6 +3,9 @@
 
 <div class="header">
     <div class="page">
+        <div class="login-form">
+            <%@ include file="/WEB-INF/view/jsp/plugin-login-form.jsp" %>
+        </div>
         <div class="inline-item">
             <a href='<c:url value="/"/>'>
                 <img class="logo-img" src='<c:url value="/resources/images/site-logo.png"/>'>
@@ -23,9 +26,6 @@
         <div class="social-ref  inline-item">
             <a class="twitter inline-item social-icon" href="https://twitter.com/OmskIT"></a>
             <a class="vkontakte inline-item social-icon" href="http://vk.com/omskit"></a>
-        </div>
-        <div class="login-form inline-item">
-            <%@ include file="/WEB-INF/view/jsp/plugin-login-form.jsp" %>
         </div>
         <%@ include file="/WEB-INF/view/jsp/login-popup-window.jsp" %>
     </div>

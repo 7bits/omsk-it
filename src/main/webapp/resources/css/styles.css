@@ -38,12 +38,12 @@ img {
     right: 0;
 }
 .header {
-    height: 118px;
+    height: 160px;
     background-color: #fdfaf5;
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
 .header .page {
-    padding-top: 20px;
+    padding-top: 1px;
     padding-bottom: 14px;
 }
 
@@ -86,8 +86,14 @@ img {
 .social-icon {
     width: 30px;
     height: 30px;
-    margin: 25px 5px;
+    margin-top: 25px;
+    margin-left: 8px;
 }
+
+.social-ref {
+   float: right;
+}
+
 .twitter {height: 30px;
     background: url(../images/twitter-minor-logo.png) no-repeat;
 }

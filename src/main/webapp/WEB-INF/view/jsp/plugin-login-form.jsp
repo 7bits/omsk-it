@@ -8,31 +8,30 @@
     </c:if>
 </p>
 <form method="post" action="<c:url value='/j_spring_security_check'/>">
-    <table>
-        <tbody>
+    <div class="float-container">
+        <div class="login-form-plugin-container">
             <sec:authorize  ifAnyGranted="ROLE_ADMIN, ROLE_USER, ROLE_MODERATOR" >
-                <tr>
-                    <td>Логин:</td>
-                    <td><sec:authentication property="principal.username"/></td>
-                </tr>
-                <tr>
-                    <td><a href="<c:url value="/j_spring_security_logout" />" >Выйти</a></td>
-                </tr>
+                <div>
+                    <sec:authentication property="principal.username"/>
+                </div>
+                <div class="href">
+                    <a href="<c:url value="/j_spring_security_logout" />" >
+                        Выйти
+                    </a>
+                </div>
             </sec:authorize>
             <sec:authorize ifNotGranted="ROLE_ADMIN, ROLE_USER, ROLE_MODERATOR">
-                <tr>
-                    <td>Логин:</td>
-                    <td><input type="text" name="j_username" id="j_username" size="30" maxlength="40"/></td>
-                </tr>
-                <tr>
-                    <td>Пароль:</td>
-                    <td><input type="password" name="j_password" id="j_password" size="30" maxlength="32"/></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="Login"/></td>
-                </tr>
+                <div>
+                    <input class="inline-item login" type="text" placeholder="Email" name="j_username" id="j_username" size="30" maxlength="40"/>
+                    <input class="inline-item login" type="password" placeholder="Пароль" name="j_password" id="j_password" size="30" maxlength="32"/>
+                    <input class="inline-item enter login-form-button" type="submit" value="Вход"/>
+                </div>
+                <div class="href">
+                    <a href="<c:url value='/user/registration'/>">
+                        Регистрация на сайте
+                    </a>
+                </div>
             </sec:authorize>
-        </tbody>
-    </table>
+        </div>
+    </div>
 </form>
