@@ -179,4 +179,11 @@ public class UserController {
         }
         return response;
     }
+
+    @RequestMapping(value = "/login/failed", method = RequestMethod.GET)
+    public ModelAndView loginFailed() {
+        ModelAndView modelAndView = new ModelAndView("login");
+        modelAndView.addObject("error","true");
+        return modelAndView;
+    }
 }

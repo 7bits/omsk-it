@@ -8,10 +8,10 @@
 
     <http auto-config="true">
 
-        <intercept-url pattern="/archive" access="ROLE_MODERATOR" />
+        <!--intercept-url pattern="/archive" access="ROLE_MODERATOR" /-->
 
         <form-login login-page="/user/login"
-                    authentication-failure-url="/user/login" always-use-default-target="true" />
+                    authentication-failure-url="/user/login/failed" always-use-default-target="true" />
         <anonymous username="anonymousUser"  granted-authority="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <logout/>
 

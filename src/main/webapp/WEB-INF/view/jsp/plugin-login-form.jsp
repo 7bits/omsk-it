@@ -2,11 +2,6 @@
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<p>
-    <c:if test="${error == true}">
-        <b class="error">Invalid login or password.</b>
-    </c:if>
-</p>
 <form method="post" action="<c:url value='/j_spring_security_check'/>">
     <div class="float-container">
         <div class="login-form-plugin-container">

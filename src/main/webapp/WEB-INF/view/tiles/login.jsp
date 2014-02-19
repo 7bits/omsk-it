@@ -8,8 +8,10 @@
             </h1>
             <form class = "login-main-form" method="post" action="<c:url value='/j_spring_security_check'/>">
                 <p>
-                    <c:if test="${error == true}">
-                        <b class="error">Invalid login or password.</b>
+                    <c:if test="${error == 'true'}">
+                        <div class="error">
+                            Неверный email или пароль.<br />
+                        </div>
                     </c:if>
                 </p>
                 <div class="field">

@@ -8,8 +8,8 @@
             <div class="login-form-open">
                 Если вы зарегистрированы, то залогиньтесь.
             </div>
-            <a class = "login" href='<c:url value="/user/login"/>'>
-                <div class="login-form-open-button">
+            <a href='<c:url value="/user/login"/>'>
+                <div class="login-form-button login-page-open">
                     Логин
                 </div>
             </a>

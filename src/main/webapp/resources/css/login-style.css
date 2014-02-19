@@ -96,7 +96,7 @@
     -moz-border-radius: 5px;
 }
 
-.login-form-button .open {
+.login-page-open {
     display: inline-block;
     width:100px;
     height:40px;
@@ -105,6 +105,7 @@
     width: 60px;
     height: 25px;
     text-align: center;
+    color: #FFFFFF;
 }
 
 a:visited .login-form-open-button {
@@ -200,10 +201,15 @@ a:visited .login-form-open-button {
 .float-container {
     height: 53px;
     width: 100%;
+    margin-top: 15px;
 }
 
 .login-form-plugin-container .logged-name {
     float: right;
     margin-top: 4px;
     margin-right: 10px;
+}
+
+.error {
+    color: red;
 }
