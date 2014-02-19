@@ -105,9 +105,8 @@
     text-align: center;
 }
 
-a:visited {
+a:visited .login-form-open-button {
     color:#FFFFFF;
-    text-decoration:none
 }
 
 .login-form-open {
