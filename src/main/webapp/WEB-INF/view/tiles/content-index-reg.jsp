@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<%@ include file="/WEB-INF/view/jsp/success-guest-registration.jsp" %>
 <div class="content">
     <div class="page">
         <div class="guest-form-div">
@@ -10,7 +11,7 @@
             <span class="event-date"><c:out value="${conference.humanReadableDate}"/></span>
             <br>в компании
             <a href='<c:url value="${conference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${conference.company.name}"/></span></a>
-            <a class="js-register-button" href="#">
+            <a class="js-guest-register-button" href="#">
                 <div class="button-submit registration">
                     Зарегистрироваться
                 </div>

@@ -64,7 +64,7 @@ $(document).ready(function() {
         doAjaxSuggestPost();
     });
 
-    $(".js-register-button").click(function() {
+    $(".js-guest-register-button").click(function() {
         doAjaxGuestCheck();
     });
 
@@ -393,7 +393,10 @@ function doAjaxGuestCheck() {
         dataType: "json",
         success: function(response) {
             if (response.status == "SUCCESS") {
-                alert("Все хорошо!");
+                $(".success-guest-notification-container").show();
+                setTimeout(function() {
+                    $(".success-guest-notification-container").hide('slow',function(){});
+                },2000);
             } else {
                 $(".guest-form-div").css("display", "block");
                 $(".guest-form-div").append("<div class='overlay'></div>");
