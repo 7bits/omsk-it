@@ -628,6 +628,7 @@ ol {
 
 .attention {
     color: #f06009;
+    clear: left;
 }
 
 .form-content {
@@ -656,13 +657,18 @@ ol {
 .small-input {
     height: 35px;
     margin-left: 25px;
+    margin-top: -8px;
 }
 
 .field-info {
     font-size: 15px;
     font-weight: normal;
     display: inline-block;
-    max-width: 300px
+    max-width: 380px;
+}
+
+.js-field-info {
+    padding-right: 5px;
 }
 
 .small-input {

@@ -3,6 +3,7 @@ package it.sevenbits.conferences.web.controller;
 import it.sevenbits.conferences.domain.*;
 import it.sevenbits.conferences.service.*;
 import it.sevenbits.conferences.service.common.CustomUserDetailsService;
+import it.sevenbits.conferences.utils.file.FileManager;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
 import it.sevenbits.conferences.web.form.JsonResponse;
 import it.sevenbits.conferences.web.form.LoginForm;
@@ -85,6 +86,8 @@ public class UserController {
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public ModelAndView showUsersRegistrationPage() {
         ModelAndView modelAndView = new ModelAndView("user-registration");
+        UserRegistrationForm userRegistrationForm = new UserRegistrationForm();
+        modelAndView.addObject("userRegistrationForm",userRegistrationForm);
         return  modelAndView;
     }
 
@@ -93,22 +96,19 @@ public class UserController {
     private Validator validator;
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    @ResponseBody
-    public JsonResponse registerUser(@ModelAttribute(value = "userRegistrationForm") final UserRegistrationForm userRegistrationForm,
+    public ModelAndView registerUser(@ModelAttribute(value = "userRegistrationForm") final UserRegistrationForm userRegistrationForm,
             BindingResult bindingResult
     ) {
-        JsonResponse response = new JsonResponse();
+        ModelAndView response;
         validator.validate(userRegistrationForm,bindingResult);
         if (bindingResult.hasErrors()) {
-            response.setStatus(JsonResponse.STATUS_FAIL);
             Map<String, String> errors = new HashMap<>();
             for (FieldError fieldError: bindingResult.getFieldErrors()) {
                 if (!errors.containsKey(fieldError.getField())) {
                     errors.put(fieldError.getField(), fieldError.getDefaultMessage());
                 }
             }
-            errors.put("message", "Форма заполнена неверно.");
-            response.setResult(errors);
+            response = new ModelAndView("user-registration");
         } else {
             User user = new User();
             user.setFirstName(userRegistrationForm.getFirstName());
@@ -118,14 +118,20 @@ public class UserController {
             user.setPassword(userRegistrationForm.getPassword());
             user.setJobPosition(userRegistrationForm.getJobPosition());
             user.setEnabled(false);
+            FileManager fileManager = new FileManager();
+            if (!userRegistrationForm.getPhoto().isEmpty()) {
+                String photoName = fileManager.saveImage(userRegistrationForm.getPhoto());
+                user.setPhoto(photoName);
+            } else {
+                user.setPhoto(null);
+            }
             Role role = roleService.findRoleById(1l);
             user.setRole(role);
             String confirmation_token = UUID.randomUUID().toString();
             user.setConfirmationToken(confirmation_token);
             userService.updateUser(user);
             mailSenderUtility.sendConfirmationToken(userRegistrationForm.getEmail(),confirmation_token);
-            response.setStatus(JsonResponse.STATUS_SUCCESS);
-            response.setResult(Collections.singletonMap("message", "На ваш email послано письмо для подтверждения."));
+            response = new ModelAndView("user-registration");
         }
         return response;
     }

@@ -9,6 +9,7 @@
         <property name="locations">
             <list>
                 <value>classpath:mailSender.properties</value>
+                <value>classpath:filesUpload.properties</value>
             </list>
         </property>
     </bean>

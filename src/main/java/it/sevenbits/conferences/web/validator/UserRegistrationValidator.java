@@ -51,6 +51,9 @@ public class UserRegistrationValidator implements Validator {
         }
     }
 
+    private void validatePhoto(Errors errors) {
+    }
+
     private void validateJobPosition(UserRegistrationForm form, Errors errors) {
         ValidationUtils.rejectIfEmpty(errors, "jobPosition", "jobPosition.empty", "Укажите, пожалуйста, Вашу роль в компании/команде");
         if (errors.getFieldErrorCount("jobPosition") == 0) {

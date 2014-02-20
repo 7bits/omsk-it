@@ -35,4 +35,10 @@
             </props>
         </property>
     </bean>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- The maximum file size in bytes = 10 mb-->
+        <property name="maxUploadSize" value="10485760"/>
+    </bean>
+
 </beans>
