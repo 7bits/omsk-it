@@ -77,6 +77,15 @@
                 </div>
 
                 <div class="field">
+                    <span class="left-label">Компания</span>
+                    <input class="js-company-input js-input small-input margin-top-8" path="company" type="text" id="company" />
+                    <span class="field-info">
+                        <span class="js-field-info"></span>
+                        <span class="js-field-response js-company-response attention"></span>
+                    </span>
+                </div>
+
+                <div class="field">
                     <input class="js-apply-user-registration-form-button button-submit" type="submit" value="Отправить">
                     <input class="js-apply-reset reset-button" type="reset" value="Отмена">
                     <div class="js-apply-response apply-response"></div>

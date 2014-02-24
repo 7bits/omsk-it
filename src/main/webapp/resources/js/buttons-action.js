@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    var companiesRes = null;
     $(".js-guests-button").click(function() {
 
         window.location.href = toGuestsUrl;
@@ -88,6 +88,8 @@ $(document).ready(function() {
         event.preventDefault();
         doAjaxLoginPost();
     });
+
+    $(".js-company-input").keypress(onCompanyInputKeypress);
 });
 
 function checkImageUploadInput(event) {
@@ -376,4 +378,24 @@ function doAjaxLoginPost() {
             }
         }
     })
+}
+
+function onCompanyInputKeypress() {
+    var companies = doAjaxGetCompanies();
+    console.log(companies);
+}
+
+function doAjaxGetCompanies() {
+    $.ajax({
+        url: companiesUrl,
+        type: "POST",
+        data: null,
+        dataType: "json",
+        success: function(response) {
+            if (response.status == "SUCCESS") {
+                companiesRes = [].concat(response.result);
+            }
+        }
+    });
+    return companiesRes;
 }

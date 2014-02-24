@@ -25,6 +25,7 @@
             var guestCheckUrl = '<c:url value="/guest-check"/>';
             var userRegistrationUrl = '<c:url value="/user/registration"/>';
             var loginUrl = '<c:url value="/user/login"/>';
+            var companiesUrl = '<c:url value="/company/getCompanies"/>';
         </script>
         <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.10.2.min.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/buttons-action.js"/>'></script>
