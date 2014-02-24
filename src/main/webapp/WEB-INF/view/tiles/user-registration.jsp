@@ -14,7 +14,7 @@
 
                 <div class="field">
                     <span class="left-label">Имя&nbsp;<span class="attention">*</span></span>
-                    <form:input class="js-first-name-input js-input small-input" type="text" path="firstName"/>
+                    <form:input class="js-first-name-input js-input small-input margin-top-8" type="text" path="firstName"/>
                     <span class="field-info">
                         <span class="js-field-info">На русском языке</span>
                         <div class="js-field-response js-first-name-response attention"><form:errors path="firstName" /></div>
@@ -23,7 +23,7 @@
 
                 <div class="field">
                     <span class="left-label">Фамилия&nbsp;<span class="attention">*</span></span>
-                    <form:input class="js-second-name-input js-input small-input" type="text" path="secondName"/>
+                    <form:input class="js-second-name-input js-input small-input margin-top-8" type="text" path="secondName"/>
                     <span class="field-info">
                         <span class="js-field-info">На русском языке</span>
                         <div class="js-field-response js-second-name-response attention"> <form:errors path="secondName" /></div>
@@ -32,7 +32,7 @@
 
                 <div class="field">
                     <span class="left-label">Пароль&nbsp;<span class="attention">*</span></span>
-                    <form:input class="js-password-input js-input small-input" type="password" path="password"/>
+                    <form:input class="js-password-input js-input small-input margin-top-8" type="password" path="password"/>
                     <span class="field-info">
                         <span class="js-field-info"></span>
                         <div class="js-field-response js-password-response attention"><form:errors path="password" /></div>
@@ -41,7 +41,7 @@
 
                 <div class="field">
                     <span class="left-label">E-mail&nbsp;<span class="attention">*</span></span>
-                    <form:input class="js-email-input js-input small-input" type="text" path="email"/>
+                    <form:input class="js-email-input js-input small-input margin-top-8" type="text" path="email"/>
                     <span class="field-info">
                         <span class="js-field-info"></span>
                         <div class="js-field-response js-email-response attention"><form:errors path="email" /></div>
@@ -60,7 +60,7 @@
 
                 <div class="field">
                     <span class="left-label">Должность&nbsp;<span class="attention">*</span></span>
-                    <form:input class="js-job-position-input js-input small-input" type="text" path="jobPosition"/>
+                    <form:input class="js-job-position-input js-input small-input margin-top-8" type="text" path="jobPosition"/>
                     <span class="field-info">
                         <span class="js-field-info"></span>
                         <div class="js-field-response js-job-position-response attention"><form:errors path="jobPosition" /></div>
@@ -69,7 +69,7 @@
 
                 <div class="field">
                     <span class="left-label">Фотография</span>
-                    <form:input class="js-photo-upload-input js-input small-input" path="photo" type="file" value="Загрузить" id="image" />
+                    <form:input class="js-photo-upload-input js-input small-input margin-top-8" path="photo" type="file" value="Загрузить" id="image" />
                     <span class="field-info">
                         <span class="js-field-info"></span>
                         <span class="js-field-response js-photo-upload-response attention"></span>

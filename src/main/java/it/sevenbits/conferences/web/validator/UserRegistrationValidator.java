@@ -1,7 +1,9 @@
 package it.sevenbits.conferences.web.validator;
 
+import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.web.form.UserRegistrationForm;
 import org.apache.commons.validator.routines.EmailValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -12,6 +14,9 @@ import org.springframework.validation.Validator;
  */
 @Component
 public class UserRegistrationValidator implements Validator {
+
+    @Autowired
+    private UserService userService;
 
     @Override
     public boolean supports(Class<?> clazz){
@@ -49,6 +54,9 @@ public class UserRegistrationValidator implements Validator {
         if (!EmailValidator.getInstance().isValid(form.getEmail())) {
             errors.rejectValue("email", "email.empty", "Некорректный email.");
         }
+        if (isUserExists(form.getEmail())) {
+            errors.rejectValue("email", "email.alreadyExists", "Такой email уже существует.");
+        }
     }
 
     private void validatePhoto(Errors errors) {
@@ -60,6 +68,14 @@ public class UserRegistrationValidator implements Validator {
             if (form.getJobPosition().equals("other")) {
                 ValidationUtils.rejectIfEmptyOrWhitespace(errors, "jobPositionOther", "jobPositionOther.empty", "Заполните, пожалуйста, Вашу роль в компании/команде");
             }
+        }
+    }
+
+    private boolean isUserExists(final String email) {
+        if (userService.getUserByEmail(email) != null) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

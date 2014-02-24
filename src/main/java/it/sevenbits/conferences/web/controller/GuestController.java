@@ -50,13 +50,6 @@ public class GuestController {
     @Qualifier("guestValidator")
     private Validator validator;
 
-//    @RequestMapping(value = "/register", method = RequestMethod.GET)
-//    public ModelAndView showForm() {
-//
-//        ModelAndView modelAndView = new ModelAndView("register", "guestForm", new GuestForm());
-//        return modelAndView;
-//    }
-
     private boolean isAnonymousUser() {
         String authUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
         boolean isAnonymous = authUser.equals(ANONYMOUS_USER);

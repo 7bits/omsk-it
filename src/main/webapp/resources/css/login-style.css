@@ -210,6 +210,19 @@ a:visited .login-form-open-button {
     margin-right: 10px;
 }
 
+.registration-confirm-container {
+    background-color: white;
+    padding-left: 33px;
+    padding-right: 33px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.registration-confirm-text {
+    font-size: 25px;
+    top: 40%;
+}
+
 .error {
     color: red;
 }

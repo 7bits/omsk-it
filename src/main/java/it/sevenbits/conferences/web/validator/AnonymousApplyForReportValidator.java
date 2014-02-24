@@ -1,6 +1,7 @@
 package it.sevenbits.conferences.web.validator;
 
 import it.sevenbits.conferences.service.ReportService;
+import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.web.form.ApplyForReportForm;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import org.springframework.validation.Validator;
 public class AnonymousApplyForReportValidator implements Validator {
 
     @Autowired
-    private ReportService reportService;
+    private UserService userService;
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -58,9 +59,11 @@ public class AnonymousApplyForReportValidator implements Validator {
         if (errors.getFieldErrorCount("email") != 0) {
             return;
         }
-
         if (!EmailValidator.getInstance().isValid(form.getEmail())) {
             errors.rejectValue("email", "email.notValid", "Некорректный email.");
+        }
+        if (isUserExists(form.getEmail())) {
+            errors.rejectValue("email", "email.alreadyExists", "Такой email уже существует.");
         }
     }
 
@@ -101,5 +104,13 @@ public class AnonymousApplyForReportValidator implements Validator {
     private void validateReporterWishes(ApplyForReportForm form, Errors errors) {
 
 //        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "reporterWishes", "reporterWishes.empty", "Поле должно быть заполнено.");
+    }
+
+    private boolean isUserExists(final String email) {
+        if (userService.getUserByEmail(email) != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

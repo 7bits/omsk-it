@@ -32,9 +32,16 @@ public interface UserService {
     User findUserById(Long id);
 
     /**
-     * To find the user with the necessary login.
+     * Find the user with the necessary login.
      * @param login User's login information.
      * @return User which correspond to login or null otherwise.
      */
     User getUser(final String login);
+
+    /**
+     * Find the user with the necessary email.
+     * @param email User's login information.
+     * @return User which correspond to login or null otherwise.
+     */
+    User getUserByEmail(final String email);
 }

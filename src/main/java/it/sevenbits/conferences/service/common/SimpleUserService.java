@@ -60,4 +60,18 @@ public class SimpleUserService implements UserService {
         return usersList.get(0);
     }
 
+    @Transactional
+    @Override
+    public User getUserByEmail(final String email)
+    {
+        String query = "SELECT u FROM User u WHERE u.email =:email";
+        Map<String, Object> queryParams = new HashMap<>();
+        queryParams.put("email", email);
+        List<User> usersList = userDao.findByQuery(query,queryParams);
+        if (usersList == null || usersList.isEmpty()) {
+            return null;
+        }
+        return usersList.get(0);
+    }
+
 }

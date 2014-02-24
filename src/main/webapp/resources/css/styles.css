@@ -404,6 +404,7 @@ img {
 /** archive page **/
 .box {
     margin-top: 60px;
+    min-height: 355px;
 }
 .reporter-title{
     margin-bottom: 10px
@@ -654,12 +655,6 @@ ol {
     margin-bottom: 15px;
 }
 
-.small-input {
-    height: 35px;
-    margin-left: 25px;
-    margin-top: -8px;
-}
-
 .field-info {
     font-size: 15px;
     font-weight: normal;
@@ -672,6 +667,7 @@ ol {
 }
 
 .small-input {
+    margin-left: 25px;
     font-size: 20px;
     color: #2d3e50;
     width: 254px;
@@ -696,7 +692,15 @@ ol {
     margin-bottom: 10px;
 }
 .long .small-input {
-    margin-left: 153px;
+    margin-left: 151px;
+}
+
+.long-popup .small-input {
+    margin-left: 125px;
+}
+
+.margin-top-8 {
+    margin-top: -8px;
 }
 
 /* guest form */

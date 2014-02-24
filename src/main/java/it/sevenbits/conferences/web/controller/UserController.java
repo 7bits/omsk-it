@@ -43,6 +43,9 @@ public class UserController {
     @Autowired
     private ReportService reportService;
 
+    private final String GUEST_REGISTRATION_INFO = "Так же, вы зарегистрированы на текущий субботник.";
+    private final String REPORT_REGISTRATION_INFO = "Ваша заявка на выступление принята на рассмотрение.";
+
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public ModelAndView userInformation(
             @PathVariable(value = "userId") final Long userId) {
@@ -61,7 +64,7 @@ public class UserController {
             @RequestParam(value = "conference_status", required = false) final Long conferenceStatus,
             @RequestParam(value = "report_status", required = false) final Long reportStatus
     ) {
-
+        String additionalRegistrationInfo = null;
         User user = userService.getUser(confirmationLogin);
         if (user != null || (user.getConfirmationToken().equals(receivedConfirmationToken) && !user.getEnabled())) {
             user.setEnabled(true);
@@ -72,14 +75,17 @@ public class UserController {
                 Conference currentConference = conferenceService.findNextConference();
                 guest.setConference(currentConference);
                 guestService.addGuest(guest);
+                additionalRegistrationInfo = GUEST_REGISTRATION_INFO;
             }
             if (reportStatus != null) {
                 Report report = reportService.findReportById(reportStatus);
                 report.setUser(user);
                 reportService.updateReport(report);
+                additionalRegistrationInfo = REPORT_REGISTRATION_INFO;
             }
         }
-        ModelAndView modelAndView = new ModelAndView("redirect:/");
+        ModelAndView modelAndView = new ModelAndView("registration-confirm");
+        modelAndView.addObject("additionalRegistrationInfo",additionalRegistrationInfo);
         return modelAndView;
     }
 
