@@ -820,3 +820,27 @@ ol {
         border: none;
     }
 }
+
+.company-name {
+    font-size: 20px;
+    color: #2d3e50;
+    vertical-align: middle;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.company-name.active {
+    background-color: #aaf0f7;
+}
+
+ul.dropdown {
+    position: absolute;
+    list-style-type: none;
+    margin-top: -15px;
+    width: 244px;
+    margin-left: 150px;
+    border: solid 2px #1a737c;;
+    border-radius: 5px;
+    background-color: #fffaff;
+    padding: 0;
+}

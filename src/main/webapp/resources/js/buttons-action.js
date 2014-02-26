@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var companiesRes = null;
+
     $(".js-guests-button").click(function() {
 
         window.location.href = toGuestsUrl;
@@ -89,7 +89,7 @@ $(document).ready(function() {
         doAjaxLoginPost();
     });
 
-    $(".js-company-input").keypress(onCompanyInputKeypress);
+    $(".js-company-input").keyup(onCompanyInputKeypress);
 });
 
 function checkImageUploadInput(event) {
@@ -380,11 +380,6 @@ function doAjaxLoginPost() {
     })
 }
 
-function onCompanyInputKeypress() {
-    var companies = doAjaxGetCompanies();
-    console.log(companies);
-}
-
 function doAjaxGetCompanies() {
     $.ajax({
         url: companiesUrl,
@@ -393,9 +388,52 @@ function doAjaxGetCompanies() {
         dataType: "json",
         success: function(response) {
             if (response.status == "SUCCESS") {
-                companiesRes = [].concat(response.result);
+                companies = [].concat(response.result);
+                showCompaniesList(companies);
             }
         }
     });
-    return companiesRes;
 }
+
+function onCompanyNameHover() {
+    $(this).addClass('active');
+}
+
+function onCompanyNameHoverOut() {
+    $(this).removeClass('active');
+}
+
+function onCompanyNameClick() {
+    $('.js-company-input').val($(this).text());
+    $('ul.dropdown').remove();
+}
+
+function showCompaniesList(list) {
+    $('ul.dropdown').remove();
+    searchSubstring = $('.js-company-input').val();
+    searchSubstring = $.trim(searchSubstring);
+    menuContainer = $('.js-company-input').parent();
+    companiesList = $('<ul class="dropdown"></ul>');
+    listSize = 0;
+    for(i = 0; i < list.length; i++ ) {
+        index = list[i].indexOf(searchSubstring);
+        if (index === 0) {
+            companiesList.append($('<li><div class="company-name">' + list[i] + '</div></li>'));
+            listSize++;
+        }
+    }
+    if (listSize != 0) {
+        menuContainer.append(companiesList);
+    }
+    $('.company-name').hover(onCompanyNameHover,onCompanyNameHoverOut);
+    $('.company-name').click(onCompanyNameClick);
+    $(document).click(function() {
+        $('ul.dropdown').remove();
+    });
+}
+
+function onCompanyInputKeypress() {
+    doAjaxGetCompanies();
+}
+
+
