@@ -800,8 +800,6 @@ ol {
     margin-bottom: 50px;
 }
 
-
-
 /** suggest **/
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
@@ -821,26 +819,15 @@ ol {
     }
 }
 
-.company-name {
-    font-size: 20px;
-    color: #2d3e50;
-    vertical-align: middle;
-    padding-left: 15px;
-    padding-right: 15px;
+body .ui-autocomplete {
+
 }
 
-.company-name.active {
-    background-color: #aaf0f7;
+body .ui-autocomplete .ui-menu-item .ui-corner-all {
+
 }
 
-ul.dropdown {
-    position: absolute;
-    list-style-type: none;
-    margin-top: -15px;
-    width: 244px;
-    margin-left: 150px;
-    border: solid 2px #1a737c;;
-    border-radius: 5px;
-    background-color: #fffaff;
-    padding: 0;
+body .ui-autocomplete .ui-menu-item .ui-state-focus {
+    border: solid 1px #1a737c;
+    color: #1a737c;
 }

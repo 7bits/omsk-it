@@ -80,7 +80,7 @@
                     <span class="left-label">Компания</span>
                     <input class="js-company-input js-input small-input margin-top-8" path="company" type="text" id="company" />
                     <span class="field-info">
-                        <span class="js-field-info">С учетом регистра</span>
+                        <span class="js-field-info"></span>
                         <span class="js-field-response js-company-response attention"></span>
                     </span>
                 </div>
