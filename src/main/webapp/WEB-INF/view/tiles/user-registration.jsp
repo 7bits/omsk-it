@@ -78,10 +78,10 @@
 
                 <div class="field">
                     <span class="left-label">Компания</span>
-                    <input class="js-company-input js-input small-input margin-top-8" path="company" type="text" id="company" />
+                    <form:input class="js-company-input js-input small-input margin-top-8" path="company" type="text" id="company" autocomplete="false"/>
                     <span class="field-info">
                         <span class="js-field-info"></span>
-                        <span class="js-field-response js-company-response attention"></span>
+                        <div class="js-field-response js-company-response attention"><form:errors path="company" /></div>
                     </span>
                 </div>
 

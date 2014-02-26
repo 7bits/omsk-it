@@ -1,5 +1,6 @@
 package it.sevenbits.conferences.web.validator;
 
+import it.sevenbits.conferences.service.CompanyService;
 import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.web.form.UserRegistrationForm;
 import org.apache.commons.validator.routines.EmailValidator;
@@ -17,6 +18,8 @@ public class UserRegistrationValidator implements Validator {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private CompanyService companyService;
 
     @Override
     public boolean supports(Class<?> clazz){
@@ -32,6 +35,7 @@ public class UserRegistrationValidator implements Validator {
         validateEmail(form, errors);
         validateJobPosition(form, errors);
         validatePassword(errors);
+        validateCompany(form, errors);
     }
 
     private void validatePassword(Errors errors) {
@@ -59,7 +63,10 @@ public class UserRegistrationValidator implements Validator {
         }
     }
 
-    private void validatePhoto(Errors errors) {
+    private void validateCompany(UserRegistrationForm form, Errors errors) {
+        if (!isCompanyExists(form.getCompany())) {
+            errors.rejectValue("company", "company.notExists", "Такой компании не существует.");
+        }
     }
 
     private void validateJobPosition(UserRegistrationForm form, Errors errors) {
@@ -73,6 +80,14 @@ public class UserRegistrationValidator implements Validator {
 
     private boolean isUserExists(final String email) {
         if (userService.getUserByEmail(email) != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean isCompanyExists(final String companyName) {
+        if (companyService.findCompanyByName(companyName) != null) {
             return true;
         } else {
             return false;

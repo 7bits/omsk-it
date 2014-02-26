@@ -12,6 +12,7 @@ public class UserRegistrationForm {
     private String secondName;
     private String email;
     private String jobPosition;
+    private String company;
     private MultipartFile photo;
 
     public String getPassword() {
@@ -52,6 +53,14 @@ public class UserRegistrationForm {
 
     public void setJobPosition(String jobPosition) {
         this.jobPosition = jobPosition;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
     }
 
     public MultipartFile getPhoto() {

@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Simple implementation of the CompanyService.
@@ -55,9 +57,15 @@ public class SimpleCompanyService implements CompanyService {
 
     @Transactional
     @Override
-    public Company findCompanyByName(String name) {
-
-//        return companyDao.findByName(name);
-        return null;
+    public Company findCompanyByName(final String name)
+    {
+        String query = "SELECT c FROM Company c WHERE c.name =:name";
+        Map<String, Object> queryParams = new HashMap<>();
+        queryParams.put("name", name);
+        List<Company> usersList = companyDao.findByQuery(query,queryParams);
+        if (usersList == null || usersList.isEmpty()) {
+            return null;
+        }
+        return usersList.get(0);
     }
 }
