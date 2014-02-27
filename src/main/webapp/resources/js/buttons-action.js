@@ -330,9 +330,9 @@ function doAjaxGuestPost() {
                     $(".js-email-response").html(response.result.email);
                     $(".js-email-input").css("background-color", "#fff5e5");
                 }
-                if (response.result.job != null) {
-                    $(".js-job-response").html(response.result.job);
-                    $(".js-job-input").css("background-color", "#fff5e5");
+                if (response.result.company != null) {
+                    $(".js-company-response").html(response.result.company);
+                    $(".js-company-input").css("background-color", "#fff5e5");
                 }
                 if (response.result.jobPosition != null) {
                     $(".js-jobPosition-response").html(response.result.jobPosition);

@@ -5,11 +5,12 @@ package it.sevenbits.conferences.web.form;
  */
 public class GuestForm {
 
-    private String jobPosition;
     private String firstName;
     private String secondName;
     private String password;
     private String email;
+    private String jobPosition;
+    private String company;
 
     public String getJobPosition() {
         return jobPosition;
@@ -49,5 +50,13 @@ public class GuestForm {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
     }
 }

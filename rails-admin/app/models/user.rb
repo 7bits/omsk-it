@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :role, :join_table => :user_roles
   has_many :guest
   has_many :report
+  belongs_to :company
   mount_uploader :photo, PhotoUploader
 
   rails_admin do
@@ -22,6 +23,9 @@ class User < ActiveRecord::Base
       end
       field :email do
         label "E-mail"
+      end
+      field :company do
+        label "Компания"
       end
       field :job_position do
         label "Должность"
@@ -58,6 +62,9 @@ class User < ActiveRecord::Base
       end
       field :email do
         label "E-mail"
+      end
+      field :company do
+        label "Компания"
       end
       field :job_position do
         label "Должность"

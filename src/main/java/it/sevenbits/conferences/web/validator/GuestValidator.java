@@ -1,6 +1,8 @@
 package it.sevenbits.conferences.web.validator;
 
+import it.sevenbits.conferences.service.CompanyService;
 import it.sevenbits.conferences.service.UserService;
+import it.sevenbits.conferences.web.form.CompanyAddForm;
 import it.sevenbits.conferences.web.form.GuestForm;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,9 @@ import org.springframework.validation.Validator;
  */
 @Component
 public class GuestValidator implements Validator {
+
+    @Autowired
+    private CompanyService companyService;
 
     @Autowired
     private UserService userService;
@@ -31,6 +36,7 @@ public class GuestValidator implements Validator {
         validateEmail(form, errors);
         validateJobPosition(form, errors);
         validatePassword(errors);
+        validateCompany(form, errors);
     }
 
     private void validatePassword(Errors errors) {
@@ -67,8 +73,25 @@ public class GuestValidator implements Validator {
         }
     }
 
+    private void validateCompany(GuestForm form, Errors errors) {
+
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "company", "company.empty", "Поле должно быть заполнено.");
+        String companyName = form.getCompany();
+        if (!isCompanyExists(companyName)) {
+            errors.rejectValue("company", "company.notExists", "Такой компании не существует.");
+        }
+    }
+
     private boolean isUserExists(final String email) {
         if (userService.getUserByEmail(email) != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean isCompanyExists(final String companyName) {
+        if (companyService.findCompanyByName(companyName) != null) {
             return true;
         } else {
             return false;

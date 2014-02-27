@@ -104,8 +104,6 @@ public class AnonymousApplyForReportValidator implements Validator {
         }
     }
 
-
-
     private void validateOtherConferences(ApplyForReportForm form, Errors errors) {
 
 //        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "otherConferences", "otherConferences.empty", "Поле должно быть заполнено.");

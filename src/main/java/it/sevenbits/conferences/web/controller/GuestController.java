@@ -1,13 +1,7 @@
 package it.sevenbits.conferences.web.controller;
 
-import it.sevenbits.conferences.domain.Conference;
-import it.sevenbits.conferences.domain.Guest;
-import it.sevenbits.conferences.domain.Role;
-import it.sevenbits.conferences.domain.User;
-import it.sevenbits.conferences.service.ConferenceService;
-import it.sevenbits.conferences.service.GuestService;
-import it.sevenbits.conferences.service.RoleService;
-import it.sevenbits.conferences.service.UserService;
+import it.sevenbits.conferences.domain.*;
+import it.sevenbits.conferences.service.*;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
 import it.sevenbits.conferences.web.form.GuestForm;
 import it.sevenbits.conferences.web.form.JsonResponse;
@@ -38,14 +32,22 @@ public class GuestController {
 
     @Autowired
     private ConferenceService conferenceService;
+
     @Autowired
     private GuestService guestService;
+
     @Autowired
     private RoleService roleService;
+
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CompanyService companyService;
+
     @Autowired
     private MailSenderUtility mailSenderUtility;
+
     @Autowired
     @Qualifier("guestValidator")
     private Validator validator;
@@ -108,6 +110,8 @@ public class GuestController {
             user.setPassword(guestForm.getPassword());
             user.setJobPosition(guestForm.getJobPosition());
             user.setEnabled(false);
+            Company company = companyService.findCompanyByName(guestForm.getCompany());
+            user.setCompany(company);
             Role role = roleService.findRoleById(1l);
             user.setRole(role);
             String confirmation_token = UUID.randomUUID().toString();
