@@ -819,8 +819,65 @@ ol {
     }
 }
 
-.js-company-input {
+.new-company-add-open {
+    margin-top: -15px;
+    width: 32px;
+    height: 32px;
+    background-image: url("../images/add-icon.png");
+    cursor: pointer;
+}
 
+.new-company-add-confirm {
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 3px;
+    display: inline-block;
+    border-radius: 5px;
+    height: 54px;
+    vertical-align: top;
+    text-align: center;
+    line-height: 3em;
+    background: linear-gradient(to top, #0ba1ae, #10b7c5);
+}
+
+.new-company-add-confirm:hover {
+    background: linear-gradient(to bottom, #18cfdf, #0ba9b7);
+}
+
+.new-company-add-confirm:active {
+    background: #0ba9b7;
+    background: linear-gradient(to top, #18cfdf, #0ba9b7);
+}
+
+.new-company-add-container {
+    margin-left: 151px;
+    width: 297px;
+    margin-bottom: 20px;
+}
+
+.new-company-input {
+    border-radius: 3px;
+    font-size: 16px;
+    width: 194px;
+    height: 25px;
+    color: #2d3e50;
+    vertical-align: middle;
+    background-color: #ffffff;
+    border: solid 1px #aaf0f7;
+}
+
+.new-company-add-input-container {
+    display: inline-block;
+    width: 200px;
+}
+
+.open {
+    display: block;
+}
+
+.close {
+    display: none;
 }
 
 body .ui-autocomplete {

@@ -90,6 +90,19 @@ $(document).ready(function() {
 //    });
 //
     $(".js-company-input").focus(doAjaxGetCompanies);
+    $(".new-company-add-open").click(function() {
+        newCompanyAddContainer = $(".new-company-add-container");
+        isOpen = newCompanyAddContainer.hasClass("open");
+        if (isOpen) {
+            newCompanyAddContainer.removeClass("open");
+            newCompanyAddContainer.addClass("close");
+        } else {
+            newCompanyAddContainer.removeClass("close");
+            newCompanyAddContainer.addClass("open");
+        }
+        $(".js-new-company-response").text("");
+    });
+    $(".new-company-add-confirm").click(doAjaxAddNewCompany);
 
 
 });
@@ -394,6 +407,29 @@ function doAjaxGetCompanies() {
                 $( ".js-company-input" ).autocomplete({
                     source: companies
                 });
+            }
+        },
+        error: function() {
+        }
+    });
+}
+
+function doAjaxAddNewCompany() {
+    newCompanyData = $(".new-company-input").serialize();
+    $.ajax({
+        url: companyAddUrl,
+        type: "POST",
+        data: newCompanyData,
+        dataType: "json",
+        success: function(response) {
+            if (response.status == "SUCCESS") {
+                nameOfAddedCompany = $("#company-name").val();
+                $( ".js-company-input" ).val(nameOfAddedCompany);
+                $(".new-company-add-container").hide();
+            } else {
+                if(response.result.name != null) {
+                    $(".js-new-company-response").text(response.result.name);
+                }
             }
         },
         error: function() {

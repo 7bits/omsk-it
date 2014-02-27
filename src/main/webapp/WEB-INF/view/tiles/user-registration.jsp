@@ -68,20 +68,29 @@
                 </div>
 
                 <div class="field">
+                    <span class="left-label">Компания&nbsp;<span class="attention">*</span></span>
+                    <form:input class="js-company-input js-input small-input margin-top-8" path="company" type="text" id="company" autocomplete="false"/>
+                    <span class="field-info">
+                        <div class="new-company-add-open inline-item"></div>
+                        <span class="js-field-info inline-item"></span>
+                        <div class="js-field-response js-company-response attention inline-item"><form:errors path="company" /></div>
+                    </span>
+                    <div class="new-company-add-container close">
+                        <div class="new-company-add-input-container">
+                            <input class="new-company-input" name="name" id="company-name" placeholder="Название"/>
+                            <input class="new-company-input" name="site" placeholder="Сайт"/>
+                        </div>
+                        <div class="new-company-add-confirm">Добавить</div>
+                        <div class="js-field-response js-new-company-response attention"></div>
+                    </div>
+                </div>
+
+                <div class="field">
                     <span class="left-label">Фотография</span>
                     <form:input class="js-photo-upload-input js-input small-input margin-top-8" path="photo" type="file" value="Загрузить" id="image" />
                     <span class="field-info">
                         <span class="js-field-info"></span>
                         <span class="js-field-response js-photo-upload-response attention"></span>
-                    </span>
-                </div>
-
-                <div class="field">
-                    <span class="left-label">Компания</span>
-                    <form:input class="js-company-input js-input small-input margin-top-8" path="company" type="text" id="company" autocomplete="false"/>
-                    <span class="field-info">
-                        <span class="js-field-info"></span>
-                        <div class="js-field-response js-company-response attention"><form:errors path="company" /></div>
                     </span>
                 </div>
 
