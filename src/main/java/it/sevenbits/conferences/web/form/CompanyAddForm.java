@@ -1,7 +1,7 @@
 package it.sevenbits.conferences.web.form;
 
 /**
- * POJO class for the suggestion form representation.
+ * POJO class for the company's form representation.
  */
 public class CompanyAddForm {
 

@@ -8,6 +8,10 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+
+/**
+ *  Validator for company's form.
+ */
 @Component
 public class CompanyValidator implements Validator {
 
