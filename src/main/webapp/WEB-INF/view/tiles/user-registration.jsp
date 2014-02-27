@@ -67,8 +67,9 @@
                     </span>
                 </div>
 
-                <div class="field">
-                    <span class="left-label">Компания&nbsp;<span class="attention">*</span></span>
+                <div class="field long">
+                    <span class="left-label">Место работы/учебы&nbsp;<span class="attention">*</span></span>
+                    <br/>
                     <form:input class="js-company-input js-input small-input margin-top-8" path="company" type="text" id="company" autocomplete="false"/>
                     <span class="field-info">
                         <div class="new-company-add-open inline-item"></div>

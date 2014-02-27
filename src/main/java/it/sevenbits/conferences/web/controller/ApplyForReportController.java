@@ -102,7 +102,7 @@ public class ApplyForReportController {
                 User currentUser = getLoggedUser();
 
                 Company company = new Company();
-                company.setName(applyForReportForm.getJob());
+                company.setName(applyForReportForm.getCompany());
                 companyService.addCompany(company);
 
                 Report report = new Report();

@@ -1,5 +1,6 @@
 package it.sevenbits.conferences.web.validator;
 
+import it.sevenbits.conferences.service.CompanyService;
 import it.sevenbits.conferences.service.ReportService;
 import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.web.form.ApplyForReportForm;
@@ -18,6 +19,9 @@ public class AnonymousApplyForReportValidator implements Validator {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CompanyService companyService;
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -41,6 +45,7 @@ public class AnonymousApplyForReportValidator implements Validator {
         validateOtherConferences(form, errors);
         validateSpeechExperience(form, errors);
         validateReporterWishes(form, errors);
+        validateCompany(form, errors);
     }
 
     private void validateFirstName(ApplyForReportForm form, Errors errors) {
@@ -90,6 +95,16 @@ public class AnonymousApplyForReportValidator implements Validator {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "keyTechnologies", "keyTechnologies.empty", "Поле должно быть заполнено.");
     }
+    private void validateCompany(ApplyForReportForm form, Errors errors) {
+
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "company", "company.empty", "Поле должно быть заполнено.");
+        String companyName = form.getCompany();
+        if (!isCompanyExists(companyName)) {
+            errors.rejectValue("company", "company.notExists", "Такой компании не существует.");
+        }
+    }
+
+
 
     private void validateOtherConferences(ApplyForReportForm form, Errors errors) {
 
@@ -108,6 +123,14 @@ public class AnonymousApplyForReportValidator implements Validator {
 
     private boolean isUserExists(final String email) {
         if (userService.getUserByEmail(email) != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean isCompanyExists(final String companyName) {
+        if (companyService.findCompanyByName(companyName) != null) {
             return true;
         } else {
             return false;

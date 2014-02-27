@@ -9,7 +9,7 @@ public class ApplyForReportForm {
     private String secondName;
     private String email;
     private String password;
-    private String job;
+    private String company;
     private String jobPosition;
     private String title;
     private String description;
@@ -42,12 +42,12 @@ public class ApplyForReportForm {
         this.email = email;
     }
 
-    public String getJob() {
-        return job;
+    public String getCompany() {
+        return company;
     }
 
-    public void setJob(String job) {
-        this.job = job;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
     public String getJobPosition() {
