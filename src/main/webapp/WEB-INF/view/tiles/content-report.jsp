@@ -27,7 +27,7 @@
 
                 <c:if test="${report.presentation != null}">
                     <div class="presentation">
-                        <iframe src='<c:url value="${report.presentation}"/>' width="635" height="514" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen></iframe>
+                        <iframe src='<c:out value="${report.presentation}"/>' width="635" height="514" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen></iframe>
                     </div>
                 </c:if>
 
@@ -38,7 +38,7 @@
 
                 <c:if test="${report.video != null}">
                     <div class="video">
-                        <iframe src='<c:url value="${report.video}"/>' width="635" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        <iframe src='<c:out value="${report.video}"/>' width="635" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                     </div>
                 </c:if>
 
