@@ -502,6 +502,10 @@ img {
     max-width: 450px;
 }
 .short-description .position {
+    color: #2d3e50;
+}
+
+.position a {
     color: #00b7c8;
 }
 

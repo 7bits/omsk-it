@@ -14,6 +14,8 @@ import it.sevenbits.conferences.web.form.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -97,14 +99,8 @@ public class ApplyForReportController {
             errors.put("message", "Форма заполнена неверно.");
             response.setResult(errors);
         } else {
-
             if (isLogged) {
                 User currentUser = getLoggedUser();
-
-                Company company = new Company();
-                company.setName(applyForReportForm.getCompany());
-                companyService.addCompany(company);
-
                 Report report = new Report();
                 report.setUser(currentUser);
                 report.setTitle(applyForReportForm.getTitle());
@@ -121,7 +117,11 @@ public class ApplyForReportController {
                 user.setSecondName(applyForReportForm.getSecondName());
                 user.setEmail(applyForReportForm.getEmail());
                 user.setLogin(applyForReportForm.getEmail());
-                user.setPassword(applyForReportForm.getPassword());
+                PasswordEncoder encoder = new BCryptPasswordEncoder();
+                String encodedPassword = encoder.encode(applyForReportForm.getPassword());
+                user.setPassword(encodedPassword);
+                Company company = companyService.findCompanyByName(applyForReportForm.getCompany());
+                user.setCompany(company);
                 user.setJobPosition(applyForReportForm.getJobPosition());
                 user.setEnabled(false);
                 Role role = roleService.findRoleById(1l);
