@@ -18,7 +18,7 @@ ssh root@192.168.1.228 '
 '
 
 echo "Create war..."
-mvn clean package
+mvn clean package -P test
 
 echo "Copy war to the testing server..."
 scp target/omsk-it.war root@192.168.1.228:/root

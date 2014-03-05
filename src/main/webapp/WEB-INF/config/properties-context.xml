@@ -10,6 +10,8 @@
             <list>
                 <value>classpath:mailSender.properties</value>
                 <value>classpath:filesUpload.properties</value>
+                <value>classpath:hibernate.properties</value>
+                <value>classpath:password.properties</value>
             </list>
         </property>
     </bean>

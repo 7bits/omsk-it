@@ -188,7 +188,7 @@
     </dependencies>
 
     <build>
-        <finalName>omsk-it</finalName>
+        <finalName>${rp.build.warname}</finalName>
 
         <plugins>
             <plugin>
@@ -207,10 +207,9 @@
                 <version>1.1</version>
                 <configuration>
                     <!-- server = server id from ~/.m2/settings.xml -->
-                    <server>localhost-tomcat</server>
-                    <url>http://localhost:8080/manager/text</url>
-                    <username>user</username>
-                    <password>user</password>
+                    <server>${server.tomcat}</server>
+                    <url>${server.url}</url>
+                    <path>${server.path}</path>
                 </configuration>
             </plugin>
 
@@ -237,4 +236,81 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <rp.build.warname>omsk-it</rp.build.warname>
+                <server.tomcat>localhost-tomcat</server.tomcat>
+                <server.url>http://localhost:8080/manager/text</server.url>
+                <server.path>/${rp.build.warname}</server.path>
+            </properties>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/local</directory>
+                        <includes>
+                            <include>*.*</include>
+                        </includes>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <includes>
+                            <include>*.properties*</include>
+                            <include>*.xml*</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <rp.build.warname>ROOT</rp.build.warname>
+                <server.tomcat>test-tomcat</server.tomcat>
+                <server.url>http://192.168.1.228:8080/manager/text</server.url>
+                <server.path>/</server.path>
+            </properties>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>${basedir}/src/main/resources/test/</directory>
+                        <includes>
+                            <include>*.*</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <rp.build.warname>ROOT</rp.build.warname>
+                <server.tomcat>test-tomcat</server.tomcat>
+                <server.url>/</server.url>
+                <server.path>/</server.path>
+            </properties>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>${basedir}/src/main/resources/production/</directory>
+                        <includes>
+                            <include>*.*</include>
+                        </includes>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <includes>
+                            <include>*.properties*</include>
+                            <include>*.xml*</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+    </profiles>
 </project>
