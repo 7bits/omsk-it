@@ -56,7 +56,7 @@
                             <div class="report">
                                 <div class="presentation  inline-item">
                                     <c:if test="${report.presentation != null}">
-                                        <iframe src='<c:url value="${report.presentation}"/>' width="291" height="216" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen></iframe>
+                                        <iframe src='<c:out value="${report.presentation}"/>' width="291" height="216" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen></iframe>
                                     </c:if>
                                     <c:if test="${report.presentation == null}">
                                         <p class="resource-not-found">Ссылка на презентацию не предоставлена.</p>
