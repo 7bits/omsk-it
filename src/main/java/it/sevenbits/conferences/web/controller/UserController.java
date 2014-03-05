@@ -44,6 +44,11 @@ public class UserController {
     private GuestService guestService;
     @Autowired
     private ReportService reportService;
+    @Autowired
+    private CompanyService companyService;
+    @Autowired
+    @Qualifier("userRegistrationValidator")
+    private Validator validator;
 
     private final String GUEST_REGISTRATION_INFO = "Так же, вы зарегистрированы на текущий субботник.";
     private final String REPORT_REGISTRATION_INFO = "Ваша заявка на выступление принята на рассмотрение.";
@@ -99,10 +104,6 @@ public class UserController {
         return  modelAndView;
     }
 
-    @Autowired
-    @Qualifier("userRegistrationValidator")
-    private Validator validator;
-
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView registerUser(@ModelAttribute(value = "userRegistrationForm") final UserRegistrationForm userRegistrationForm,
             BindingResult bindingResult
@@ -126,6 +127,8 @@ public class UserController {
             PasswordEncoder encoder = new BCryptPasswordEncoder();
             String encodedPassword = encoder.encode(userRegistrationForm.getPassword());
             user.setPassword(encodedPassword);
+            Company company = companyService.findCompanyByName(userRegistrationForm.getCompany());
+            user.setCompany(company);
             user.setJobPosition(userRegistrationForm.getJobPosition());
             user.setEnabled(false);
             FileManager fileManager = new FileManager();

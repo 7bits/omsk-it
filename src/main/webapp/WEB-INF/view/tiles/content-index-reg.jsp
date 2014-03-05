@@ -9,8 +9,10 @@
         <div class="next-event">
             <c:out value="${conference.ordinalNumber}"/>-й IT-субботник пройдет
             <span class="event-date"><c:out value="${conference.humanReadableDate}"/></span>
-            <br>в компании
-            <a href='<c:url value="${conference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${conference.company.name}"/></span></a>
+            <c:if test="${conference.company != null}">
+                <br>в компании
+                <a href='<c:url value="${conference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${conference.company.name}"/></span></a>
+            </c:if>
             <a class="js-guest-register-button" href="#">
                 <div class="button-submit registration">
                     Зарегистрироваться

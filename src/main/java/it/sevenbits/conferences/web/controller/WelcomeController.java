@@ -44,7 +44,7 @@ public class WelcomeController {
         ModelAndView modelAndView;
 
         if (reports.isEmpty()) {
-            modelAndView = new ModelAndView("index-reg");
+            modelAndView = new ModelAndView("index-after");
             Conference pastConference = conferenceService.findLastConference();
             modelAndView.addObject("pastConference", pastConference);
             modelAndView.addObject("reports", reportService.findAllReportsByConference(pastConference));
