@@ -15,6 +15,8 @@ public class MailSenderUtility {
 
     private static final String REGISTRATION_INFO_TEXT = "Чтобы подтвердить регистрацию на нашем сайте, пройдите по ссылке: ";
 
+    private static final String TEMPORARY_PASSWORD_TEXT = "Вам выслан временный пароль. Пройдите, пожалуйста, по указанной ссылке и смените его на новый.";
+
     @Autowired
     private JavaMailSender mailSender;
 
@@ -35,7 +37,7 @@ public class MailSenderUtility {
      * @param login Users login
      * @param confirmationToken Users confirmation token
      */
-    public void sendConfirmationToken(String login, String confirmationToken) {
+    public void sendConfirmationToken(final String login,final String confirmationToken) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(login);
@@ -50,7 +52,7 @@ public class MailSenderUtility {
      * @param login Users login
      * @param confirmationToken Users confirmation token
      */
-    public void sendConfirmationTokenAndConferenceStatus(String email, String confirmationToken) {
+    public void sendConfirmationTokenAndConferenceStatus(final String email,final String confirmationToken) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(email);
@@ -67,7 +69,7 @@ public class MailSenderUtility {
      * @param login Users login
      * @param confirmationToken Users confirmation token
      */
-    public void sendConfirmationTokenAndReportStatus(String email, String confirmationToken, Long reportId) {
+    public void sendConfirmationTokenAndReportStatus(final String email,final String confirmationToken,final Long reportId) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(email);
@@ -76,6 +78,15 @@ public class MailSenderUtility {
                 confirmationToken + "&confirmation_login=" + email + "&report_status=" + reportId
         ;
         message.setText(REGISTRATION_INFO_TEXT + confirmationUrl + " Ваша заявка на доклад будет рассмотрена.");
+        mailSender.send(message);
+    }
+
+    public void sendNewPassword(final String email, final String password) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(SERVICE_MAILBOX);
+        message.setTo("dimaaasik.s@gmail.com");
+        message.setSubject("Восстановление пароля");
+        message.setText(TEMPORARY_PASSWORD_TEXT + " " + password);
         mailSender.send(message);
     }
 }

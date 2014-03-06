@@ -8,6 +8,7 @@ import it.sevenbits.conferences.utils.mail.MailSenderUtility;
 import it.sevenbits.conferences.web.form.JsonResponse;
 import it.sevenbits.conferences.web.form.LoginForm;
 import it.sevenbits.conferences.web.form.UserRegistrationForm;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -73,6 +74,7 @@ public class UserController {
     ) {
         String additionalRegistrationInfo = null;
         User user = userService.getUser(confirmationLogin);
+
         if (user != null || (user.getConfirmationToken().equals(receivedConfirmationToken) && !user.getEnabled())) {
             user.setEnabled(true);
             user = userService.updateUser(user);
@@ -204,5 +206,14 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView("login");
         modelAndView.addObject("error","true");
         return modelAndView;
+    }
+
+    private String setNewRandomPassword(User user, final int length) {
+        String newPassword = RandomStringUtils.random(length,true,true);
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encodedNewPassword = encoder.encode(newPassword);
+        user.setPassword(encodedNewPassword);
+        userService.updateUser(user);
+        return newPassword;
     }
 }
