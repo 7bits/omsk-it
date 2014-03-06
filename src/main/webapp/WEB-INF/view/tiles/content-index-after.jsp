@@ -19,7 +19,7 @@
         <div class="box">
             <h1 class="title">
                 <c:out value="${pastConference.ordinalNumber}"/>-й IT-субботник
-                <span class="title-text">прошел
+                <span class="title-text">прошел</span>
                 <span class="title-date"><c:out value="${pastConference.humanReadableDate}"/></span>
                 <span>в компании</span>
                 <a href='<c:url value="${pastConference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${pastConference.company.name}"/></span></a>
@@ -28,7 +28,7 @@
                 <div class="report">
                     <div class="reporter inline-item">
                         <div class="name">
-                            <a href='<c:url value="/reporter/${report.user.id}"/>'><c:out value="${report.user.firstName}"/>&nbsp;<c:out value="${report.user.secondName}"/></a>
+                            <a href='<c:url value="/user/${report.user.id}"/>'><c:out value="${report.user.firstName}"/>&nbsp;<c:out value="${report.user.secondName}"/></a>
                         </div>
 
                         <div class="position">
