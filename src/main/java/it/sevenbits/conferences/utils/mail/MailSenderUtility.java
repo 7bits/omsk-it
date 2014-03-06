@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service("emailService")
 public class MailSenderUtility {
 
-    private static final String SERVICE_MAILBOX = "naturalexchangeco@gmail.com";
+    private static final String SERVICE_MAILBOX = "no-reply@omskit.org";
 
     private static final String REGISTRATION_INFO_TEXT = "Чтобы подтвердить регистрацию на нашем сайте, пройдите по ссылке: ";
 
@@ -42,7 +42,7 @@ public class MailSenderUtility {
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(login);
         message.setSubject("Подтверждение регистрации");
-        String confirmationUrl = "http://omskit.local/omsk-it/user/confirmation?confirmation_token=" + confirmationToken + "&confirmation_login=" + login;
+        String confirmationUrl = "http://saturdays.omskit.org/user/confirmation?confirmation_token=" + confirmationToken + "&confirmation_login=" + login;
         message.setText(REGISTRATION_INFO_TEXT + confirmationUrl);
         mailSender.send(message);
     }
@@ -57,7 +57,7 @@ public class MailSenderUtility {
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(email);
         message.setSubject("Подтверждение регистрации");
-        String confirmationUrl = "http://omskit.local/omsk-it/user/confirmation?confirmation_token=" +
+        String confirmationUrl = "http://saturdays.omskit.org/user/confirmation?confirmation_token=" +
                 confirmationToken + "&confirmation_login=" + email + "&conference_status=1"
         ;
         message.setText(REGISTRATION_INFO_TEXT + confirmationUrl + " Ждем вас в субботу");
@@ -74,7 +74,7 @@ public class MailSenderUtility {
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(email);
         message.setSubject("Подтверждение регистрации");
-        String confirmationUrl = "http://omskit.local/omsk-it/user/confirmation?confirmation_token=" +
+        String confirmationUrl = "http://saturdays.omskit.org/user/confirmation?confirmation_token=" +
                 confirmationToken + "&confirmation_login=" + email + "&report_status=" + reportId
         ;
         message.setText(REGISTRATION_INFO_TEXT + confirmationUrl + " Ваша заявка на доклад будет рассмотрена.");
@@ -84,7 +84,7 @@ public class MailSenderUtility {
     public void sendNewPassword(final String email, final String password) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SERVICE_MAILBOX);
-        message.setTo("dimaaasik.s@gmail.com");
+        message.setTo(email);
         message.setSubject("Восстановление пароля");
         message.setText(TEMPORARY_PASSWORD_TEXT + " " + password);
         mailSender.send(message);
