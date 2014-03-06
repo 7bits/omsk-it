@@ -1,5 +1,6 @@
 # coding: utf-8
 class Report < ActiveRecord::Base
+  nilify_blanks
   self.table_name = 'report'
   belongs_to :conference
   belongs_to :user

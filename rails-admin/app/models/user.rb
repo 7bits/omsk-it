@@ -1,5 +1,6 @@
 # coding: utf-8
 class User < ActiveRecord::Base
+  nilify_blanks
   self.table_name = 'user'
   #has_many :role, through: :user_roles
   has_and_belongs_to_many :role, :join_table => :user_roles

@@ -1,6 +1,7 @@
 # coding: utf-8
 require 'date'
 class Conference < ActiveRecord::Base
+  nilify_blanks
   self.table_name = 'conference'
   belongs_to :company
   has_many :report

@@ -22,6 +22,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Set nil instead of empty string in DB. Read more: https://github.com/rubiety/nilify_blanks
+gem 'nilify_blanks'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 

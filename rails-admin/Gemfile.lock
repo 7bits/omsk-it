@@ -92,6 +92,9 @@ GEM
     net-ssh (2.7.0)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
+    nilify_blanks (1.0.3)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
@@ -183,6 +186,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick
   mysql2
+  nilify_blanks
   rails (= 4.0.1)
   rails_admin
   rvm-capistrano

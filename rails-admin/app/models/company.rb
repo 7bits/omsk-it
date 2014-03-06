@@ -1,5 +1,6 @@
 # coding: utf-8
 class Company < ActiveRecord::Base
+  nilify_blanks
   self.table_name = 'company'
   has_many :conference
   has_many :user
