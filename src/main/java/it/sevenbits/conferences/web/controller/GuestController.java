@@ -3,7 +3,7 @@ package it.sevenbits.conferences.web.controller;
 import it.sevenbits.conferences.domain.*;
 import it.sevenbits.conferences.service.*;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
-import it.sevenbits.conferences.web.form.GuestForm;
+import it.sevenbits.conferences.web.form.AnonymousGuestForm;
 import it.sevenbits.conferences.web.form.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -51,7 +51,7 @@ public class GuestController {
     private MailSenderUtility mailSenderUtility;
 
     @Autowired
-    @Qualifier("guestValidator")
+    @Qualifier("anonymousGuestValidator")
     private Validator validator;
 
     private boolean isAnonymousUser() {
@@ -90,7 +90,7 @@ public class GuestController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse submitForm(@ModelAttribute (value = "guestForm") GuestForm guestForm, BindingResult bindingResult) {
+    public JsonResponse submitForm(@ModelAttribute (value = "guestForm") AnonymousGuestForm guestForm, BindingResult bindingResult) {
         JsonResponse response = new JsonResponse();
         validator.validate(guestForm, bindingResult);
         if (bindingResult.hasErrors()) {
