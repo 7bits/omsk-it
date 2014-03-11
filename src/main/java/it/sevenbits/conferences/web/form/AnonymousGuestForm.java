@@ -3,7 +3,7 @@ package it.sevenbits.conferences.web.form;
 /**
  * POJO class for the suggestion form representation.
  */
-public class GuestForm {
+public class AnonymousGuestForm {
 
     private String firstName;
     private String secondName;

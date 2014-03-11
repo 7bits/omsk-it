@@ -4,7 +4,7 @@
 <div class="content">
     <div class="page">
         <div class="guest-form-div">
-            <%@ include file="/WEB-INF/view/jsp/register.jsp" %>
+            <%@ include file="/WEB-INF/view/jsp/popup-registration-form.jsp" %>
         </div>
         <div class="next-event">
             <c:out value="${conference.ordinalNumber}"/>-й IT-субботник пройдет

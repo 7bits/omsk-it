@@ -2,8 +2,7 @@ package it.sevenbits.conferences.web.validator;
 
 import it.sevenbits.conferences.service.CompanyService;
 import it.sevenbits.conferences.service.UserService;
-import it.sevenbits.conferences.web.form.CompanyAddForm;
-import it.sevenbits.conferences.web.form.GuestForm;
+import it.sevenbits.conferences.web.form.AnonymousGuestForm;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,7 +14,7 @@ import org.springframework.validation.Validator;
  *  Validator for guest's form.
  */
 @Component
-public class GuestValidator implements Validator {
+public class AnonymousGuestValidator implements Validator {
 
     @Autowired
     private CompanyService companyService;
@@ -25,12 +24,12 @@ public class GuestValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> clazz){
-        return GuestForm.class.equals(clazz);
+        return AnonymousGuestForm.class.equals(clazz);
     }
 
     @Override
     public void validate(Object target, Errors errors) {
-        GuestForm form = (GuestForm) target;
+        AnonymousGuestForm form = (AnonymousGuestForm) target;
         validateFirstName(errors);
         validateSecondName(errors);
         validateEmail(form, errors);
@@ -51,7 +50,7 @@ public class GuestValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "secondName", "secondName.empty", "Заполните, пожалуйста, Вашу Фамилию");
     }
 
-    private void validateEmail(GuestForm form, Errors errors) {
+    private void validateEmail(AnonymousGuestForm form, Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "email.empty", "Заполните, пожалуйста, Ваш E-mail");
         if (errors.hasErrors()) {
             return;
@@ -64,7 +63,7 @@ public class GuestValidator implements Validator {
         }
     }
 
-    private void validateJobPosition(GuestForm form, Errors errors) {
+    private void validateJobPosition(AnonymousGuestForm form, Errors errors) {
         ValidationUtils.rejectIfEmpty(errors, "jobPosition", "jobPosition.empty", "Укажите, пожалуйста, Вашу роль в компании/команде");
         if (errors.getFieldErrorCount("jobPosition") == 0) {
             if (form.getJobPosition().equals("other")) {
@@ -73,7 +72,7 @@ public class GuestValidator implements Validator {
         }
     }
 
-    private void validateCompany(GuestForm form, Errors errors) {
+    private void validateCompany(AnonymousGuestForm form, Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "company", "company.empty", "Поле должно быть заполнено.");
         String companyName = form.getCompany();
