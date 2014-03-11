@@ -1,9 +1,14 @@
 package it.sevenbits.conferences.utils.mail;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 /**
  * This class provide tools for working with mail.
@@ -19,8 +24,16 @@ public class MailSenderUtility {
             "Вам выслан временный пароль. Пройдите, пожалуйста, по указанной ссылке и смените его на новый."
     ;
 
+    private final Logger logger = Logger.getLogger(MailSenderUtility.class);
+
+    private String domen;
+
     @Autowired
     private JavaMailSender mailSender;
+
+    public MailSenderUtility() {
+        this.domen = getSiteDomain();
+    }
 
     /**
      * Send common message.
@@ -44,7 +57,7 @@ public class MailSenderUtility {
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(login);
         message.setSubject("Подтверждение регистрации");
-        String confirmationUrl = "http://saturdays.omskit.org/user/confirmation?confirmation_token=" +
+        String confirmationUrl = domen + "user/confirmation?confirmation_token=" +
                 confirmationToken + "&confirmation_login=" + login
         ;
         message.setText(REGISTRATION_INFO_TEXT + confirmationUrl);
@@ -61,7 +74,7 @@ public class MailSenderUtility {
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(email);
         message.setSubject("Подтверждение регистрации");
-        String confirmationUrl = "http://saturdays.omskit.org/user/confirmation?confirmation_token=" +
+        String confirmationUrl = domen + "user/confirmation?confirmation_token=" +
                 confirmationToken + "&confirmation_login=" + email + "&conference_status=1"
         ;
         message.setText(REGISTRATION_INFO_TEXT + confirmationUrl + " Ждем вас в субботу");
@@ -78,7 +91,7 @@ public class MailSenderUtility {
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(email);
         message.setSubject("Подтверждение регистрации");
-        String confirmationUrl = "http://saturdays.omskit.org/user/confirmation?confirmation_token=" +
+        String confirmationUrl = domen + "user/confirmation?confirmation_token=" +
                 confirmationToken + "&confirmation_login=" + email + "&report_status=" + reportId
         ;
         message.setText(REGISTRATION_INFO_TEXT + confirmationUrl + " Ваша заявка на доклад будет рассмотрена.");
@@ -97,5 +110,17 @@ public class MailSenderUtility {
         message.setSubject("Восстановление пароля");
         message.setText(TEMPORARY_PASSWORD_TEXT + " " + password);
         mailSender.send(message);
+    }
+
+    private String getSiteDomain() {
+        Properties prop = new Properties();
+        try {
+            InputStream inStream = getClass().getClassLoader().getResourceAsStream("common.properties");
+            prop.load(inStream);
+            inStream.close();
+        } catch (IOException e) {
+            logger.error("Cannot read filesUpload.properties file", e);
+        }
+        return prop.getProperty("site.domain");
     }
 }

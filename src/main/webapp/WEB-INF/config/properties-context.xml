@@ -12,6 +12,7 @@
                 <value>classpath:filesUpload.properties</value>
                 <value>classpath:hibernate.properties</value>
                 <value>classpath:password.properties</value>
+                <value>classpath:common.properties</value>
             </list>
         </property>
     </bean>
