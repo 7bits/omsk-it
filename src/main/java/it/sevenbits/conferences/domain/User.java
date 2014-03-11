@@ -93,7 +93,7 @@ public class User {
         this.confirmationToken = confirmationToken;
     }
 
-    @Column(name = "enabled", columnDefinition = "TINYINT(1)")
+    @Column(name = "enabled", columnDefinition = "BIT")
     public boolean getEnabled() {
         return enabled;
     }
