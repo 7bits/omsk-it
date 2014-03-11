@@ -1,6 +1,12 @@
 package it.sevenbits.conferences.domain;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * POJO class for Reports model.
@@ -27,7 +33,7 @@ public class Report {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -37,7 +43,7 @@ public class Report {
         return conference;
     }
 
-    public void setConference(Conference conference) {
+    public void setConference(final Conference conference) {
         this.conference = conference;
     }
 
@@ -47,7 +53,7 @@ public class Report {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(final User user) {
         this.user = user;
     }
 
@@ -56,7 +62,7 @@ public class Report {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(final String title) {
         this.title = title;
     }
 
@@ -65,7 +71,7 @@ public class Report {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
@@ -74,7 +80,7 @@ public class Report {
         return presentation;
     }
 
-    public void setPresentation(String presentation) {
+    public void setPresentation(final String presentation) {
         this.presentation = presentation;
     }
 
@@ -83,7 +89,7 @@ public class Report {
         return video;
     }
 
-    public void setVideo(String video) {
+    public void setVideo(final String video) {
         this.video = video;
     }
 
@@ -92,7 +98,7 @@ public class Report {
         return otherConferences;
     }
 
-    public void setOtherConferences(String otherConferences) {
+    public void setOtherConferences(final String otherConferences) {
         this.otherConferences = otherConferences;
     }
 
@@ -101,7 +107,7 @@ public class Report {
         return keyTechnologies;
     }
 
-    public void setKeyTechnologies(String keyTechnologies) {
+    public void setKeyTechnologies(final String keyTechnologies) {
         this.keyTechnologies = keyTechnologies;
     }
 
@@ -110,7 +116,7 @@ public class Report {
         return reporterWishes;
     }
 
-    public void setReporterWishes(String reporterWishes) {
+    public void setReporterWishes(final String reporterWishes) {
         this.reporterWishes = reporterWishes;
     }
 }

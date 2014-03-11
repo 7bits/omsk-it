@@ -2,6 +2,9 @@ package it.sevenbits.conferences.utils.converter;
 
 import org.joda.time.DateTime;
 
+/**
+ * Date time converter
+ */
 public class DateTimeConverter {
 
     private static final String[] RU_MONTHS = {
@@ -21,7 +24,6 @@ public class DateTimeConverter {
         } else {
             DateTime dateTime = new DateTime(date * 1000L);
             StringBuffer result = new StringBuffer();
-
             result.append(dateTime.dayOfMonth().getAsShortText());
             result.append(" ");
             result.append(RU_MONTHS[dateTime.getMonthOfYear() - 1]);

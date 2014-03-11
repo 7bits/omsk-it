@@ -3,7 +3,6 @@ package it.sevenbits.conferences.utils.file;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,7 +35,7 @@ public class FileManager {
      */
     public String saveImage(final MultipartFile imageFile) {
         UUID uuid = UUID.randomUUID();
-        String imageFileName = "img_" + uuid + "." + imageFile.getContentType().replace("image/","");
+        String imageFileName = "img_" + uuid + "." + imageFile.getContentType().replace("image/", "");
         String imageFilesPath = getImagesStoragePath();
         File file = new File(imageFilesPath + imageFileName);
         try {

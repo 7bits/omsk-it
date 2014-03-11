@@ -22,7 +22,7 @@ public class JpaSuggestionDao extends JpaEntityDao<Suggestion> implements Sugges
      * Constructor from generic JpaEntityDao.
      * @param suggestionClass generic class type.
      */
-    public JpaSuggestionDao(Class<Suggestion> suggestionClass) {
+    public JpaSuggestionDao(final Class<Suggestion> suggestionClass) {
 
         super(suggestionClass);
     }

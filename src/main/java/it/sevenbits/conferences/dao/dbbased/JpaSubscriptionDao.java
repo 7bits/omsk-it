@@ -22,7 +22,7 @@ public class JpaSubscriptionDao extends JpaEntityDao<Subscription> implements Su
      * Constructor from generic JpaEntityDao.
      * @param subscriptionClass generic class type.
      */
-    public JpaSubscriptionDao(Class<Subscription> subscriptionClass) {
+    public JpaSubscriptionDao(final Class<Subscription> subscriptionClass) {
 
         super(subscriptionClass);
     }

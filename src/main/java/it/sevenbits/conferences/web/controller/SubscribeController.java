@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +33,10 @@ public class SubscribeController {
 
     @RequestMapping(value = "/subscribe", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse subscribe(@ModelAttribute(value = "subscriptionForm") SubscriptionForm subscriptionForm, BindingResult bindingResult) {
+    public JsonResponse subscribe(
+            @ModelAttribute(value = "subscriptionForm") final SubscriptionForm subscriptionForm,
+            final BindingResult bindingResult
+    ) {
 
         JsonResponse response = new JsonResponse();
         validator.validate(subscriptionForm, bindingResult);

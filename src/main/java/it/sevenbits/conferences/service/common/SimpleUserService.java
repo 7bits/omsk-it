@@ -23,19 +23,19 @@ public class SimpleUserService implements UserService {
 
     @Transactional
     @Override
-    public User addUser(User user) {
+    public User addUser(final User user) {
         return userDao.add(user);
     }
 
     @Transactional
     @Override
-    public boolean removeUser(Long id) {
+    public boolean removeUser(final Long id) {
         return userDao.remove(id);
     }
 
     @Transactional
     @Override
-    public User updateUser(User user) {
+    public User updateUser(final User user) {
         return userDao.update(user);
     }
 
@@ -47,7 +47,7 @@ public class SimpleUserService implements UserService {
 
     @Transactional
     @Override
-    public User findUserById(Long id) {
+    public User findUserById(final Long id) {
         return userDao.findById(id);
     }
 
@@ -57,7 +57,7 @@ public class SimpleUserService implements UserService {
         String query = "SELECT u FROM User u WHERE u.login =:login";
         Map<String, Object> queryParams = new HashMap<>();
         queryParams.put("login", login);
-        List<User> usersList = userDao.findByQuery(query,queryParams);
+        List<User> usersList = userDao.findByQuery(query, queryParams);
         if (usersList == null || usersList.isEmpty()) {
             return null;
         }
@@ -66,12 +66,11 @@ public class SimpleUserService implements UserService {
 
     @Transactional
     @Override
-    public User getUserByEmail(final String email)
-    {
+    public User getUserByEmail(final String email) {
         String query = "SELECT u FROM User u WHERE u.email =:email";
         Map<String, Object> queryParams = new HashMap<>();
         queryParams.put("email", email);
-        List<User> usersList = userDao.findByQuery(query,queryParams);
+        List<User> usersList = userDao.findByQuery(query, queryParams);
         if (usersList == null || usersList.isEmpty()) {
             return null;
         }

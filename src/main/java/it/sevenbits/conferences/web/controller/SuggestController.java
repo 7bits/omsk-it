@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,13 +36,15 @@ public class SuggestController {
     @RequestMapping(value = "/suggest", method = RequestMethod.GET)
     public ModelAndView showForm() {
 
-        ModelAndView modelAndView = new ModelAndView("suggest", "suggestionForm", new SuggestionForm());
-        return modelAndView;
+        return new ModelAndView("suggest", "suggestionForm", new SuggestionForm());
     }
 
     @RequestMapping(value = "/suggest", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse submitForm(@ModelAttribute(value = "suggestionForm") SuggestionForm suggestionForm, BindingResult bindingResult) {
+    public JsonResponse submitForm(
+            @ModelAttribute(value = "suggestionForm") final SuggestionForm suggestionForm,
+            final BindingResult bindingResult
+    ) {
 
         JsonResponse response = new JsonResponse();
         validator.validate(suggestionForm, bindingResult);
@@ -62,7 +63,7 @@ public class SuggestController {
         } else {
 
             Suggestion suggestion = new Suggestion();
-            int i =0;
+            int i = 0;
 
             StringBuilder senderSpecialization = new StringBuilder();
             for (String field: suggestionForm.getSenderSpecialization()) {

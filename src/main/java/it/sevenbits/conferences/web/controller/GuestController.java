@@ -1,7 +1,15 @@
 package it.sevenbits.conferences.web.controller;
 
-import it.sevenbits.conferences.domain.*;
-import it.sevenbits.conferences.service.*;
+import it.sevenbits.conferences.domain.Company;
+import it.sevenbits.conferences.domain.Conference;
+import it.sevenbits.conferences.domain.Guest;
+import it.sevenbits.conferences.domain.Role;
+import it.sevenbits.conferences.domain.User;
+import it.sevenbits.conferences.service.CompanyService;
+import it.sevenbits.conferences.service.ConferenceService;
+import it.sevenbits.conferences.service.GuestService;
+import it.sevenbits.conferences.service.RoleService;
+import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
 import it.sevenbits.conferences.web.form.AnonymousGuestForm;
 import it.sevenbits.conferences.web.form.JsonResponse;
@@ -30,7 +38,7 @@ import java.util.UUID;
 @Controller
 public class GuestController {
 
-    private final String ANONYMOUS_USER = "anonymousUser";
+    private static final String ANONYMOUS_USER = "anonymousUser";
 
     @Autowired
     private ConferenceService conferenceService;
@@ -60,8 +68,8 @@ public class GuestController {
         return  isAnonymous;
     }
 
-    private boolean isUserIsGuestOnConference(String login, Long conference_id) {
-        if (guestService.findGuestWithLoginAndConferenceLike(login,conference_id) != null) {
+    private boolean isUserIsGuestOnConference(final String login, final Long conferenceId) {
+        if (guestService.findGuestWithLoginAndConferenceLike(login, conferenceId) != null) {
             return true;
         }
         return false;
@@ -76,7 +84,7 @@ public class GuestController {
         } else {
             String userLogin = SecurityContextHolder.getContext().getAuthentication().getName();
             Conference currentConference = conferenceService.findNextConference();
-            if (!isUserIsGuestOnConference(userLogin,currentConference.getId())) {
+            if (!isUserIsGuestOnConference(userLogin, currentConference.getId())) {
                 Guest guest = new Guest();
                 User currentUser = userService.getUser(userLogin);
                 guest.setUser(currentUser);
@@ -90,7 +98,11 @@ public class GuestController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse submitForm(@ModelAttribute (value = "guestForm") AnonymousGuestForm guestForm, BindingResult bindingResult) {
+    public JsonResponse submitForm(
+            @ModelAttribute (value = "guestForm") final AnonymousGuestForm guestForm,
+            final BindingResult bindingResult
+    ) {
+
         JsonResponse response = new JsonResponse();
         validator.validate(guestForm, bindingResult);
         if (bindingResult.hasErrors()) {
@@ -116,16 +128,15 @@ public class GuestController {
             user.setEnabled(false);
             Company company = companyService.findCompanyByName(guestForm.getCompany());
             user.setCompany(company);
-            Role role = roleService.findRoleById(1l);
+            Role role = roleService.findRoleById(1L);
             user.setRole(role);
-            String confirmation_token = UUID.randomUUID().toString();
-            user.setConfirmationToken(confirmation_token);
+            String confirmationToken = UUID.randomUUID().toString();
+            user.setConfirmationToken(confirmationToken);
             userService.updateUser(user);
-            mailSenderUtility.sendConfirmationTokenAndConferenceStatus(guestForm.getEmail(), confirmation_token);
+            mailSenderUtility.sendConfirmationTokenAndConferenceStatus(guestForm.getEmail(), confirmationToken);
             response.setStatus(JsonResponse.STATUS_SUCCESS);
             response.setResult(Collections.singletonMap("message", "На ваш email послано письмо для подтверждения регистрации и участия."));
         }
-
         return response;
     }
 }

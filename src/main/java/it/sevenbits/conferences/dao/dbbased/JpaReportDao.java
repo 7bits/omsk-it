@@ -22,7 +22,7 @@ public class JpaReportDao extends JpaEntityDao<Report> implements ReportDao {
      * Constructor from generic JpaEntityDao.
      * @param reportClass generic class type.
      */
-    public JpaReportDao(Class<Report> reportClass) {
+    public JpaReportDao(final Class<Report> reportClass) {
 
         super(reportClass);
     }

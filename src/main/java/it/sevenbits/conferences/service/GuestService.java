@@ -38,9 +38,9 @@ public interface GuestService {
     /**
      * Search guest which login and conference like necessary.
      * @param login user's login
-     * @param conference_id guest's conference
+     * @param conferenceId guest's conference
      * @return guest - if he is exists
      *         null  - if doesnt exist
      */
-    Guest findGuestWithLoginAndConferenceLike(final String login, final long conference_id);
+    Guest findGuestWithLoginAndConferenceLike(final String login, final long conferenceId);
 }

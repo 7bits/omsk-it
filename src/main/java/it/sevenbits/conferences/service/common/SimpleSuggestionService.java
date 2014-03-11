@@ -20,21 +20,21 @@ public class SimpleSuggestionService implements SuggestionService {
 
     @Transactional
     @Override
-    public Suggestion addSuggestion(Suggestion suggestion) {
+    public Suggestion addSuggestion(final Suggestion suggestion) {
 
         return suggestionDao.add(suggestion);
     }
 
     @Transactional
     @Override
-    public boolean removeSuggestion(Long id) {
+    public boolean removeSuggestion(final Long id) {
 
         return suggestionDao.remove(id);
     }
 
     @Transactional
     @Override
-    public Suggestion updateSuggestion(Suggestion suggestion) {
+    public Suggestion updateSuggestion(final Suggestion suggestion) {
 
         return suggestionDao.update(suggestion);
     }
@@ -48,7 +48,7 @@ public class SimpleSuggestionService implements SuggestionService {
 
     @Transactional
     @Override
-    public Suggestion findSuggestionById(Long id) {
+    public Suggestion findSuggestionById(final Long id) {
 
         return suggestionDao.findById(id);
     }

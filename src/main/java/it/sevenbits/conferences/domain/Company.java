@@ -1,6 +1,11 @@
 package it.sevenbits.conferences.domain;
 
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * POJO class for Companies model.
@@ -21,7 +26,7 @@ public class Company {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -30,7 +35,7 @@ public class Company {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -39,7 +44,7 @@ public class Company {
         return site;
     }
 
-    public void setSite(String site) {
+    public void setSite(final String site) {
         this.site = site;
     }
 
@@ -48,7 +53,7 @@ public class Company {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(final String location) {
         this.location = location;
     }
 }

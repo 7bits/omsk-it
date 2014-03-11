@@ -19,19 +19,19 @@ public class SimpleRoleService implements RoleService {
 
     @Transactional
     @Override
-    public Role addRole(Role role) {
+    public Role addRole(final Role role) {
         return roleDao.add(role);
     }
 
     @Transactional
     @Override
-    public boolean removeRole(Long id) {
+    public boolean removeRole(final Long id) {
         return roleDao.remove(id);
     }
 
     @Transactional
     @Override
-    public Role updateRole(Role role) {
+    public Role updateRole(final Role role) {
         return roleDao.update(role);
     }
 
@@ -43,7 +43,7 @@ public class SimpleRoleService implements RoleService {
 
     @Transactional
     @Override
-    public Role findRoleById(Long id) {
+    public Role findRoleById(final Long id) {
         return roleDao.findById(id);
     }
 }

@@ -22,7 +22,7 @@ public class ApplyForReportForm {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
@@ -30,7 +30,7 @@ public class ApplyForReportForm {
         return secondName;
     }
 
-    public void setSecondName(String secondName) {
+    public void setSecondName(final String secondName) {
         this.secondName = secondName;
     }
 
@@ -38,7 +38,7 @@ public class ApplyForReportForm {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 
@@ -46,7 +46,7 @@ public class ApplyForReportForm {
         return company;
     }
 
-    public void setCompany(String company) {
+    public void setCompany(final String company) {
         this.company = company;
     }
 
@@ -54,7 +54,7 @@ public class ApplyForReportForm {
         return jobPosition;
     }
 
-    public void setJobPosition(String jobPosition) {
+    public void setJobPosition(final String jobPosition) {
         this.jobPosition = jobPosition;
     }
 
@@ -62,7 +62,7 @@ public class ApplyForReportForm {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(final String title) {
         this.title = title;
     }
 
@@ -70,7 +70,7 @@ public class ApplyForReportForm {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
@@ -78,7 +78,7 @@ public class ApplyForReportForm {
         return keyTechnologies;
     }
 
-    public void setKeyTechnologies(String keyTechnologies) {
+    public void setKeyTechnologies(final String keyTechnologies) {
         this.keyTechnologies = keyTechnologies;
     }
 
@@ -86,7 +86,7 @@ public class ApplyForReportForm {
         return otherConferences;
     }
 
-    public void setOtherConferences(String otherConferences) {
+    public void setOtherConferences(final String otherConferences) {
         this.otherConferences = otherConferences;
     }
 
@@ -94,7 +94,7 @@ public class ApplyForReportForm {
         return speechExperience;
     }
 
-    public void setSpeechExperience(String speechExperience) {
+    public void setSpeechExperience(final String speechExperience) {
         this.speechExperience = speechExperience;
     }
 
@@ -102,7 +102,7 @@ public class ApplyForReportForm {
         return reporterWishes;
     }
 
-    public void setReporterWishes(String reporterWishes) {
+    public void setReporterWishes(final String reporterWishes) {
         this.reporterWishes = reporterWishes;
     }
 
@@ -110,7 +110,7 @@ public class ApplyForReportForm {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(final String password) {
         this.password = password;
     }
 }

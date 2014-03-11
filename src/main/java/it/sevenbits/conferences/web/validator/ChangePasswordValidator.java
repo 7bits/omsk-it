@@ -21,39 +21,39 @@ public class ChangePasswordValidator implements Validator {
     private UserService userService;
 
     @Override
-    public boolean supports(Class<?> clazz){
+    public boolean supports(final Class<?> clazz) {
         return ChangePasswordForm.class.equals(clazz);
     }
 
     @Override
-    public void validate(Object target, Errors errors) {
+    public void validate(final Object target, final Errors errors) {
         ChangePasswordForm changePasswordForm = (ChangePasswordForm) target;
         validateEmail(changePasswordForm, errors);
         validateOldPassword(changePasswordForm, errors);
         validateNewPassword(errors);
     }
 
-    private void validateEmail(ChangePasswordForm form, Errors errors) {
+    private void validateEmail(final ChangePasswordForm form, final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "email.empty", "Email не должен быть пустым");
         if (!isUserExists(form.getEmail())) {
-            errors.rejectValue("email","email.notExists","Такого пользователя не существует.");
+            errors.rejectValue("email", "email.notExists", "Такого пользователя не существует.");
         }
     }
 
-    private void validateOldPassword(ChangePasswordForm form, Errors errors) {
+    private void validateOldPassword(final ChangePasswordForm form, final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "oldPassword", "oldPassword.empty", "Пароль не должен быть пустым");
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         User user = userService.getUser(form.getEmail());
-        if ( user != null && !passwordEncoder.matches(form.getOldPassword(),user.getPassword())) {
-            errors.rejectValue("oldPassword","oldPassword.notExists","Неверный пароль");
+        if (user != null && !passwordEncoder.matches(form.getOldPassword(), user.getPassword())) {
+            errors.rejectValue("oldPassword", "oldPassword.notExists", "Неверный пароль");
         }
     }
 
-    private void validateNewPassword(Errors errors) {
+    private void validateNewPassword(final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "newPassword", "newPassword.empty", "Пароль не должен быть пустым");
     }
 
-    public boolean isUserExists(String email) {
+    public boolean isUserExists(final String email) {
         boolean isExists = false;
         if (userService.getUserByEmail(email) != null) {
             isExists = true;

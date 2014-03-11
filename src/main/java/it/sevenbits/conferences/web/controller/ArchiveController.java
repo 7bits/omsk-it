@@ -19,7 +19,7 @@ import java.util.List;
 @Controller
 public class ArchiveController {
 
-    private final static ConferenceComparator CONFERENCE_COMPARATOR = new ConferenceComparator();
+    private static final ConferenceComparator CONFERENCE_COMPARATOR = new ConferenceComparator();
 
     @Autowired
     private ConferenceService conferenceService;

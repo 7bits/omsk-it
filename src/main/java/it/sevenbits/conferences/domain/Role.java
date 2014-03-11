@@ -12,8 +12,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.Set;
 
+/**
+ * POJO class for role model.
+ */
 @Entity
-@Table(name="role")
+@Table(name = "role")
 public class Role {
 
     private Long id;
@@ -26,7 +29,7 @@ public class Role {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -35,20 +38,24 @@ public class Role {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(final String role) {
         this.role = role;
     }
 
-    @OneToMany(cascade= CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name="user_roles",
-            joinColumns = {@JoinColumn(name="role_id", referencedColumnName="id")},
-            inverseJoinColumns = {@JoinColumn(name="user_id", referencedColumnName="id")}
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_roles",
+            joinColumns = {
+                    @JoinColumn(name = "role_id", referencedColumnName = "id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "user_id", referencedColumnName = "id")
+            }
     )
     public Set<User> getUserRoles() {
         return userRoles;
     }
 
-    public void setUserRoles(Set<User> userRoles) {
+    public void setUserRoles(final Set<User> userRoles) {
         this.userRoles = userRoles;
     }
 

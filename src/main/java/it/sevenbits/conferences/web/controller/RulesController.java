@@ -1,6 +1,5 @@
 package it.sevenbits.conferences.web.controller;
 
-import it.sevenbits.conferences.service.CompanyService;
 import it.sevenbits.conferences.service.ConferenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

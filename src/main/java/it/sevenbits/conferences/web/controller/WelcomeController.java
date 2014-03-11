@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.List;
 
 import static it.sevenbits.conferences.utils.date.NextDateConference.getNextDate;
@@ -30,7 +29,7 @@ public class WelcomeController {
     public ModelAndView showIndex() {
 
         Conference conference = conferenceService.findNextConference();
-        long today = System.currentTimeMillis()/1000;
+        long today = System.currentTimeMillis() / 1000;
 
         if (conference.getDate() < today) {
             Conference newConference = new Conference();

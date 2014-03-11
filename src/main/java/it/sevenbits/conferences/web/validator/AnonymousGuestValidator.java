@@ -23,12 +23,12 @@ public class AnonymousGuestValidator implements Validator {
     private UserService userService;
 
     @Override
-    public boolean supports(Class<?> clazz){
+    public boolean supports(final Class<?> clazz) {
         return AnonymousGuestForm.class.equals(clazz);
     }
 
     @Override
-    public void validate(Object target, Errors errors) {
+    public void validate(final Object target, final Errors errors) {
         AnonymousGuestForm form = (AnonymousGuestForm) target;
         validateFirstName(errors);
         validateSecondName(errors);
@@ -38,19 +38,19 @@ public class AnonymousGuestValidator implements Validator {
         validateCompany(form, errors);
     }
 
-    private void validatePassword(Errors errors) {
+    private void validatePassword(final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "password.empty", "Пароль не должен быть пустым");
     }
 
-    private void validateFirstName(Errors errors) {
+    private void validateFirstName(final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "firstName.empty", "Заполните, пожалуйста, Ваше Имя");
     }
 
-    private void validateSecondName(Errors errors) {
+    private void validateSecondName(final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "secondName", "secondName.empty", "Заполните, пожалуйста, Вашу Фамилию");
     }
 
-    private void validateEmail(AnonymousGuestForm form, Errors errors) {
+    private void validateEmail(final AnonymousGuestForm form, final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "email.empty", "Заполните, пожалуйста, Ваш E-mail");
         if (errors.hasErrors()) {
             return;
@@ -63,16 +63,21 @@ public class AnonymousGuestValidator implements Validator {
         }
     }
 
-    private void validateJobPosition(AnonymousGuestForm form, Errors errors) {
+    private void validateJobPosition(final AnonymousGuestForm form, final Errors errors) {
         ValidationUtils.rejectIfEmpty(errors, "jobPosition", "jobPosition.empty", "Укажите, пожалуйста, Вашу роль в компании/команде");
         if (errors.getFieldErrorCount("jobPosition") == 0) {
             if (form.getJobPosition().equals("other")) {
-                ValidationUtils.rejectIfEmptyOrWhitespace(errors, "jobPositionOther", "jobPositionOther.empty", "Заполните, пожалуйста, Вашу роль в компании/команде");
+                ValidationUtils.rejectIfEmptyOrWhitespace(
+                        errors,
+                        "jobPositionOther",
+                        "jobPositionOther.empty",
+                        "Заполните, пожалуйста, Вашу роль в компании/команде"
+                );
             }
         }
     }
 
-    private void validateCompany(AnonymousGuestForm form, Errors errors) {
+    private void validateCompany(final AnonymousGuestForm form, final Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "company", "company.empty", "Поле должно быть заполнено.");
         String companyName = form.getCompany();
@@ -84,16 +89,14 @@ public class AnonymousGuestValidator implements Validator {
     private boolean isUserExists(final String email) {
         if (userService.getUserByEmail(email) != null) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     private boolean isCompanyExists(final String companyName) {
         if (companyService.findCompanyByName(companyName) != null) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 }

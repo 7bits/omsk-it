@@ -22,7 +22,7 @@ public class JpaUserDao extends JpaEntityDao<User> implements UserDao {
      * Constructor from generic JpaEntityDao.
      * @param userClass generic class type.
      */
-    public JpaUserDao(Class<User> userClass) {
+    public JpaUserDao(final Class<User> userClass) {
 
         super(userClass);
     }

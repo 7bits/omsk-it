@@ -1,6 +1,13 @@
 package it.sevenbits.conferences.domain;
 
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * POJO class for Guests model.
@@ -20,7 +27,7 @@ public class Guest {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -30,7 +37,7 @@ public class Guest {
         return conference;
     }
 
-    public void setConference(Conference conference) {
+    public void setConference(final Conference conference) {
         this.conference = conference;
     }
 
@@ -40,7 +47,7 @@ public class Guest {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(final User user) {
         this.user = user;
     }
 }

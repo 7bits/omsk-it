@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class JpaEntityDao<Entity> implements EntityDao<Entity> {
 
-    private static final Logger logger = Logger.getLogger(JpaEntityDao.class);
+    private static final Logger LOGGER = Logger.getLogger(JpaEntityDao.class);
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -36,7 +36,7 @@ public class JpaEntityDao<Entity> implements EntityDao<Entity> {
         try {
             entityManager.persist(entity);
         } catch (Exception e) {
-            logger.error("Can not add an entity to the database", e);
+            LOGGER.error("Can not add an entity to the database", e);
             return null;
         }
         return entity;

@@ -6,7 +6,6 @@ import it.sevenbits.conferences.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,21 +21,21 @@ public class SimpleCompanyService implements CompanyService {
 
     @Transactional
     @Override
-    public Company addCompany(Company company) {
+    public Company addCompany(final Company company) {
 
         return companyDao.add(company);
     }
 
     @Transactional
     @Override
-    public boolean removeCompany(Long id) {
+    public boolean removeCompany(final Long id) {
 
         return companyDao.remove(id);
     }
 
     @Transactional
     @Override
-    public Company updateCompany(Company company) {
+    public Company updateCompany(final Company company) {
 
         return companyDao.update(company);
     }
@@ -50,19 +49,18 @@ public class SimpleCompanyService implements CompanyService {
 
     @Transactional
     @Override
-    public Company findCompanyById(Long id) {
+    public Company findCompanyById(final Long id) {
 
         return companyDao.findById(id);
     }
 
     @Transactional
     @Override
-    public Company findCompanyByName(final String name)
-    {
+    public Company findCompanyByName(final String name) {
         String query = "SELECT c FROM Company c WHERE c.name =:name";
         Map<String, Object> queryParams = new HashMap<>();
         queryParams.put("name", name);
-        List<Company> usersList = companyDao.findByQuery(query,queryParams);
+        List<Company> usersList = companyDao.findByQuery(query, queryParams);
         if (usersList == null || usersList.isEmpty()) {
             return null;
         }

@@ -8,7 +8,6 @@ import it.sevenbits.conferences.service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,21 +23,21 @@ public class SimpleReportService implements ReportService {
 
     @Transactional
     @Override
-    public Report addReport(Report report) {
+    public Report addReport(final Report report) {
 
         return reportDao.add(report);
     }
 
     @Transactional
     @Override
-    public boolean removeReport(Long id) {
+    public boolean removeReport(final Long id) {
 
         return reportDao.remove(id);
     }
 
     @Transactional
     @Override
-    public Report updateReport(Report report) {
+    public Report updateReport(final Report report) {
 
         return reportDao.update(report);
     }
@@ -52,13 +51,13 @@ public class SimpleReportService implements ReportService {
 
     @Transactional
     @Override
-    public Report findReportById(Long id) {
+    public Report findReportById(final Long id) {
 
         return reportDao.findById(id);
     }
 
     @Override
-    public List<Report> findAllReportsByConference(Conference conference) {
+    public List<Report> findAllReportsByConference(final Conference conference) {
 
         Map<String, Object> params = new HashMap<>();
         params.put("conference", conference);
@@ -66,7 +65,7 @@ public class SimpleReportService implements ReportService {
     }
 
     @Override
-    public List<Report> findAllPresentedReportsByUser(User user) {
+    public List<Report> findAllPresentedReportsByUser(final User user) {
 
         Map<String, Object> params = new HashMap<>();
         params.put("user", user);

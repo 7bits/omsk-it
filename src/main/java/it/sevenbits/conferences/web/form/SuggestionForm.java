@@ -16,7 +16,7 @@ public class SuggestionForm {
         return senderSpecialization;
     }
 
-    public void setSenderSpecialization(String[] senderSpecialization) {
+    public void setSenderSpecialization(final String[] senderSpecialization) {
         this.senderSpecialization = senderSpecialization;
     }
 
@@ -24,7 +24,7 @@ public class SuggestionForm {
         return senderSpecializationOther;
     }
 
-    public void setSenderSpecializationOther(String senderSpecializationOther) {
+    public void setSenderSpecializationOther(final String senderSpecializationOther) {
         this.senderSpecializationOther = senderSpecializationOther;
     }
 
@@ -32,7 +32,7 @@ public class SuggestionForm {
         return favoriteTheme;
     }
 
-    public void setFavoriteTheme(String favoriteTheme[]) {
+    public void setFavoriteTheme(final String[] favoriteTheme) {
         this.favoriteTheme = favoriteTheme;
     }
 
@@ -40,7 +40,7 @@ public class SuggestionForm {
         return favoriteThemeOther;
     }
 
-    public void setFavoriteThemeOther(String favoriteThemeOther) {
+    public void setFavoriteThemeOther(final String favoriteThemeOther) {
         this.favoriteThemeOther = favoriteThemeOther;
     }
 
@@ -48,7 +48,7 @@ public class SuggestionForm {
         return themeRequest;
     }
 
-    public void setThemeRequest(String themeRequest) {
+    public void setThemeRequest(final String themeRequest) {
         this.themeRequest = themeRequest;
     }
 
@@ -56,7 +56,7 @@ public class SuggestionForm {
         return reporterRequest;
     }
 
-    public void setReporterRequest(String reporterRequest) {
+    public void setReporterRequest(final String reporterRequest) {
         this.reporterRequest = reporterRequest;
     }
 }

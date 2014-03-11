@@ -22,7 +22,7 @@ public class JpaConferenceDao extends JpaEntityDao<Conference> implements Confer
      * Constructor from generic JpaEntityDao.
      * @param conferenceClass generic class type.
      */
-    public JpaConferenceDao(Class<Conference> conferenceClass) {
+    public JpaConferenceDao(final Class<Conference> conferenceClass) {
 
         super(conferenceClass);
     }

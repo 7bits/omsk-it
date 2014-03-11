@@ -1,6 +1,10 @@
 package it.sevenbits.conferences.domain;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * POJO class for Suggestions model.
@@ -22,7 +26,7 @@ public class Suggestion {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -31,7 +35,7 @@ public class Suggestion {
         return senderSpecialization;
     }
 
-    public void setSenderSpecialization(String senderSpecialization) {
+    public void setSenderSpecialization(final String senderSpecialization) {
         this.senderSpecialization = senderSpecialization;
     }
 
@@ -40,7 +44,7 @@ public class Suggestion {
         return favoriteTheme;
     }
 
-    public void setFavoriteTheme(String favoriteTheme) {
+    public void setFavoriteTheme(final String favoriteTheme) {
         this.favoriteTheme = favoriteTheme;
     }
 
@@ -49,7 +53,7 @@ public class Suggestion {
         return themeRequest;
     }
 
-    public void setThemeRequest(String themeRequest) {
+    public void setThemeRequest(final String themeRequest) {
         this.themeRequest = themeRequest;
     }
 
@@ -58,7 +62,7 @@ public class Suggestion {
         return reporterRequest;
     }
 
-    public void setReporterRequest(String reporterRequest) {
+    public void setReporterRequest(final String reporterRequest) {
         this.reporterRequest = reporterRequest;
     }
 }

@@ -22,7 +22,7 @@ public class JpaCompanyDao extends JpaEntityDao<Company> implements CompanyDao {
      * Constructor from generic JpaEntityDao.
      * @param companyClass generic class type.
      */
-    public JpaCompanyDao(Class<Company> companyClass) {
+    public JpaCompanyDao(final Class<Company> companyClass) {
 
         super(companyClass);
     }

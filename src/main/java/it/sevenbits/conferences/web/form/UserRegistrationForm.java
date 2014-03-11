@@ -19,7 +19,7 @@ public class UserRegistrationForm {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(final String password) {
         this.password = password;
     }
 
@@ -27,7 +27,7 @@ public class UserRegistrationForm {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
@@ -35,7 +35,7 @@ public class UserRegistrationForm {
         return secondName;
     }
 
-    public void setSecondName(String secondName) {
+    public void setSecondName(final String secondName) {
         this.secondName = secondName;
     }
 
@@ -43,7 +43,7 @@ public class UserRegistrationForm {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 
@@ -51,7 +51,7 @@ public class UserRegistrationForm {
         return jobPosition;
     }
 
-    public void setJobPosition(String jobPosition) {
+    public void setJobPosition(final String jobPosition) {
         this.jobPosition = jobPosition;
     }
 
@@ -59,7 +59,7 @@ public class UserRegistrationForm {
         return company;
     }
 
-    public void setCompany(String company) {
+    public void setCompany(final String company) {
         this.company = company;
     }
 
@@ -67,7 +67,7 @@ public class UserRegistrationForm {
         return photo;
     }
 
-    public void setPhoto(MultipartFile photo) {
+    public void setPhoto(final MultipartFile photo) {
         this.photo = photo;
     }
 }

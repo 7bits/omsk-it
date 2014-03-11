@@ -10,7 +10,7 @@ import java.util.Comparator;
 public class ConferenceComparator implements Comparator<Conference> {
 
     @Override
-    public int compare(Conference o1, Conference o2) {
+    public int compare(final Conference o1, final Conference o2) {
 
         return o1.getOrdinalNumber().compareTo(o2.getOrdinalNumber());
     }

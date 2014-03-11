@@ -22,7 +22,7 @@ public class JpaRoleDao extends JpaEntityDao<Role> implements RoleDao {
      * Constructor from generic JpaEntityDao.
      * @param roleClass generic class type.
      */
-    public JpaRoleDao(Class<Role> roleClass) {
+    public JpaRoleDao(final Class<Role> roleClass) {
 
         super(roleClass);
     }

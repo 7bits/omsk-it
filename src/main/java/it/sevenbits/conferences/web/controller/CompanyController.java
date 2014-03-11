@@ -4,7 +4,6 @@ import it.sevenbits.conferences.domain.Company;
 import it.sevenbits.conferences.service.CompanyService;
 import it.sevenbits.conferences.web.form.CompanyAddForm;
 import it.sevenbits.conferences.web.form.JsonResponse;
-import org.codehaus.jackson.JsonEncoding;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -51,12 +50,15 @@ public class CompanyController {
 
     @RequestMapping(value = "/company/new", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse addNewCompany(@ModelAttribute(value = "companyAddForm") CompanyAddForm companyAddForm, BindingResult bindingResult) {
+    public JsonResponse addNewCompany(
+            @ModelAttribute(value = "companyAddForm") final CompanyAddForm companyAddForm,
+            final BindingResult bindingResult
+    ) {
         companyValidator.validate(companyAddForm, bindingResult);
         JsonResponse response = new JsonResponse();
         if (bindingResult.hasErrors()) {
             response.setStatus(JsonResponse.STATUS_FAIL);
-            Map<String,String> errors = new HashMap<>();
+            Map<String, String> errors = new HashMap<>();
             for (FieldError fieldError : bindingResult.getFieldErrors()) {
                 if (!errors.containsKey(fieldError.getField())) {
                     errors.put(fieldError.getField(), fieldError.getDefaultMessage());
@@ -73,6 +75,4 @@ public class CompanyController {
         }
         return response;
     }
-
-
 }

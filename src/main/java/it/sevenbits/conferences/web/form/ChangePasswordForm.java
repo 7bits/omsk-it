@@ -13,7 +13,7 @@ public class ChangePasswordForm {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 
@@ -21,7 +21,7 @@ public class ChangePasswordForm {
         return oldPassword;
     }
 
-    public void setOldPassword(String oldPassword) {
+    public void setOldPassword(final String oldPassword) {
         this.oldPassword = oldPassword;
     }
 
@@ -29,7 +29,7 @@ public class ChangePasswordForm {
         return newPassword;
     }
 
-    public void setNewPassword(String newPassword) {
+    public void setNewPassword(final String newPassword) {
         this.newPassword = newPassword;
     }
 }

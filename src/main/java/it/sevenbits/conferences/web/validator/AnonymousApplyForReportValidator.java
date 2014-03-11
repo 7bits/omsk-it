@@ -1,7 +1,6 @@
 package it.sevenbits.conferences.web.validator;
 
 import it.sevenbits.conferences.service.CompanyService;
-import it.sevenbits.conferences.service.ReportService;
 import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.web.form.ApplyForReportForm;
 import org.apache.commons.validator.routines.EmailValidator;
@@ -24,13 +23,13 @@ public class AnonymousApplyForReportValidator implements Validator {
     private CompanyService companyService;
 
     @Override
-    public boolean supports(Class<?> clazz) {
+    public boolean supports(final Class<?> clazz) {
 
         return ApplyForReportForm.class.equals(clazz);
     }
 
     @Override
-    public void validate(Object target, Errors errors) {
+    public void validate(final Object target, final Errors errors) {
 
         ApplyForReportForm form = (ApplyForReportForm) target;
 
@@ -48,17 +47,17 @@ public class AnonymousApplyForReportValidator implements Validator {
         validateCompany(form, errors);
     }
 
-    private void validateFirstName(ApplyForReportForm form, Errors errors) {
+    private void validateFirstName(final ApplyForReportForm form, final Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "firstName.empty", "Поле должно быть заполнено.");
     }
 
-    private void validateSecondName(ApplyForReportForm form, Errors errors) {
+    private void validateSecondName(final ApplyForReportForm form, final Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "secondName", "secondName.empty", "Поле должно быть заполнено.");
     }
 
-    private void validateEmail(ApplyForReportForm form, Errors errors) {
+    private void validateEmail(final ApplyForReportForm form, final Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "email.empty", "Поле должно быть заполнено.");
         if (errors.getFieldErrorCount("email") != 0) {
@@ -72,30 +71,30 @@ public class AnonymousApplyForReportValidator implements Validator {
         }
     }
 
-    private void validatePassword(ApplyForReportForm form, Errors errors) {
+    private void validatePassword(final ApplyForReportForm form, final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "password.empty", "Поле должно быть заполнено.");
     }
 
-    private void validateJobPosition(ApplyForReportForm form, Errors errors) {
+    private void validateJobPosition(final ApplyForReportForm form, final Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "jobPosition", "jobPosition.empty", "Поле должно быть заполнено.");
     }
 
-    private void validateTitle(ApplyForReportForm form, Errors errors) {
+    private void validateTitle(final ApplyForReportForm form, final Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title", "title.empty", "Поле должно быть заполнено.");
     }
 
-    private void validateDescription(ApplyForReportForm form, Errors errors) {
+    private void validateDescription(final ApplyForReportForm form, final Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description", "description.empty", "Поле должно быть заполнено.");
     }
 
-    private void validateKeyTechnologies(ApplyForReportForm form, Errors errors) {
+    private void validateKeyTechnologies(final ApplyForReportForm form, final Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "keyTechnologies", "keyTechnologies.empty", "Поле должно быть заполнено.");
     }
-    private void validateCompany(ApplyForReportForm form, Errors errors) {
+    private void validateCompany(final ApplyForReportForm form, final Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "company", "company.empty", "Поле должно быть заполнено.");
         String companyName = form.getCompany();
@@ -104,17 +103,17 @@ public class AnonymousApplyForReportValidator implements Validator {
         }
     }
 
-    private void validateOtherConferences(ApplyForReportForm form, Errors errors) {
+    private void validateOtherConferences(final ApplyForReportForm form, final Errors errors) {
 
 //        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "otherConferences", "otherConferences.empty", "Поле должно быть заполнено.");
     }
 
-    private void validateSpeechExperience(ApplyForReportForm form, Errors errors) {
+    private void validateSpeechExperience(final ApplyForReportForm form, final Errors errors) {
 
 //        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "speechExperience", "speechExperience.empty", "Поле должно быть заполнено.");
     }
 
-    private void validateReporterWishes(ApplyForReportForm form, Errors errors) {
+    private void validateReporterWishes(final ApplyForReportForm form, final Errors errors) {
 
 //        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "reporterWishes", "reporterWishes.empty", "Поле должно быть заполнено.");
     }
@@ -122,16 +121,14 @@ public class AnonymousApplyForReportValidator implements Validator {
     private boolean isUserExists(final String email) {
         if (userService.getUserByEmail(email) != null) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     private boolean isCompanyExists(final String companyName) {
         if (companyService.findCompanyByName(companyName) != null) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 }

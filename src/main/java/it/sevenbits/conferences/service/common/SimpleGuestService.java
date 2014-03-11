@@ -6,7 +6,6 @@ import it.sevenbits.conferences.service.GuestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,21 +21,21 @@ public class SimpleGuestService implements GuestService {
 
     @Transactional
     @Override
-    public Guest addGuest(Guest guest) {
+    public Guest addGuest(final Guest guest) {
 
         return guestDao.add(guest);
     }
 
     @Transactional
     @Override
-    public boolean removeGuest(Long id) {
+    public boolean removeGuest(final Long id) {
 
         return guestDao.remove(id);
     }
 
     @Transactional
     @Override
-    public Guest updateGuest(Guest guest) {
+    public Guest updateGuest(final Guest guest) {
 
         return guestDao.update(guest);
     }
@@ -50,19 +49,19 @@ public class SimpleGuestService implements GuestService {
 
     @Transactional
     @Override
-    public Guest findGuestById(Long id) {
+    public Guest findGuestById(final Long id) {
 
         return guestDao.findById(id);
     }
 
     @Transactional
     @Override
-    public Guest findGuestWithLoginAndConferenceLike(final String login, final long conference_id) {
+    public Guest findGuestWithLoginAndConferenceLike(final String login, final long conferenceId) {
         Map<String, Object> params = new HashMap<>();
         params.put("login", login);
-        params.put("conference_id", conference_id);
-        String query = "SELECT g FROM Guest g WHERE g.conference.id =:conference_id AND g.user.login =:login";
-        List<Guest> guestsList = guestDao.findByQuery(query,params);
+        params.put("conferenceId", conferenceId);
+        String query = "SELECT g FROM Guest g WHERE g.conference.id =:conferenceId AND g.user.login =:login";
+        List<Guest> guestsList = guestDao.findByQuery(query, params);
         if (guestsList == null || guestsList.isEmpty()) {
             return null;
         }

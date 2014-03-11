@@ -19,7 +19,7 @@ public class SubscriptionValidator implements Validator {
     private SubscriptionService subscriptionService;
 
     @Override
-    public boolean supports(Class<?> clazz) {
+    public boolean supports(final Class<?> clazz) {
 
         return SubscriptionForm.class.equals(clazz);
     }
@@ -30,7 +30,7 @@ public class SubscriptionValidator implements Validator {
      * @param errors errors holder
      */
     @Override
-    public void validate(Object target, Errors errors) {
+    public void validate(final Object target, final Errors errors) {
 
         validateEmail(target, errors);
     }
@@ -41,7 +41,7 @@ public class SubscriptionValidator implements Validator {
      * @param target Subscription form.
      * @param errors errors holder.
      */
-    private void validateEmail(Object target, Errors errors) {
+    private void validateEmail(final Object target, final Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "email.empty", "Поле должно быть заполнено.");
         if (errors.hasErrors()) {

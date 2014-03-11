@@ -76,7 +76,10 @@ public class ApplyForReportController {
 
     @RequestMapping(value = "/apply-for-report", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse submitForm(@ModelAttribute(value = "applyForReportForm") ApplyForReportForm applyForReportForm, BindingResult bindingResult) {
+    public JsonResponse submitForm(
+            @ModelAttribute(value = "applyForReportForm") final ApplyForReportForm applyForReportForm,
+            final BindingResult bindingResult
+    ) {
 
         JsonResponse response = new JsonResponse();
         boolean isLogged = false;
@@ -124,10 +127,10 @@ public class ApplyForReportController {
                 user.setCompany(company);
                 user.setJobPosition(applyForReportForm.getJobPosition());
                 user.setEnabled(false);
-                Role role = roleService.findRoleById(1l);
+                Role role = roleService.findRoleById(1L);
                 user.setRole(role);
-                String confirmation_token = UUID.randomUUID().toString();
-                user.setConfirmationToken(confirmation_token);
+                String confirmationToken = UUID.randomUUID().toString();
+                user.setConfirmationToken(confirmationToken);
                 userService.updateUser(user);
 
                 Report report = new Report();
@@ -137,7 +140,7 @@ public class ApplyForReportController {
                 report.setOtherConferences(applyForReportForm.getOtherConferences());
                 report.setReporterWishes(applyForReportForm.getReporterWishes());
                 Report addedReport = reportService.addReport(report);
-                mailSenderUtility.sendConfirmationTokenAndReportStatus(user.getEmail(), confirmation_token, addedReport.getId());
+                mailSenderUtility.sendConfirmationTokenAndReportStatus(user.getEmail(), confirmationToken, addedReport.getId());
                 response.setResult(Collections.singletonMap("message", "Вам на почту выслано письмо для подтверждения регистрации."));
             }
             response.setStatus("SUCCESS");

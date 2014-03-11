@@ -8,7 +8,6 @@ import it.sevenbits.conferences.service.ConferenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -28,21 +27,21 @@ public class SimpleConferenceService implements ConferenceService {
 
     @Transactional
     @Override
-    public Conference addConference(Conference conference) {
+    public Conference addConference(final Conference conference) {
 
         return conferenceDao.add(conference);
     }
 
     @Transactional
     @Override
-    public boolean removeConference(Long id) {
+    public boolean removeConference(final Long id) {
 
         return conferenceDao.remove(id);
     }
 
     @Transactional
     @Override
-    public Conference updateConference(Conference conference) {
+    public Conference updateConference(final Conference conference) {
 
         return conferenceDao.update(conference);
     }
@@ -56,7 +55,7 @@ public class SimpleConferenceService implements ConferenceService {
 
     @Transactional
     @Override
-    public Conference findConferenceById(Long id) {
+    public Conference findConferenceById(final Long id) {
 
         return conferenceDao.findById(id);
     }
@@ -64,19 +63,23 @@ public class SimpleConferenceService implements ConferenceService {
     @Override
     public Conference findNextConference() {
 
-        return conferenceDao.findByQuery("select c from Conference c where c.ordinalNumber = (select max(ordinalNumber) from Conference)", null).iterator().next();
+        return conferenceDao.findByQuery(
+                "select c from Conference c where c.ordinalNumber = (select max(ordinalNumber) from Conference)", null
+        ).iterator().next();
     }
 
     @Override
     public Conference findLastConference() {
-        return conferenceDao.findByQuery("select c from Conference c where c.ordinalNumber = (select max(ordinalNumber) from Conference) - 1", null).iterator().next();
+        return conferenceDao.findByQuery(
+                "select c from Conference c where c.ordinalNumber = (select max(ordinalNumber) from Conference) - 1", null
+        ).iterator().next();
     }
 
     @Override
     public List<Conference> findPastConference() {
         List<Conference> conferences = findAllConferences();
         List<Conference> pastConferences = new Vector<Conference>();
-        long today = System.currentTimeMillis()/1000;
+        long today = System.currentTimeMillis() / 1000;
 
         for (Conference conference : conferences) {
             if (conference.getDate() < today) {

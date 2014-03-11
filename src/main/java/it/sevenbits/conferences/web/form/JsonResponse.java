@@ -7,8 +7,14 @@ package it.sevenbits.conferences.web.form;
  */
 public class JsonResponse {
 
-    public final static String STATUS_SUCCESS = "SUCCESS";
-    public final static String STATUS_FAIL = "FAIL";
+    /**
+     * Status of a success response
+     */
+    public static final String STATUS_SUCCESS = "SUCCESS";
+    /**
+     * Status of a not success response
+     */
+    public static final String STATUS_FAIL = "FAIL";
 
     private String status;
     private Object result;
@@ -17,7 +23,7 @@ public class JsonResponse {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(final String status) {
         this.status = status;
     }
 
@@ -25,7 +31,7 @@ public class JsonResponse {
         return result;
     }
 
-    public void setResult(Object result) {
+    public void setResult(final Object result) {
         this.result = result;
     }
 }

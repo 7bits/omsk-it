@@ -19,28 +19,27 @@ public class CompanyValidator implements Validator {
     private CompanyService companyService;
 
     @Override
-    public boolean supports(Class<?> aClass) {
+    public boolean supports(final Class<?> aClass) {
         return CompanyAddForm.class.equals(aClass);
     }
 
     @Override
-    public void validate(Object target, Errors errors) {
+    public void validate(final Object target, final Errors errors) {
         CompanyAddForm companyAddForm = (CompanyAddForm) target;
         validateName(companyAddForm, errors);
     }
 
-    private void validateName(CompanyAddForm companyAddForm, Errors errors) {
+    private void validateName(final CompanyAddForm companyAddForm, final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "name.empty", "Введите, пожалуйста, название.");
         if (isCompanyExists(companyAddForm.getName())) {
-            errors.rejectValue("name","name.alreadyExists","Такая компания уже существует.");
+            errors.rejectValue("name", "name.alreadyExists", "Такая компания уже существует.");
         }
     }
 
     private boolean isCompanyExists(final String companyName) {
         if (companyService.findCompanyByName(companyName) != null) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 }

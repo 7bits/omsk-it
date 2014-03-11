@@ -6,7 +6,6 @@ import it.sevenbits.conferences.service.SubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 /**
@@ -20,21 +19,21 @@ public class SimpleSubscriptionService implements SubscriptionService {
 
     @Transactional
     @Override
-    public Subscription addSubscription(Subscription subscription) {
+    public Subscription addSubscription(final Subscription subscription) {
 
         return subscriptionDao.add(subscription);
     }
 
     @Transactional
     @Override
-    public boolean removeSubscription(Long id) {
+    public boolean removeSubscription(final Long id) {
 
         return subscriptionDao.remove(id);
     }
 
     @Transactional
     @Override
-    public Subscription updateSubscription(Subscription subscription) {
+    public Subscription updateSubscription(final Subscription subscription) {
 
         return subscriptionDao.update(subscription);
     }
@@ -48,17 +47,15 @@ public class SimpleSubscriptionService implements SubscriptionService {
 
     @Transactional
     @Override
-    public Subscription findSubscriptionById(Long id) {
+    public Subscription findSubscriptionById(final Long id) {
 
         return subscriptionDao.findById(id);
     }
 
     @Transactional
     @Override
-    public Subscription findSubscriptionByEmail(String email) {
-
+    public Subscription findSubscriptionByEmail(final String email) {
         List<Subscription> result = subscriptionDao.findByQuery("select s from Subscription s where s.email = '" + email + "'", null);
-
         if (result != null && !result.isEmpty()) {
             return result.get(0);
         }

@@ -2,7 +2,15 @@ package it.sevenbits.conferences.domain;
 
 import it.sevenbits.conferences.utils.converter.DateTimeConverter;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * POJO class for Conferences model.
@@ -24,7 +32,7 @@ public class Conference {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -34,7 +42,7 @@ public class Conference {
         return company;
     }
 
-    public void setCompany(Company company) {
+    public void setCompany(final Company company) {
         this.company = company;
     }
 
@@ -43,7 +51,7 @@ public class Conference {
         return ordinalNumber;
     }
 
-    public void setOrdinalNumber(Long ordinalNumber) {
+    public void setOrdinalNumber(final Long ordinalNumber) {
         this.ordinalNumber = ordinalNumber;
     }
 
@@ -58,15 +66,13 @@ public class Conference {
         return registration;
     }
 
-    public void setRegistration(boolean registration) {
+    public void setRegistration(final boolean registration) {
         this.registration = registration;
     }
 
-    public void setDate(Long date) {
+    public void setDate(final Long date) {
         this.date = date;
     }
-
-
 
     @Transient
     public String getHumanReadableDate() {

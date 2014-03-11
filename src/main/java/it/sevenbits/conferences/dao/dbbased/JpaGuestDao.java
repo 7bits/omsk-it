@@ -22,7 +22,7 @@ public class JpaGuestDao extends JpaEntityDao<Guest> implements GuestDao {
      * Constructor from generic JpaEntityDao.
      * @param guestClass generic class type.
      */
-    public JpaGuestDao(Class<Guest> guestClass) {
+    public JpaGuestDao(final Class<Guest> guestClass) {
 
         super(guestClass);
     }

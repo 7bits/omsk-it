@@ -1,7 +1,17 @@
 package it.sevenbits.conferences.web.controller;
 
-import it.sevenbits.conferences.domain.*;
-import it.sevenbits.conferences.service.*;
+import it.sevenbits.conferences.domain.Company;
+import it.sevenbits.conferences.domain.Conference;
+import it.sevenbits.conferences.domain.Guest;
+import it.sevenbits.conferences.domain.Report;
+import it.sevenbits.conferences.domain.Role;
+import it.sevenbits.conferences.domain.User;
+import it.sevenbits.conferences.service.CompanyService;
+import it.sevenbits.conferences.service.ConferenceService;
+import it.sevenbits.conferences.service.GuestService;
+import it.sevenbits.conferences.service.ReportService;
+import it.sevenbits.conferences.service.RoleService;
+import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.service.common.CustomUserDetailsService;
 import it.sevenbits.conferences.utils.file.FileManager;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
@@ -22,12 +32,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.Validator;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * Controller for /user pages.
@@ -77,8 +94,8 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView("user-information");
         User user = userService.findUserById(userId);
         List<Report> reports = reportService.findAllPresentedReportsByUser(user);
-        modelAndView.addObject("reports",reports);
-        modelAndView.addObject("user",user);
+        modelAndView.addObject("reports", reports);
+        modelAndView.addObject("user", user);
         return  modelAndView;
     }
 
@@ -111,7 +128,7 @@ public class UserController {
             }
         }
         ModelAndView modelAndView = new ModelAndView("registration-confirm");
-        modelAndView.addObject("additionalRegistrationInfo",additionalRegistrationInfo);
+        modelAndView.addObject("additionalRegistrationInfo", additionalRegistrationInfo);
         return modelAndView;
     }
 
@@ -119,16 +136,17 @@ public class UserController {
     public ModelAndView usersRegistrationPageGet() {
         ModelAndView modelAndView = new ModelAndView("user-registration");
         UserRegistrationForm userRegistrationForm = new UserRegistrationForm();
-        modelAndView.addObject("userRegistrationForm",userRegistrationForm);
+        modelAndView.addObject("userRegistrationForm", userRegistrationForm);
         return  modelAndView;
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ModelAndView usersRegistrationPagePost(@ModelAttribute(value = "userRegistrationForm") final UserRegistrationForm userRegistrationForm,
-            BindingResult bindingResult
+    public ModelAndView usersRegistrationPagePost(
+            @ModelAttribute(value = "userRegistrationForm") final UserRegistrationForm userRegistrationForm,
+            final BindingResult bindingResult
     ) {
         ModelAndView response;
-        validator.validate(userRegistrationForm,bindingResult);
+        validator.validate(userRegistrationForm, bindingResult);
         if (bindingResult.hasErrors()) {
             Map<String, String> errors = new HashMap<>();
             for (FieldError fieldError: bindingResult.getFieldErrors()) {
@@ -157,12 +175,12 @@ public class UserController {
             } else {
                 user.setPhoto(null);
             }
-            Role role = roleService.findRoleById(1l);
+            Role role = roleService.findRoleById(1L);
             user.setRole(role);
-            String confirmation_token = UUID.randomUUID().toString();
-            user.setConfirmationToken(confirmation_token);
+            String confirmationToken = UUID.randomUUID().toString();
+            user.setConfirmationToken(confirmationToken);
             userService.updateUser(user);
-            mailSenderUtility.sendConfirmationToken(userRegistrationForm.getEmail(),confirmation_token);
+            mailSenderUtility.sendConfirmationToken(userRegistrationForm.getEmail(), confirmationToken);
             response = new ModelAndView("user-registration");
         }
         return response;
@@ -170,13 +188,16 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView loginGet() {
-        ModelAndView modelAndView = new ModelAndView("login");
-        return modelAndView;
+        return new ModelAndView("login");
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse loginPost(@ModelAttribute(value = "loginForm") final LoginForm loginForm, BindingResult bindingResult, HttpServletRequest request) {
+    public JsonResponse loginPost(
+            @ModelAttribute(value = "loginForm") final LoginForm loginForm,
+            final BindingResult bindingResult,
+            final HttpServletRequest request
+    ) {
         JsonResponse response = new JsonResponse();
         loginValidator.validate(loginForm, bindingResult);
         if (bindingResult.hasErrors()) {
@@ -193,7 +214,7 @@ public class UserController {
             User user = userService.getUser(loginForm.getLogin());
             if (user == null || !user.getPassword().equals(loginForm.getPassword())) {
                 Map<String, String> errors = new HashMap<>();
-                errors.put("message","Логин или пароль введены неверно");
+                errors.put("message", "Логин или пароль введены неверно");
                 response.setResult(errors);
                 response.setStatus(JsonResponse.STATUS_FAIL);
             } else {
@@ -214,19 +235,21 @@ public class UserController {
     @RequestMapping(value = "/login/failed", method = RequestMethod.GET)
     public ModelAndView loginFailed() {
         ModelAndView modelAndView = new ModelAndView("login");
-        modelAndView.addObject("error","true");
+        modelAndView.addObject("error", "true");
         return modelAndView;
     }
 
     @RequestMapping(value = "/change-password", method = RequestMethod.GET)
     public ModelAndView changePasswordGet() {
-        ModelAndView modelAndView = new ModelAndView("change-password");
-        return modelAndView;
+        return new ModelAndView("change-password");
     }
 
     @RequestMapping(value = "/change-password", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse changePasswordPost(@ModelAttribute(value = "ChangePasswordForm") final ChangePasswordForm changePasswordForm, BindingResult bindingResult) {
+    public JsonResponse changePasswordPost(
+            @ModelAttribute(value = "ChangePasswordForm") final ChangePasswordForm changePasswordForm,
+            final BindingResult bindingResult
+    ) {
         JsonResponse jsonResponse;
         changePasswordValidator.validate(changePasswordForm, bindingResult);
         if (bindingResult.hasErrors()) {
@@ -247,7 +270,7 @@ public class UserController {
     }
 
     private String setNewRandomPassword(User user, final int length) {
-        String newPassword = RandomStringUtils.random(length,true,true);
+        String newPassword = RandomStringUtils.random(length, true, true);
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedNewPassword = encoder.encode(newPassword);
         user.setPassword(encodedNewPassword);

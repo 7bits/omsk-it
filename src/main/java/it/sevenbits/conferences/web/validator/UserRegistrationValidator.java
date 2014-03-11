@@ -22,13 +22,13 @@ public class UserRegistrationValidator implements Validator {
     private CompanyService companyService;
 
     @Override
-    public boolean supports(Class<?> clazz){
+    public boolean supports(final Class<?> clazz) {
 
         return UserRegistrationForm.class.equals(clazz);
     }
 
     @Override
-    public void validate(Object target, Errors errors) {
+    public void validate(final Object target, final Errors errors) {
         UserRegistrationForm form = (UserRegistrationForm) target;
         validateFirstName(errors);
         validateSecondName(errors);
@@ -38,19 +38,19 @@ public class UserRegistrationValidator implements Validator {
         validateCompany(form, errors);
     }
 
-    private void validatePassword(Errors errors) {
+    private void validatePassword(final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "password.empty", "Пароль не должен быть пустым");
     }
 
-    private void validateFirstName(Errors errors) {
+    private void validateFirstName(final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "firstName.empty", "Заполните, пожалуйста, Ваше Имя");
     }
 
-    private void validateSecondName(Errors errors) {
+    private void validateSecondName(final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "secondName", "secondName.empty", "Заполните, пожалуйста, Вашу Фамилию");
     }
 
-    private void validateEmail(UserRegistrationForm form, Errors errors) {
+    private void validateEmail(final UserRegistrationForm form, final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "email.empty", "Заполните, пожалуйста, Ваш E-mail");
         if (errors.hasErrors()) {
             return;
@@ -63,17 +63,22 @@ public class UserRegistrationValidator implements Validator {
         }
     }
 
-    private void validateCompany(UserRegistrationForm form, Errors errors) {
+    private void validateCompany(final UserRegistrationForm form, final Errors errors) {
         if (!isCompanyExists(form.getCompany())) {
             errors.rejectValue("company", "company.notExists", "Такой компании не существует.");
         }
     }
 
-    private void validateJobPosition(UserRegistrationForm form, Errors errors) {
+    private void validateJobPosition(final UserRegistrationForm form, final Errors errors) {
         ValidationUtils.rejectIfEmpty(errors, "jobPosition", "jobPosition.empty", "Укажите, пожалуйста, Вашу роль в компании/команде");
         if (errors.getFieldErrorCount("jobPosition") == 0) {
             if (form.getJobPosition().equals("other")) {
-                ValidationUtils.rejectIfEmptyOrWhitespace(errors, "jobPositionOther", "jobPositionOther.empty", "Заполните, пожалуйста, Вашу роль в компании/команде");
+                ValidationUtils.rejectIfEmptyOrWhitespace(
+                        errors,
+                        "jobPositionOther",
+                        "jobPositionOther.empty",
+                        "Заполните, пожалуйста, Вашу роль в компании/команде"
+                );
             }
         }
     }
@@ -81,16 +86,14 @@ public class UserRegistrationValidator implements Validator {
     private boolean isUserExists(final String email) {
         if (userService.getUserByEmail(email) != null) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     private boolean isCompanyExists(final String companyName) {
         if (companyService.findCompanyByName(companyName) != null) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 }
