@@ -437,3 +437,31 @@ function doAjaxAddNewCompany() {
     });
 }
 
+function doAjaxChangePassword() {
+    changePasswordFormData = $(".change-password-form").serialize();
+    $.ajax({
+        url: changePasswordUrl,
+        type: "POST",
+        data: changePasswordFormData,
+        dataType: json,
+        success: function(response) {
+            if (response.status == "SUCCESS") {
+                $(".js-apply-response").text("Ваш пароль успешно изменен!");
+            } else {
+                if (response.result.email != null) {
+                    $(".js-email-response").text(response.result.email);
+                }
+                if (response.result.oldPassword != null) {
+                    $(".js-old-password-response").text(response.result.oldPassword);
+                }
+                if (response.result.newPassword != null) {
+                    $(".js-new-password-response").text(response.result.newPassword);
+                }
+            }
+        },
+        error: function() {
+
+        }
+    })
+}
+

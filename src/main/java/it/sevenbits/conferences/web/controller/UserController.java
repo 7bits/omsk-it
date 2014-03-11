@@ -5,6 +5,7 @@ import it.sevenbits.conferences.service.*;
 import it.sevenbits.conferences.service.common.CustomUserDetailsService;
 import it.sevenbits.conferences.utils.file.FileManager;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
+import it.sevenbits.conferences.web.form.ChangePasswordForm;
 import it.sevenbits.conferences.web.form.JsonResponse;
 import it.sevenbits.conferences.web.form.LoginForm;
 import it.sevenbits.conferences.web.form.UserRegistrationForm;
@@ -35,28 +36,46 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
     @Autowired
     private MailSenderUtility mailSenderUtility;
+
     @Autowired
     private RoleService roleService;
+
     @Autowired
     private ConferenceService conferenceService;
+
     @Autowired
     private GuestService guestService;
+
     @Autowired
     private ReportService reportService;
+
     @Autowired
     private CompanyService companyService;
+
+    @Autowired
+    private CustomUserDetailsService customUserDetailsService;
+
     @Autowired
     @Qualifier("userRegistrationValidator")
     private Validator validator;
+
+    @Autowired
+    @Qualifier("loginValidator")
+    private Validator loginValidator;
+
+    @Autowired
+    @Qualifier("changePasswordValidator")
+    private Validator changePasswordValidator;
+
 
     private final String GUEST_REGISTRATION_INFO = "Так же, вы зарегистрированы на текущий субботник.";
     private final String REPORT_REGISTRATION_INFO = "Ваша заявка на выступление принята на рассмотрение.";
 
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
-    public ModelAndView userInformation(
-            @PathVariable(value = "userId") final Long userId) {
+    public ModelAndView getUserInformation(@PathVariable(value = "userId") final Long userId) {
         ModelAndView modelAndView = new ModelAndView("user-information");
         User user = userService.findUserById(userId);
         List<Report> reports = reportService.findAllPresentedReportsByUser(user);
@@ -99,7 +118,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public ModelAndView showUsersRegistrationPage() {
+    public ModelAndView usersRegistrationPageGet() {
         ModelAndView modelAndView = new ModelAndView("user-registration");
         UserRegistrationForm userRegistrationForm = new UserRegistrationForm();
         modelAndView.addObject("userRegistrationForm",userRegistrationForm);
@@ -107,7 +126,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ModelAndView registerUser(@ModelAttribute(value = "userRegistrationForm") final UserRegistrationForm userRegistrationForm,
+    public ModelAndView usersRegistrationPagePost(@ModelAttribute(value = "userRegistrationForm") final UserRegistrationForm userRegistrationForm,
             BindingResult bindingResult
     ) {
         ModelAndView response;
@@ -151,22 +170,15 @@ public class UserController {
         return response;
     }
 
-    @Autowired
-    @Qualifier("loginValidator")
-    private Validator loginValidator;
-
-    @Autowired
-    private CustomUserDetailsService customUserDetailsService;
-
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView getLoginPage() {
+    public ModelAndView loginGet() {
         ModelAndView modelAndView = new ModelAndView("login");
         return modelAndView;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse login(@ModelAttribute(value = "loginForm") final LoginForm loginForm, BindingResult bindingResult, HttpServletRequest request) {
+    public JsonResponse loginPost(@ModelAttribute(value = "loginForm") final LoginForm loginForm, BindingResult bindingResult, HttpServletRequest request) {
         JsonResponse response = new JsonResponse();
         loginValidator.validate(loginForm, bindingResult);
         if (bindingResult.hasErrors()) {
@@ -208,6 +220,31 @@ public class UserController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/change-password", method = RequestMethod.GET)
+    public ModelAndView changePasswordGet() {
+        ModelAndView modelAndView = new ModelAndView("change-password");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/change-password", method = RequestMethod.GET)
+    @ResponseBody
+    public JsonResponse changePasswordPost(@ModelAttribute(value = "ChangePasswordForm") final ChangePasswordForm changePasswordForm, BindingResult bindingResult) {
+        JsonResponse jsonResponse;
+        changePasswordValidator.validate(changePasswordForm, bindingResult);
+        if (bindingResult.hasErrors()) {
+            jsonResponse = getFailureResponse(bindingResult, "Неверный e-mail или пароль.");
+        } else {
+            User user = userService.getUserByEmail(changePasswordForm.getEmail());
+            PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String encodedNewPassword = passwordEncoder.encode(changePasswordForm.getNewPassword());
+            user.setPassword(encodedNewPassword);
+            userService.updateUser(user);
+            jsonResponse = new JsonResponse();
+            jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
+        }
+        return jsonResponse;
+    }
+
     private String setNewRandomPassword(User user, final int length) {
         String newPassword = RandomStringUtils.random(length,true,true);
         PasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -215,5 +252,19 @@ public class UserController {
         user.setPassword(encodedNewPassword);
         userService.updateUser(user);
         return newPassword;
+    }
+
+    private JsonResponse getFailureResponse(final BindingResult bindingResult, final String commonMessage) {
+        JsonResponse response = new JsonResponse();
+        response.setStatus(JsonResponse.STATUS_FAIL);
+        Map<String, String> errors = new HashMap<>();
+        for (FieldError fieldError: bindingResult.getFieldErrors()) {
+            if (!errors.containsKey(fieldError.getField())) {
+                errors.put(fieldError.getField(), fieldError.getDefaultMessage());
+            }
+        }
+        errors.put("message", commonMessage);
+        response.setResult(errors);
+        return response;
     }
 }

@@ -27,6 +27,7 @@
             var loginUrl = '<c:url value="/user/login"/>';
             var companiesUrl = '<c:url value="/company/getCompanies"/>';
             var companyAddUrl = '<c:url value="/company/new"/>';
+            var changePasswordUrl = '<c:url value="/user/change-password"/> ';
         </script>
 
         <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.10.2.min.js"/>'></script>

@@ -66,6 +66,11 @@
         <put-attribute name="content" value="/WEB-INF/view/tiles/login.jsp" />
     </definition>
 
+    <definition name="change-password" extends="base">
+        <put-attribute name="title" value="Вход на сайт" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/content-change-password.jsp" />
+    </definition>
+
     <definition name="apply-for-report" extends="base">
         <put-attribute name="title" value="Подать заявку на выступление" />
         <put-attribute name="content" value="/WEB-INF/view/tiles/content-apply-for-report.jsp" />
