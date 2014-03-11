@@ -41,10 +41,10 @@ public class ChangePasswordValidator implements Validator {
     }
 
     private void validateOldPassword(ChangePasswordForm form, Errors errors) {
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "oldPassword", "oldPassword.empty", "Пароль не должен быть пустым");
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(form.getOldPassword());
         User user = userService.getUser(form.getEmail());
-        if (!user.getPassword().equals(encodedPassword)) {
+        if ( user != null && !passwordEncoder.matches(form.getOldPassword(),user.getPassword())) {
             errors.rejectValue("oldPassword","oldPassword.notExists","Неверный пароль");
         }
     }

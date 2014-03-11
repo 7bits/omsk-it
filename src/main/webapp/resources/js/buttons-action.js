@@ -103,8 +103,10 @@ $(document).ready(function() {
         $(".js-new-company-response").text("");
     });
     $(".new-company-add-confirm").click(doAjaxAddNewCompany);
-
-
+    $(".change-password").click(function(event) {
+        event.preventDefault();
+        doAjaxChangePassword();
+    });
 });
 
 function checkImageUploadInput(event) {
@@ -443,11 +445,15 @@ function doAjaxChangePassword() {
         url: changePasswordUrl,
         type: "POST",
         data: changePasswordFormData,
-        dataType: json,
+        dataType: "json",
         success: function(response) {
             if (response.status == "SUCCESS") {
-                $(".js-apply-response").text("Ваш пароль успешно изменен!");
+                $(".js-field-response").empty();
+                $(".js-password-input").empty();
+                $(".js-apply-response").text(response.result.message);
             } else {
+                $(".js-field-response").empty();
+                $(".js-password-input").empty();
                 if (response.result.email != null) {
                     $(".js-email-response").text(response.result.email);
                 }
@@ -460,7 +466,7 @@ function doAjaxChangePassword() {
             }
         },
         error: function() {
-
+            k=10;
         }
     })
 }

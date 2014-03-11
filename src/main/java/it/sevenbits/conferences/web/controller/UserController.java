@@ -226,7 +226,7 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/change-password", method = RequestMethod.GET)
+    @RequestMapping(value = "/change-password", method = RequestMethod.POST)
     @ResponseBody
     public JsonResponse changePasswordPost(@ModelAttribute(value = "ChangePasswordForm") final ChangePasswordForm changePasswordForm, BindingResult bindingResult) {
         JsonResponse jsonResponse;
@@ -241,6 +241,9 @@ public class UserController {
             userService.updateUser(user);
             jsonResponse = new JsonResponse();
             jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
+            Map<String, String> resultMessage = new HashMap<>();
+            resultMessage.put("message", "Вам пароль успешно изменен.");
+            jsonResponse.setResult(resultMessage);
         }
         return jsonResponse;
     }
