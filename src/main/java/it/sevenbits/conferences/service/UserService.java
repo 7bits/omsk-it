@@ -3,6 +3,10 @@ package it.sevenbits.conferences.service;
 import it.sevenbits.conferences.domain.User;
 import java.util.List;
 
+/**
+ * Interface for service layer, which works with EntityDao.
+ * User is the primary Entity for that Service.
+ */
 public interface UserService {
 
     /**

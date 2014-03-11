@@ -49,7 +49,7 @@ public class MailSenderUtility {
 
     /**
      * Send message with link for confirmation account and registration for current conference.
-     * @param login Users login
+     * @param email Users email
      * @param confirmationToken Users confirmation token
      */
     public void sendConfirmationTokenAndConferenceStatus(final String email,final String confirmationToken) {
@@ -66,7 +66,7 @@ public class MailSenderUtility {
 
     /**
      * Send message with link for confirmation account and consideration user as reporter.
-     * @param login Users login
+     * @param email User's email
      * @param confirmationToken Users confirmation token
      */
     public void sendConfirmationTokenAndReportStatus(final String email,final String confirmationToken,final Long reportId) {
@@ -81,6 +81,11 @@ public class MailSenderUtility {
         mailSender.send(message);
     }
 
+    /**
+     * Send message with new password
+     * @param email User's email
+     * @param password User's new password
+     */
     public void sendNewPassword(final String email, final String password) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SERVICE_MAILBOX);

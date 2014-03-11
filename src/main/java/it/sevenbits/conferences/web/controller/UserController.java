@@ -29,7 +29,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.*;
 
-
+/**
+ * Controller for /user pages.
+ */
 @Controller
 @RequestMapping(value = "user")
 public class UserController {
@@ -70,10 +72,6 @@ public class UserController {
     @Qualifier("changePasswordValidator")
     private Validator changePasswordValidator;
 
-
-    private final String GUEST_REGISTRATION_INFO = "Так же, вы зарегистрированы на текущий субботник.";
-    private final String REPORT_REGISTRATION_INFO = "Ваша заявка на выступление принята на рассмотрение.";
-
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public ModelAndView getUserInformation(@PathVariable(value = "userId") final Long userId) {
         ModelAndView modelAndView = new ModelAndView("user-information");
@@ -103,13 +101,13 @@ public class UserController {
                 Conference currentConference = conferenceService.findNextConference();
                 guest.setConference(currentConference);
                 guestService.addGuest(guest);
-                additionalRegistrationInfo = GUEST_REGISTRATION_INFO;
+                additionalRegistrationInfo = "Так же, вы зарегистрированы на текущий субботник.";
             }
             if (reportStatus != null) {
                 Report report = reportService.findReportById(reportStatus);
                 report.setUser(user);
                 reportService.updateReport(report);
-                additionalRegistrationInfo = REPORT_REGISTRATION_INFO;
+                additionalRegistrationInfo = "Ваша заявка на выступление принята на рассмотрение.";
             }
         }
         ModelAndView modelAndView = new ModelAndView("registration-confirm");

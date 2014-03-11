@@ -1,7 +1,7 @@
 package it.sevenbits.conferences.web.form;
 
 /**
- * POJO class for the suggestion form representation.
+ * POJO class for the guest form representation.
  */
 public class GuestForm {
 

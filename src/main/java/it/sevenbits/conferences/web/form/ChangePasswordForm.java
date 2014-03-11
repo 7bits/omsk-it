@@ -1,7 +1,7 @@
 package it.sevenbits.conferences.web.form;
 
 /**
- * POJO class for the suggestion form representation.
+ * POJO class for the change password form representation.
  */
 public class ChangePasswordForm {
 

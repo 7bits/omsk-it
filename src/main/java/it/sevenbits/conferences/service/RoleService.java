@@ -4,6 +4,10 @@ import it.sevenbits.conferences.domain.Role;
 
 import java.util.List;
 
+/**
+ * Interface for service layer, which works with EntityDao.
+ * Role is the primary Entity for that Service.
+ */
 public interface RoleService {
 
     /**

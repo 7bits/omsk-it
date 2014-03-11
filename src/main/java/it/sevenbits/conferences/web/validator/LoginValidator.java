@@ -7,7 +7,7 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 /**
- *  Validator for login's form.
+ *  Validator for login form.
  */
 @Component
 public class LoginValidator implements Validator {

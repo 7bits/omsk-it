@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
+/**
+ * Simple implementation of the RoleService.
+ */
 @Service
 public class SimpleRoleService implements RoleService {
 

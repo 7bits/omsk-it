@@ -29,6 +29,11 @@ public class FileManager {
         return prop.getProperty("upload.images.path");
     }
 
+    /**
+     * Save image into common directory for images
+     * @param imageFile Image file
+     * @return Name of saved image file.
+     */
     public String saveImage(final MultipartFile imageFile) {
         UUID uuid = UUID.randomUUID();
         String imageFileName = "img_" + uuid + "." + imageFile.getContentType().replace("image/","");

@@ -3,7 +3,7 @@ package it.sevenbits.conferences.web.form;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * POJO class for the suggestion form representation.
+ * POJO class for the user's registration form representation.
  */
 public class UserRegistrationForm {
 
