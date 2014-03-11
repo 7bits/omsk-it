@@ -26,13 +26,13 @@ public class MailSenderUtility {
 
     private final Logger logger = Logger.getLogger(MailSenderUtility.class);
 
-    private String domen;
+    private String domain;
 
     @Autowired
     private JavaMailSender mailSender;
 
     public MailSenderUtility() {
-        this.domen = getSiteDomain();
+        this.domain = getSiteDomain();
     }
 
     /**
@@ -57,7 +57,7 @@ public class MailSenderUtility {
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(login);
         message.setSubject("Подтверждение регистрации");
-        String confirmationUrl = domen + "user/confirmation?confirmation_token=" +
+        String confirmationUrl = domain + "user/confirmation?confirmation_token=" +
                 confirmationToken + "&confirmation_login=" + login
         ;
         message.setText(REGISTRATION_INFO_TEXT + confirmationUrl);
@@ -74,7 +74,7 @@ public class MailSenderUtility {
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(email);
         message.setSubject("Подтверждение регистрации");
-        String confirmationUrl = domen + "user/confirmation?confirmation_token=" +
+        String confirmationUrl = domain + "user/confirmation?confirmation_token=" +
                 confirmationToken + "&confirmation_login=" + email + "&conference_status=1"
         ;
         message.setText(REGISTRATION_INFO_TEXT + confirmationUrl + " Ждем вас в субботу");
@@ -91,7 +91,7 @@ public class MailSenderUtility {
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(email);
         message.setSubject("Подтверждение регистрации");
-        String confirmationUrl = domen + "user/confirmation?confirmation_token=" +
+        String confirmationUrl = domain + "user/confirmation?confirmation_token=" +
                 confirmationToken + "&confirmation_login=" + email + "&report_status=" + reportId
         ;
         message.setText(REGISTRATION_INFO_TEXT + confirmationUrl + " Ваша заявка на доклад будет рассмотрена.");
