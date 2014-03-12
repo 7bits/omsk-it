@@ -6,7 +6,7 @@
         <div class="login-form">
             <%@ include file="/WEB-INF/view/jsp/plugin-login-form.jsp" %>
         </div>
-        <div class="inline-item">
+        <div class="inline-item site-logo-container">
             <a href='<c:url value="/"/>'>
                 <img class="logo-img" src='<c:url value="/resources/images/site-logo.png"/>'>
                 <span class="logo-title logo-title-top">СУББОТНИКИ</span>

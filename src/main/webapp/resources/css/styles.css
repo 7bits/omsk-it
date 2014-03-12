@@ -23,6 +23,7 @@ img {
 .inline-item {
     display: inline-block;
     vertical-align: top;
+
 }
 
 /** hedear **/
@@ -202,6 +203,8 @@ img {
     -webkit-border-radius: 10px 10px 5px 5px; /*Chrome 4.0, Safari 5.0, iOS*/
     -moz-border-radius: 10px 10px 5px 5px; /*Firefox 4.0*/
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    margin-top: 60px;
+    min-height: 370px;
 }
 
 .report {
@@ -378,6 +381,14 @@ img {
     margin-left: 33px;
 }
 
+.site-nav {
+    float:left;
+}
+
+.site-logo-container {
+    float:left;
+}
+
 .copyright {
     clear: both;
     margin-top: 20px;
@@ -402,10 +413,6 @@ img {
 
 
 /** archive page **/
-.box {
-    margin-top: 60px;
-    min-height: 355px;
-}
 .reporter-title{
     margin-bottom: 10px
 }
@@ -843,7 +850,13 @@ ol {
     text-align: center;
     line-height: 3em;
     background: linear-gradient(to top, #0ba1ae, #10b7c5);
+    background: -moz-linear-gradient(to top, #0ba1ae, #10b7c5);
 }
+
+input:-moz-placeholder {
+    color: #c0c0c0;
+}
+
 
 .new-company-add-confirm:hover {
     background: linear-gradient(to bottom, #18cfdf, #0ba9b7);
