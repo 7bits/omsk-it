@@ -830,6 +830,21 @@ ol {
     }
 }
 
+body .ui-autocomplete {
+
+}
+
+body .ui-autocomplete .ui-menu-item .ui-corner-all {
+
+}
+
+body .ui-autocomplete .ui-menu-item .ui-state-focus {
+    border: solid 1px #1a737c;
+    color: #1a737c;
+}
+
+/*Adding new company*/
+
 .new-company-add-open {
     margin-top: -15px;
     width: 32px;
@@ -897,15 +912,9 @@ input:-moz-placeholder {
     display: none;
 }
 
-body .ui-autocomplete {
-
-}
-
-body .ui-autocomplete .ui-menu-item .ui-corner-all {
-
-}
-
-body .ui-autocomplete .ui-menu-item .ui-state-focus {
-    border: solid 1px #1a737c;
-    color: #1a737c;
+/*Error pages*/
+.error-message {
+    color: #2d3e50;
+    font-size: 22px;
+    text-align: center;
 }
