@@ -7,12 +7,12 @@
             <table class="login-inputs">
                 <tbody>
                 <tr>
-                    <td>Логин:</td>
-                    <td><input type="text" name="login" class="login-input" autocomplete="on"/></td>
+                    <td>E-mail:</td>
+                    <td><input type="text" name="login" class="login-input" autocomplete="on" placeholder="Email"/></td>
                 </tr>
                 <tr>
                     <td>Пароль:</td>
-                    <td><input type="password" name="password" class="password-input"/></td>
+                    <td><input type="password" name="password" class="password-input" placeholder="Пароль"/></td>
                 </tr>
                 </tbody>
             </table>

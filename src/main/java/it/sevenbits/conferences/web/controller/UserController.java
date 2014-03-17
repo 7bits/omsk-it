@@ -23,11 +23,15 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -195,8 +199,7 @@ public class UserController {
     @ResponseBody
     public JsonResponse loginPost(
             @ModelAttribute(value = "loginForm") final LoginForm loginForm,
-            final BindingResult bindingResult,
-            final HttpServletRequest request
+            final BindingResult bindingResult
     ) {
         JsonResponse response = new JsonResponse();
         loginValidator.validate(loginForm, bindingResult);
@@ -211,25 +214,25 @@ public class UserController {
             errors.put("message", "Логин или пароль введены неверно");
             response.setResult(errors);
         } else {
-            User user = userService.getUser(loginForm.getLogin());
-            if (user == null || !user.getPassword().equals(loginForm.getPassword())) {
+            UserDetails userDetails = customUserDetailsService.loadUserByUsername(loginForm.getLogin());
+            if (userDetails == null || !isPasswordValid(loginForm.getPassword(), userDetails)) {
                 Map<String, String> errors = new HashMap<>();
                 errors.put("message", "Логин или пароль введены неверно");
                 response.setResult(errors);
                 response.setStatus(JsonResponse.STATUS_FAIL);
             } else {
-                UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getLogin(), user.getPassword());
-                UserDetails userDetails = customUserDetailsService.loadUserByUsername(user.getEmail());
-                token.setDetails(userDetails);
+                Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
                 SecurityContext securityContext = SecurityContextHolder.getContext();
-                securityContext.setAuthentication(token);
+                securityContext.setAuthentication(authentication);
                 response.setStatus(JsonResponse.STATUS_SUCCESS);
-                // Create a new session and add the security context.
-                HttpSession session = request.getSession(true);
-                session.setAttribute("SPRING_SECURITY_CONTEXT", securityContext);
             }
         }
         return response;
+    }
+
+    private boolean isPasswordValid(final String password, final UserDetails userDetails) {
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        return passwordEncoder.matches(password, userDetails.getPassword());
     }
 
     @RequestMapping(value = "/login/failed", method = RequestMethod.GET)

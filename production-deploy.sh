@@ -20,3 +20,5 @@ ssh root@162.243.36.248 '
     /etc/init.d/tomcat7 start;
 '
 echo "Deploying completed"
+#beeeeep! Need to install beep
+beep

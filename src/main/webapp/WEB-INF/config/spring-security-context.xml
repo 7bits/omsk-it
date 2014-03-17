@@ -8,7 +8,7 @@
 
     <http auto-config="true">
 
-        <!--intercept-url pattern="/archive" access="ROLE_MODERATOR" /-->
+        <!--<intercept-url pattern="/archive" access="ROLE_MODERATOR, ROLE_ADMIN" />-->
 
         <form-login login-page="/user/login"
                     authentication-failure-url="/user/login/failed" always-use-default-target="true" />

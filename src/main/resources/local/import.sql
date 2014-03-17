@@ -28,7 +28,7 @@ insert into `conference`(id, company_id, ordinal_number, date, registration) val
 
 insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (10, 'golush@gmail.com', '111111', 'Дмитрий', 'Голушко', 'golush@gmail.com', 'Java Developer', 1111111, true, 'dgolushko.png', 3, null);
 insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (30, 'samol@gmail.com', '111111', 'Александр', 'Самолов', 'samol@gmail.com', 'Технический директор', 1111111, true, 'Samolov.png', 4, null);
-insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (31, 'tumen@gmail.com', '111111', 'Евгений', 'Тюменцев', 'tumen@gmail.com', 'Управляющий партнер Тик-Так Коуч ', 1111111, true, 'Tumentsev.png', 5, null);
+insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (31, 'tumen@gmail.com', '$2a$10$SPpuqt9.umB.uYYiMUpryOLXxorIWFVs.2rRHRA99wwpgMPEv9q.q', 'Евгений', 'Тюменцев', 'tumen@gmail.com', 'Управляющий партнер Тик-Так Коуч ', 1111111, true, 'Tumentsev.png', 5, null);
 INSERT INTO user_roles (user_id, role_id) VALUES (10, 2);
 INSERT INTO user_roles (user_id, role_id) VALUES (30, 2);
 INSERT INTO user_roles (user_id, role_id) VALUES (31, 2);
