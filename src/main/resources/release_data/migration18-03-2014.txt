@@ -1,0 +1,1 @@
+Added new table vkontakteProfile for storage information about users vkontakte's profile.

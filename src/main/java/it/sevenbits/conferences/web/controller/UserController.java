@@ -20,18 +20,16 @@ import it.sevenbits.conferences.web.form.JsonResponse;
 import it.sevenbits.conferences.web.form.LoginForm;
 import it.sevenbits.conferences.web.form.UserRegistrationForm;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -43,8 +41,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -83,7 +80,7 @@ public class UserController {
 
     @Autowired
     @Qualifier("userRegistrationValidator")
-    private Validator validator;
+    private Validator userRegistrationValidator;
 
     @Autowired
     @Qualifier("loginValidator")
@@ -92,6 +89,8 @@ public class UserController {
     @Autowired
     @Qualifier("changePasswordValidator")
     private Validator changePasswordValidator;
+
+    private static final Logger LOGGER = Logger.getLogger(VkAuthorizationController.class);
 
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public ModelAndView getUserInformation(@PathVariable(value = "userId") final Long userId) {
@@ -150,7 +149,7 @@ public class UserController {
             final BindingResult bindingResult
     ) {
         ModelAndView response;
-        validator.validate(userRegistrationForm, bindingResult);
+        userRegistrationValidator.validate(userRegistrationForm, bindingResult);
         if (bindingResult.hasErrors()) {
             Map<String, String> errors = new HashMap<>();
             for (FieldError fieldError: bindingResult.getFieldErrors()) {
