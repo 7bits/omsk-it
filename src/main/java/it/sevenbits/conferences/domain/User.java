@@ -1,5 +1,7 @@
 package it.sevenbits.conferences.domain;
 
+import it.sevenbits.conferences.utils.vkontakteAuthorization.*;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,6 +31,7 @@ public class User {
     private boolean enabled;
     private Role role;
     private Company company;
+    private VkontakteProfile vkontakteProfile;
 
     @Id
     @GeneratedValue
@@ -155,5 +158,14 @@ public class User {
 
     public void setSelfDescription(final String selfDescription) {
         this.selfDescription = selfDescription;
+    }
+
+    @OneToOne(mappedBy = "user")
+    public VkontakteProfile getVkontakteProfile() {
+        return vkontakteProfile;
+    }
+
+    public void setVkontakteProfile(final VkontakteProfile vkontakteProfile) {
+        this.vkontakteProfile = vkontakteProfile;
     }
 }

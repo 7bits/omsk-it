@@ -64,7 +64,6 @@ public class VkAuthorizationController {
         } catch (IOException exception) {
             LOGGER.error("Vkontakte authorization: " + exception.getMessage());
         }
-        LOGGER.error(code);
         return "redirect:" + "/";
     }
 

@@ -77,4 +77,16 @@ public class SimpleUserService implements UserService {
         return usersList.get(0);
     }
 
+    @Transactional
+    @Override
+    public User getUserByVkontakteId(final Long vkontakteId) {
+        String query = "SELECT u FROM User u WHERE u.vkontakteProfile.vkontakteId =:vkontakteId";
+        Map<String, Object> queryParams = new HashMap<>();
+        queryParams.put("vkontakteId", vkontakteId);
+        List<User> usersList = userDao.findByQuery(query, queryParams);
+        if (usersList == null || usersList.isEmpty()) {
+            return null;
+        }
+        return usersList.get(0);
+    }
 }

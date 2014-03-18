@@ -48,4 +48,11 @@ public interface UserService {
      * @return User which correspond to login or null otherwise.
      */
     User getUserByEmail(final String email);
+
+    /**
+     * Find the user witch has vkontakte's profile/
+     * @param vkontakteId User's vkontakte's profile id
+     * @return User with vkontakteId or null otherwise.
+     */
+    User getUserByVkontakteId(final Long vkontakteId);
 }
