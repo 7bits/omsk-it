@@ -65,11 +65,11 @@ public class VkAuthorizationController {
     @Autowired
     private VkontakteProfileService vkontakteProfileService;
     @Autowired
-    private RoleService roleService;
-    @Autowired
     private CompanyService companyService;
     @Autowired
     private MailSenderUtility mailSenderUtility;
+    @Autowired
+    private RoleService roleService;
     @Autowired
     @Qualifier("userSocialRegistrationValidator")
     private Validator userSocialRegistrationValidator;
@@ -84,7 +84,7 @@ public class VkAuthorizationController {
     }
 
     @RequestMapping(value = "vkAuthentication", method = RequestMethod.GET)
-    public ModelAndView authentication(final HttpServletRequest request) {
+    public ModelAndView authetication(final HttpServletRequest request) {
         String code = request.getParameter("code");
         String userIdGetUrl =
                 "https://oauth.vk.com/access_token?client_id=" + CLIENT_ID +
@@ -93,7 +93,6 @@ public class VkAuthorizationController {
                 "&redirect_uri=" + REDIRECT_URI;
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpUriRequest accessTokenGet = new HttpPost(userIdGetUrl);
-        ModelAndView modelAndView;
         try {
             HttpResponse httpResponse = httpClient.execute(accessTokenGet);
             Map<String, String> map = new HashMap<>();
@@ -109,7 +108,7 @@ public class VkAuthorizationController {
                     userRegistrationForm.setFirstName(vkontakteProfile.getFirst_name());
                     userRegistrationForm.setSecondName(vkontakteProfile.getLast_name());
                     request.getSession().setAttribute("vkontakteUserId", vkontakteProfile.getId());
-                    modelAndView = new ModelAndView("user-social-registration");
+                    ModelAndView modelAndView = new ModelAndView("user-social-registration");
                     modelAndView.addObject("userRegistrationForm", userRegistrationForm);
                     return modelAndView;
                 }
@@ -119,12 +118,10 @@ public class VkAuthorizationController {
         } catch (IOException exception) {
             LOGGER.error("Vkontakte authorization: " + exception.getMessage());
         }
-        modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:http://saturdays.omskit.org/");
-        return modelAndView;
+        return new ModelAndView("archive");
     }
 
-    @RequestMapping(value = "registration", method = RequestMethod.POST)
+    @RequestMapping(value = "social-registration", method = RequestMethod.POST)
     public ModelAndView socialUserRegistration(
             @ModelAttribute(value = "userRegistrationForm") final UserRegistrationForm userSocialRegistrationForm,
             final BindingResult bindingResult,
@@ -181,6 +178,8 @@ public class VkAuthorizationController {
     private void authorizeUser(final User user) {
         UserDetails userDetails = customUserDetailsService.loadUserByUsername(user.getEmail());
         Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
+        LOGGER.error(userDetails.getPassword() + " " + userDetails.getAuthorities() + " " + userDetails.getUsername());
+        LOGGER.error(authentication.isAuthenticated());
         SecurityContext securityContext = SecurityContextHolder.getContext();
         securityContext.setAuthentication(authentication);
     }
