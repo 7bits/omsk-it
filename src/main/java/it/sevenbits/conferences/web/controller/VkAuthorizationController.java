@@ -49,19 +49,30 @@ import java.util.Map;
 import java.util.UUID;
 
 @Controller
-@RequestMapping(value = "oauth")
+@RequestMapping(value = "social")
 public class VkAuthorizationController {
 
     private static final Logger LOGGER = Logger.getLogger(VkAuthorizationController.class);
     private static final String CLIENT_ID = "4193643";
     private static final String CLIENT_SECRET = "C4VA3AUYfyB5wgng2U8o";
     private static final String RESPONSE_TYPE_CODE = "code";
-    private static final String REDIRECT_URI = "http://saturdays.omskit.org/oauth/vkAuth";
+    private static final String REDIRECT_URI = "http://saturdays.omskit.org/social/vkAuthentication";
 
     @Autowired
     private UserService userService;
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
+    @Autowired
+    private VkontakteProfileService vkontakteProfileService;
+    @Autowired
+    private RoleService roleService;
+    @Autowired
+    private CompanyService companyService;
+    @Autowired
+    private MailSenderUtility mailSenderUtility;
+    @Autowired
+    @Qualifier("userSocialRegistrationValidator")
+    private Validator userSocialRegistrationValidator;
 
     @RequestMapping(value = "vkAuthorization", method = RequestMethod.GET)
     public String getAuthorizationUrl() {
@@ -72,8 +83,8 @@ public class VkAuthorizationController {
         return "redirect:" + url;
     }
 
-    @RequestMapping(value = "vkAuth", method = RequestMethod.GET)
-    public ModelAndView authetication(final HttpServletRequest request) {
+    @RequestMapping(value = "vkAuthentication", method = RequestMethod.GET)
+    public ModelAndView authentication(final HttpServletRequest request) {
         String code = request.getParameter("code");
         String userIdGetUrl =
                 "https://oauth.vk.com/access_token?client_id=" + CLIENT_ID +
@@ -82,6 +93,7 @@ public class VkAuthorizationController {
                 "&redirect_uri=" + REDIRECT_URI;
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpUriRequest accessTokenGet = new HttpPost(userIdGetUrl);
+        ModelAndView modelAndView;
         try {
             HttpResponse httpResponse = httpClient.execute(accessTokenGet);
             Map<String, String> map = new HashMap<>();
@@ -97,7 +109,7 @@ public class VkAuthorizationController {
                     userRegistrationForm.setFirstName(vkontakteProfile.getFirst_name());
                     userRegistrationForm.setSecondName(vkontakteProfile.getLast_name());
                     request.getSession().setAttribute("vkontakteUserId", vkontakteProfile.getId());
-                    ModelAndView modelAndView = new ModelAndView("user-social-registration");
+                    modelAndView = new ModelAndView("user-social-registration");
                     modelAndView.addObject("userRegistrationForm", userRegistrationForm);
                     return modelAndView;
                 }
@@ -107,27 +119,12 @@ public class VkAuthorizationController {
         } catch (IOException exception) {
             LOGGER.error("Vkontakte authorization: " + exception.getMessage());
         }
-        return new ModelAndView("archive");
+        modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:http://saturdays.omskit.org/");
+        return modelAndView;
     }
 
-    @Autowired
-    private VkontakteProfileService vkontakteProfileService;
-
-    @Autowired
-    private CompanyService companyService;
-
-    @Autowired
-    private MailSenderUtility mailSenderUtility;
-
-    @Autowired
-    private RoleService roleService;
-
-    @Autowired
-    @Qualifier("userSocialRegistrationValidator")
-    private Validator userSocialRegistrationValidator;
-
-
-    @RequestMapping(value = "registration/social", method = RequestMethod.POST)
+    @RequestMapping(value = "registration", method = RequestMethod.POST)
     public ModelAndView socialUserRegistration(
             @ModelAttribute(value = "userRegistrationForm") final UserRegistrationForm userSocialRegistrationForm,
             final BindingResult bindingResult,
@@ -184,8 +181,6 @@ public class VkAuthorizationController {
     private void authorizeUser(final User user) {
         UserDetails userDetails = customUserDetailsService.loadUserByUsername(user.getEmail());
         Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
-        LOGGER.error(userDetails.getPassword() + " " + userDetails.getAuthorities() + " " + userDetails.getUsername());
-        LOGGER.error(authentication.isAuthenticated());
         SecurityContext securityContext = SecurityContextHolder.getContext();
         securityContext.setAuthentication(authentication);
     }

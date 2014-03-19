@@ -20,6 +20,9 @@
                     <input class="inline-item login" type="text" placeholder="Email" name="j_username" id="j_username" size="30" maxlength="40"/>
                     <input class="inline-item login" type="password" placeholder="Пароль" name="j_password" id="j_password" size="30" maxlength="32"/>
                     <input class="inline-item enter login-form-button" type="submit" value="Вход"/>
+                    <a href='<c:url value="/social/vkAuthorization"/>' class="inline-item">
+                        <div class="vk-enter"></div>
+                    </a>
                 </div>
                 <div class="href">
                     <a href="<c:url value='/user/registration'/>">

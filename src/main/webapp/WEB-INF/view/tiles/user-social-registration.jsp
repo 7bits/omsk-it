@@ -7,7 +7,7 @@
             <h1 class="title">
                 Регистрация на сайте
             </h1>
-            <form:form class="js-apply-user-registration-form form-content" commandName="userRegistrationForm" enctype="multipart/form-data" action='registration/social' method="POST">
+            <form:form class="js-apply-user-registration-form form-content" commandName="userRegistrationForm" enctype="multipart/form-data" action='social/registration' method="POST">
                 <div class="form-info">
                     Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
                 </div>
