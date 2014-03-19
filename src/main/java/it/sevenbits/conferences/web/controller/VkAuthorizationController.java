@@ -93,6 +93,7 @@ public class VkAuthorizationController {
                 "&redirect_uri=" + REDIRECT_URI;
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpUriRequest accessTokenGet = new HttpPost(userIdGetUrl);
+        ModelAndView modelAndView;
         try {
             HttpResponse httpResponse = httpClient.execute(accessTokenGet);
             Map<String, String> map = new HashMap<>();
@@ -108,7 +109,7 @@ public class VkAuthorizationController {
                     userRegistrationForm.setFirstName(vkontakteProfile.getFirst_name());
                     userRegistrationForm.setSecondName(vkontakteProfile.getLast_name());
                     request.getSession().setAttribute("vkontakteUserId", vkontakteProfile.getId());
-                    ModelAndView modelAndView = new ModelAndView("user-social-registration");
+                    modelAndView = new ModelAndView("user-social-registration");
                     modelAndView.addObject("userRegistrationForm", userRegistrationForm);
                     return modelAndView;
                 }
@@ -118,7 +119,9 @@ public class VkAuthorizationController {
         } catch (IOException exception) {
             LOGGER.error("Vkontakte authorization: " + exception.getMessage());
         }
-        return new ModelAndView("archive");
+        modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:http://saturdays.omskit.org/");
+        return modelAndView;
     }
 
     @RequestMapping(value = "social-registration", method = RequestMethod.POST)
@@ -169,7 +172,6 @@ public class VkAuthorizationController {
             vkontakteProfile.setUser(updatedUser);
             vkontakteProfileService.updateVkontakteProfile(vkontakteProfile);
             mailSenderUtility.sendConfirmationToken(userSocialRegistrationForm.getEmail(), confirmationToken);
-            LOGGER.error("Вроде все окау" + httpSession.getAttribute("vkontakteUserId").toString());
             response = new ModelAndView("user-social-registration");
         }
         return response;
