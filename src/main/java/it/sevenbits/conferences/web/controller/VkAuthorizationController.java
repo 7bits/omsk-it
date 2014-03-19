@@ -13,6 +13,7 @@ import it.sevenbits.conferences.utils.mail.MailSenderUtility;
 import it.sevenbits.conferences.utils.vkontakteAuthorization.VkontakteProfile;
 import it.sevenbits.conferences.utils.vkontakteAuthorization.VkontakteProfiles;
 import it.sevenbits.conferences.web.form.UserRegistrationForm;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -28,6 +29,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -87,8 +90,6 @@ public class VkAuthorizationController {
             VkontakteProfile vkontakteProfile = getVkontakteProfile(map.get("user_id"), map.get("access_token"));
             if (vkontakteProfile != null) {
                 User user = userService.getUserByVkontakteId(Long.parseLong(vkontakteProfile.getId()));
-                LOGGER.error("ITS IS: " + Long.parseLong(vkontakteProfile.getId()));
-                LOGGER.error(user);
                 if (user != null && user.getEnabled()) {
                     authorizeUser(user);
                 } else {
@@ -141,7 +142,6 @@ public class VkAuthorizationController {
                     errors.put(fieldError.getField(), fieldError.getDefaultMessage());
                 }
             }
-            LOGGER.error("Какието ошибки вылезли" + httpSession.getAttribute("vkontakteUserId").toString());
             response = new ModelAndView("user-social-registration");
         } else {
             User user = new User();
@@ -149,6 +149,10 @@ public class VkAuthorizationController {
             user.setSecondName(userSocialRegistrationForm.getSecondName());
             user.setEmail(userSocialRegistrationForm.getEmail());
             user.setLogin(userSocialRegistrationForm.getEmail());
+            String randomPassword = RandomStringUtils.random(15, true, true);
+            PasswordEncoder encoder = new BCryptPasswordEncoder();
+            String encodedRandomPassword = encoder.encode(randomPassword);
+            user.setPassword(encodedRandomPassword);
             Company company = companyService.findCompanyByName(userSocialRegistrationForm.getCompany());
             user.setCompany(company);
             user.setJobPosition(userSocialRegistrationForm.getJobPosition());
@@ -180,6 +184,8 @@ public class VkAuthorizationController {
     private void authorizeUser(final User user) {
         UserDetails userDetails = customUserDetailsService.loadUserByUsername(user.getEmail());
         Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
+        LOGGER.error(userDetails.getPassword() + " " + userDetails.getAuthorities() + " " + userDetails.getUsername());
+        LOGGER.error(authentication.isAuthenticated());
         SecurityContext securityContext = SecurityContextHolder.getContext();
         securityContext.setAuthentication(authentication);
     }
