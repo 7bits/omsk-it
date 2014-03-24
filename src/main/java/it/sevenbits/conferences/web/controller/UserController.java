@@ -42,6 +42,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -146,7 +147,8 @@ public class UserController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView usersRegistrationPagePost(
             @ModelAttribute(value = "userRegistrationForm") final UserRegistrationForm userRegistrationForm,
-            final BindingResult bindingResult
+            final BindingResult bindingResult,
+            final HttpSession httpSession
     ) {
         ModelAndView response;
         userRegistrationValidator.validate(userRegistrationForm, bindingResult);
@@ -171,10 +173,15 @@ public class UserController {
             user.setCompany(company);
             user.setJobPosition(userRegistrationForm.getJobPosition());
             user.setEnabled(false);
-            FileManager fileManager = new FileManager();
-            if (!userRegistrationForm.getPhoto().isEmpty()) {
-                String photoName = fileManager.savePhoto(userRegistrationForm.getPhoto());
-                user.setPhoto(photoName);
+            if (httpSession.getAttribute("photosName") != null) {
+                FileManager fileManager = new FileManager();
+                String photosName = httpSession.getAttribute("photosName").toString();
+                boolean copyResult = fileManager.replaceFromTemporary(photosName);
+                if (copyResult) {
+                user.setPhoto(photosName);
+                } else {
+                    user.setPhoto(null);
+                }
             } else {
                 user.setPhoto(null);
             }

@@ -61,6 +61,27 @@ public class FileManager {
         return tempPhotoFileName;
     }
 
+    /**
+     * Replace file from temporary directory to normal.
+     * @param fileName - A name of the file.
+     * @return Copying's result.
+     */
+    public boolean replaceFromTemporary(final String fileName) {
+        String tempPhotosPath = getImagesStoragePath(PathProperties.TEMPORARY_PHOTOS_PATH);
+        String photosPath = getImagesStoragePath(PathProperties.PHOTOS_PATH);
+        File srcFile = null;
+        File destFile = null;
+        boolean copyResult = false;
+        try {
+            srcFile = new File(tempPhotosPath + fileName);
+            destFile = new File(photosPath + fileName);
+            copyResult = srcFile.renameTo(destFile);
+        } catch (Exception e) {
+            logger.trace("Files copying problem: " + e.getMessage());
+        }
+        return  copyResult;
+    }
+
     private String save(final MultipartFile imageFile, final String filesPath) {
         UUID uuid = UUID.randomUUID();
         String imageFileName = "img_" + uuid + "." + imageFile.getContentType().replace("image/", "");

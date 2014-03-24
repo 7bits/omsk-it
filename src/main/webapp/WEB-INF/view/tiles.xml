@@ -111,9 +111,4 @@
         <put-attribute name="content" value="/WEB-INF/view/tiles/errors/error-404.jsp" />
     </definition>
 
-    <definition name="ajax-file" extends="base">
-        <put-attribute name="title" value="Подтверждение регистрации" />
-        <put-attribute name="content" value="/WEB-INF/view/tiles/ajax-file.jsp" />
-    </definition>
-
 </tiles-definitions>

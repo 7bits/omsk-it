@@ -88,15 +88,18 @@
 
                 <div class="field">
                     <span class="left-label">Фотография</span>
-                    <form:input class="js-photo-upload-input js-input small-input margin-top-8" path="photo" type="file" value="Загрузить" id="image" />
-                    <span class="field-info">
-                        <span class="js-field-info"></span>
-                        <span class="js-field-response js-photo-upload-response attention"></span>
-                    </span>
+                    <input class="js-photo-upload-input js-input small-input margin-top-8" type="file" value="Загрузить" id="image" />
+                <span class="field-info">
+                    <span class="js-field-info"></span>
+                    <span class="js-field-response js-photo-upload-response attention"></span>
+                </span>
+                </div>
+                <div class="field">
+                    <img id="image-view" class="photo" src=''/>
                 </div>
 
                 <div class="field">
-                    <input class="js-apply-user-registration-form-button button-submit" type="submit" value="Отправить">
+                    <input class="js-apply-user-registration-form-button button-submit" type="submit" value="Отправить" />
                     <input class="js-apply-reset reset-button" type="reset" value="Отмена">
                     <div class="js-apply-response apply-response"></div>
                 </div>

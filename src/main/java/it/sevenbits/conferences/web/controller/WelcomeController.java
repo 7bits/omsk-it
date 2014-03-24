@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -69,23 +70,18 @@ public class WelcomeController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/upload", method = RequestMethod.GET)
-    public ModelAndView showFileUpload() {
-        ModelAndView modelAndView = new ModelAndView("ajax-file");
-        return modelAndView;
-    }
-
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse fileUpload(MultipartHttpServletRequest request) {
+    public JsonResponse fileUpload(MultipartHttpServletRequest request, HttpSession httpSession) {
         JsonResponse jsonResponse = new JsonResponse();
         Iterator<String> itr =  request.getFileNames();
         MultipartFile multipartFile = request.getFile(itr.next());
         FileManager fileManager = new FileManager();
-        String name = fileManager.saveTemporaryPhoto(multipartFile);
+        String photosName = fileManager.saveTemporaryPhoto(multipartFile);
         jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
         Map<String, String> result = new HashMap<>();
-        result.put("name", name);
+        httpSession.setAttribute("photosName", photosName);
+        result.put("name", photosName);
         jsonResponse.setResult(result);
         return jsonResponse;
     }
