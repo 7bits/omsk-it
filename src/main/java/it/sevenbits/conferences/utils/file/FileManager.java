@@ -15,8 +15,19 @@ import java.util.UUID;
 public class FileManager {
 
     private final Logger logger = Logger.getLogger(FileManager.class);
+    private enum PathProperties {
+        PHOTOS_PATH("upload.images.path"), TEMPORARY_PHOTOS_PATH("upload.temporary.photos");
+        private String propName;
+        private PathProperties(final String propName) {
+            this.propName = propName;
+        }
 
-    private String getImagesStoragePath() {
+        public String getValue() {
+            return propName;
+        }
+    }
+
+    private String getImagesStoragePath(final PathProperties pathProperty) {
         Properties prop = new Properties();
         try {
             InputStream inStream = getClass().getClassLoader().getResourceAsStream("filesUpload.properties");
@@ -25,19 +36,35 @@ public class FileManager {
         } catch (IOException e) {
             logger.error("Cannot read filesUpload.properties file", e);
         }
-        return prop.getProperty("upload.images.path");
+        return prop.getProperty(pathProperty.getValue());
     }
 
     /**
-     * Save image into common directory for images
-     * @param imageFile Image file
-     * @return Name of saved image file.
+     * Save photo into common directory for photos
+     * @param imageFile photo file
+     * @return Name of saved photo file.
      */
-    public String saveImage(final MultipartFile imageFile) {
+    public String savePhoto(final MultipartFile imageFile) {
+        String photosPath = getImagesStoragePath(PathProperties.PHOTOS_PATH);
+        String photoFileName = save(imageFile, photosPath);
+        return photoFileName;
+    }
+
+    /**
+     * Save photo into common directory for temporary photos
+     * @param imageFile photo file
+     * @return Name of saved photo file.
+     */
+    public String saveTemporaryPhoto(final MultipartFile imageFile) {
+        String tempPhotosPath = getImagesStoragePath(PathProperties.TEMPORARY_PHOTOS_PATH);
+        String tempPhotoFileName = save(imageFile, tempPhotosPath);
+        return tempPhotoFileName;
+    }
+
+    private String save(final MultipartFile imageFile, final String filesPath) {
         UUID uuid = UUID.randomUUID();
         String imageFileName = "img_" + uuid + "." + imageFile.getContentType().replace("image/", "");
-        String imageFilesPath = getImagesStoragePath();
-        File file = new File(imageFilesPath + imageFileName);
+        File file = new File(filesPath + imageFileName);
         try {
             FileUtils.writeByteArrayToFile(file, imageFile.getBytes());
         } catch (Throwable e) {

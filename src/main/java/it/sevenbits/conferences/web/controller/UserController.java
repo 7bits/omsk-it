@@ -173,7 +173,7 @@ public class UserController {
             user.setEnabled(false);
             FileManager fileManager = new FileManager();
             if (!userRegistrationForm.getPhoto().isEmpty()) {
-                String photoName = fileManager.saveImage(userRegistrationForm.getPhoto());
+                String photoName = fileManager.savePhoto(userRegistrationForm.getPhoto());
                 user.setPhoto(photoName);
             } else {
                 user.setPhoto(null);

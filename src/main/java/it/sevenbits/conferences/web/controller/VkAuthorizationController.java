@@ -156,7 +156,7 @@ public class VkAuthorizationController {
             user.setEnabled(false);
             FileManager fileManager = new FileManager();
             if (!userSocialRegistrationForm.getPhoto().isEmpty()) {
-                String photoName = fileManager.saveImage(userSocialRegistrationForm.getPhoto());
+                String photoName = fileManager.savePhoto(userSocialRegistrationForm.getPhoto());
                 user.setPhoto(photoName);
             } else {
                 user.setPhoto(null);

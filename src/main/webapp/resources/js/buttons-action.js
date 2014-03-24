@@ -41,8 +41,6 @@ $(document).ready(function() {
     $(".js-apply-user-registration-form").submit(function(event) {
     });
 
-    $("#image").change(checkImageUploadInput);
-
     $(".js-apply-reset").click(function() {
 
         $(".js-apply-response").empty();
@@ -107,7 +105,27 @@ $(document).ready(function() {
         event.preventDefault();
         doAjaxChangePassword();
     });
+
+    $("#image").change(onFileUploaded);
+    //$("#image").change(checkImageUploadInput);
 });
+
+function onFileUploaded() {
+    formData = new FormData();
+    formData.append("photo", image.files[0]);
+    $.ajax({
+        url: fileUpload,
+        type: "POST",
+        data: formData,
+        processData: false,  // tell jQuery not to process the data
+        contentType: false,   // tell jQuery not to set contentType
+        success: function(response) {
+            image_container = document.getElementById("image-view");
+            image_container.src = temporaryImage + "/" + response.result.name;
+            console.log(response.result.name);
+        }
+    })
+}
 
 function checkImageUploadInput(event) {
     if ( event.originalEvent.target.files[0].size > 10485760) {

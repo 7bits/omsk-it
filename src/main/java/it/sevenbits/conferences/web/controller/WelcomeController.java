@@ -4,12 +4,21 @@ import it.sevenbits.conferences.domain.Conference;
 import it.sevenbits.conferences.domain.Report;
 import it.sevenbits.conferences.service.ConferenceService;
 import it.sevenbits.conferences.service.ReportService;
+import it.sevenbits.conferences.utils.file.FileManager;
+import it.sevenbits.conferences.web.form.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import static it.sevenbits.conferences.utils.date.NextDateConference.getNextDate;
 
@@ -58,5 +67,26 @@ public class WelcomeController {
             modelAndView.addObject("reports", reportService.findAllReportsByConference(conference));
         }
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/upload", method = RequestMethod.GET)
+    public ModelAndView showFileUpload() {
+        ModelAndView modelAndView = new ModelAndView("ajax-file");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResponse fileUpload(MultipartHttpServletRequest request) {
+        JsonResponse jsonResponse = new JsonResponse();
+        Iterator<String> itr =  request.getFileNames();
+        MultipartFile multipartFile = request.getFile(itr.next());
+        FileManager fileManager = new FileManager();
+        String name = fileManager.saveTemporaryPhoto(multipartFile);
+        jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
+        Map<String, String> result = new HashMap<>();
+        result.put("name", name);
+        jsonResponse.setResult(result);
+        return jsonResponse;
     }
 }
