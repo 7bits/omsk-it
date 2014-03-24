@@ -15,6 +15,7 @@ import java.util.UUID;
 public class FileManager {
 
     private final Logger logger = Logger.getLogger(FileManager.class);
+
     private enum PathProperties {
         PHOTOS_PATH("upload.images.path"), TEMPORARY_PHOTOS_PATH("upload.temporary.photos");
         private String propName;
@@ -77,7 +78,7 @@ public class FileManager {
             destFile = new File(photosPath + fileName);
             copyResult = srcFile.renameTo(destFile);
         } catch (Exception e) {
-            logger.trace("Files copying problem: " + e.getMessage());
+            logger.error("Files copying problem: " + e.getMessage());
         }
         return  copyResult;
     }
