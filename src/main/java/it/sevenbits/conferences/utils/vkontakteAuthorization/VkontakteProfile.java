@@ -5,7 +5,7 @@ public class VkontakteProfile {
     private String id;
     private String first_name;
     private String last_name;
-    private String photo_100;
+    private String photo_200;
 
     public String getId() {
         return id;
@@ -31,11 +31,11 @@ public class VkontakteProfile {
         this.last_name = last_name;
     }
 
-    public String getPhoto_100() {
-        return photo_100;
+    public String getPhoto_200() {
+        return photo_200;
     }
 
-    public void setPhoto_100(final String photo_100) {
-        this.photo_100 = photo_100;
+    public void setPhoto_200(final String photo_100) {
+        this.photo_200 = photo_100;
     }
 }

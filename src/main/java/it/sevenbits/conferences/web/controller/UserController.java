@@ -13,6 +13,7 @@ import it.sevenbits.conferences.service.ReportService;
 import it.sevenbits.conferences.service.RoleService;
 import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.service.common.CustomUserDetailsService;
+import it.sevenbits.conferences.utils.file.FileConverter;
 import it.sevenbits.conferences.utils.file.FileManager;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
 import it.sevenbits.conferences.web.form.ChangePasswordForm;
@@ -45,6 +46,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.awt.image.BufferedImage;
 import java.util.*;
 
 /**
@@ -285,7 +287,8 @@ public class UserController {
         Iterator<String> itr =  request.getFileNames();
         MultipartFile multipartFile = request.getFile(itr.next());
         FileManager fileManager = new FileManager();
-        String photosName = fileManager.saveTemporaryPhoto(multipartFile);
+        BufferedImage userPhoto = FileConverter.MultipartToBufferedImage(multipartFile);
+        String photosName = fileManager.saveTemporaryPhoto(userPhoto);
         jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
         Map<String, String> result = new HashMap<>();
         httpSession.setAttribute("photosName", photosName);

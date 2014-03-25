@@ -40,9 +40,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -109,8 +112,22 @@ public class VkAuthorizationController {
                     userRegistrationForm.setFirstName(vkontakteProfile.getFirst_name());
                     userRegistrationForm.setSecondName(vkontakteProfile.getLast_name());
                     request.getSession().setAttribute("vkontakteUserId", vkontakteProfile.getId());
+
+                    BufferedImage image = null;
+                    String temporaryPhotoName = null;
+                    try {
+                        URL url = new URL(vkontakteProfile.getPhoto_200());
+                        image = ImageIO.read(url);
+                        FileManager fileManager = new FileManager();
+                        temporaryPhotoName = fileManager.saveTemporaryPhoto(image);
+                    } catch (IOException e) {
+                        LOGGER.error("Upload image fail: " + e.getMessage());
+                    }
+                    HttpSession httpSession = request.getSession();
+                    httpSession.setAttribute("photosName", temporaryPhotoName);
                     modelAndView = new ModelAndView("user-social-registration");
                     modelAndView.addObject("userRegistrationForm", userRegistrationForm);
+                    modelAndView.addObject("userVkontaktePhotoName", temporaryPhotoName);
                     return modelAndView;
                 }
             } else {
@@ -197,7 +214,7 @@ public class VkAuthorizationController {
                 "https://api.vk.com/method/users.get?user_id=" + userId +
                 "&v=5.14" +
                 "&access_token=" + accessToken +
-                "&fields=photo_100";
+                "&fields=photo_200";
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpUriRequest getProfileRequest = new HttpPost(getProfileRequestUrl);
         Map<String, ArrayList> map = new HashMap<>();
