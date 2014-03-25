@@ -1,4 +1,4 @@
-package it.sevenbits.conferences.web.controller;
+package it.sevenbits.conferences.schedules;
 
 import org.apache.log4j.Logger;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -20,8 +20,9 @@ public class ScheduledTaskProcessor {
     /**
      * Delete files in the temporary directory every day in 04:00 o'clock.
      */
-    @Scheduled(cron = "0 4 * * *")
+    @Scheduled(fixedDelay=5000)
     public void cleanTemporaryPhotosDirectory() {
+        logger.error("ЗАШЕЛ В ТАСК ОЛОЛОЛОЛОЛОЛОЛОЛОЛ");
         String path = getTemporaryPhotosStoragePath();
         File temporaryStorage = null;
         try {
