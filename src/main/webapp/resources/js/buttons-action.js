@@ -107,27 +107,9 @@ $(document).ready(function() {
     });
 
     $("#image").change(onFileUploaded);
-    //$("#image").change(checkImageUploadInput);
 });
 
-function onFileUploaded() {
-    formData = new FormData();
-    formData.append("photo", image.files[0]);
-    $.ajax({
-        url: fileUpload,
-        type: "POST",
-        data: formData,
-        processData: false,  // tell jQuery not to process the data
-        contentType: false,   // tell jQuery not to set contentType
-        success: function(response) {
-            image_container = document.getElementById("image-view");
-            image_container.src = temporaryImage + "/" + response.result.name;
-            console.log(response.result.name);
-        }
-    })
-}
-
-function checkImageUploadInput(event) {
+function onFileUploaded(event) {
     if ( event.originalEvent.target.files[0].size > 10485760) {
         //Reload input:file's container
         document.getElementById("image").parentNode.innerHTML = document.getElementById("image").parentNode.innerHTML;
@@ -136,6 +118,22 @@ function checkImageUploadInput(event) {
             $(".js-photo-upload-response").text("");
         },3000);
         $("#image").change(checkImageUploadInput);
+    } else {
+        formData = new FormData();
+        imageInput = document.getElementById("image");
+        formData.append("photo", imageInput.files[0]);
+        $.ajax({
+            url: fileUpload,
+            type: "POST",
+            data: formData,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,   // tell jQuery not to set contentType
+            success: function(response) {
+                image_container = document.getElementById("image-view");
+                image_container.src = temporaryImage + "/" + response.result.name;
+                console.log(response.result.name);
+            }
+        })
     }
 }
 

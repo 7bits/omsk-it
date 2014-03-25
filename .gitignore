@@ -16,5 +16,4 @@ bin/
 logs/
 hidden.properties
 password.properties
-mailSender.properties
 src/main/webapp/resources/temporary/photos/

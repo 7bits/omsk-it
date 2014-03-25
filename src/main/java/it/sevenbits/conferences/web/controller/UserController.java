@@ -40,13 +40,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Controller for /user pages.
@@ -275,6 +274,22 @@ public class UserController {
             resultMessage.put("message", "Вам пароль успешно изменен.");
             jsonResponse.setResult(resultMessage);
         }
+        return jsonResponse;
+    }
+
+    @RequestMapping(value = "/upload/photo", method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResponse fileUpload(MultipartHttpServletRequest request, HttpSession httpSession) {
+        JsonResponse jsonResponse = new JsonResponse();
+        Iterator<String> itr =  request.getFileNames();
+        MultipartFile multipartFile = request.getFile(itr.next());
+        FileManager fileManager = new FileManager();
+        String photosName = fileManager.saveTemporaryPhoto(multipartFile);
+        jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
+        Map<String, String> result = new HashMap<>();
+        httpSession.setAttribute("photosName", photosName);
+        result.put("name", photosName);
+        jsonResponse.setResult(result);
         return jsonResponse;
     }
 
