@@ -17,7 +17,7 @@
     </appender>
 
     <root>
-        <priority value ="warn"/>
+        <level value="INFO" />
         <appender-ref ref="appender1"/>
         <appender-ref ref="appender2"/>
     </root>

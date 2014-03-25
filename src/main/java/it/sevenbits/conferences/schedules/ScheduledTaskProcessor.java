@@ -20,9 +20,8 @@ public class ScheduledTaskProcessor {
     /**
      * Delete files in the temporary directory every day in 04:00 o'clock.
      */
-    @Scheduled(fixedDelay=5000)
+    @Scheduled(cron = "0 0 4 * * *")
     public void cleanTemporaryPhotosDirectory() {
-        logger.error("ЗАШЕЛ В ТАСК ОЛОЛОЛОЛОЛОЛОЛОЛОЛ");
         String path = getTemporaryPhotosStoragePath();
         File temporaryStorage = null;
         try {
@@ -34,8 +33,7 @@ public class ScheduledTaskProcessor {
                         file.delete();
                     }
                 }
-            } else {
-                logger.error("The directory of temporary photos doesn't exists");
+                logger.info("Temporary photos directory was cleaned!");
             }
         } catch (Exception e) {
             logger.error("Cannot find temporary photo's storage directory: " + e.getMessage());
