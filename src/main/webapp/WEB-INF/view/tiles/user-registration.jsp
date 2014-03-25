@@ -48,16 +48,6 @@
                     </span>
                 </div>
 
-                <!--div class="field long">
-                    <span class="left-label">Место работы/учебы&nbsp;<span class="attention">*</span></span>
-                    <br>
-                    <input class="js-job-input js-input small-input" type="text" name="job">
-                    <span class="field-info">
-                        <span class="js-field-response js-job-response attention"></span>
-                        <span class="js-field-info"></span>
-                    </span>
-                </div-->
-
                 <div class="field">
                     <span class="left-label">Должность&nbsp;<span class="attention">*</span></span>
                     <form:input class="js-job-position-input js-input small-input margin-top-8" type="text" path="jobPosition"/>
@@ -89,11 +79,12 @@
                 <div class="field">
                     <span class="left-label">Фотография</span>
                     <input class="js-photo-upload-input js-input small-input margin-top-8" type="file" value="Загрузить" id="image" />
-                <span class="field-info">
-                    <span class="js-field-info"></span>
-                    <span class="js-field-response js-photo-upload-response attention"></span>
-                </span>
+                    <span class="field-info">
+                        <span class="js-field-info"></span>
+                        <span class="js-field-response js-photo-upload-response attention"></span>
+                    </span>
                 </div>
+
                 <div class="field">
                     <img id="image-view" class="photo" src=''/>
                 </div>

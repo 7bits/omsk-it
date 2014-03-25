@@ -154,10 +154,16 @@ public class VkAuthorizationController {
             user.setCompany(company);
             user.setJobPosition(userSocialRegistrationForm.getJobPosition());
             user.setEnabled(false);
-            FileManager fileManager = new FileManager();
-            if (!userSocialRegistrationForm.getPhoto().isEmpty()) {
-                String photoName = fileManager.savePhoto(userSocialRegistrationForm.getPhoto());
-                user.setPhoto(photoName);
+            if (httpSession.getAttribute("photosName") != null) {
+                FileManager fileManager = new FileManager();
+                String photosName = httpSession.getAttribute("photosName").toString();
+                boolean copyResult = fileManager.replaceFromTemporary(photosName);
+                if (copyResult) {
+                    user.setPhoto(photosName);
+                } else {
+                    user.setPhoto(null);
+                }
+                httpSession.setAttribute("photosName", null);
             } else {
                 user.setPhoto(null);
             }

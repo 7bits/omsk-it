@@ -8,6 +8,7 @@ import it.sevenbits.conferences.service.CompanyService;
 import it.sevenbits.conferences.service.ReportService;
 import it.sevenbits.conferences.service.RoleService;
 import it.sevenbits.conferences.service.UserService;
+import it.sevenbits.conferences.utils.file.FileManager;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
 import it.sevenbits.conferences.web.form.ApplyForReportForm;
 import it.sevenbits.conferences.web.form.JsonResponse;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -78,7 +80,8 @@ public class ApplyForReportController {
     @ResponseBody
     public JsonResponse submitForm(
             @ModelAttribute(value = "applyForReportForm") final ApplyForReportForm applyForReportForm,
-            final BindingResult bindingResult
+            final BindingResult bindingResult,
+            final HttpSession httpSession
     ) {
 
         JsonResponse response = new JsonResponse();
@@ -127,6 +130,18 @@ public class ApplyForReportController {
                 user.setCompany(company);
                 user.setJobPosition(applyForReportForm.getJobPosition());
                 user.setEnabled(false);
+                if (httpSession.getAttribute("photosName") != null) {
+                    FileManager fileManager = new FileManager();
+                    String photosName = httpSession.getAttribute("photosName").toString();
+                    boolean copyResult = fileManager.replaceFromTemporary(photosName);
+                    if (copyResult) {
+                        user.setPhoto(photosName);
+                    } else {
+                        user.setPhoto(null);
+                    }
+                } else {
+                    user.setPhoto(null);
+                }
                 Role role = roleService.findRoleById(1L);
                 user.setRole(role);
                 String confirmationToken = UUID.randomUUID().toString();

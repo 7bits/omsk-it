@@ -177,10 +177,11 @@ public class UserController {
                 String photosName = httpSession.getAttribute("photosName").toString();
                 boolean copyResult = fileManager.replaceFromTemporary(photosName);
                 if (copyResult) {
-                user.setPhoto(photosName);
+                    user.setPhoto(photosName);
                 } else {
                     user.setPhoto(null);
                 }
+                httpSession.setAttribute("photosName", null);
             } else {
                 user.setPhoto(null);
             }

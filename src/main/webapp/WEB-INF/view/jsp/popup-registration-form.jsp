@@ -54,6 +54,15 @@
                     </span>
             </div>
 
+            <div class="field">
+                <span class="left-label">Должность&nbsp;<span class="attention">*</span></span>
+                <input class="js-job-position-input js-input small-input" type="text" name="jobPosition">
+                    <span class="field-info">
+                        <span class="js-field-response js-job-position-response attention"></span>
+                        <span class="js-field-info"></span>
+                    </span>
+            </div>
+
             <div class="field long">
                 <span class="left-label">Место работы/учебы&nbsp;<span class="attention">*</span></span>
                 <br>
@@ -74,24 +83,18 @@
             </div>
 
             <div class="field">
-                <span class="top-label left-label label-field-jobPosition">
-                    Ваша роль в компании/команде<span class="attention">*</span>
-                </span>
-                <br>
-                <input type="radio" name="jobPosition" value="Руководитель компании">Руководитель компании<br>
-                <input type="radio" name="jobPosition" value="Менеджер проекта">Менеджер проекта<br>
-                <input type="radio" name="jobPosition" value="Тимлид команды">Тимлид команды<br>
-                <input type="radio" name="jobPosition" value="Разработчик">Разработчик<br>
-                <input type="radio" name="jobPosition" value="Дизайнер">Дизайнер<br>
-                <input type="radio" name="jobPosition" value="Тестировщик">Тестировщик<br>
-                <input type="radio" name="jobPosition" value="Аналитик">Аналитик<br>
-                <input type="radio" name="jobPosition" value="Системный администритор">Системный администритор<br>
-                <input type="radio" name="jobPosition" value="other">Другое:
-                <input type="text" name="jobPositionOther" class="js-job-position-other-input js-input small-input small-input-other">
-                <span class="field-info">
-                    <span class="js-field-response js-jobPosition-response attention"></span>
-                </span>
+                <span class="left-label">Фотография</span>
+                <input class="js-photo-upload-input js-input small-input margin-top-8" type="file" value="Загрузить" id="image" />
+                    <span class="field-info">
+                        <span class="js-field-info"></span>
+                        <span class="js-field-response js-photo-upload-response attention"></span>
+                    </span>
             </div>
+
+            <div class="field">
+                <img id="image-view" class="photo" src=''/>
+            </div>
+
             <div class="field center-div">
                 <input class="js-guest-form-button button-submit" type="submit" value="Зарегистрироваться">
                 <div class="js-guest-response"></div>
