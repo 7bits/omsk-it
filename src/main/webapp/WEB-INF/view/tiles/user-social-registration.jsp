@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="field">
-                    <img id="image-view" class="photo" src='<c:out value="${userVkontaktePhotoName}"/>'/>
+                    <img id="image-view" class="photo" src='/resources/temporary/photos/<c:out value="${userVkontaktePhotoName}"/>'/>
                 </div>
 
                 <div class="field">

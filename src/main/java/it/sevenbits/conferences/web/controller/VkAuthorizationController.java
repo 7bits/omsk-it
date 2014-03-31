@@ -116,8 +116,11 @@ public class VkAuthorizationController {
                     BufferedImage image = null;
                     String temporaryPhotoName = null;
                     try {
+                        LOGGER.error("THIS IS URL " + vkontakteProfile.getPhoto_200());
                         URL url = new URL(vkontakteProfile.getPhoto_200());
+                        LOGGER.error("THIS IS URL.class " + url.getPath());
                         image = ImageIO.read(url);
+                        LOGGER.error("THIS IS size " + image.getWidth());
                         FileManager fileManager = new FileManager();
                         temporaryPhotoName = fileManager.saveTemporaryPhoto(image);
                     } catch (IOException e) {

@@ -89,8 +89,9 @@ public class FileManager {
         String imageFileName = "img_" + uuid + ".jpg";
         File file = new File(filesPath + imageFileName);
         try {
+            file.createNewFile();
             ImageIO.write(image, "jpg", file);
-        } catch (Throwable e) {
+        } catch (IOException e) {
             LOGGER.error("Cannot write image into file", e);
         }
         return imageFileName;
