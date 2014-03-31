@@ -96,7 +96,8 @@ public class VkAuthorizationController {
                 "&redirect_uri=" + REDIRECT_URI;
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpUriRequest accessTokenGet = new HttpPost(userIdGetUrl);
-        ModelAndView modelAndView;
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:http://saturdays.omskit.org/");
         try {
             HttpResponse httpResponse = httpClient.execute(accessTokenGet);
             Map<String, String> map = new HashMap<>();
@@ -107,20 +108,18 @@ public class VkAuthorizationController {
                 User user = userService.getUserByVkontakteId(Long.parseLong(vkontakteProfile.getId()));
                 if (user != null && user.getEnabled()) {
                     authorizeUser(user);
+                } else if (user != null && !user.getEnabled()) {
+                    modelAndView = new ModelAndView("account-not-enabled");
                 } else {
                     UserRegistrationForm userRegistrationForm = new UserRegistrationForm();
                     userRegistrationForm.setFirstName(vkontakteProfile.getFirst_name());
                     userRegistrationForm.setSecondName(vkontakteProfile.getLast_name());
                     request.getSession().setAttribute("vkontakteUserId", vkontakteProfile.getId());
-
                     BufferedImage image = null;
                     String temporaryPhotoName = null;
                     try {
-                        LOGGER.error("THIS IS URL " + vkontakteProfile.getPhoto_200());
                         URL url = new URL(vkontakteProfile.getPhoto_200());
-                        LOGGER.error("THIS IS URL.class " + url.getPath());
                         image = ImageIO.read(url);
-                        LOGGER.error("THIS IS size " + image.getWidth());
                         FileManager fileManager = new FileManager();
                         temporaryPhotoName = fileManager.saveTemporaryPhoto(image);
                     } catch (IOException e) {
@@ -131,7 +130,6 @@ public class VkAuthorizationController {
                     modelAndView = new ModelAndView("user-social-registration");
                     modelAndView.addObject("userRegistrationForm", userRegistrationForm);
                     modelAndView.addObject("userVkontaktePhotoName", temporaryPhotoName);
-                    return modelAndView;
                 }
             } else {
                 LOGGER.error("Vkontakte authorization: User isn't accessible");
@@ -139,8 +137,6 @@ public class VkAuthorizationController {
         } catch (IOException exception) {
             LOGGER.error("Vkontakte authorization: " + exception.getMessage());
         }
-        modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:http://saturdays.omskit.org/");
         return modelAndView;
     }
 
@@ -198,7 +194,7 @@ public class VkAuthorizationController {
             vkontakteProfile.setUser(updatedUser);
             vkontakteProfileService.updateVkontakteProfile(vkontakteProfile);
             mailSenderUtility.sendConfirmationToken(userSocialRegistrationForm.getEmail(), confirmationToken);
-            response = new ModelAndView("user-social-registration");
+            response = new ModelAndView("after-registration-info");
         }
         return response;
     }

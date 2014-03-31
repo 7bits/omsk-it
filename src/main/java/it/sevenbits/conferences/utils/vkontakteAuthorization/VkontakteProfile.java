@@ -35,7 +35,7 @@ public class VkontakteProfile {
         return photo_200;
     }
 
-    public void setPhoto_200(final String photo_100) {
-        this.photo_200 = photo_100;
+    public void setPhoto_200(final String photo_200) {
+        this.photo_200 = photo_200;
     }
 }

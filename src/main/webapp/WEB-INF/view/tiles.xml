@@ -46,6 +46,16 @@
         <put-attribute name="content" value="/WEB-INF/view/tiles/user-registration.jsp" />
     </definition>
 
+    <definition name="after-registration-info" extends="base">
+        <put-attribute name="title" value="Регистрация" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/after-registration-info.jsp" />
+    </definition>
+
+    <definition name="account-not-enabled" extends="base">
+        <put-attribute name="title" value="Вход" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/account-not-enabled.jsp" />
+    </definition>
+
     <definition name="user-social-registration" extends="base">
         <put-attribute name="title" value="Регистрация" />
         <put-attribute name="content" value="/WEB-INF/view/tiles/user-social-registration.jsp" />

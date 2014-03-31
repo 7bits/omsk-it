@@ -193,7 +193,7 @@ public class UserController {
             user.setConfirmationToken(confirmationToken);
             userService.updateUser(user);
             mailSenderUtility.sendConfirmationToken(userRegistrationForm.getEmail(), confirmationToken);
-            response = new ModelAndView("user-registration");
+            response = new ModelAndView("after-registration-info");
         }
         return response;
     }
