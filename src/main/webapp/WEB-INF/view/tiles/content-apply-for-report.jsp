@@ -19,6 +19,9 @@
                 <div class="login-form-open-button login-page-open">
                     Логин
                 </div>
+                <a href='<c:url value="/social/vkAuthorization"/>' class="inline-item">
+                    <div class="vk-enter"></div>
+                </a>
             </sec:authorize>
             <div class="form-info">
                 Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)

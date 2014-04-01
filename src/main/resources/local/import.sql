@@ -18,7 +18,7 @@ insert into `company`(id, name, site, location) values(17, "ИСС Арт", "htt
 insert into `company`(id, name, site, location) values(18, "Собака Павлова", "http://pavlova.cc/", null);
 
 -- Юзеры для тестов spring-security
-INSERT INTO role (role) VALUES ('user');
+INSERT INTO role (role) VALUES ('looser'),('user');
 
 -- 13 IT-субботник
 insert into `conference`(id, company_id, ordinal_number, date, registration) values(13, 1, 13, 1388833200, true);

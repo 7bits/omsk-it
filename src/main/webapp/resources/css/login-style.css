@@ -114,6 +114,8 @@
     color: #FFFFFF;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 a:visited .login-form-open-button {

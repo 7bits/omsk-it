@@ -20,7 +20,7 @@ public class ScheduledTaskProcessor {
     /**
      * Delete files in the temporary directory every day in 04:00 o'clock.
      */
-    @Scheduled(cron = "0 0 4 * * *")
+    @Scheduled(cron = "0 0 22 * * *")
     public void cleanTemporaryPhotosDirectory() {
         String path = getTemporaryPhotosStoragePath();
         File temporaryStorage = null;
