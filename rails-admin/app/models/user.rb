@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :role, :join_table => :user_roles
   has_many :guest
   has_many :report
+  has_one :vkontakteProfile
   belongs_to :company
   mount_uploader :photo, PhotoUploader
 
@@ -49,6 +50,9 @@ class User < ActiveRecord::Base
       field :report do
         label "Доклад"
       end
+      field :vkontakteProfile do
+        label "Профиль вконтакте"
+      end
       field :photo do
         label "Фото"
       end
@@ -87,6 +91,9 @@ class User < ActiveRecord::Base
       end
       field :report do
         label "Доклад"
+      end
+      field :vkontakteProfile do
+        label "Профиль вконтакте"
       end
       field :photo do
         label "Фото"
