@@ -183,7 +183,7 @@ public class VkAuthorizationController {
             } else {
                 user.setPhoto(null);
             }
-            Role role = roleService.findRoleById(1L);
+            Role role = roleService.findRoleById(3L);
             user.setRole(role);
             String confirmationToken = UUID.randomUUID().toString();
             user.setConfirmationToken(confirmationToken);
@@ -202,8 +202,6 @@ public class VkAuthorizationController {
     private void authorizeUser(final User user) {
         UserDetails userDetails = customUserDetailsService.loadUserByUsername(user.getEmail());
         Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
-        LOGGER.error(userDetails.getPassword() + " " + userDetails.getAuthorities() + " " + userDetails.getUsername());
-        LOGGER.error(authentication.isAuthenticated());
         SecurityContext securityContext = SecurityContextHolder.getContext();
         securityContext.setAuthentication(authentication);
     }

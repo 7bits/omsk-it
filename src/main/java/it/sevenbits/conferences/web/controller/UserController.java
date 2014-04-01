@@ -187,7 +187,7 @@ public class UserController {
             } else {
                 user.setPhoto(null);
             }
-            Role role = roleService.findRoleById(1L);
+            Role role = roleService.findRoleById(3L);
             user.setRole(role);
             String confirmationToken = UUID.randomUUID().toString();
             user.setConfirmationToken(confirmationToken);
