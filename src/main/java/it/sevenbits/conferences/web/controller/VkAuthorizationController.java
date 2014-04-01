@@ -183,6 +183,7 @@ public class VkAuthorizationController {
             } else {
                 user.setPhoto(null);
             }
+            //TODO: Kill this 3L hardcode
             Role role = roleService.findRoleById(3L);
             user.setRole(role);
             String confirmationToken = UUID.randomUUID().toString();

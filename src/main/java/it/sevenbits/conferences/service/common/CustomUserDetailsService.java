@@ -49,6 +49,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     public List<String> getRoles(final Integer role) {
         List<String> roles = new ArrayList<String>();
+        //TODO: Kill this hardcode
         if (role == 3) {
             roles.add("ROLE_USER");
         }

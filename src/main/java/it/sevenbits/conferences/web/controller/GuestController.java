@@ -144,7 +144,8 @@ public class GuestController {
             } else {
                 user.setPhoto(null);
             }
-            Role role = roleService.findRoleById(1L);
+            //TODO: Kill this 3L hardcode
+            Role role = roleService.findRoleById(3L);
             user.setRole(role);
             String confirmationToken = UUID.randomUUID().toString();
             user.setConfirmationToken(confirmationToken);

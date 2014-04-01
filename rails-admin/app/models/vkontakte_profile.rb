@@ -19,6 +19,9 @@ class VkontakteProfile < ActiveRecord::Base
     end
 
     edit do
+      field :user do
+        label "Пользователь"
+      end
       field :vkontakte_id do
         label "Профиль вконтакте"
       end
