@@ -10,10 +10,13 @@ class User < ActiveRecord::Base
   belongs_to :company
   mount_uploader :photo, PhotoUploader
 
+  def title
+    self.second_name.to_s + ' ' + self.first_name.to_s
+  end
+
   rails_admin do
     label "Пользователь"
     label_plural "Пользователи"
-    object_label_method :second_name
 
     list do
       field :id

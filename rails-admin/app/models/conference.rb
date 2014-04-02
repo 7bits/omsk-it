@@ -5,6 +5,12 @@ class Conference < ActiveRecord::Base
   self.table_name = 'conference'
   belongs_to :company
   has_many :report
+  has_many :guest
+
+  def title
+    'Субботник №' + self.ordinal_number.to_s
+  end
+
 
   rails_admin do
     label "Субботник"
@@ -29,6 +35,9 @@ class Conference < ActiveRecord::Base
       end
       field :report do
         label "Доклады"
+      end
+      field :guest do
+        label "Гость"
       end
     end
 

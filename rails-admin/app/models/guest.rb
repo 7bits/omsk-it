@@ -4,6 +4,13 @@ class Guest < ActiveRecord::Base
   belongs_to :conference
   belongs_to :user
 
+  def title
+    if !self.user.nil?
+      user_name = self.user.second_name
+      user_name += ' ' + self.user.first_name
+    end
+  end
+
   rails_admin do
     label "Гость"
     label_plural "Гости"
