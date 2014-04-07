@@ -8,7 +8,7 @@ body {
 }
 
 .page {
-    width: 960px;
+    width: 1100px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -28,7 +28,7 @@ img {
 
 /** hedear **/
 .light {
-    min-width: 960px;
+    min-width: 1100px;
     height:518px;        
     background-image: url(../images/light.png);
     background-repeat: no-repeat;
@@ -95,13 +95,15 @@ img {
    float: right;
 }
 
-.twitter {height: 30px;
+.twitter {
+    height: 30px;
     background: url(../images/twitter-minor-logo.png) no-repeat;
 }
 .twitter:hover {
     background: url(../images/twitter-minor-logo2.png) no-repeat;
 }
-.vkontakte {height: 30px;
+.vkontakte {
+    height: 30px;
     background: url(../images/vk-minor-logo.png) no-repeat;
 }
 .vkontakte:hover {
@@ -382,6 +384,7 @@ img {
 }
 
 .site-nav {
+    margin-left: 150px;
     float:left;
 }
 
@@ -436,7 +439,7 @@ img {
     display: inline-block;
     vertical-align: top;
     text-align: center;
-    width: 315px;
+    width: 363px;
 }
 
 /** repot page **/
@@ -779,13 +782,16 @@ ol {
     margin-bottom: 0px;
 }
 .long-info {
-    max-width: 860px;
+    max-width: 1042px;
 }
 .wide-input {
     display: block;
-    width: 860px;
+    width: 1042px;
     margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
+
 .big-input {
     height: 150px;
 }

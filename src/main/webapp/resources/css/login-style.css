@@ -165,7 +165,7 @@ a:visited .login-form-open-button {
 
 .login-form-plugin-container {
     float:right;
-    width: 371px;
+    width: 450px;
 }
 
 .login-form-plugin-container .login {
@@ -208,6 +208,11 @@ a:visited .login-form-open-button {
     text-align: right;
 }
 
+.login-form-plugin-container .href .inline-item {
+    display: inline-block;
+    vertical-align: inherit;
+}
+
 .float-container {
     height: 53px;
     width: 100%;
@@ -233,9 +238,19 @@ a:visited .login-form-open-button {
     top: 40%;
 }
 
+.login-input-container {
+    text-align: right;
+}
+
 .vk-enter {
-    width: 31px;
-    height: 31px;
+    width: 30px;
+    height: 30px;
+    border-radius: 17px;
+    -moz-border-radius: 17px;
+    -webkit-border-radius: 17px;
+    margin-top: 8px;
+    margin-bottom: -10px;
+    margin-left: 4px;
     background-image: url("../images/vk_icon.png");
 }
 
