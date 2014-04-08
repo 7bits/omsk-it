@@ -31,7 +31,7 @@
                             войдите через
                         </a>
                     </div>
-                    <img class="vk-enter" src='<c:url value="/resources/images/vk-minor-logo2.png"/>'/>
+                    <img class="vk-logo" src='<c:url value="/resources/images/vk-minor-logo2.png"/>'/>
                 </div>
             </sec:authorize>
         </div>

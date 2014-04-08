@@ -35,12 +35,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.Validator;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -146,12 +141,13 @@ public class UserController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ModelAndView usersRegistrationPagePost(
+    @ResponseBody
+    public JsonResponse usersRegistrationPagePost(
             @ModelAttribute(value = "userRegistrationForm") final UserRegistrationForm userRegistrationForm,
             final BindingResult bindingResult,
             final HttpSession httpSession
     ) {
-        ModelAndView response;
+        JsonResponse jsonResponse = new JsonResponse();
         userRegistrationValidator.validate(userRegistrationForm, bindingResult);
         if (bindingResult.hasErrors()) {
             Map<String, String> errors = new HashMap<>();
@@ -160,7 +156,9 @@ public class UserController {
                     errors.put(fieldError.getField(), fieldError.getDefaultMessage());
                 }
             }
-            response = new ModelAndView("user-registration");
+            errors.put("message", "Форма заполнена неверно");
+            jsonResponse.setResult(errors);
+            jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
         } else {
             User user = new User();
             user.setFirstName(userRegistrationForm.getFirstName());
@@ -194,9 +192,12 @@ public class UserController {
             user.setConfirmationToken(confirmationToken);
             userService.updateUser(user);
             mailSenderUtility.sendConfirmationToken(userRegistrationForm.getEmail(), confirmationToken);
-            response = new ModelAndView("after-registration-info");
+            Map<String, String> result = new HashMap<>();
+            result.put("message","На ваш email выслана ссылка для подтверждения");
+            jsonResponse.setResult(result);
+            jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
         }
-        return response;
+        return jsonResponse;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)

@@ -89,10 +89,13 @@ $(document).ready(function() {
     });
 //
     $(".js-company-input").focus(doAjaxGetCompanies);
+
     $(".new-company-add-open").click(function() {
         $(".new-company-form-container").css("display","block");
     });
+
     $(".new-company-add-confirm").click(doAjaxAddNewCompany);
+
     $(".change-password").click(function(event) {
         event.preventDefault();
         doAjaxChangePassword();
@@ -101,6 +104,11 @@ $(document).ready(function() {
     $("#image").change(onFileUploaded);
 
     $(".close-new-company-form").click(onNewCompanyFormClose);
+
+    $(".js-apply-user-registration-form-button").click(function(event) {
+        event.preventDefault();
+        doAjaxUserRegistration();
+    });
 });
 
 function onFileUploaded(event) {
@@ -161,6 +169,55 @@ function doAjaxSubscriptionPost(formdata) {
             $(".js-subscribe-response").html(textStatus + ": " + errorThrown + "; see console logs");
         }
     });
+}
+
+function doAjaxUserRegistration() {
+    var userRegistrationFormData = $(".js-apply-user-registration-form").serialize();
+    $.ajax({
+        url: userRegistrationUrl,
+        type: "POST",
+        data: userRegistrationFormData,
+        dataType: "json",
+        success: function(response) {
+            if (response.status == "SUCCESS") {
+                $(".js-apply-form")[0].reset();
+                $(".js-field-info").css("display", "inline");
+            } else {
+                if (response.result.firstName != null) {
+                    $(".js-first-name-response").html(response.result.firstName);
+                    $(".js-first-name-input").css("background-color", "#fff5e5");
+                }
+
+                if (response.result.secondName != null) {
+                    $(".js-second-name-response").html(response.result.secondName);
+                    $(".js-second-name-input").css("background-color", "#fff5e5");
+                }
+
+                if (response.result.email != null) {
+                    $(".js-email-response").html(response.result.email);
+                    $(".js-email-input").css("background-color", "#fff5e5");
+                }
+
+                if (response.result.password != null) {
+                    $(".js-password-response").html(response.result.password);
+                    $(".js-password-input").css("background-color", "#fff5e5");
+                }
+
+                if (response.result.company != null) {
+                    $(".js-company-response").html(response.result.company);
+                    $(".js-company-input").css("background-color", "#fff5e5");
+                }
+
+                if (response.result.jobPosition != null) {
+                    $(".js-job-position-response").html(response.result.jobPosition);
+                    $(".js-job-position-input").css("background-color", "#fff5e5");
+                }
+            }
+        },
+        error: function(response) {
+            var t =10;
+        }
+    })
 }
 
 function doAjaxApplyForReportPost() {

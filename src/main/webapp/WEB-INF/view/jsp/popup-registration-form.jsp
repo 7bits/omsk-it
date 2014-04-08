@@ -12,7 +12,7 @@
                 Логин
             </div>
             <a href='<c:url value="/social/vkAuthorization"/>' class="inline-item">
-                <div class="vk-enter"></div>
+                <img class="vk-enter" src='<c:url value="/resources/images/vk-minor-logo2.png"/>'/>
             </a>
             <div class="form-info">
                 Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
