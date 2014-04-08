@@ -977,6 +977,7 @@ input:-moz-placeholder {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    margin-top: 8px;
 }
 
 .close-new-company-form:hover {

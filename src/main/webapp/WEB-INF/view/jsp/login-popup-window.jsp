@@ -2,24 +2,19 @@
 <div class="login-container">
     <div class="form-opacity"></div>
     <div class="login-form-container">
-        <div class="login-container-text"> Войти</div>
-        <form class="popup-login-form" method="POST">
-            <table class="login-inputs">
-                <tbody>
-                <tr>
-                    <td>E-mail:</td>
-                    <td><input type="text" name="login" class="login-input" autocomplete="on" placeholder="Email"/></td>
-                </tr>
-                <tr>
-                    <td>Пароль:</td>
-                    <td><input type="password" name="password" class="password-input" placeholder="Пароль"/></td>
-                </tr>
-                </tbody>
-            </table>
-            <input type="submit" class="login-confirm-button" value="Войти" />
-            <div class = "login-message-error"></div>
-        </form>
-        <button class="close-login-button"></button>
+        <div class="new-company-title"> Вход на сайт</div>
+        <div class="field">
+            <span class="left-label login-form-label">Email</span>
+            <input class="login-input small-input margin-top-8" name="login" />
+        </div>
 
+        <div class="field">
+            <span class="left-label login-form-label">Пароль</span>
+            <input class="password-input small-input margin-top-8" name="password" />
+        </div>
+        <div class="js-field-response js-login-response attention"></div>
+        <div class="confirm-login">Войти</div>
+        <button class="cancel-login">Отмена</button>
+        <button class="close-login-button"></button>
     </div>
 </div>

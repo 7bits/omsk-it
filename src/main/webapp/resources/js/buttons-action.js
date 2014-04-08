@@ -80,6 +80,7 @@ $(document).ready(function() {
     })
 
     $(".login-form-open-button").click(function() {
+        onPopupLoginCancel();
         $(".login-container").css("display", "block");
     })
 
@@ -109,7 +110,14 @@ $(document).ready(function() {
         event.preventDefault();
         doAjaxUserRegistration();
     });
+
+    $(".cancel-login").click(onPopupLoginCancel);
 });
+
+function onPopupLoginCancel() {
+    $(".login-input").val("");
+    $(".password-input").val("");
+}
 
 function onFileUploaded(event) {
     if ( event.originalEvent.target.files[0].size > 10485760) {
