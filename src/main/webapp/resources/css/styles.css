@@ -653,6 +653,10 @@ ol {
     margin-bottom: 26px;
 }
 
+.attention-long {
+    margin-left: 0px;
+}
+
 .attention-company {
     margin-left: 152px;
     width: 332px;

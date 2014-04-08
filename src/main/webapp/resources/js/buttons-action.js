@@ -101,7 +101,7 @@ $(document).ready(function() {
         doAjaxChangePassword();
     });
 
-    $("#image").change(onFileUploaded);
+    $(".image").change(onFileUploaded);
 
     $(".close-new-company-form").click(onNewCompanyFormClose);
 
@@ -114,15 +114,15 @@ $(document).ready(function() {
 function onFileUploaded(event) {
     if ( event.originalEvent.target.files[0].size > 10485760) {
         //Reload input:file's container
-        document.getElementById("image").parentNode.innerHTML = document.getElementById("image").parentNode.innerHTML;
-        $("#image").change(onFileUploaded);
+        document.getElementsByClassName("image")[0].parentNode.innerHTML = document.getElementsByClassName("image")[0].parentNode.innerHTML;
+        $(".image").change(onFileUploaded);
         $(".js-photo-upload-response").text("Размер фотографии не должен превышать 10 мегабайт.");
         setTimeout(function() {
             $(".js-photo-upload-response").text("");
         },3000);
     } else {
         formData = new FormData();
-        imageInput = document.getElementById("image");
+        imageInput = document.getElementsByClassName("image")[0];
         formData.append("photo", imageInput.files[0]);
         $.ajax({
             url: fileUpload,
@@ -131,7 +131,7 @@ function onFileUploaded(event) {
             processData: false,  // tell jQuery not to process the data
             contentType: false,   // tell jQuery not to set contentType
             success: function(response) {
-                image_container = document.getElementById("image-view");
+                image_container = document.getElementsByClassName("image-view")[0];
                 image_container.src = temporaryImage + "/" + response.result.name;
             }
         })

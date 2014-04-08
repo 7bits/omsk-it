@@ -17,11 +17,11 @@
                         <span class="left-label photo-upload-label">Фотография</span>
                         <span class="js-field-info photo-upload-info">Рекомендуемый размер 200x200 px</span>
                         <span class="js-field-response js-photo-upload-response attention photo-upload-attention"></span>
-                        <input class="js-photo-upload-input js-input margin-top-8" type="file" value="Загрузить" id="image" />
+                        <input class="js-photo-upload-input js-input margin-top-8 image" type="file" value="Загрузить" />
                     </div>
 
                     <div class="field">
-                        <img id="image-view" class="photo" src='<c:url value="/resources/images/photos/nophoto.png" />'/>
+                        <img class="photo image-view" src='<c:url value="/resources/images/photos/nophoto.png" />'/>
                     </div>
                 </div>
 

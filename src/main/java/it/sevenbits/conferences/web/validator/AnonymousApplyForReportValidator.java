@@ -49,17 +49,17 @@ public class AnonymousApplyForReportValidator implements Validator {
 
     private void validateFirstName(final ApplyForReportForm form, final Errors errors) {
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "firstName.empty", "Поле должно быть заполнено.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "firstName.empty", "Заполните, пожалуйста, Ваше имя");
     }
 
     private void validateSecondName(final ApplyForReportForm form, final Errors errors) {
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "secondName", "secondName.empty", "Поле должно быть заполнено.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "secondName", "secondName.empty", "Заполните, пожалуйста, Вашу фамилию");
     }
 
     private void validateEmail(final ApplyForReportForm form, final Errors errors) {
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "email.empty", "Поле должно быть заполнено.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "email.empty", "Заполните, пожалуйста, Ваш E-mail");
         if (errors.getFieldErrorCount("email") != 0) {
             return;
         }
@@ -72,12 +72,12 @@ public class AnonymousApplyForReportValidator implements Validator {
     }
 
     private void validatePassword(final ApplyForReportForm form, final Errors errors) {
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "password.empty", "Поле должно быть заполнено.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "password.empty", "Пароль не должен быть пустым");
     }
 
     private void validateJobPosition(final ApplyForReportForm form, final Errors errors) {
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "jobPosition", "jobPosition.empty", "Поле должно быть заполнено.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "jobPosition", "jobPosition.empty", "Укажите, пожалуйста, Вашу роль в компании/команде");
     }
 
     private void validateTitle(final ApplyForReportForm form, final Errors errors) {
