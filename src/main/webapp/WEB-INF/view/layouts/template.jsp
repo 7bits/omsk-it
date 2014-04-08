@@ -29,7 +29,8 @@
             var companyAddUrl = '<c:url value="/company/new"/>';
             var changePasswordUrl = '<c:url value="/user/change-password"/> ';
             var fileUpload = '<c:url value="/user/upload/photo" />';
-            var temporaryImage = '/resources/temporary/photos';
+            var temporaryImage = '<c:url value="/resources/temporary/photos"/>';
+            var nophotoUrl = '<c:url value="/resources/images/photos/nophoto.png" />';
 
         </script>
 

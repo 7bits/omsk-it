@@ -61,7 +61,7 @@
     width: 50%;
 }
 
-.login-form-opacity {
+.form-opacity {
     background: #000;
     height: 100%;
     opacity: 0.5;
@@ -238,6 +238,30 @@ a:visited .login-form-open-button {
     top: 40%;
 }
 
+.photo-upload-container {
+    width: 400px;
+    float: right;
+}
+
+.js-photo-upload-input {
+    width: 280px;
+}
+
+.photo-upload-info {
+    padding-right: 140px;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.photo-upload-label {
+    width: 300px;
+}
+
+.photo-upload-attention {
+    font-size: 15px;
+    font-weight: normal;
+}
+
 .login-input-container {
     text-align: right;
 }
@@ -251,7 +275,7 @@ a:visited .login-form-open-button {
     margin-top: 8px;
     margin-bottom: -10px;
     margin-left: 4px;
-    background-image: url("../images/vk_icon.png");
+    background-image: url("../images/vk-logo.png");
 }
 
 .error {

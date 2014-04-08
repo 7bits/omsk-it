@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="login-container">
-    <div class="login-form-opacity"></div>
+    <div class="form-opacity"></div>
     <div class="login-form-container">
         <div class="login-container-text"> Войти</div>
         <form class="popup-login-form" method="POST">

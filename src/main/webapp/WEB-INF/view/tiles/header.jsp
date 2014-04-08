@@ -28,5 +28,6 @@
             <a class="vkontakte inline-item social-icon" href="http://vk.com/omskit"></a>
         </div>
         <%@ include file="/WEB-INF/view/jsp/login-popup-window.jsp" %>
+        <%@ include file="/WEB-INF/view/jsp/popup-new-company-form.jsp" %>
     </div>
 </div>

@@ -836,78 +836,8 @@ ol {
     }
 }
 
-body .ui-autocomplete {
-
-}
-
-body .ui-autocomplete .ui-menu-item .ui-corner-all {
-
-}
-
-body .ui-autocomplete .ui-menu-item .ui-state-focus {
-    border: solid 1px #1a737c;
-    color: #1a737c;
-}
-
-/*Adding new company*/
-
-.new-company-add-open {
-    margin-top: -15px;
-    width: 32px;
-    height: 32px;
-    background-image: url("../images/add-icon.png");
-    cursor: pointer;
-}
-
-.new-company-add-confirm {
-    cursor: pointer;
-    color: #ffffff;
-    font-size: 18px;
-    padding: 3px;
-    display: inline-block;
-    border-radius: 5px;
-    height: 54px;
-    vertical-align: top;
-    text-align: center;
-    line-height: 3em;
-    background: linear-gradient(to top, #0ba1ae, #10b7c5);
-    background: -moz-linear-gradient(to top, #0ba1ae, #10b7c5);
-}
-
 input:-moz-placeholder {
     color: #c0c0c0;
-}
-
-
-.new-company-add-confirm:hover {
-    background: linear-gradient(to bottom, #18cfdf, #0ba9b7);
-}
-
-.new-company-add-confirm:active {
-    background: #0ba9b7;
-    background: linear-gradient(to top, #18cfdf, #0ba9b7);
-}
-
-.new-company-add-container {
-    margin-left: 151px;
-    width: 297px;
-    margin-bottom: 20px;
-}
-
-.new-company-input {
-    border-radius: 3px;
-    font-size: 16px;
-    width: 194px;
-    height: 25px;
-    color: #2d3e50;
-    vertical-align: middle;
-    background-color: #ffffff;
-    border: solid 1px #aaf0f7;
-}
-
-.new-company-add-input-container {
-    display: inline-block;
-    width: 200px;
 }
 
 .open {
@@ -924,3 +854,140 @@ input:-moz-placeholder {
     font-size: 22px;
     text-align: center;
 }
+
+/*New company form*/
+.new-company-form-container {
+    display: none;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 200;
+    top: 0;
+    left: 0;
+}
+
+.new-company-input-container {
+    left: 34%;
+    top: 28%;
+    width: 555px;
+    height: 285px;
+    position: fixed;
+    background: white;
+    margin-left: 5px;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+.new-company-site-title {
+    width: 185px;
+    margin-left: 25px;
+}
+
+.new-company-name-title {
+    width: 185px;
+    margin-left: 25px;
+}
+
+.new-company-title {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    background: linear-gradient(to top, #0ba1ae, #10b7c5);
+    height: 47px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 16px;
+    font-size: 25px;
+    color: #FFFFFF;
+    border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+}
+
+.new-company-add-confirm {
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 20px;
+    padding-top: 1px;
+    display: inline-block;
+    border-radius: 5px;
+    height: 44px;
+    width: 155px;
+    vertical-align: top;
+    text-align: center;
+    line-height: 2em;
+    margin-left: 125px;
+    margin-right: 30px;
+    background: linear-gradient(to top, #0ba1ae, #10b7c5);
+    background: -moz-linear-gradient(to top, #0ba1ae, #10b7c5);
+}
+
+.new-company-add-open {
+    padding-top: 7px;
+    margin-top: -20px;
+    width: 130px;
+    height: 35px;
+    color: #FFFFFF;
+    background: linear-gradient(to top, #0ba1ae, #10b7c5);
+    background: -moz-linear-gradient(to top, #0ba1ae, #10b7c5);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.new-company-add-open:hover {
+    background:linear-gradient(to bottom, #18cfdf, #0ba9b7);
+    background: -moz-linear-gradient(to bottom, #18cfdf, #0ba9b7);
+}
+
+.new-company-add-confirm:hover {
+    background: linear-gradient(to bottom, #18cfdf, #0ba9b7);
+}
+
+.new-company-add-confirm:active {
+    background: #0ba9b7;
+    background: linear-gradient(to top, #18cfdf, #0ba9b7);
+}
+
+.close-new-company-form {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.close-new-company-form:hover {
+    border-bottom: solid 1px;
+}
+
+.js-new-company-response {
+    margin-left: 242px;
+}
+
+/*jQuery autocomplete*/
+
+body .ui-menu-item .ui-corner-all {
+    color: #FFFFFF;
+}
+
+body .ui-menu {
+    border: none;
+}
+
+body .ui-menu .ui-menu-item {
+    background-color: #0eaed0;
+    color: #FFFFFF;
+}
+
+body .ui-menu  .ui-menu-item .ui-state-focus {
+    border: none;
+    color: #FFFFFF;
+    background: #17c1d0;
+}
+

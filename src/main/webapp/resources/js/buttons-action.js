@@ -47,6 +47,7 @@ $(document).ready(function() {
         $(".js-input").css("background-color", "#ffffff");
         $(".js-field-info").css("display", "inline");
         $(".js-field-response").empty();
+        $("#image-view").attr('src',nophotoUrl);
     });
 
 
@@ -89,16 +90,7 @@ $(document).ready(function() {
 //
     $(".js-company-input").focus(doAjaxGetCompanies);
     $(".new-company-add-open").click(function() {
-        newCompanyAddContainer = $(".new-company-add-container");
-        isOpen = newCompanyAddContainer.hasClass("open");
-        if (isOpen) {
-            newCompanyAddContainer.removeClass("open");
-            newCompanyAddContainer.addClass("close");
-        } else {
-            newCompanyAddContainer.removeClass("close");
-            newCompanyAddContainer.addClass("open");
-        }
-        $(".js-new-company-response").text("");
+        $(".new-company-form-container").css("display","block");
     });
     $(".new-company-add-confirm").click(doAjaxAddNewCompany);
     $(".change-password").click(function(event) {
@@ -107,17 +99,19 @@ $(document).ready(function() {
     });
 
     $("#image").change(onFileUploaded);
+
+    $(".close-new-company-form").click(onNewCompanyFormClose);
 });
 
 function onFileUploaded(event) {
     if ( event.originalEvent.target.files[0].size > 10485760) {
         //Reload input:file's container
         document.getElementById("image").parentNode.innerHTML = document.getElementById("image").parentNode.innerHTML;
+        $("#image").change(onFileUploaded);
         $(".js-photo-upload-response").text("Размер фотографии не должен превышать 10 мегабайт.");
         setTimeout(function() {
             $(".js-photo-upload-response").text("");
         },3000);
-        $("#image").change(checkImageUploadInput);
     } else {
         formData = new FormData();
         imageInput = document.getElementById("image");
@@ -131,7 +125,6 @@ function onFileUploaded(event) {
             success: function(response) {
                 image_container = document.getElementById("image-view");
                 image_container.src = temporaryImage + "/" + response.result.name;
-                console.log(response.result.name);
             }
         })
     }
@@ -443,7 +436,7 @@ function doAjaxAddNewCompany() {
             if (response.status == "SUCCESS") {
                 nameOfAddedCompany = $("#company-name").val();
                 $( ".js-company-input" ).val(nameOfAddedCompany);
-                $(".new-company-add-container").hide();
+                $(".new-company-form-container").hide();
             } else {
                 if(response.result.name != null) {
                     $(".js-new-company-response").text(response.result.name);
@@ -453,6 +446,13 @@ function doAjaxAddNewCompany() {
         error: function() {
         }
     });
+}
+
+function onNewCompanyFormClose() {
+    $("#company-name").val("");
+    $("#company-site").val("");
+    $(".js-new-company-response").text("");
+    $(".new-company-form-container").hide();
 }
 
 function doAjaxChangePassword() {
