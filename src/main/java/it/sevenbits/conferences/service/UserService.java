@@ -40,19 +40,19 @@ public interface UserService {
      * @param login User's login information.
      * @return User which correspond to login or null otherwise.
      */
-    User getUser(final String login);
+    User findUser(final String login);
 
     /**
      * Find the user with the necessary email.
      * @param email User's login information.
      * @return User which correspond to login or null otherwise.
      */
-    User getUserByEmail(final String email);
+    User findUserByEmail(final String email);
 
     /**
      * Find the user witch has vkontakte's profile/
      * @param vkontakteId User's vkontakte's profile id
      * @return User with vkontakteId or null otherwise.
      */
-    User getUserByVkontakteId(final Long vkontakteId);
+    User findUserByVkontakteId(final Long vkontakteId);
 }

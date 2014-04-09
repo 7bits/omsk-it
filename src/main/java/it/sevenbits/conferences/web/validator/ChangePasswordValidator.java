@@ -43,7 +43,7 @@ public class ChangePasswordValidator implements Validator {
     private void validateOldPassword(final ChangePasswordForm form, final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "oldPassword", "oldPassword.empty", "Пароль не должен быть пустым");
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        User user = userService.getUser(form.getEmail());
+        User user = userService.findUser(form.getEmail());
         if (user != null && !passwordEncoder.matches(form.getOldPassword(), user.getPassword())) {
             errors.rejectValue("oldPassword", "oldPassword.notExists", "Неверный пароль");
         }
@@ -55,7 +55,7 @@ public class ChangePasswordValidator implements Validator {
 
     public boolean isUserExists(final String email) {
         boolean isExists = false;
-        if (userService.getUserByEmail(email) != null) {
+        if (userService.findUserByEmail(email) != null) {
             isExists = true;
         }
         return  isExists;

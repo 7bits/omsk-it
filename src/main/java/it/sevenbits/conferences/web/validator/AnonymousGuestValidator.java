@@ -87,7 +87,7 @@ public class AnonymousGuestValidator implements Validator {
     }
 
     private boolean isUserExists(final String email) {
-        if (userService.getUserByEmail(email) != null) {
+        if (userService.findUserByEmail(email) != null) {
             return true;
         }
         return false;

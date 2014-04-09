@@ -5,14 +5,14 @@
         <div class="new-company-title"> Вход на сайт</div>
         <div class="field">
             <span class="left-label login-form-label">Email</span>
-            <input class="login-input small-input margin-top-8" name="login" />
+            <input class="login-form-input small-input margin-top-8" type="text" name="login" />
         </div>
 
         <div class="field">
             <span class="left-label login-form-label">Пароль</span>
-            <input class="password-input small-input margin-top-8" name="password" />
+            <input class="login-form-input small-input margin-top-8" type="password" name="password" />
         </div>
-        <div class="js-field-response js-login-response attention"></div>
+        <div class="js-field-response login-message-error attention"></div>
         <div class="confirm-login">Войти</div>
         <button class="cancel-login">Отмена</button>
         <button class="close-login-button"></button>

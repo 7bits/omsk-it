@@ -105,7 +105,7 @@ public class VkAuthorizationController {
             map = mapper.readValue(httpResponse.getEntity().getContent(), new TypeReference<HashMap<String, String>>(){});
             VkontakteProfile vkontakteProfile = getVkontakteProfile(map.get("user_id"), map.get("access_token"));
             if (vkontakteProfile != null) {
-                User user = userService.getUserByVkontakteId(Long.parseLong(vkontakteProfile.getId()));
+                User user = userService.findUserByVkontakteId(Long.parseLong(vkontakteProfile.getId()));
                 if (user != null && user.getEnabled()) {
                     authorizeUser(user);
                 } else if (user != null && !user.getEnabled()) {

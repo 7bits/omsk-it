@@ -76,19 +76,19 @@ $(document).ready(function() {
     });
 
     $(".close-login-button").click(function() {
+        onPopupLoginCancel();
         $(".login-container").css("display", "none");
     })
 
     $(".login-form-open-button").click(function() {
-        onPopupLoginCancel();
         $(".login-container").css("display", "block");
     })
 
-    $(".login-confirm-button").click(function(event) {
+    $(".confirm-login").click(function(event) {
         event.preventDefault();
         doAjaxLoginPost();
     });
-//
+
     $(".js-company-input").focus(doAjaxGetCompanies);
 
     $(".new-company-add-open").click(function() {
@@ -115,8 +115,8 @@ $(document).ready(function() {
 });
 
 function onPopupLoginCancel() {
-    $(".login-input").val("");
-    $(".password-input").val("");
+    $(".login-form-input").val("");
+    $(".login-message-error ").text("");
 }
 
 function onFileUploaded(event) {
@@ -454,11 +454,11 @@ function doAjaxGuestCheck() {
 }
 
 function doAjaxLoginPost() {
-    var formData = $(".popup-login-form").serialize();
+    var loginFormData = $(".login-form-input").serialize();
     $.ajax({
         url: loginUrl,
         type: "POST",
-        data: formData,
+        data: loginFormData,
         dataType: "json",
         success: function(response) {
             if (response.status == "SUCCESS") {

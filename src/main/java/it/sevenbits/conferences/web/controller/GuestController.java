@@ -88,7 +88,7 @@ public class GuestController {
             Conference currentConference = conferenceService.findNextConference();
             if (!isUserIsGuestOnConference(userLogin, currentConference.getId())) {
                 Guest guest = new Guest();
-                User currentUser = userService.getUser(userLogin);
+                User currentUser = userService.findUser(userLogin);
                 guest.setUser(currentUser);
                 guest.setConference(currentConference);
                 guestService.addGuest(guest);

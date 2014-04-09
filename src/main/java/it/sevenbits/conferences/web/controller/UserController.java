@@ -107,7 +107,7 @@ public class UserController {
             @RequestParam(value = "report_status", required = false) final Long reportStatus
     ) {
         String additionalRegistrationInfo = null;
-        User user = userService.getUser(confirmationLogin);
+        User user = userService.findUser(confirmationLogin);
 
         if (user != null || (user.getConfirmationToken().equals(receivedConfirmationToken) && !user.getEnabled())) {
             user.setEnabled(true);
@@ -224,17 +224,24 @@ public class UserController {
             errors.put("message", "Логин или пароль введены неверно");
             response.setResult(errors);
         } else {
-            UserDetails userDetails = customUserDetailsService.loadUserByUsername(loginForm.getLogin());
-            if (userDetails == null || !isPasswordValid(loginForm.getPassword(), userDetails)) {
+            try {
+                UserDetails userDetails = customUserDetailsService.loadUserByUsername(loginForm.getLogin());
+                if (userDetails == null || !isPasswordValid(loginForm.getPassword(), userDetails)) {
+                    Map<String, String> errors = new HashMap<>();
+                    errors.put("message", "Логин или пароль введены неверно");
+                    response.setResult(errors);
+                    response.setStatus(JsonResponse.STATUS_FAIL);
+                } else {
+                    Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
+                    SecurityContext securityContext = SecurityContextHolder.getContext();
+                    securityContext.setAuthentication(authentication);
+                    response.setStatus(JsonResponse.STATUS_SUCCESS);
+                }
+            } catch (Exception e) {
                 Map<String, String> errors = new HashMap<>();
                 errors.put("message", "Логин или пароль введены неверно");
                 response.setResult(errors);
                 response.setStatus(JsonResponse.STATUS_FAIL);
-            } else {
-                Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
-                SecurityContext securityContext = SecurityContextHolder.getContext();
-                securityContext.setAuthentication(authentication);
-                response.setStatus(JsonResponse.STATUS_SUCCESS);
             }
         }
         return response;
@@ -268,7 +275,7 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             jsonResponse = getFailureResponse(bindingResult, "Неверный e-mail или пароль.");
         } else {
-            User user = userService.getUserByEmail(changePasswordForm.getEmail());
+            User user = userService.findUserByEmail(changePasswordForm.getEmail());
             PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encodedNewPassword = passwordEncoder.encode(changePasswordForm.getNewPassword());
             user.setPassword(encodedNewPassword);

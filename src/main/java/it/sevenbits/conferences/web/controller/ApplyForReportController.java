@@ -72,7 +72,7 @@ public class ApplyForReportController {
      */
     private User getLoggedUser() {
         String userLogin = SecurityContextHolder.getContext().getAuthentication().getName();
-        User loggedUser = userService.getUser(userLogin);
+        User loggedUser = userService.findUser(userLogin);
         return  loggedUser;
     }
 

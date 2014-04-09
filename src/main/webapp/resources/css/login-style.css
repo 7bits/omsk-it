@@ -160,6 +160,12 @@ a:visited .login-form-open-button {
     border: solid 2px rgb(170,240,247);
 }
 
+.login-message-error {
+    margin-left: 131px;
+    margin-top: -20px;
+    margin-bottom: 18px;
+}
+
 .login-form-plugin-container .enter{
     font-family: 'PT Sans', sans-serif;
     color: #FFFFFF;

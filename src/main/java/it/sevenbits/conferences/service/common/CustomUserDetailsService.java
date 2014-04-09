@@ -24,13 +24,10 @@ public class CustomUserDetailsService implements UserDetailsService {
     private UserService userService;
 
     public UserDetails loadUserByUsername(final String login) throws UsernameNotFoundException {
-
-        it.sevenbits.conferences.domain.User domainUser = userService.getUser(login);
-
+        it.sevenbits.conferences.domain.User domainUser = userService.findUser(login);
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
         boolean accountNonLocked = true;
-
         return new User(
                 domainUser.getLogin(),
                 domainUser.getPassword(),
