@@ -130,7 +130,6 @@ function onSocialRegistrationSubmit() {
             $(".js-apply-response").html(response.result.message);
             $(".js-input").css("background-color", "#ffffff");
             if (response.status == "SUCCESS") {
-                $(".js-apply-form")[0].reset();
                 $(".js-field-info").css("display", "inline");
             } else {
                 if (response.result.firstName != null) {

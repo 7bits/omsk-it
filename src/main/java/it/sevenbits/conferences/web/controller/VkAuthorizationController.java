@@ -36,10 +36,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.Validator;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.imageio.ImageIO;
@@ -89,7 +86,7 @@ public class VkAuthorizationController {
     }
 
     @RequestMapping(value = "vkAuthentication", method = RequestMethod.GET)
-    public ModelAndView authetication(final HttpServletRequest request) {
+    public ModelAndView authetication(@RequestHeader(value = "referer", required = false) final String referer, HttpServletRequest request) {
         String code = request.getParameter("code");
         String userIdGetUrl =
                 "https://oauth.vk.com/access_token?client_id=" + CLIENT_ID +
@@ -99,7 +96,7 @@ public class VkAuthorizationController {
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpUriRequest accessTokenGet = new HttpPost(userIdGetUrl);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:http://saturdays.omskit.org/");
+        modelAndView.setViewName("redirect:" + referer);
         try {
             HttpResponse httpResponse = httpClient.execute(accessTokenGet);
             Map<String, String> map = new HashMap<>();
