@@ -10,9 +10,9 @@
                 <br>Или оставьте свой e-mail, мы сообщим вам сами:
             </p>
             </span>
-            <form class="js-subscribe-form subscribe-form" action='<c:url value="/subscribe"/>' method="POST">
+            <form class="js-subscribe-form-top subscribe-form" action='<c:url value="/subscribe"/>' method="POST">
                 <input class="input-email" type="email" name="email" placeholder="Электронная почта">
-                <input class="js-subscribe-button subscribe-button" type="submit" value="Отправить">
+                <input class="js-subscribe-button-top subscribe-button" type="submit" value="Отправить">
             </form>
         </div>
 

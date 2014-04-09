@@ -23,13 +23,12 @@ $(document).ready(function() {
     $(".js-subscribe-button").click(function(event) {
 
         event.preventDefault();
-        var formdata = $(".js-subscribe-form").serialize();
-        doAjaxSubscriptionPost(formdata);
+        doAjaxSubscriptionPost($(".js-subscribe-form"));
     });
+
     $(".js-subscribe-button-top").click(function(event) {
         event.preventDefault();
-        var formdata = $(".js-subscribe-form-top").serialize();
-        doAjaxSubscriptionPost(formdata);
+        doAjaxSubscriptionPost($(".js-subscribe-form-top"));
     });
 
     $(".js-apply-form-button").click(function(event) {
@@ -196,22 +195,19 @@ function onFileUploaded(event) {
     }
 }
 
-function doAjaxSubscriptionPost(formdata) {
-
-//    var formdata = $(".js-subscribe-form").serialize();
-
+function doAjaxSubscriptionPost(form) {
     $.ajax({
 
         url: subscribeUrl,
         type: "POST",
-        data: formdata,
+        data: form.serialize(),
         dataType: "json",
 
         success: function(response) {
 
             if (response.status == "SUCCESS") {
                 $(".js-subscribe-response").html(response.result.message);
-                $(".js-subscribe-form")[0].reset();
+                form[0].reset();
                 setTimeout(function() {
                     $(".js-subscribe-response").empty();
                 }, 5000);
