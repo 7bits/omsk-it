@@ -7,13 +7,6 @@
                 Вход на сайт
             </h1>
             <form class = "login-main-form" method="post" action="<c:url value='/j_spring_security_check'/>">
-                <p>
-                    <c:if test="${error == 'true'}">
-                        <div class="error">
-                            Неверный email или пароль.<br />
-                        </div>
-                    </c:if>
-                </p>
                 <div class="field">
                     <span class="left-label">E-mail</span>
                     <input class="js-login-input js-input small-input" type="text" name="j_username" id="j_username" size="30" maxlength="40"/>
@@ -31,7 +24,13 @@
                         <span class="js-field-info"></span>
                     </span>
                 </div>
-
+                <p>
+                    <c:if test="${error == 'true'}">
+                        <div class="attention login-error">
+                            Неверный email или пароль.<br />
+                        </div>
+                    </c:if>
+                </p>
                 <div class="field">
                     <input class="button-submit" type="submit" value="Войти">
                     <div class="js-apply-response apply-response"></div>
