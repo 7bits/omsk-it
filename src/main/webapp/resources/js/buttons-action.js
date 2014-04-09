@@ -112,7 +112,58 @@ $(document).ready(function() {
     });
 
     $(".cancel-login").click(onPopupLoginCancel);
+
+    $(".js-apply-user-social-registration-form-button").click(function(event){
+        event.preventDefault();
+        onSocialRegistrationSubmit();
+    });
 });
+
+function onSocialRegistrationSubmit() {
+    var userRegistrationFormData = $(".js-apply-user-registration-form").serialize();
+    $.ajax({
+        url: userSocialRegistrationUrl,
+        type: "POST",
+        data: userRegistrationFormData,
+        dataType: "json",
+        success: function(response) {
+            $(".js-apply-response").html(response.result.message);
+            $(".js-input").css("background-color", "#ffffff");
+            if (response.status == "SUCCESS") {
+                $(".js-apply-form")[0].reset();
+                $(".js-field-info").css("display", "inline");
+            } else {
+                if (response.result.firstName != null) {
+                    $(".js-first-name-response").html(response.result.firstName);
+                    $(".js-first-name-input").css("background-color", "#fff5e5");
+                }
+
+                if (response.result.secondName != null) {
+                    $(".js-second-name-response").html(response.result.secondName);
+                    $(".js-second-name-input").css("background-color", "#fff5e5");
+                }
+
+                if (response.result.email != null) {
+                    $(".js-email-response").html(response.result.email);
+                    $(".js-email-input").css("background-color", "#fff5e5");
+                }
+
+                if (response.result.company != null) {
+                    $(".js-company-response").html(response.result.company);
+                    $(".js-company-input").css("background-color", "#fff5e5");
+                }
+
+                if (response.result.jobPosition != null) {
+                    $(".js-job-position-response").html(response.result.jobPosition);
+                    $(".js-job-position-input").css("background-color", "#fff5e5");
+                }
+            }
+        },
+        error: function(response) {
+            var t =10;
+        }
+    })
+}
 
 function onPopupLoginCancel() {
     $(".login-form-input").val("");
@@ -188,6 +239,8 @@ function doAjaxUserRegistration() {
         dataType: "json",
         success: function(response) {
             if (response.status == "SUCCESS") {
+                $(".js-apply-response").html(response.result.message);
+                $(".js-input").css("background-color", "#ffffff");
                 $(".js-apply-form")[0].reset();
                 $(".js-field-info").css("display", "inline");
             } else {
@@ -395,11 +448,11 @@ function doAjaxGuestPost() {
                 $(".js-field-info").css("display", "inline");
             } else {
                 if (response.result.firstName != null) {
-                    $(".js-firstName-response").html(response.result.firstName);
+                    $(".js-first-name-response").html(response.result.firstName);
                     $(".js-first-name-input").css("background-color", "#fff5e5");
                 }
                 if (response.result.secondName != null) {
-                    $(".js-secondName-response").html(response.result.secondName);
+                    $(".js-second-name-response").html(response.result.secondName);
                     $(".js-second-name-input").css("background-color", "#fff5e5");
                 }
                 if (response.result.email != null) {
@@ -411,11 +464,8 @@ function doAjaxGuestPost() {
                     $(".js-company-input").css("background-color", "#fff5e5");
                 }
                 if (response.result.jobPosition != null) {
-                    $(".js-jobPosition-response").html(response.result.jobPosition);
-                }
-                if (response.result.jobPositionOther != null) {
-                    $(".js-jobPosition-response").html(response.result.jobPositionOther);
-                    $(".js-job-position-other-input").css("background-color", "#fff5e5");
+                    $(".js-job-position-response").html(response.result.jobPosition);
+                    $(".js-job-position-input").css("background-color", "#fff5e5");
                 }
                 if (response.result.password != null) {
                     $(".js-password-response").html(response.result.password);
@@ -425,7 +475,6 @@ function doAjaxGuestPost() {
         },
 
         error: function(jqXHR, textStatus, errorThrown) {
-
             console.log(jqXHR);
             console.log(jqXHR.responseText);
             $(".js-suggest-response").html(textStatus + ": " + errorThrown + "; see console logs");

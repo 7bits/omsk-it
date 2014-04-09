@@ -68,11 +68,16 @@ public class ApplyForReportController {
     /**
      * Try to get logged user
      * @return user - if any user is logged
-     *         null - if user isn/t logged
+     *         null - if user isn't logged
      */
     private User getLoggedUser() {
         String userLogin = SecurityContextHolder.getContext().getAuthentication().getName();
-        User loggedUser = userService.findUser(userLogin);
+        User loggedUser;
+        try {
+            loggedUser = userService.findUser(userLogin);
+        } catch (Exception e) {
+            loggedUser = null;
+        }
         return  loggedUser;
     }
 

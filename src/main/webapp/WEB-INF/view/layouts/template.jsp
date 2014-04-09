@@ -24,6 +24,7 @@
             var guestUrl =  '<c:url value="/register"/>';
             var guestCheckUrl = '<c:url value="/guest-check"/>';
             var userRegistrationUrl = '<c:url value="/user/registration"/>';
+            var userSocialRegistrationUrl = '<c:url value="/social/social-registration"/>';
             var loginUrl = '<c:url value="/user/login"/>';
             var companiesUrl = '<c:url value="/company/getCompanies"/>';
             var companyAddUrl = '<c:url value="/company/new"/>';

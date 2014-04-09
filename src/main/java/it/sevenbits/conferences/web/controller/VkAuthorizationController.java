@@ -12,6 +12,7 @@ import it.sevenbits.conferences.utils.file.FileManager;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
 import it.sevenbits.conferences.utils.vkontakteAuthorization.VkontakteProfile;
 import it.sevenbits.conferences.utils.vkontakteAuthorization.VkontakteProfiles;
+import it.sevenbits.conferences.web.form.JsonResponse;
 import it.sevenbits.conferences.web.form.UserRegistrationForm;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.http.HttpResponse;
@@ -38,6 +39,7 @@ import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.imageio.ImageIO;
@@ -111,9 +113,6 @@ public class VkAuthorizationController {
                 } else if (user != null && !user.getEnabled()) {
                     modelAndView = new ModelAndView("account-not-enabled");
                 } else {
-                    UserRegistrationForm userRegistrationForm = new UserRegistrationForm();
-                    userRegistrationForm.setFirstName(vkontakteProfile.getFirst_name());
-                    userRegistrationForm.setSecondName(vkontakteProfile.getLast_name());
                     request.getSession().setAttribute("vkontakteUserId", vkontakteProfile.getId());
                     BufferedImage image = null;
                     String temporaryPhotoName = null;
@@ -128,7 +127,8 @@ public class VkAuthorizationController {
                     HttpSession httpSession = request.getSession();
                     httpSession.setAttribute("photosName", temporaryPhotoName);
                     modelAndView = new ModelAndView("user-social-registration");
-                    modelAndView.addObject("userRegistrationForm", userRegistrationForm);
+                    modelAndView.addObject("userVkontakteFirstName", vkontakteProfile.getFirst_name());
+                    modelAndView.addObject("userVkontakteSecondName", vkontakteProfile.getLast_name());
                     modelAndView.addObject("userVkontaktePhotoName", temporaryPhotoName);
                 }
             } else {
@@ -141,12 +141,13 @@ public class VkAuthorizationController {
     }
 
     @RequestMapping(value = "social-registration", method = RequestMethod.POST)
-    public ModelAndView socialUserRegistration(
+    @ResponseBody
+    public JsonResponse socialUserRegistration(
             @ModelAttribute(value = "userRegistrationForm") final UserRegistrationForm userSocialRegistrationForm,
             final BindingResult bindingResult,
             final HttpSession httpSession
     ) {
-        ModelAndView response;
+        JsonResponse jsonResponse = new JsonResponse();
         userSocialRegistrationValidator.validate(userSocialRegistrationForm, bindingResult);
         if (bindingResult.hasErrors()) {
             Map<String, String> errors = new HashMap<>();
@@ -155,7 +156,9 @@ public class VkAuthorizationController {
                     errors.put(fieldError.getField(), fieldError.getDefaultMessage());
                 }
             }
-            response = new ModelAndView("user-social-registration");
+            errors.put("message","Форма заполнена не верно");
+            jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
+            jsonResponse.setResult(errors);
         } else {
             User user = new User();
             user.setFirstName(userSocialRegistrationForm.getFirstName());
@@ -195,9 +198,12 @@ public class VkAuthorizationController {
             vkontakteProfile.setUser(updatedUser);
             vkontakteProfileService.updateVkontakteProfile(vkontakteProfile);
             mailSenderUtility.sendConfirmationToken(userSocialRegistrationForm.getEmail(), confirmationToken);
-            response = new ModelAndView("after-registration-info");
+            jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
+            Map<String,String> result = new HashMap<>();
+            result.put("message", "На ваш email выслана ссылка для подтверждения");
+            jsonResponse.setResult(result);
         }
-        return response;
+        return jsonResponse;
     }
 
     private void authorizeUser(final User user) {

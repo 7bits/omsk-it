@@ -74,6 +74,15 @@
                         <div class="js-field-response js-password-response attention attention-info"></div>
                     </div>
 
+                    <div class="field">
+                        <span class="left-label">Должность&nbsp;<span class="attention">*</span></span>
+                        <input class="js-job-position-input js-input small-input" type="text" name="jobPosition">
+                        <span class="field-info">
+                            <span class="js-field-info"></span>
+                        </span>
+                        <div class="js-field-response js-job-position-response attention attention-info"></div>
+                    </div>
+
                     <div class="field long">
                         <span class="left-label">Место работы/учебы&nbsp;<span class="attention">*</span></span>
                         <br/>
@@ -85,14 +94,6 @@
                         <div class="js-field-response js-company-response attention-info attention inline-item attention-company"></div>
                     </div>
 
-                    <div class="field">
-                        <span class="left-label">Должность&nbsp;<span class="attention">*</span></span>
-                        <input class="js-job-position-input js-input small-input" type="text" name="jobPosition">
-                        <span class="field-info">
-                            <span class="js-field-info"></span>
-                        </span>
-                        <div class="js-field-response js-job-position-response attention attention-info"></div>
-                    </div>
                 </sec:authorize>
 
                 <div class="field">

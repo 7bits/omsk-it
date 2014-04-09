@@ -226,7 +226,7 @@ public class UserController {
         } else {
             try {
                 UserDetails userDetails = customUserDetailsService.loadUserByUsername(loginForm.getLogin());
-                if (userDetails == null || !isPasswordValid(loginForm.getPassword(), userDetails)) {
+                if (!isPasswordValid(loginForm.getPassword(), userDetails)) {
                     Map<String, String> errors = new HashMap<>();
                     errors.put("message", "Логин или пароль введены неверно");
                     response.setResult(errors);

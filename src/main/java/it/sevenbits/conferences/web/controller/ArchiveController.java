@@ -33,7 +33,6 @@ public class ArchiveController {
         ModelAndView modelAndView = new ModelAndView("archive");
 
         List<Conference> pastConferences = conferenceService.findPastConference();
-//        List<Conference> pastConferences = conferenceService.findAllConferences();
         Collections.sort(pastConferences, Collections.reverseOrder(CONFERENCE_COMPARATOR));
         modelAndView.addObject("conferences", pastConferences);
         modelAndView.addObject("reports", reportService.findAllReports());
