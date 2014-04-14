@@ -29,6 +29,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -126,6 +128,13 @@ public class UserController {
                 reportService.updateReport(report);
                 additionalRegistrationInfo = "Ваша заявка на выступление принята на рассмотрение.";
             }
+            UserDetails userDetails;
+            try {
+                userDetails = customUserDetailsService.loadUserByUsername(user.getLogin());
+            } catch (UsernameNotFoundException e) {
+                return new ModelAndView("error-404");
+            }
+            authorizeUser(userDetails);
         }
         ModelAndView modelAndView = new ModelAndView("registration-confirm");
         modelAndView.addObject("additionalRegistrationInfo", additionalRegistrationInfo);
@@ -224,30 +233,39 @@ public class UserController {
             errors.put("message", "Логин или пароль введены неверно");
             response.setResult(errors);
         } else {
+            UserDetails userDetails = null;
             try {
-                UserDetails userDetails = customUserDetailsService.loadUserByUsername(loginForm.getLogin());
-                if (!isPasswordValid(loginForm.getPassword(), userDetails)) {
-                    Map<String, String> errors = new HashMap<>();
-                    errors.put("message", "Логин или пароль введены неверно");
-                    response.setResult(errors);
-                    response.setStatus(JsonResponse.STATUS_FAIL);
-                } else {
-                    Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
-                    SecurityContext securityContext = SecurityContextHolder.getContext();
-                    securityContext.setAuthentication(authentication);
-                    response.setStatus(JsonResponse.STATUS_SUCCESS);
-                }
+                userDetails = customUserDetailsService.loadUserByUsername(loginForm.getLogin());
             } catch (Exception e) {
                 Map<String, String> errors = new HashMap<>();
                 errors.put("message", "Логин или пароль введены неверно");
                 response.setResult(errors);
                 response.setStatus(JsonResponse.STATUS_FAIL);
+                return response;
+            }
+            if (!isPasswordValid(loginForm.getPassword(), userDetails)) {
+                Map<String, String> errors = new HashMap<>();
+                errors.put("message", "Логин или пароль введены неверно");
+                response.setResult(errors);
+                response.setStatus(JsonResponse.STATUS_FAIL);
+            } else {
+                authorizeUser(userDetails);
+                response.setStatus(JsonResponse.STATUS_SUCCESS);
             }
         }
         return response;
     }
 
+    private void authorizeUser(final UserDetails userDetails) {
+        Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        securityContext.setAuthentication(authentication);
+    }
+
     private boolean isPasswordValid(final String password, final UserDetails userDetails) {
+        if (userDetails == null) {
+            return false;
+        }
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         return passwordEncoder.matches(password, userDetails.getPassword());
     }
