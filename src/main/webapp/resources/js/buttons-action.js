@@ -243,12 +243,15 @@ function doAjaxUserRegistration() {
         type: "POST",
         data: userRegistrationFormData,
         dataType: "json",
+        beforeSend: function() {
+            $(".js-apply-response").html("Отправка...");
+        },
         success: function(response) {
+            $(".js-input").css("background-color", "#ffffff");
+            $(".js-apply-response").html(response.result.message);
+            $(".js-field-response").text("");
             if (response.status == "SUCCESS") {
-                $(".js-apply-response").html(response.result.message);
-                $(".js-input").css("background-color", "#ffffff");
-                $(".js-apply-form")[0].reset();
-                $(".js-field-info").css("display", "inline");
+                $(".js-apply-user-registration-form")[0].reset();
             } else {
                 if (response.result.firstName != null) {
                     $(".js-first-name-response").html(response.result.firstName);
@@ -302,12 +305,10 @@ function doAjaxApplyForReportPost() {
 
             $(".js-apply-response").html(response.result.message);
             $(".js-input").css("background-color", "#ffffff");
-            $(".js-field-info").css("display", "none");
             $(".js-field-response").empty();
 
             if (response.status == "SUCCESS") {
                 $(".js-apply-form")[0].reset();
-                $(".js-field-info").css("display", "inline");
             } else {
                 if (response.result.firstName != null) {
                     $(".js-first-name-response").html(response.result.firstName);
@@ -395,12 +396,10 @@ function doAjaxSuggestPost() {
 
             $(".js-suggest-response").html(response.result.message);
             $(".js-input").css("background-color", "#ffffff");
-            $(".js-field-info").css("display", "none");
             $(".js-field-response").empty();
 
             if (response.status == "SUCCESS") {
                 $(".js-suggestion-form")[0].reset();
-                $(".js-field-info").css("display", "inline");
             } else {
                 if (response.result.senderSpecialization != null) {
                     $(".js-senderSpecialization-response").html(response.result.senderSpecialization);
@@ -446,12 +445,10 @@ function doAjaxGuestPost() {
 
             $(".js-guest-response").html(response.result.message);
             $(".js-input").css("background-color", "#ffffff");
-            $(".js-field-info").css("display", "none");
             $(".js-field-response").empty();
 
             if (response.status == "SUCCESS") {
                 $(".js-guest-form")[0].reset();
-                $(".js-field-info").css("display", "inline");
             } else {
                 if (response.result.firstName != null) {
                     $(".js-first-name-response").html(response.result.firstName);
