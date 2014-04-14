@@ -44,7 +44,6 @@ $(document).ready(function() {
 
         $(".js-apply-response").empty();
         $(".js-input").css("background-color", "#ffffff");
-        $(".js-field-info").css("display", "inline");
         $(".js-field-response").empty();
         $("#image-view").attr('src',nophotoUrl);
     });
@@ -196,8 +195,8 @@ function onFileUploaded(event) {
 }
 
 function doAjaxSubscriptionPost(form) {
+    responseField = form.hasClass("js-subscribe-form-top") ? $(".js-subscribe-response-top") : $(".js-subscribe-response");
     $.ajax({
-
         url: subscribeUrl,
         type: "POST",
         data: form.serialize(),
@@ -206,13 +205,13 @@ function doAjaxSubscriptionPost(form) {
         success: function(response) {
 
             if (response.status == "SUCCESS") {
-                $(".js-subscribe-response").html(response.result.message);
+                responseField.html(response.result.message);
                 form[0].reset();
                 setTimeout(function() {
-                    $(".js-subscribe-response").empty();
+                    responseField.empty();
                 }, 5000);
             } else {
-                $(".js-subscribe-response").html(response.result.email);
+                responseField.html(response.result.email);
             }
         },
 

@@ -15,6 +15,7 @@
                 <input class="input-email" type="email" name="email" placeholder="Электронная почта">
                 <input class="js-subscribe-button-top subscribe-button" type="submit" value="Отправить">
             </form>
+            <div class="js-subscribe-response-top response"></div>
         </div>
 
         <div class="box">

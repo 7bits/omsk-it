@@ -1009,3 +1009,9 @@ body .ui-menu  .ui-menu-item .ui-state-focus {
     background: #17c1d0;
 }
 
+/*Responses*/
+.js-subscribe-response-top {
+    text-align: left;
+    margin-left: 314px;
+    font-size: 20px;
+}
