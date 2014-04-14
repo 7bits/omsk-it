@@ -77,7 +77,7 @@ public class MailSenderUtility {
         String confirmationUrl = domain + "user/confirmation?confirmation_token=" +
                 confirmationToken + "&confirmation_login=" + email + "&conference_status=1"
         ;
-        message.setText(REGISTRATION_INFO_TEXT + confirmationUrl + " Ждем вас в субботу");
+        message.setText(REGISTRATION_INFO_TEXT + confirmationUrl + " Ждем Вас в субботу");
         mailSender.send(message);
     }
 

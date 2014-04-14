@@ -153,7 +153,7 @@ public class VkAuthorizationController {
                     errors.put(fieldError.getField(), fieldError.getDefaultMessage());
                 }
             }
-            errors.put("message","Форма заполнена не верно");
+            errors.put("message","Форма заполнена неверно");
             jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
             jsonResponse.setResult(errors);
         } else {
@@ -197,7 +197,7 @@ public class VkAuthorizationController {
             mailSenderUtility.sendConfirmationToken(userSocialRegistrationForm.getEmail(), confirmationToken);
             jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
             Map<String,String> result = new HashMap<>();
-            result.put("message", "На ваш email выслана ссылка для подтверждения");
+            result.put("message", "На Ваш email выслана ссылка для подтверждения");
             jsonResponse.setResult(result);
         }
         return jsonResponse;

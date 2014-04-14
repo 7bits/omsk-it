@@ -31,7 +31,7 @@ public class SuggestionValidator implements Validator {
 
     private void validateSenderSpecialization(final SuggestionForm form, final Errors errors) {
 
-        ValidationUtils.rejectIfEmpty(errors, "senderSpecialization", "senderSpecialization.empty", "Надо что то выбрать");
+        ValidationUtils.rejectIfEmpty(errors, "senderSpecialization", "senderSpecialization.empty", "Надо что-то выбрать");
         if (errors.getFieldErrorCount("senderSpecialization") == 0) {
             for (String field: form.getSenderSpecialization()) {
                 if (field.equals("other")) {
@@ -48,7 +48,7 @@ public class SuggestionValidator implements Validator {
 
     private void validateFavoriteTheme(final SuggestionForm form, final Errors errors) {
 
-        ValidationUtils.rejectIfEmpty(errors, "favoriteTheme", "favoriteTheme.empty", "Надо что то выбрать");
+        ValidationUtils.rejectIfEmpty(errors, "favoriteTheme", "favoriteTheme.empty", "Надо что-то выбрать");
         if (errors.getFieldErrorCount("favoriteTheme") == 0) {
             for (String field: form.getFavoriteTheme()) {
                 if (field.equals("other")) {

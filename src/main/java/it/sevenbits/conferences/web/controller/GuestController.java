@@ -116,7 +116,7 @@ public class GuestController {
                     errors.put(fieldError.getField(), fieldError.getDefaultMessage());
                 }
             }
-            errors.put("message", "Форма заполнена не верно.");
+            errors.put("message", "Форма заполнена неверно.");
             response.setResult(errors);
         } else {
             User user = new User();
@@ -152,7 +152,7 @@ public class GuestController {
             userService.updateUser(user);
             mailSenderUtility.sendConfirmationTokenAndConferenceStatus(guestForm.getEmail(), confirmationToken);
             response.setStatus(JsonResponse.STATUS_SUCCESS);
-            response.setResult(Collections.singletonMap("message", "На ваш email послано письмо для подтверждения регистрации и участия."));
+            response.setResult(Collections.singletonMap("message", "На Ваш email послано письмо для подтверждения регистрации и участия."));
         }
         return response;
     }

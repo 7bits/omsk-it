@@ -118,7 +118,7 @@ public class UserController {
                 Conference currentConference = conferenceService.findNextConference();
                 guest.setConference(currentConference);
                 guestService.addGuest(guest);
-                additionalRegistrationInfo = "Так же, вы зарегистрированы на текущий субботник.";
+                additionalRegistrationInfo = "Так же, Вы зарегистрированы на текущий субботник.";
             }
             if (reportStatus != null) {
                 Report report = reportService.findReportById(reportStatus);
@@ -193,7 +193,7 @@ public class UserController {
             userService.updateUser(user);
             mailSenderUtility.sendConfirmationToken(userRegistrationForm.getEmail(), confirmationToken);
             Map<String, String> result = new HashMap<>();
-            result.put("message","На ваш email выслана ссылка для подтверждения");
+            result.put("message","На Ваш email выслана ссылка для подтверждения");
             jsonResponse.setResult(result);
             jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
         }
@@ -283,7 +283,7 @@ public class UserController {
             jsonResponse = new JsonResponse();
             jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
             Map<String, String> resultMessage = new HashMap<>();
-            resultMessage.put("message", "Вам пароль успешно изменен.");
+            resultMessage.put("message", "Ваш пароль успешно изменен.");
             jsonResponse.setResult(resultMessage);
         }
         return jsonResponse;
