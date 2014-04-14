@@ -100,7 +100,7 @@ $(document).ready(function() {
         doAjaxChangePassword();
     });
 
-    $(".image").change(onFileUploaded);
+    $(".image").change(onImageUploaded);
 
     $(".close-new-company-form").click(onNewCompanyFormClose);
 
@@ -167,15 +167,17 @@ function onPopupLoginCancel() {
     $(".login-message-error ").text("");
 }
 
-function onFileUploaded(event) {
-    if ( event.originalEvent.target.files[0].size > 10485760) {
-        //Reload input:file's container
-        document.getElementsByClassName("image")[0].parentNode.innerHTML = document.getElementsByClassName("image")[0].parentNode.innerHTML;
-        $(".image").change(onFileUploaded);
-        $(".js-photo-upload-response").text("Размер фотографии не должен превышать 10 мегабайт.");
-        setTimeout(function() {
-            $(".js-photo-upload-response").text("");
-        },3000);
+function onImageUploaded(event) {
+    contentType = document.getElementsByClassName("image")[0].files[0].name.split(".").pop().toLowerCase();
+    isContentImage = true;
+    if($.inArray(contentType, ['bmp','png','jpg','jpeg']) == -1) {
+        isContentImage = false;
+    }
+    isSizeValid = event.originalEvent.target.files[0].size < 10485760;
+    if ( !isSizeValid) {
+        imageUploadError("Размер фотографии не должен превышать 10 мегабайт.");
+    } else if (!isContentImage) {
+        imageUploadError("Неверный формат файла.");
     } else {
         formData = new FormData();
         imageInput = document.getElementsByClassName("image")[0];
@@ -192,6 +194,16 @@ function onFileUploaded(event) {
             }
         })
     }
+}
+
+function imageUploadError(message) {
+    //Reload input:file's container
+    document.getElementsByClassName("image")[0].parentNode.innerHTML = document.getElementsByClassName("image")[0].parentNode.innerHTML;
+    $(".image").change(onImageUploaded);
+    $(".js-photo-upload-response").text(message);
+    setTimeout(function() {
+        $(".js-photo-upload-response").text("");
+    },3000);
 }
 
 function doAjaxSubscriptionPost(form) {
