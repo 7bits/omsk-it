@@ -1,0 +1,60 @@
+.action {
+    font-size: 27px;
+    color: #ffffff;
+}
+.action-text {
+    padding: 70px 35px 20px 35px;
+}
+
+.buttons {
+    text-align: center;
+}
+.button {
+    width: 310px;
+    height: 270px;
+    color: #2d3e50;
+    background-color: #ffffff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px; /*Chrome 4.0, Safari 5.0, iOS*/
+    -moz-border-radius: 5px; /*Firefox 4.0*/
+    border-color: transparent;
+    box-shadow: 0 0 10px;
+    position: relative;     
+}
+.button-img {
+    position: absolute;
+    width: 310px;
+    height: 235px;
+    padding-top: 35px;
+}
+.button-img:hover {
+    height: 255px;
+    padding-top: 15px;
+}
+.img-center {
+    display: block;
+    margin: auto;
+    margin-top: 150px;
+}
+.confirm-form-button{
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 20px;
+    padding-top: 1px;
+    display: inline-block;
+    border-radius: 5px;
+    height: 44px;
+    width: 120px;
+    vertical-align: top;
+    text-align: center;
+    line-height: 2em;
+    margin-left: 114px;
+    margin-right: 30px;
+    background: linear-gradient(to top, #0ba1ae, #10b7c5);
+    background: -moz-linear-gradient(to top, #0ba1ae, #10b7c5);
+}
+
+.confirm-form-button:hover {
+    background: linear-gradient(to bottom, #18cfdf, #0ba9b7);
+    background: -moz-linear-gradient(to bottom, #18cfdf, #0ba9b7);
+}

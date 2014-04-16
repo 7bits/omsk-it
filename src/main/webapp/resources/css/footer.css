@@ -1,0 +1,29 @@
+.footer {
+    height: 271px;
+    background-color: #0c93a1;
+    margin-top: 90px;
+    padding-top: 31px;
+    color: #ffffff;
+}
+
+.tracking {
+    float: right;
+    font-size: 16px;
+}
+.tracking-title {
+    line-height: 61px;
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.site-minor-logo {
+    float: right;
+    width: 58px;
+    height: 128px;
+    margin-left: 33px;
+}
+
+.copyright {
+    clear: both;
+    margin-top: 20px;
+}

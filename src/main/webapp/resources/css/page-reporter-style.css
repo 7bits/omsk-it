@@ -1,0 +1,56 @@
+.reporter-about {
+    min-height: 200px;
+    margin-left: 60px;
+    margin-top: 40px;
+}
+.reporter-about .photo {
+    width: 190px;
+    height: 190px;
+    float: left;
+}
+.short-description {
+    font-size: 20px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 20px;
+    max-width: 450px;
+}
+.short-description .position {
+    color: #2d3e50;
+}
+
+.position a {
+    color: #00b7c8;
+}
+.position a:hover{
+    text-decoration: underline;
+}
+
+.reports-history {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.reporter-reports-title {
+    font-size: 26px;
+}
+
+.reporter-reports-refs a {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2d3e50;
+}
+
+.reporter-reports-refs a:hover {
+    border-bottom: solid 1px;
+}
+
+.reports-history .description{
+    max-width: 540px;
+    margin-left: 15px;
+}
+.reports-history .report {
+    border-bottom: solid 1px #dedede;
+    padding-bottom: 38px;
+    padding-top: 33px;
+}
