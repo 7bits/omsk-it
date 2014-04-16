@@ -20,7 +20,7 @@
                 <ol>
                     <li><span class="list-num">1</span> <b>Это бесплатно!</b></li>
                     <li><span class="list-num">2</span>
-                        <span class="long-line">
+                        <span class="long-line blue-ref">
                             Субботники проходят <b>в омских IT-фирмах</b> (
                             <c:set var="totalCompanies" value="${fn:length(companies)}"/>
                             <c:forEach items="${companies}" var="company" varStatus="companyCounter">

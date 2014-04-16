@@ -1,0 +1,42 @@
+.report-content {
+    padding: 20px 45px;
+    color: #2d3e50;
+}
+.report-content .reporter {
+    width: 100%;
+}
+.report-content .photo {
+    width: 80px;
+    height: 80px;
+    float: left;
+}
+.personal {
+    float: left;
+    margin-top: 15px;
+    padding-left: 15px;
+    text-align: left;
+}
+
+.name {
+    margin: 0;
+    font-size: 20px;
+}
+.name a:hover{
+    text-decoration: underline;
+}
+
+.report-content .description {
+    font-size: 20px;
+}
+
+.report-content .presentation {
+    margin-top: 40px;
+}
+
+.report-content .video {
+    margin-top: 50px;
+}
+
+.report-content .reporter-other-reports {
+    margin-top: 70px;
+}

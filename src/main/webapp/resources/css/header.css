@@ -1,0 +1,80 @@
+.header {
+    height: 160px;
+    background-color: #fdfaf5;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+.header .page {
+    padding-top: 1px;
+    padding-bottom: 14px;
+}
+
+/* logo */
+
+.site-logo-container {
+    float:left;
+}
+.logo-title {
+    text-decoration: none;
+    margin-left: 64px;
+    display: block;
+}
+.logo-title-top {
+    color: #0eaebb;
+    font-size: 25px;
+    margin-top: 12px;
+}
+.logo-title-bottom {
+    font-size: 13px;
+    color: #000000;
+}
+.logo-img {
+    position: absolute;
+}
+
+/* navigation bar*/
+.site-nav {
+    margin-left: 150px;
+    float:left;
+}
+.menu-item {
+    list-style-type: none;
+    height: 54px;
+    line-height: 52px;
+    padding: 0 27px;
+    font-size: 20px;
+    color: #2d3e50;
+}
+.menu-item:hover {
+    color: #
+    background: #10b7c5;
+    background: linear-gradient(to bottom, #0ba1ae, #10b7c5);
+    border-color: #0faebd;
+    border-radius: 5px;
+    -webkit-border-radius: 5px; /*Chrome 4.0, Safari 5.0, iOS*/
+    -moz-border-radius: 5px 5px; /*Firefox 4.0*/
+}
+
+/* social icons */
+.social-icon {
+    width: 30px;
+    height: 30px;
+    margin-top: 25px;
+    margin-left: 8px;
+}
+.social-ref {
+   float: right;
+}
+.twitter {
+    height: 30px;
+    background: url(../images/twitter-minor-logo.png) no-repeat;
+}
+.twitter:hover {
+    background: url(../images/twitter-minor-logo2.png) no-repeat;
+}
+.vkontakte {
+    height: 30px;
+    background: url(../images/vk-minor-logo.png) no-repeat;
+}
+.vkontakte:hover {
+    background: url(../images/vk-minor-logo2.png) no-repeat;
+}

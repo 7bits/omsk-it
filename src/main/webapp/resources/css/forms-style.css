@@ -1,0 +1,151 @@
+/*UNUSED
+.form-close-button {
+    height: 19px;
+    width: 19px;
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+    background: url(../images/close-button.png);
+}
+*/
+.form-content {
+    margin-left: 30px;
+    margin-top: 25px;
+}
+.form-info {
+    font-size: 15px;
+    padding-bottom: 30px;
+    vertical-align: top;
+}
+.reset-button {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.reset-button:hover {
+    border-bottom: solid 1px;
+}
+.reset-button:active {
+    border-bottom: none;
+}
+.form-content .button-submit {
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
+.attention {
+    color: #f06009;
+    clear: left;
+}
+
+.attention-info {
+    margin-left: 151px;
+    font-size: 15px;
+    margin-top: -11px;
+    margin-bottom: 26px;
+}
+
+.attention-long {
+    margin-left: 0px;
+}
+
+.attention-company {
+    margin-left: 152px;
+    width: 332px;
+}
+
+.photo-upload-container {
+    width: 400px;
+    float: right;
+}
+.js-photo-upload-input {
+    width: 280px;
+}
+.photo-upload-info {
+    padding-right: 140px;
+    font-size: 15px;
+    font-weight: normal;
+}
+.photo-upload-label {
+    width: 300px;
+}
+.photo-upload-attention {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.field {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.left-label {
+    width: 120px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.field-info {
+    font-size: 15px;
+    font-weight: normal;
+    display: inline-block;
+    max-width: 380px;
+}
+
+.js-field-info {
+    padding-right: 5px;
+}
+
+.small-input {
+    margin-left: 25px;
+    font-size: 20px;
+    color: #2d3e50;
+    width: 254px;
+    height: 38px;
+    vertical-align: middle;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background-color: #ffffff;
+    border: solid 2px #aaf0f7;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.small-input:focus {
+    outline: none;
+    border-color: #1a737c;
+}
+
+.long .left-label {
+    width: 200px;
+    margin-bottom: 10px;
+}
+.long .small-input {
+    margin-left: 151px;
+}
+
+.long-popup .small-input {
+    margin-left: 125px;
+}
+
+.top-label {
+    width: 860px;
+    margin-bottom: 0px;
+}
+.long-info {
+    max-width: 1042px;
+}
+.wide-input {
+    display: block;
+    width: 1042px;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.big-input {
+    height: 150px;
+}

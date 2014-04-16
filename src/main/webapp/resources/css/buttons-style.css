@@ -1,0 +1,38 @@
+.action {
+    font-size: 27px;
+    color: #ffffff;
+}
+.action-text {
+    padding: 70px 35px 20px 35px;
+}
+
+.buttons {
+    text-align: center;
+}
+.button {
+    width: 310px;
+    height: 270px;
+    color: #2d3e50;
+    background-color: #ffffff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px; /*Chrome 4.0, Safari 5.0, iOS*/
+    -moz-border-radius: 5px; /*Firefox 4.0*/
+    border-color: transparent;
+    box-shadow: 0 0 10px;
+    position: relative;     
+}
+.button-img {
+    position: absolute;
+    width: 310px;
+    height: 235px;
+    padding-top: 35px;
+}
+.button-img:hover {
+    height: 255px;
+    padding-top: 15px;
+}
+.img-center {
+    display: block;
+    margin: auto;
+    margin-top: 150px;
+}
