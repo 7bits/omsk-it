@@ -574,32 +574,29 @@ function onNewCompanyFormClose() {
 
 function doAjaxChangePassword() {
     changePasswordFormData = $(".change-password-form").serialize();
+    notificationField = $(".change-password-notification");
+    errorField = $(".change-password-response");
     $.ajax({
         url: changePasswordUrl,
         type: "POST",
         data: changePasswordFormData,
         dataType: "json",
+        beforeSend: function() {
+            errorField.empty();
+            notificationField.text("Изменение...");
+        },
         success: function(response) {
+            notificationField.empty();
             if (response.status == "SUCCESS") {
-                $(".js-field-response").empty();
-                $(".js-password-input").empty();
-                $(".js-apply-response").text(response.result.message);
+                $(".js-input").val("");
+                notificationField.text(response.result.message);
             } else {
-                $(".js-field-response").empty();
-                $(".js-password-input").empty();
-                if (response.result.email != null) {
-                    $(".js-email-response").text(response.result.email);
-                }
-                if (response.result.oldPassword != null) {
-                    $(".js-old-password-response").text(response.result.oldPassword);
-                }
-                if (response.result.newPassword != null) {
-                    $(".js-new-password-response").text(response.result.newPassword);
-                }
+                errorField.text(response.result.message);
             }
         },
         error: function() {
-            k=10;
+            notificationField.empty();
+            errorField.text("Сервер не отвечает.");
         }
     })
 }

@@ -90,7 +90,7 @@ a:visited .login-form-open-button {
     margin-bottom: 20px;
 }
 
-.confirm-login{
+.confirm-form-button{
     cursor: pointer;
     color: #ffffff;
     font-size: 20px;
@@ -108,12 +108,12 @@ a:visited .login-form-open-button {
     background: -moz-linear-gradient(to top, #0ba1ae, #10b7c5);
 }
 
-.confirm-login:hover {
+.confirm-form-button:hover {
     background: linear-gradient(to bottom, #18cfdf, #0ba9b7);
     background: -moz-linear-gradient(to bottom, #18cfdf, #0ba9b7);
 }
 
-.cancel-login {
+.cancel-form-button {
     font-family: 'PT Sans', sans-serif;
     font-size: 20px;
     background-color: transparent;
@@ -122,11 +122,11 @@ a:visited .login-form-open-button {
     margin-top: 8px;
 }
 
-.cancel-login:hover {
+.cancel-form-button:hover {
     border-bottom: solid 1px;
 }
 
-.close-login-button {
+.close-popup-form-button {
     background-repeat: no-repeat;
     position: absolute;
     top: 11px;
@@ -139,7 +139,7 @@ a:visited .login-form-open-button {
     cursor: pointer;
 }
 
-.close-login-button:hover {
+.close-popup-form-button:hover {
     background-image: url("../images/close_hover.png");
 }
 
@@ -163,7 +163,6 @@ a:visited .login-form-open-button {
 .login-message-error {
     margin-left: 131px;
     margin-top: -20px;
-    margin-bottom: 18px;
 }
 
 .login-main-form {
@@ -279,4 +278,43 @@ a:visited .login-form-open-button {
     -webkit-border-radius: 17px;
     margin-left: 4px;
     margin-top: 1px;
+}
+
+/*Reset-password-form*/
+
+.forgot-password {
+    color: #10b7c5;
+    text-decoration: underline;
+    margin-left: 300px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.reset-password-form-container {
+    display: none;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 200;
+    top: 0;
+    left: 0;
+}
+
+.popup-form-text {
+    margin-left: 25px;
+    margin-bottom: 21px;
+    padding-right: 28px;
+    font-size: 15px;
+}
+
+.reset-password-response {
+    margin-left: 130px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+.reset-password-notification {
+    margin-left: 130px;
+    margin-top: -10px;
+    margin-bottom: 15px;
 }

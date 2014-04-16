@@ -108,7 +108,9 @@ public class MailSenderUtility {
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(email);
         message.setSubject("Восстановление пароля");
-        message.setText(TEMPORARY_PASSWORD_TEXT + " " + password);
+        StringBuilder resetPasswordUrl = new StringBuilder(domain);
+        resetPasswordUrl.append("user/change-password?email=").append(email).append(TEMPORARY_PASSWORD_TEXT).append(" ").append(password);
+        message.setText(resetPasswordUrl.toString());
         mailSender.send(message);
     }
 

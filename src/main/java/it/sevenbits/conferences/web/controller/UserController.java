@@ -16,10 +16,7 @@ import it.sevenbits.conferences.service.common.CustomUserDetailsService;
 import it.sevenbits.conferences.utils.file.FileConverter;
 import it.sevenbits.conferences.utils.file.FileManager;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
-import it.sevenbits.conferences.web.form.ChangePasswordForm;
-import it.sevenbits.conferences.web.form.JsonResponse;
-import it.sevenbits.conferences.web.form.LoginForm;
-import it.sevenbits.conferences.web.form.UserRegistrationForm;
+import it.sevenbits.conferences.web.form.*;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +49,8 @@ import java.util.*;
 @Controller
 @RequestMapping(value = "user")
 public class UserController {
+
+    private static final int DEFAULT_PASSWORD_LENGTH = 10;
 
     @Autowired
     private UserService userService;
@@ -277,9 +276,40 @@ public class UserController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/reset-password", method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResponse changePasswordPost(@ModelAttribute final EmailForm emailForm) {
+        JsonResponse jsonResponse;
+        User user;
+        try {
+            user = userService.findUserByEmail(emailForm.getEmail());
+        } catch (UsernameNotFoundException e) {
+            jsonResponse = new JsonResponse();
+            jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
+            Map<String, String> resultMessage = new HashMap<>();
+            resultMessage.put("message",  "Такого пользователя нету.");
+            jsonResponse.setResult(resultMessage);
+            return jsonResponse;
+        }
+        String newPassword = getNewRandomPassword(DEFAULT_PASSWORD_LENGTH);
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedNewPassword = passwordEncoder.encode(newPassword);
+        user.setPassword(encodedNewPassword);
+        userService.updateUser(user);
+        mailSenderUtility.sendNewPassword(user.getEmail(), newPassword);
+        jsonResponse = new JsonResponse();
+        jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
+        Map<String, String> resultMessage = new HashMap<>();
+        resultMessage.put("message", "Ваш пароль успешно изменен.");
+        jsonResponse.setResult(resultMessage);
+        return jsonResponse;
+    }
+
     @RequestMapping(value = "/change-password", method = RequestMethod.GET)
-    public ModelAndView changePasswordGet() {
-        return new ModelAndView("change-password");
+    public ModelAndView changePasswordGet(@RequestParam(value = "email", required = false) final String email) {
+        ModelAndView modelAndView = new ModelAndView("change-password");
+        modelAndView.addObject("email",email);
+        return modelAndView;
     }
 
     @RequestMapping(value = "/change-password", method = RequestMethod.POST)
@@ -324,13 +354,8 @@ public class UserController {
         return jsonResponse;
     }
 
-    private String setNewRandomPassword(User user, final int length) {
-        String newPassword = RandomStringUtils.random(length, true, true);
-        PasswordEncoder encoder = new BCryptPasswordEncoder();
-        String encodedNewPassword = encoder.encode(newPassword);
-        user.setPassword(encodedNewPassword);
-        userService.updateUser(user);
-        return newPassword;
+    private String getNewRandomPassword(final int length) {
+        return RandomStringUtils.random(length, true, true);
     }
 
     private JsonResponse getFailureResponse(final BindingResult bindingResult, final String commonMessage) {

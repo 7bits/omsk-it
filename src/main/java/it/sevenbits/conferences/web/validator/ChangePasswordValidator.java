@@ -4,6 +4,7 @@ import it.sevenbits.conferences.domain.User;
 import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.web.form.ChangePasswordForm;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -43,8 +44,12 @@ public class ChangePasswordValidator implements Validator {
     private void validateOldPassword(final ChangePasswordForm form, final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "oldPassword", "oldPassword.empty", "Пароль не должен быть пустым");
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        User user = userService.findUser(form.getEmail());
-        if (user != null && !passwordEncoder.matches(form.getOldPassword(), user.getPassword())) {
+        try {
+            User user = userService.findUser(form.getEmail());
+            if (!passwordEncoder.matches(form.getOldPassword(), user.getPassword())) {
+                errors.rejectValue("oldPassword", "oldPassword.notExists", "Неверный пароль");
+            }
+        } catch (UsernameNotFoundException e) {
             errors.rejectValue("oldPassword", "oldPassword.notExists", "Неверный пароль");
         }
     }
@@ -54,9 +59,11 @@ public class ChangePasswordValidator implements Validator {
     }
 
     public boolean isUserExists(final String email) {
-        boolean isExists = false;
-        if (userService.findUserByEmail(email) != null) {
-            isExists = true;
+        boolean isExists = true;
+        try {
+            userService.findUserByEmail(email);
+        } catch (UsernameNotFoundException e) {
+            isExists = false;
         }
         return  isExists;
     }

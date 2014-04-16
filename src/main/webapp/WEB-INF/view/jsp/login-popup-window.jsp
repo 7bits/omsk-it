@@ -13,8 +13,9 @@
             <input class="login-form-input small-input margin-top-8" type="password" name="password" />
         </div>
         <div class="js-field-response login-message-error attention"></div>
-        <div class="confirm-login">Войти</div>
-        <button class="cancel-login">Отмена</button>
-        <button class="close-login-button"></button>
+        <div class="forgot-password">Забыли пароль?</div>
+        <div class="confirm-login confirm-form-button">Войти</div>
+        <button class="cancel-login cancel-form-button">Отмена</button>
+        <button class="close-popup-form-button close-login-button"></button>
     </div>
 </div>

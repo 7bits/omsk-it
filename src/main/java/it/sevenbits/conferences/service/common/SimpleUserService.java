@@ -76,7 +76,7 @@ public class SimpleUserService implements UserService {
         queryParams.put("email", email);
         List<User> usersList = userDao.findByQuery(query, queryParams);
         if (usersList == null || usersList.isEmpty()) {
-            return null;
+            throw new UsernameNotFoundException(USER_NOT_FOUND_EXCEPTION);
         }
         return usersList.get(0);
     }
