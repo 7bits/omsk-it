@@ -17,7 +17,6 @@
             </form>
             <div class="js-subscribe-response-top response"></div>
         </div>
-
         <div class="box">
             <h1 class="title">
                 <c:out value="${conference.ordinalNumber}"/>-й IT-субботник
@@ -32,13 +31,11 @@
                         <div class="name">
                             <a href='<c:url value="/user/${report.user.id}"/>'><c:out value="${report.user.firstName}"/>&nbsp;<c:out value="${report.user.secondName}"/></a>
                         </div>
-
                         <div class="position">
                             <%@ include file="/WEB-INF/view/jsp/job-position-viewing.jsp" %>
                         </div>
                         <%@ include file="/WEB-INF/view/jsp/photo-viewing.jsp" %>
                     </div>
-
                     <div class="description inline-item">
                         <h2 class="description-title">
                             <a href='<c:url value="/report/${report.id}"/>'>&laquo;<c:out value="${report.title}"/>&raquo;</a>
@@ -48,21 +45,17 @@
                             <c:out value="${report.description}"/>
                         </div>
                     </div>
-
                     <hr class="bottom-line">
                 </div>
             </c:forEach>
         </div>
-
         <div class="events-history">
             <a href='<c:url value="/archive"/>'>Материалы предыдущих субботников</a>
         </div>
-
         <div class="action">
             <div class="action-text">
                 Чтобы стать активным участником IT-субботников, вы можете:
             </div>
-
             <div class="buttons">
                 <a href='<c:url value="/to-reporters#suggest"/>' class="left-button">
                     <div class="button inline-item">
@@ -73,7 +66,6 @@
                         <span>Предложить тему доклада</span>
                     </div>
                 </a>
-
                 <a href='<c:url value="/to-reporters"/>' class="middle-button">
                     <div class="button inline-item">
                         <div class="button-img">
@@ -83,7 +75,6 @@
                         <span>Выступить с докладом на субботнике</span>
                     </div>
                 </a>
-
                 <a href='<c:url value="/to-companies"/>' class="right-button">
                     <div class="button inline-item">
                         <div class="button-img">

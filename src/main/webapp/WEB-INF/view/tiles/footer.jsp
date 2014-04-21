@@ -12,7 +12,6 @@
             </form>
             <span class="js-subscribe-response response"></span>
         </div>
-
         <div class="site-minor-logo">
              <a href='<c:url value="/"/>'><img src='<c:url value="/resources/images/site-minor-logo.png"/>'></a>
         </div>
@@ -26,8 +25,6 @@
                 <a href="http://vk.com/omskit"><img src='<c:url value="/resources/images/vk-logo.png"/>'></a>
             </div>
         </div>
-
-
         <div class="copyright">
             &copy; OmskIT, 2013
         </div>

@@ -12,7 +12,6 @@
                     <span>в компании</span>
                     <a href='<c:url value="${conference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${conference.company.name}"/></span></a>
                 </h1>
-
                 <div class="program-content">
                     <c:forEach items="${reports}" var="report">
                         <c:if test="${report.conference.id == conference.id}">
@@ -29,7 +28,6 @@
                                     </div>
                                     <%@ include file="/WEB-INF/view/jsp/photo-viewing.jsp" %>
                                 </div>
-
                                 <div class="description">
                                     <h2 class="description-title">
                                         <a href='<c:url value="/report/${report.id}"/>'>&laquo;<c:out value="${report.title}"/>&raquo;</a>

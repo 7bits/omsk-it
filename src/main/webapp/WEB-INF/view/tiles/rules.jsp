@@ -15,7 +15,6 @@
             <h1 class="title">
                 Правила IT-субботников
             </h1>
-
             <div class="list">
                 <ol>
                     <li><span class="list-num">1</span> <b>Это бесплатно!</b></li>
@@ -42,16 +41,13 @@
                 </ol>
             </div>
         </div>
-
         <div class="events-history blue-ref ">
             Если вы еще не поняли, что здесь происходит, смотрите <a href='<c:url value="/archive"/>'>материалы предыдущих субботников.</a>
         </div>
-
         <div class="action">
             <div class="action-text">
                 Чтобы стать активным участником IT-субботников, вы можете:
             </div>
-
             <div class="buttons">
                 <a href="#" class="left-button">
                     <div class="button inline-item">
@@ -62,7 +58,6 @@
                         <span>Предложить тему доклада</span>
                     </div>
                 </a>
-
                 <a href="#" class="middle-button">
                     <div class="button inline-item">
                         <div class="button-img">
@@ -72,7 +67,6 @@
                         <span>Выступить с докладом на субботнике</span>
                     </div>
                 </a>
-
                 <a href="#" class="right-button">
                     <div class="button inline-item">
                         <div class="button-img">

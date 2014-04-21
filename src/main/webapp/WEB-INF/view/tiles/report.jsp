@@ -20,39 +20,32 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="description">
                     <c:out value="${report.description}"/>
                 </div>
-
                 <c:if test="${report.presentation != null}">
                     <div class="presentation">
                         <iframe src='<c:out value="${report.presentation}"/>' width="635" height="514" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen></iframe>
                     </div>
                 </c:if>
-
                 <c:if test="${report.presentation == null}">
                     <br>
                     <p class="resource-not-found">Ссылка на презентацию не предоставлена.</p>
                 </c:if>
-
                 <c:if test="${report.video != null}">
                     <div class="video">
                         <iframe src='<c:out value="${report.video}"/>' width="635" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                     </div>
                 </c:if>
-
                 <c:if test="${report.video == null}">
                     <p class="resource-not-found">Ссылка на видео не предоставлена.</p>
                 </c:if>
-
                 <c:set var="totalReports" value="${fn:length(otherReports)}"/>
                 <c:if test="${totalReports > 1}">
                     <div class="reporter-other-reports">
                         <div class="reporter-reports-title">
                             Другие доклады автора:
                         </div>
-
                         <div class="reporter-reports-refs">
                             <c:forEach items="${otherReports}" var="otherReport">
                                 <c:if test="${otherReport.id != report.id}">

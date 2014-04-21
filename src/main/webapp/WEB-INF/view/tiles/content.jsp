@@ -4,7 +4,6 @@
             <div class="title">
                 Заголовок
             </div>
-
             <div class="text">
                 Пример
             </div>

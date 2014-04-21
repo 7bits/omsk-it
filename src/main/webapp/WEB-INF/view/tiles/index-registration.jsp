@@ -71,7 +71,6 @@
                         <span>Предложить тему доклада</span>
                     </div>
                 </a>
-
                 <a href='<c:url value="/to-reporters"/>' class="middle-button">
                     <div class="button inline-item">
                         <div class="button-img">
@@ -81,7 +80,6 @@
                         <span>Выступить с докладом на субботнике</span>
                     </div>
                 </a>
-
                 <a href='<c:url value="/to-companies"/>' class="right-button">
                     <div class="button inline-item">
                         <div class="button-img">

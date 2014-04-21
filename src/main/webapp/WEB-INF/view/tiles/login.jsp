@@ -15,7 +15,6 @@
                         <span class="js-field-info"></span>
                     </span>
                 </div>
-
                 <div class="field">
                     <span class="left-label">Пароль</span>
                     <input class="js-password-input js-input small-input" type="password" name="j_password" id="j_password" size="30" maxlength="32"/>

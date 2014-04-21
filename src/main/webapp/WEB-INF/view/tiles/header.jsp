@@ -13,7 +13,6 @@
                 <span class="logo-title logo-title-bottom">Мини-конференции. Омск</span>
             </a>
         </div>
-
         <div class="site-nav  inline-item">
             <ul>
                 <a href='<c:url value="/rules"/>'><li class="inline-item menu-item">Правила</li></a>
@@ -22,7 +21,6 @@
                 <a href='<c:url value="/to-companies"/>'><li class="inline-item menu-item">Компаниям</li></a>
             </ul>
         </div>
-
         <div class="social-ref  inline-item">
             <a class="twitter inline-item social-icon" href="https://twitter.com/OmskIT"></a>
             <a class="vkontakte inline-item social-icon" href="http://vk.com/omskit"></a>

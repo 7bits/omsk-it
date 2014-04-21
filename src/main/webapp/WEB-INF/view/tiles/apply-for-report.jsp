@@ -39,7 +39,6 @@
                             <img class="photo image-view" src='<c:url value="/resources/images/photos/nophoto.png" />'/>
                         </div>
                     </div>
-
                     <div class="field">
                         <span class="left-label">Имя&nbsp;<span class="attention">*</span></span>
                         <input class="js-first-name-input js-input small-input" type="text" name="firstName">
@@ -48,7 +47,6 @@
                         </span>
                         <div class="js-field-response js-first-name-response attention attention-info"></div>
                     </div>
-
                     <div class="field">
                         <span class="left-label">Фамилия&nbsp;<span class="attention">*</span></span>
                         <input class="js-second-name-input js-input small-input" type="text" name="secondName">
@@ -57,7 +55,6 @@
                         </span>
                         <div class="js-field-response js-second-name-response attention attention-info"></div>
                     </div>
-
                     <div class="field">
                         <span class="left-label">E-mail&nbsp;<span class="attention">*</span></span>
                         <input class="js-email-input js-input small-input" type="text" name="email">
@@ -65,7 +62,6 @@
                         </span>
                         <div class="js-field-response js-email-response attention attention-info"></div>
                     </div>
-
                     <div class="field">
                         <span class="left-label">Пароль&nbsp;<span class="attention">*</span></span>
                             <input class="js-password-input js-input small-input" type="password" name="password">
@@ -73,7 +69,6 @@
                         </span>
                         <div class="js-field-response js-password-response attention attention-info"></div>
                     </div>
-
                     <div class="field">
                         <span class="left-label">Должность&nbsp;<span class="attention">*</span></span>
                         <input class="js-job-position-input js-input small-input" type="text" name="jobPosition">
@@ -82,7 +77,6 @@
                         </span>
                         <div class="js-field-response js-job-position-response attention attention-info"></div>
                     </div>
-
                     <div class="field long">
                         <span class="left-label">Место работы/учебы&nbsp;<span class="attention">*</span></span>
                         <br/>
@@ -93,9 +87,7 @@
                         </span>
                         <div class="js-field-response js-company-response attention-info attention inline-item attention-company"></div>
                     </div>
-
                 </sec:authorize>
-
                 <div class="field">
                     <span class="left-label top-label">Название доклада&nbsp;<span class="attention">*</span></span>
                     <span class="field-info long-info">
@@ -104,7 +96,6 @@
                     <input class="js-title-input js-input small-input wide-input" type="text" name="title">
                     <div class="js-field-response js-title-response attention attention-info attention-long"></div>
                 </div>
-
                 <div class="field">
                     <span class="left-label top-label">Анонс доклада&nbsp;<span class="attention">*</span></span>
                     <span class="field-info long-info">
@@ -113,7 +104,6 @@
                     <textarea class="js-description-input js-input small-input wide-input big-input" type="text" name="description"></textarea>
                     <div class="js-field-response js-description-response attention attention-info attention-long"></div>
                 </div>
-
                 <div class="field">
                     <span class="left-label top-label">Перечислите ключевые технологии, о которых вы будете рассказывать&nbsp;<span class="attention">*</span></span>
                     <span class="field-info long-info">
@@ -122,7 +112,6 @@
                     <input class="js-key-technologies-input js-input small-input wide-input" type="text" name="keyTechnologies">
                     <div class="js-field-response js-key-technologies-response attention attention-info attention-long"></div>
                 </div>
-
                 <div class="field">
                     <span class="left-label top-label">Рассказывали ли вы уже этот доклад на других мероприятиях? Если да, то на каких?</span>
                     <span class="field-info long-info">
@@ -131,7 +120,6 @@
                     <input class="js-other-conferences-input js-input small-input wide-input" type="text" name="otherConferences">
                     <div class="js-field-response js-other-conferences-response attention attention-info"></div>
                 </div>
-
                 <div class="field">
                     <span class="left-label top-label">Есть ли у вас опыт выступлений на каких-либо мероприятиях? Перечислите таковые.</span>
                     <span class="field-info long-info">
@@ -140,7 +128,6 @@
                     <textarea class="js-speech-experience-input js-input small-input wide-input big-input" type="text" name="speechExperience"></textarea>
                     <div class="js-field-response js-speech-experience-response attention attention-info"></div>
                 </div>
-
                 <div class="field">
                     <span class="left-label top-label">Напишите, пожалуйста, свои - как докладчика - пожелания организаторам</span>
                     <span class="field-info long-info">
@@ -149,7 +136,6 @@
                     <textarea class="js-reporter-wishes-input js-input small-input wide-input big-input" type="text" name="reporterWishes"></textarea>
                     <div class="js-field-response js-reporter-wishes-response attention attention-info"></div>
                 </div>
-
                 <div class="field">
                     <input class="js-apply-form-button button-submit" type="submit" value="Отправить">
                     <input class="js-apply-reset reset-button" type="reset" value="Отмена">
