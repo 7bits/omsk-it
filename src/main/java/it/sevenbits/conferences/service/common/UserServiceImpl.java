@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public User findUserByEmail(final String email) {
+    public User findUserByEmail(final String email) throws UsernameNotFoundException{
         String query = "SELECT u FROM User u WHERE u.email =:email";
         Map<String, Object> queryParams = new HashMap<>();
         queryParams.put("email", email);

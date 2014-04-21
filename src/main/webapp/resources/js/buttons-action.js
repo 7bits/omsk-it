@@ -119,37 +119,37 @@ $(document).ready(function() {
 
 function onSocialRegistrationSubmit() {
     var userRegistrationFormData = $(".js-apply-user-registration-form").serialize();
+    responseField = $(".js-field-response");
+    notificationField = $(".js-apply-response");
     $.ajax({
         url: userSocialRegistrationUrl,
         type: "POST",
         data: userRegistrationFormData,
         dataType: "json",
-        success: function(response) {
-            $(".js-apply-response").html(response.result.message);
+        beforeSend: function() {
             $(".js-input").css("background-color", "#ffffff");
-            if (response.status == "SUCCESS") {
-                $(".js-field-info").css("display", "inline");
-            } else {
+            responseField.empty();
+            notificationField.html("Отправка...");
+        },
+        success: function(response) {
+            notificationField.html(response.result.message);
+            if (response.status == "FAIL") {
                 if (response.result.firstName != null) {
                     $(".js-first-name-response").html(response.result.firstName);
                     $(".js-first-name-input").css("background-color", "#fff5e5");
                 }
-
                 if (response.result.secondName != null) {
                     $(".js-second-name-response").html(response.result.secondName);
                     $(".js-second-name-input").css("background-color", "#fff5e5");
                 }
-
                 if (response.result.email != null) {
                     $(".js-email-response").html(response.result.email);
                     $(".js-email-input").css("background-color", "#fff5e5");
                 }
-
                 if (response.result.company != null) {
                     $(".js-company-response").html(response.result.company);
                     $(".js-company-input").css("background-color", "#fff5e5");
                 }
-
                 if (response.result.jobPosition != null) {
                     $(".js-job-position-response").html(response.result.jobPosition);
                     $(".js-job-position-input").css("background-color", "#fff5e5");
