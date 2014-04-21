@@ -7,7 +7,6 @@ import it.sevenbits.conferences.service.CompanyService;
 import it.sevenbits.conferences.service.RoleService;
 import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.service.VkontakteProfileService;
-import it.sevenbits.conferences.service.common.CustomUserDetailsService;
 import it.sevenbits.conferences.utils.file.FileManager;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
 import it.sevenbits.conferences.utils.vkontakteAuthorization.VkontakteProfile;
@@ -30,6 +29,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -63,7 +63,7 @@ public class VkAuthorizationController {
     @Autowired
     private UserService userService;
     @Autowired
-    private CustomUserDetailsService customUserDetailsService;
+    private UserDetailsService customUserDetailsService;
     @Autowired
     private VkontakteProfileService vkontakteProfileService;
     @Autowired

@@ -12,7 +12,6 @@ import it.sevenbits.conferences.service.GuestService;
 import it.sevenbits.conferences.service.ReportService;
 import it.sevenbits.conferences.service.RoleService;
 import it.sevenbits.conferences.service.UserService;
-import it.sevenbits.conferences.service.common.CustomUserDetailsService;
 import it.sevenbits.conferences.utils.file.FileConverter;
 import it.sevenbits.conferences.utils.file.FileManager;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
@@ -74,7 +73,7 @@ public class UserController {
     private CompanyService companyService;
 
     @Autowired
-    private CustomUserDetailsService customUserDetailsService;
+    private UserDetailsService customUserDetailsService;
 
     @Autowired
     @Qualifier("userRegistrationValidator")
