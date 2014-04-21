@@ -12,6 +12,7 @@ import it.sevenbits.conferences.service.GuestService;
 import it.sevenbits.conferences.service.ReportService;
 import it.sevenbits.conferences.service.RoleService;
 import it.sevenbits.conferences.service.UserService;
+import it.sevenbits.conferences.service.common.CustomUserDetailsService;
 import it.sevenbits.conferences.utils.file.FileConverter;
 import it.sevenbits.conferences.utils.file.FileManager;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
@@ -234,14 +235,19 @@ public class UserController {
             UserDetails userDetails = null;
             try {
                 userDetails = customUserDetailsService.loadUserByUsername(loginForm.getLogin());
-            } catch (Exception e) {
+            } catch (UsernameNotFoundException e) {
                 Map<String, String> errors = new HashMap<>();
                 errors.put("message", "Логин или пароль введены неверно");
                 response.setResult(errors);
                 response.setStatus(JsonResponse.STATUS_FAIL);
                 return response;
             }
-            if (!isPasswordValid(loginForm.getPassword(), userDetails)) {
+            if (!userDetails.isEnabled()) {
+                Map<String, String> errors = new HashMap<>();
+                errors.put("message", "Вам необходимо активировать Ваш аккаунт.");
+                response.setResult(errors);
+                response.setStatus(JsonResponse.STATUS_FAIL);
+            } else if (!isPasswordValid(loginForm.getPassword(), userDetails)) {
                 Map<String, String> errors = new HashMap<>();
                 errors.put("message", "Логин или пароль введены неверно");
                 response.setResult(errors);

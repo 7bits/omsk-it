@@ -5,6 +5,7 @@ import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.web.form.AnonymousGuestForm;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -87,10 +88,12 @@ public class AnonymousGuestValidator implements Validator {
     }
 
     private boolean isUserExists(final String email) {
-        if (userService.findUserByEmail(email) != null) {
-            return true;
+        try {
+            userService.findUserByEmail(email);
+        } catch (UsernameNotFoundException e) {
+            return false;
         }
-        return false;
+        return true;
     }
 
     private boolean isCompanyExists(final String companyName) {
