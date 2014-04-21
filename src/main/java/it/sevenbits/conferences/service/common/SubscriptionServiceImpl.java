@@ -12,7 +12,7 @@ import java.util.List;
  * Simple implementation of the SubscriptionService.
  */
 @Service
-public class SubscriptionService implements SubscriptionService {
+public class SubscriptionServiceImpl implements SubscriptionService {
 
     @Autowired
     private SubscriptionDao subscriptionDao;

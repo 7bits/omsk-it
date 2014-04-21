@@ -12,7 +12,7 @@ import java.util.List;
  * Simple implementation of the RoleService.
  */
 @Service
-public class RoleService implements RoleService {
+public class RoleServiceImpl implements RoleService {
 
     @Autowired
     private RoleDao roleDao;

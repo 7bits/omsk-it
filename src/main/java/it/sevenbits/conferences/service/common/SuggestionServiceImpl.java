@@ -13,7 +13,7 @@ import java.util.List;
  * Simple implementation of the SuggestionService.
  */
 @Service
-public class SuggestionService implements SuggestionService {
+public class SuggestionServiceImpl implements SuggestionService {
 
     @Autowired
     private SuggestionDao suggestionDao;

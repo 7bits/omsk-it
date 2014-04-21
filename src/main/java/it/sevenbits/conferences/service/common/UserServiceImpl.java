@@ -17,7 +17,7 @@ import java.util.Map;
  */
 
 @Service
-public class UserService implements UserService {
+public class UserServiceImpl implements UserService {
 
     /** Message for UserNotFoundException */
     private static final String USER_NOT_FOUND_EXCEPTION = "User was not found";

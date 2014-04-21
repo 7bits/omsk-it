@@ -9,10 +9,24 @@
             </h1>
 
             <div class="reporter-about">
-                <%@ include file="/WEB-INF/view/jsp/photo-viewing.jsp" %>
+                <c:choose>
+                    <c:when test="${user.photo == null}">
+                        <img class="photo" src='<c:url value="/resources/images/photos/nophoto.png" />' />
+                    </c:when>
+                    <c:otherwise>
+                        <img class="photo" src='<c:url value="/resources/images/photos/${user.photo}" />' />
+                    </c:otherwise>
+                </c:choose>
                 <div class="short-description">
                     <span class="position">
-                        <%@ include file="/WEB-INF/view/jsp/job-position-viewing.jsp" %>
+                        <c:choose>
+                            <c:when test="${user.jobPosition == null}">
+                                <a href='<c:url value="${user.company.site}"/>' target="_blank"><c:out value="${user.company.name}"/></a>
+                            </c:when>
+                            <c:otherwise>
+                                <c:out value="${user.jobPosition}"/>, <a href='<c:url value="${user.company.site}"/>' target="_blank"><c:out value="${user.company.name}"/></a>
+                            </c:otherwise>
+                        </c:choose>
                     </span>
                     <br>
                     <c:out value="${user.selfDescription}"/>

@@ -17,7 +17,7 @@ import java.util.Vector;
  * Simple implementation of the ConferenceService.
  */
 @Service
-public class ConferenceService implements ConferenceService {
+public class ConferenceServiceImpl implements ConferenceService {
 
     @Autowired
     private ConferenceDao conferenceDao;
