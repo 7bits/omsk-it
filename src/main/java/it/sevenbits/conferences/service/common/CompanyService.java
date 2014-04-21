@@ -14,7 +14,7 @@ import java.util.Map;
  * Simple implementation of the CompanyService.
  */
 @Service
-public class SimpleCompanyService implements CompanyService {
+public class CompanyService implements CompanyService {
 
     @Autowired
     private CompanyDao companyDao;

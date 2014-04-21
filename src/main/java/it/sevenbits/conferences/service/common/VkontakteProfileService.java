@@ -16,7 +16,7 @@ import java.util.List;
  * Simple implementation of the VkontakteProfileService.
  */
 @Service
-public class SimpleVkontakteProfileService implements VkontakteProfileService {
+public class VkontakteProfileService implements VkontakteProfileService {
 
     @Autowired
     private VkontakteProfileDao vkontakteProfileDao;

@@ -14,7 +14,7 @@ import java.util.Map;
  * Simple implementation of the GuestService.
  */
 @Service
-public class SimpleGuestService implements GuestService {
+public class GuestService implements GuestService {
 
     @Autowired
     private GuestDao guestDao;

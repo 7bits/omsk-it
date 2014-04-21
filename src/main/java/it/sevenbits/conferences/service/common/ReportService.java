@@ -16,7 +16,7 @@ import java.util.Map;
  * Simple implementation of the ReportService.
  */
 @Service
-public class SimpleReportService implements ReportService {
+public class ReportService implements ReportService {
 
     @Autowired
     private ReportDao reportDao;
