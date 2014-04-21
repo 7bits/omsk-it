@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%@ include file="/WEB-INF/view/jsp/success-guest-registration.jsp" %>
+<%@ include file="/WEB-INF/view/jsp/guest-registration-response.jsp" %>
 <div class="content">
     <div class="page">
         <div class="guest-form-div">

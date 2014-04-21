@@ -13,32 +13,32 @@
 
     <definition name="index-reg" extends="base">
         <put-attribute name="title" value="Омские IT-субботники (OmskIT)" />
-        <put-attribute name="content" value="/WEB-INF/view/tiles/content-index-reg.jsp" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/index-registration.jsp" />
     </definition>
 
     <definition name="index-after" extends="base">
         <put-attribute name="title" value="Омские IT-субботники (OmskIT)" />
-        <put-attribute name="content" value="/WEB-INF/view/tiles/content-index-after.jsp" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/index-after.jsp" />
     </definition>
 
     <definition name="index-before" extends="base">
         <put-attribute name="title" value="Омские IT-субботники (OmskIT)" />
-        <put-attribute name="content" value="/WEB-INF/view/tiles/content-index-before.jsp" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/index-before.jsp" />
     </definition>
 
     <definition name="rules" extends="base">
         <put-attribute name="title" value="Правила" />
-        <put-attribute name="content" value="/WEB-INF/view/tiles/content-rules.jsp" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/rules.jsp" />
     </definition>
 
     <definition name="archive" extends="base">
         <put-attribute name="title" value="Архив" />
-        <put-attribute name="content" value="/WEB-INF/view/tiles/content-archive.jsp" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/archive.jsp" />
     </definition>
 
     <definition name="to-reporters" extends="base">
         <put-attribute name="title" value="Докладчикам" />
-        <put-attribute name="content" value="/WEB-INF/view/tiles/content-to-reporters.jsp" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/to-reporters-info.jsp" />
     </definition>
 
     <definition name="user-registration" extends="base">
@@ -63,17 +63,17 @@
 
     <definition name="to-companies" extends="base">
         <put-attribute name="title" value="Компаниям" />
-        <put-attribute name="content" value="/WEB-INF/view/tiles/content-to-companies.jsp" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/to-companies-info.jsp" />
     </definition>
 
     <definition name="report" extends="base">
         <put-attribute name="title" value="Информация о докладе" />
-        <put-attribute name="content" value="/WEB-INF/view/tiles/content-report.jsp" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/report.jsp" />
     </definition>
 
     <definition name="user-information" extends="base">
         <put-attribute name="title" value="Информация о докладчике" />
-        <put-attribute name="content" value="/WEB-INF/view/tiles/content-user.jsp" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/user-info.jsp" />
     </definition>
 
     <definition name="login" extends="base">
@@ -83,22 +83,22 @@
 
     <definition name="change-password" extends="base">
         <put-attribute name="title" value="Изменение пароля" />
-        <put-attribute name="content" value="/WEB-INF/view/tiles/content-change-password.jsp" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/change-password.jsp" />
     </definition>
 
     <definition name="apply-for-report" extends="base">
         <put-attribute name="title" value="Подать заявку на выступление" />
-        <put-attribute name="content" value="/WEB-INF/view/tiles/content-apply-for-report.jsp" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/apply-for-report.jsp" />
     </definition>
 
     <definition name="suggest" extends="base">
         <put-attribute name="title" value="Предложить тему доклада" />
-        <put-attribute name="content" value="/WEB-INF/view/tiles/content-suggest.jsp" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/suggest.jsp" />
     </definition>
 
     <definition name="registration-confirm" extends="base">
         <put-attribute name="title" value="Подтверждение регистрации" />
-        <put-attribute name="content" value="/WEB-INF/view/tiles/registration-confirm.jsp" />
+        <put-attribute name="content" value="/WEB-INF/view/tiles/registration-confirm-info.jsp" />
     </definition>
 
     <definition name="error-404" extends="base">

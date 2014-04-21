@@ -27,7 +27,7 @@
             <a class="twitter inline-item social-icon" href="https://twitter.com/OmskIT"></a>
             <a class="vkontakte inline-item social-icon" href="http://vk.com/omskit"></a>
         </div>
-        <%@ include file="/WEB-INF/view/jsp/login-popup-window.jsp" %>
+        <%@ include file="/WEB-INF/view/jsp/popup-login-form.jsp" %>
         <%@ include file="/WEB-INF/view/jsp/popup-new-company-form.jsp" %>
         <%@ include file="/WEB-INF/view/jsp/popup-reset-password-form.jsp" %>
     </div>
