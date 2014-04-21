@@ -70,6 +70,7 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     margin-top: 60px;
     min-height: 370px;
+    padding-bottom: 5px;
 }
 .title {
     height: auto;

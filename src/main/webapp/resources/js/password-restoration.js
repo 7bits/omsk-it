@@ -9,13 +9,11 @@ $(document).ready(function() {
 });
 
 function onResetPasswordFormOpen() {
-    $(".login-container").hide();
     $(".reset-password-form-container").show();
 }
 
 function onResetPasswordFormCancel() {
     $(".reset-password-form-container").hide();
-    $(".login-container").show();
     clearResetPasswordFields()
 }
 
