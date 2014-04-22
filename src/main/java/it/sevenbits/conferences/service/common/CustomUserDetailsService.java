@@ -23,7 +23,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     private UserService userService;
 
-    public UserDetails loadUserByUsername(final String login) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(final String login) {
         it.sevenbits.conferences.domain.User domainUser = userService.findUser(login);
         if (domainUser == null) {
             throw new UsernameNotFoundException("User not found");

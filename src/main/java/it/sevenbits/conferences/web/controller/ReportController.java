@@ -19,7 +19,7 @@ public class ReportController {
     private ReportService reportService;
 
     @RequestMapping(value = "/report/{reportId}", method = RequestMethod.GET)
-    public ModelAndView showReport(@PathVariable(value = "reportId") String reportId) {
+    public ModelAndView showReport(@PathVariable(value = "reportId") final String reportId) {
 
         ModelAndView modelAndView = new ModelAndView("report");
 

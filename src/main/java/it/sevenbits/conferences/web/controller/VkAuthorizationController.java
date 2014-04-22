@@ -37,7 +37,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.Validator;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.imageio.ImageIO;
@@ -46,7 +50,6 @@ import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -64,6 +67,7 @@ public class VkAuthorizationController {
     private static final String RESPONSE_TYPE_CODE = "code";
     private static final String REDIRECT_URI = "http://saturdays.omskit.org/social/vkAuthentication";
     private static final String PHOTO_SIZE = "photo_200";
+    private static final int RANDOM_PASSWORD_LENGTH = 15;
 
     @Autowired
     private UserService userService;
@@ -104,7 +108,9 @@ public class VkAuthorizationController {
      *         Redirect on registration page if user not exists;
      */
     @RequestMapping(value = "vkAuthentication", method = RequestMethod.GET)
-    public ModelAndView authetication(@RequestHeader(value = "referer", required = false) final String referer, HttpServletRequest request) {
+    public ModelAndView authetication(
+            @RequestHeader(value = "referer", required = false) final String referer, final HttpServletRequest request
+    ) {
         String code = request.getParameter("code");
         String userIdGetUrl =
                 "https://oauth.vk.com/access_token?client_id=" + CLIENT_ID +
@@ -117,9 +123,9 @@ public class VkAuthorizationController {
         modelAndView.setViewName("redirect:" + referer);
         try {
             HttpResponse httpResponse = httpClient.execute(accessTokenGet);
-            Map<String, String> map = new HashMap<>();
+            Map<String, String> map;
             ObjectMapper mapper = new ObjectMapper();
-            map = mapper.readValue(httpResponse.getEntity().getContent(), new TypeReference<HashMap<String, String>>(){});
+            map = mapper.readValue(httpResponse.getEntity().getContent(), new TypeReference<HashMap<String, String>>() {} );
             VkontakteProfile vkontakteProfile = getVkontakteProfile(map.get("user_id"), map.get("access_token"));
             if (vkontakteProfile != null) {
                 User user = userService.findUserByVkontakteId(Long.parseLong(vkontakteProfile.getId()));
@@ -130,7 +136,7 @@ public class VkAuthorizationController {
                     modelAndView = new ModelAndView("account-not-enabled");
                 } else {
                     request.getSession().setAttribute("vkontakteUserId", vkontakteProfile.getId());
-                    BufferedImage image = null;
+                    BufferedImage image;
                     String temporaryPhotoName = null;
                     try {
                         URL url = new URL(vkontakteProfile.getPhoto_200());
@@ -172,7 +178,7 @@ public class VkAuthorizationController {
                     errors.put(fieldError.getField(), fieldError.getDefaultMessage());
                 }
             }
-            errors.put("message","Форма заполнена неверно");
+            errors.put("message", "Форма заполнена неверно");
             jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
             jsonResponse.setResult(errors);
         } else {
@@ -181,7 +187,7 @@ public class VkAuthorizationController {
             user.setSecondName(userSocialRegistrationForm.getSecondName());
             user.setEmail(userSocialRegistrationForm.getEmail());
             user.setLogin(userSocialRegistrationForm.getEmail());
-            String randomPassword = RandomStringUtils.random(15, true, true);
+            String randomPassword = RandomStringUtils.random(RANDOM_PASSWORD_LENGTH, true, true);
             PasswordEncoder encoder = new BCryptPasswordEncoder();
             String encodedRandomPassword = encoder.encode(randomPassword);
             user.setPassword(encodedRandomPassword);
@@ -217,13 +223,13 @@ public class VkAuthorizationController {
                 mailSenderUtility.sendConfirmationToken(userSocialRegistrationForm.getEmail(), confirmationToken);
             } catch (MailSenderException e) {
                 Map<String, String> result = new HashMap<>();
-                result.put("message","Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
+                result.put("message", "Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
                 jsonResponse.setResult(result);
                 jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
                 return jsonResponse;
             }
             jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
-            Map<String,String> result = new HashMap<>();
+            Map<String, String> result = new HashMap<>();
             result.put("message", "На Ваш email выслана ссылка для подтверждения");
             jsonResponse.setResult(result);
         }
@@ -231,7 +237,9 @@ public class VkAuthorizationController {
     }
 
     private void authorizeUser(final UserDetails userDetails) {
-        Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
+        Authentication authentication = new UsernamePasswordAuthenticationToken(
+                userDetails, userDetails.getPassword(), userDetails.getAuthorities()
+        );
         SecurityContext securityContext = SecurityContextHolder.getContext();
         securityContext.setAuthentication(authentication);
     }
@@ -250,7 +258,6 @@ public class VkAuthorizationController {
                 "&fields=" + PHOTO_SIZE;
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpUriRequest getProfileRequest = new HttpPost(getProfileRequestUrl);
-        Map<String, ArrayList> map = new HashMap<>();
         VkontakteProfile vkontakteProfile = null;
         try {
             HttpResponse getProfileResponse = httpClient.execute(getProfileRequest);

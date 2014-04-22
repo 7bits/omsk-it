@@ -5,7 +5,6 @@ import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.web.form.ApplyForReportForm;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -49,17 +48,14 @@ public class AnonymousApplyForReportValidator implements Validator {
     }
 
     private void validateFirstName(final ApplyForReportForm form, final Errors errors) {
-
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "firstName.empty", "Заполните, пожалуйста, Ваше имя");
     }
 
     private void validateSecondName(final ApplyForReportForm form, final Errors errors) {
-
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "secondName", "secondName.empty", "Заполните, пожалуйста, Вашу фамилию");
     }
 
     private void validateEmail(final ApplyForReportForm form, final Errors errors) {
-
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "email.empty", "Заполните, пожалуйста, Ваш E-mail");
         if (errors.getFieldErrorCount("email") != 0) {
             return;
@@ -77,8 +73,9 @@ public class AnonymousApplyForReportValidator implements Validator {
     }
 
     private void validateJobPosition(final ApplyForReportForm form, final Errors errors) {
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "jobPosition", "jobPosition.empty", "Укажите, пожалуйста, Вашу роль в компании/команде");
+        ValidationUtils.rejectIfEmptyOrWhitespace(
+                errors, "jobPosition", "jobPosition.empty", "Укажите, пожалуйста, Вашу роль в компании/команде"
+        );
     }
 
     private void validateTitle(final ApplyForReportForm form, final Errors errors) {
@@ -87,16 +84,13 @@ public class AnonymousApplyForReportValidator implements Validator {
     }
 
     private void validateDescription(final ApplyForReportForm form, final Errors errors) {
-
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description", "description.empty", "Поле должно быть заполнено.");
     }
 
     private void validateKeyTechnologies(final ApplyForReportForm form, final Errors errors) {
-
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "keyTechnologies", "keyTechnologies.empty", "Поле должно быть заполнено.");
     }
     private void validateCompany(final ApplyForReportForm form, final Errors errors) {
-
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "company", "company.empty", "Поле должно быть заполнено.");
         String companyName = form.getCompany();
         if (!isCompanyExists(companyName)) {
@@ -105,15 +99,12 @@ public class AnonymousApplyForReportValidator implements Validator {
     }
 
     private void validateOtherConferences(final ApplyForReportForm form, final Errors errors) {
-
 //        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "otherConferences", "otherConferences.empty", "Поле должно быть заполнено.");
     }
 
     private void validateSpeechExperience(final ApplyForReportForm form, final Errors errors) {
-
 //        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "speechExperience", "speechExperience.empty", "Поле должно быть заполнено.");
     }
-
     private void validateReporterWishes(final ApplyForReportForm form, final Errors errors) {
 
 //        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "reporterWishes", "reporterWishes.empty", "Поле должно быть заполнено.");

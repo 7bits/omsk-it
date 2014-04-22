@@ -15,7 +15,7 @@ import java.util.UUID;
  */
 public class FileManager {
 
-    private final Logger LOGGER = Logger.getLogger(FileManager.class);
+    private static final Logger LOGGER = Logger.getLogger(FileManager.class);
 
     private enum PathProperties {
         PHOTOS_PATH("upload.images.path"), TEMPORARY_PHOTOS_PATH("upload.temporary.photos");

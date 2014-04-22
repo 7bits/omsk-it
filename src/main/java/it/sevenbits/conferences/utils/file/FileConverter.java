@@ -11,7 +11,7 @@ import java.io.IOException;
  */
 public class FileConverter {
 
-    private static final Logger logger = Logger.getLogger(FileConverter.class);
+    private static final Logger LOGGER = Logger.getLogger(FileConverter.class);
 
     /**
      * Convert multipart image file to buffered image file.
@@ -23,7 +23,7 @@ public class FileConverter {
         try {
             bufferedImage = ImageIO.read(multipartFile.getInputStream());
         } catch (IOException e) {
-            logger.error("Cannot read MultipartFile's InputStream to BufferedImage: " + e.getMessage());
+            LOGGER.error("Cannot read MultipartFile's InputStream to BufferedImage: " + e.getMessage());
         }
         return bufferedImage;
     }

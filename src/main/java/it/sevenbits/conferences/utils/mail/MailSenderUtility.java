@@ -45,7 +45,7 @@ public class MailSenderUtility {
     /**
      * Send common message.
      */
-    private void sendMail(final String to, final String subject, final String msg) throws MailSenderException{
+    private void sendMail(final String to, final String subject, final String msg) throws MailSenderException {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(to);
@@ -64,7 +64,7 @@ public class MailSenderUtility {
      * @param confirmationToken Users confirmation token
      * @throws MailSenderException if mail sender isn't available or other.
      */
-    public void sendConfirmationToken(final String login, final String confirmationToken) throws MailSenderException{
+    public void sendConfirmationToken(final String login, final String confirmationToken) throws MailSenderException {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(login);
@@ -108,7 +108,9 @@ public class MailSenderUtility {
      * @param confirmationToken Users confirmation token
      * @throws MailSenderException if mail sender isn't available or other.
      */
-    public void sendConfirmationTokenAndReportStatus(final String email, final String confirmationToken, final Long reportId) throws MailSenderException {
+    public void sendConfirmationTokenAndReportStatus(
+            final String email, final String confirmationToken, final Long reportId
+    ) throws MailSenderException {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(email);

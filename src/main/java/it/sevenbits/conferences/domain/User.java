@@ -1,7 +1,5 @@
 package it.sevenbits.conferences.domain;
 
-import it.sevenbits.conferences.utils.vkontakteAuthorization.*;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+/**
+ * POJO class for User model.
+ */
 @Entity
 @Table(name = "user")
 public class User {

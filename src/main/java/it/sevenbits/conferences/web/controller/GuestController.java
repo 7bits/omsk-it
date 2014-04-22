@@ -153,7 +153,7 @@ public class GuestController {
                 mailSenderUtility.sendConfirmationTokenAndConferenceStatus(guestForm.getEmail(), confirmationToken);
             } catch (MailSenderException e) {
                 Map<String, String> result = new HashMap<>();
-                result.put("message","Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
+                result.put("message", "Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
                 response.setResult(result);
                 response.setStatus(JsonResponse.STATUS_FAIL);
                 return response;

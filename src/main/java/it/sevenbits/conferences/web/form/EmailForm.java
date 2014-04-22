@@ -10,7 +10,7 @@ public class EmailForm {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 }

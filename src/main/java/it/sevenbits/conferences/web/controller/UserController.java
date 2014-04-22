@@ -12,14 +12,16 @@ import it.sevenbits.conferences.service.GuestService;
 import it.sevenbits.conferences.service.ReportService;
 import it.sevenbits.conferences.service.RoleService;
 import it.sevenbits.conferences.service.UserService;
-import it.sevenbits.conferences.service.common.CustomUserDetailsService;
 import it.sevenbits.conferences.utils.file.FileConverter;
 import it.sevenbits.conferences.utils.file.FileManager;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
 import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
-import it.sevenbits.conferences.web.form.*;
+import it.sevenbits.conferences.web.form.ChangePasswordForm;
+import it.sevenbits.conferences.web.form.EmailForm;
+import it.sevenbits.conferences.web.form.JsonResponse;
+import it.sevenbits.conferences.web.form.LoginForm;
+import it.sevenbits.conferences.web.form.UserRegistrationForm;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -35,14 +37,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.Validator;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * Controller for /user pages.
@@ -88,9 +99,6 @@ public class UserController {
     @Autowired
     @Qualifier("changePasswordValidator")
     private Validator changePasswordValidator;
-
-    /** Project's logger */
-    private static final Logger LOGGER = Logger.getLogger(VkAuthorizationController.class);
 
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public ModelAndView getUserInformation(@PathVariable(value = "userId") final Long userId) {
@@ -203,14 +211,14 @@ public class UserController {
                 mailSenderUtility.sendConfirmationToken(userRegistrationForm.getEmail(), confirmationToken);
             } catch (MailSenderException e) {
                 Map<String, String> result = new HashMap<>();
-                result.put("message","Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
+                result.put("message", "Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
                 jsonResponse.setResult(result);
                 jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
                 return jsonResponse;
             }
             userService.updateUser(user);
             Map<String, String> result = new HashMap<>();
-            result.put("message","На Ваш email выслана ссылка для подтверждения");
+            result.put("message", "На Ваш email выслана ссылка для подтверждения");
             jsonResponse.setResult(result);
             jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
         }
@@ -270,7 +278,9 @@ public class UserController {
     }
 
     private void authorizeUser(final UserDetails userDetails) {
-        Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
+        Authentication authentication = new UsernamePasswordAuthenticationToken(
+                userDetails, userDetails.getPassword(), userDetails.getAuthorities()
+        );
         SecurityContext securityContext = SecurityContextHolder.getContext();
         securityContext.setAuthentication(authentication);
     }
@@ -312,7 +322,7 @@ public class UserController {
             mailSenderUtility.sendNewPassword(user.getEmail(), newPassword);
         } catch (MailSenderException e) {
             Map<String, String> result = new HashMap<>();
-            result.put("message","Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
+            result.put("message", "Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
             jsonResponse.setResult(result);
             jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
             return jsonResponse;
@@ -328,7 +338,7 @@ public class UserController {
     @RequestMapping(value = "/change-password", method = RequestMethod.GET)
     public ModelAndView changePasswordGet(@RequestParam(value = "email", required = false) final String email) {
         ModelAndView modelAndView = new ModelAndView("change-password");
-        modelAndView.addObject("email",email);
+        modelAndView.addObject("email", email);
         return modelAndView;
     }
 
@@ -359,7 +369,7 @@ public class UserController {
 
     @RequestMapping(value = "/upload/photo", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse fileUpload(MultipartHttpServletRequest request, HttpSession httpSession) {
+    public JsonResponse fileUpload(final MultipartHttpServletRequest request, final HttpSession httpSession) {
         JsonResponse jsonResponse = new JsonResponse();
         Iterator<String> itr =  request.getFileNames();
         MultipartFile multipartFile = request.getFile(itr.next());
