@@ -51,6 +51,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+/**
+ * Controller which provide access to vkontakte's API.
+ */
 @Controller
 @RequestMapping(value = "social")
 public class VkAuthorizationController {
@@ -78,6 +81,11 @@ public class VkAuthorizationController {
     @Qualifier("userSocialRegistrationValidator")
     private Validator userSocialRegistrationValidator;
 
+
+    /**
+     * Request for code for receiving access token.
+     * @return Redirect on url with code from vkontakte's API which process authentication.
+     */
     @RequestMapping(value = "vkAuthorization", method = RequestMethod.GET)
     public String getAuthorizationUrl() {
         String url =
@@ -88,7 +96,12 @@ public class VkAuthorizationController {
     }
 
     /**
+     * Authentication with vkontakte's profile
      * @param referer Address from which request was come;
+     * @param request Http request
+     * @return Redirect on address from which request was come (referer) if user exists.
+     *         Redirect on account-not-enabled page if user not enabled.
+     *         Redirect on registration page if user not exists;
      */
     @RequestMapping(value = "vkAuthentication", method = RequestMethod.GET)
     public ModelAndView authetication(@RequestHeader(value = "referer", required = false) final String referer, HttpServletRequest request) {
@@ -223,6 +236,12 @@ public class VkAuthorizationController {
         securityContext.setAuthentication(authentication);
     }
 
+    /**
+     * Get user's vkontakte profile.
+     * @param userId User's vkontakte id.
+     * @param accessToken Vkontakte's API access token
+     * @return Vkontakte's profile object.
+     */
     private VkontakteProfile getVkontakteProfile(final String userId, final String accessToken) {
         String getProfileRequestUrl =
                 "https://api.vk.com/method/users.get?user_id=" + userId +
