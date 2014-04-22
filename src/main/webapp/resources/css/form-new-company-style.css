@@ -49,54 +49,6 @@
     -moz-border-radius: 5px 5px 0px 0px;
 }
 
-.new-company-add-confirm {
-    cursor: pointer;
-    color: #ffffff;
-    font-size: 20px;
-    padding-top: 1px;
-    display: inline-block;
-    border-radius: 5px;
-    height: 44px;
-    width: 155px;
-    vertical-align: top;
-    text-align: center;
-    line-height: 2em;
-    margin-left: 125px;
-    margin-right: 30px;
-    background: linear-gradient(to top, #0ba1ae, #10b7c5);
-    background: -moz-linear-gradient(to top, #0ba1ae, #10b7c5);
-}
-
-.new-company-add-open {
-    padding-top: 7px;
-    margin-top: -20px;
-    width: 130px;
-    height: 35px;
-    color: #FFFFFF;
-    background: linear-gradient(to top, #0ba1ae, #10b7c5);
-    background: -moz-linear-gradient(to top, #0ba1ae, #10b7c5);
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -khtml-border-radius: 4px;
-    border-radius: 4px;
-    font-size: 20px;
-    text-align: center;
-    cursor: pointer;
-}
-.new-company-add-open:hover {
-    background:linear-gradient(to bottom, #18cfdf, #0ba9b7);
-    background: -moz-linear-gradient(to bottom, #18cfdf, #0ba9b7);
-}
-
-.new-company-add-confirm:hover {
-    background: linear-gradient(to bottom, #18cfdf, #0ba9b7);
-}
-
-.new-company-add-confirm:active {
-    background: #0ba9b7;
-    background: linear-gradient(to top, #18cfdf, #0ba9b7);
-}
-
 .close-new-company-form {
     font-family: 'PT Sans', sans-serif;
     font-size: 20px;

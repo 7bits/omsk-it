@@ -24,25 +24,3 @@
     outline: none;
     border-color: #1a737c;
 }
-.subscribe-button {
-    font-family: inherit;
-    font-size: 21px;
-    color: #2d3e50;
-    width: 156px;
-    height: 47px;
-    margin-left: 17px;
-    background-color: #aaf0f7;
-    border: outset 1px #8adde6;
-    border-radius: 5px;
-    -webkit-border-radius: 5px; /*Chrome 4.0, Safari 5.0, iOS*/
-    -moz-border-radius: 5px; /*Firefox 4.0*/
-    cursor: pointer;
-}
-.subscribe-button:hover {
-    background: #18cfdf;
-    background: linear-gradient(to bottom, #18cfdf, #0ba9b7);
-}
-.subscribe-button:active {
-    background: #0ba9b7;
-    background: linear-gradient(to top, #18cfdf, #0ba9b7);
-}

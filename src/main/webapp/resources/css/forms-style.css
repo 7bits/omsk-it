@@ -8,15 +8,61 @@
     background: url(../images/close-button.png);
 }
 */
+.field {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.left-label {
+    width: 120px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.field-info {
+    font-size: 15px;
+    font-weight: normal;
+    display: inline-block;
+    max-width: 380px;
+}
+
+.js-field-info {
+    padding-right: 5px;
+}
+
+.small-input {
+    margin-left: 25px;
+    font-size: 20px;
+    color: #2d3e50;
+    width: 254px;
+    height: 38px;
+    vertical-align: middle;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background-color: #ffffff;
+    border: solid 2px #aaf0f7;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.small-input:focus {
+    outline: none;
+    border-color: #1a737c;
+}
+/****/
 .form-content {
     margin-left: 30px;
     margin-top: 25px;
+    padding-bottom: 10px;
 }
 .form-info {
     font-size: 15px;
     padding-bottom: 30px;
     vertical-align: top;
 }
+
 .reset-button {
     font-family: 'PT Sans', sans-serif;
     font-size: 20px;
@@ -35,6 +81,10 @@
     margin-bottom: 50px;
 }
 
+.attention {
+    color: #f06009;
+    clear: left;
+}
 .attention-info {
     margin-left: 151px;
     font-size: 15px;
