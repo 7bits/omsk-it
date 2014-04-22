@@ -9,7 +9,7 @@
             Хотите что-нибудь рассказать на одном из Омских IT-субботников? Тогда заполните специальную форму, и мы с вами свяжемся!
             <a href='<c:url value="/apply-for-report"/>'>
                 <div class="center-div">
-                    <span class="button-submit">
+                    <span class="pos-btn-submit btn-gradient btn-submit btn-bordered">
                     Подать заявку на выступление
                     </span>
                 </div>
@@ -38,7 +38,7 @@
             </div>
             <div class="center-div">
                 <a href='<c:url value="/suggest"/>'>
-                    <span class="button-submit">
+                    <span class="pos-btn-submit btn-gradient btn-submit btn-bordered">
                         Предложить тему
                     </span>
                 </a>

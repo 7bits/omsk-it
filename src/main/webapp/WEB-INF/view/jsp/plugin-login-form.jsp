@@ -7,7 +7,7 @@
         <div class="login-form-plugin-container">
             <sec:authorize  ifAnyGranted="ROLE_ADMIN, ROLE_USER, ROLE_MODERATOR" >
                 <a href="<c:url value="/j_spring_security_logout" />" >
-                    <div class="inline-item logout login-form-button">
+                    <div class="inline-item btn-logout btn-gradient btn-bordered">
                         Выйти
                     </div>
                 </a>
@@ -19,7 +19,7 @@
                 <div class = "login-input-container">
                     <input class="login" type="text" placeholder="Email" name="j_username" id="j_username" size="30" maxlength="40"/>
                     <input class="login" type="password" placeholder="Пароль" name="j_password" id="j_password" size="30" maxlength="32"/>
-                    <input class="enter login-form-button" type="submit" value="Вход"/>
+                    <input class="btn-gradient btn-enter btn-bordered" type="submit" value="Вход"/>
                 </div>
                 <div class="href">
                     <div class="inline-item">

@@ -32,7 +32,7 @@
                     </c:if>
                 </p>
                 <div class="field">
-                    <input class="button-submit" type="submit" value="Войти">
+                    <input class="pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Войти">
                     <div class="js-apply-response apply-response"></div>
                 </div>
             </form>

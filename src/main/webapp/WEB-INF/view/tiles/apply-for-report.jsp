@@ -16,7 +16,7 @@
                     <div class="login-form-open">
                         Если вы зарегистрированы, то залогиньтесь.
                     </div>
-                    <div class="login-form-open-button login-page-open">
+                    <div class="btn-gradient btn-small btn-bordered btn-inline login-page-open">
                         Логин
                     </div>
                     <a href='<c:url value="/social/vkAuthorization"/>' class="inline-item">
@@ -82,7 +82,7 @@
                         <br/>
                         <input class="js-company-input js-input small-input margin-top-8" type="text" id="company" autocomplete="false" name="company"/>
                         <span class="field-info">
-                            <div class="new-company-add-open inline-item">Добавить</div>
+                            <div class="pos-btn-add-company btn-gradient btn-add-company inline-item">Добавить</div>
                             <span class="js-field-info inline-item"></span>
                         </span>
                         <div class="js-field-response js-company-response attention-info attention inline-item attention-company"></div>
@@ -137,8 +137,8 @@
                     <div class="js-field-response js-reporter-wishes-response attention attention-info"></div>
                 </div>
                 <div class="field">
-                    <input class="js-apply-form-button button-submit" type="submit" value="Отправить">
-                    <input class="js-apply-reset reset-button" type="reset" value="Отмена">
+                    <input class="js-apply-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить">
+                    <input class="js-apply-reset btn-reset" type="reset" value="Отмена">
                     <div class="js-apply-response apply-response"></div>
                 </div>
             </form>

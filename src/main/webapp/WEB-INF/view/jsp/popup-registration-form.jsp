@@ -1,6 +1,6 @@
 <div class="container-form-guest">
     <div class="box container-form js-container-form-guest ">
-        <div class="form-close-button js-form-close-button"></div>
+        <div class="pos-btn-close-form btn-close-form js-form-close-button"></div>
         <h1 class="title">
             Регистрация на <c:out value="${conference.ordinalNumber}"/>-й IT-субботник (<c:out value="${conference.humanReadableDate}"/>, <c:out value="${conference.company.name}"/>)
         </h1>
@@ -8,7 +8,7 @@
             <div class="login-form-open">
                 Если вы зарегистрированы, то залогиньтесь.
             </div>
-            <div class="login-form-open-button login-page-open">
+            <div class="btn-gradient btn-small btn-inline btn-bordered">
                 Логин
             </div>
             <a href='<c:url value="/social/vkAuthorization"/>' class="inline-item">
@@ -78,7 +78,7 @@
                 <br/>
                 <input class="js-company-input js-input small-input margin-top-8" type="text" id="company" autocomplete="false" name="company"/>
                         <span class="field-info">
-                            <div class="new-company-add-open inline-item">Добавить</div>
+                            <div class="pos-btn-add-company btn-gradient btn-add-company inline-item">Добавить</div>
                             <span class="js-field-info inline-item"></span>
                         </span>
                 <div class="js-field-response js-company-response attention-info attention inline-item attention-company"></div>
@@ -86,7 +86,7 @@
 
 
             <div class="field center-div">
-                <input class="js-guest-form-button button-submit" type="submit" value="Зарегистрироваться">
+                <input class="js-guest-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Зарегистрироваться">
                 <div class="js-guest-response"></div>
             </div>
         </form>
