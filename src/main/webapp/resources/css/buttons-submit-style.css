@@ -123,6 +123,21 @@
     display: inline-block;
 }
 
+.btn-event-registration {
+    margin-left: 371px;
+    padding-left: 25px;
+    padding-right: 55px;
+    padding-bottom: 0;
+    height: 50px;
+}
+
+.btn-popup-event-registration {
+    font-size: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 300px;
+    margin-left: -27px;
+}
 
 /* reset buttons */
 

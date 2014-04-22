@@ -16,7 +16,7 @@
                     <div class="login-form-open">
                         Если вы зарегистрированы, то залогиньтесь.
                     </div>
-                    <div class="btn-gradient btn-small btn-bordered btn-inline login-page-open">
+                    <div class="btn-gradient btn-small btn-bordered btn-inline js-login-form-open">
                         Логин
                     </div>
                     <a href='<c:url value="/social/vkAuthorization"/>' class="inline-item">
@@ -82,7 +82,7 @@
                         <br/>
                         <input class="js-company-input js-input small-input margin-top-8" type="text" id="company" autocomplete="false" name="company"/>
                         <span class="field-info">
-                            <div class="pos-btn-add-company btn-gradient btn-add-company inline-item">Добавить</div>
+                            <div class="js-new-company-form-open pos-btn-add-company btn-gradient btn-add-company inline-item">Добавить</div>
                             <span class="js-field-info inline-item"></span>
                         </span>
                         <div class="js-field-response js-company-response attention-info attention inline-item attention-company"></div>

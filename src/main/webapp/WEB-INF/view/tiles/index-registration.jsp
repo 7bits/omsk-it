@@ -13,11 +13,9 @@
                 <br>в компании
                 <a href='<c:url value="${conference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${conference.company.name}"/></span></a>
             </c:if>
-            <a class="js-guest-register-button" href="#">
-                <div class="pos-btn-submit btn-gradient btn-submit btn-bordered registration">
-                    Зарегистрироваться
-                </div>
-            </a>
+            <div class="js-guest-register-button pos-btn-submit btn-gradient btn-submit btn-bordered btn-event-registration">
+                Зарегистрироваться
+            </div>
         </div>
 
         <div class="box">

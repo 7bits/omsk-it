@@ -1,22 +1,18 @@
 $(document).ready(function() {
 
     $(".js-guests-button").click(function() {
-
         window.location.href = toGuestsUrl;
     });
 
     $(".js-reporters-button").click(function() {
-
         window.location.href = toReportersUrl;
     });
 
     $(".js-companies-button").click(function() {
-
         window.location.href = toCompaniesUrl;
     });
 
     $(".js-apply-button").click(function() {
-
         window.location.href = applyForReportUrl;
     });
 
@@ -41,7 +37,6 @@ $(document).ready(function() {
     });
 
     $(".js-apply-reset").click(function() {
-
         $(".js-apply-response").empty();
         $(".js-input").css("background-color", "#ffffff");
         $(".js-field-response").empty();
@@ -50,12 +45,10 @@ $(document).ready(function() {
 
 
     $(".js-theme-button").click(function() {
-
         window.location.href = suggestUrl;
     });
 
     $(".js-suggestion-form-button").click(function(event) {
-
         event.preventDefault();
         doAjaxSuggestPost();
     });
@@ -70,16 +63,16 @@ $(document).ready(function() {
     });
 
     $(".js-form-close-button").click(function() {
-        $(".guest-form-div").css("display", "none");
+        $(".guest-form-div").hide()
     });
 
     $(".close-login-button").click(function() {
         onPopupLoginCancel();
-        $(".login-container").css("display", "none");
+        $(".login-container").hide();
     })
 
-    $(".login-form-open-button").click(function() {
-        $(".login-container").css("display", "block");
+    $(".js-login-form-open").click(function() {
+        $(".login-container").show();
     })
 
     $(".confirm-login").click(function(event) {
@@ -89,11 +82,11 @@ $(document).ready(function() {
 
     $(".js-company-input").focus(doAjaxGetCompanies);
 
-    $(".new-company-add-open").click(function() {
-        $(".new-company-form-container").css("display","block");
+    $(".js-new-company-form-open").click(function() {
+        $(".new-company-form-container").show();
     });
 
-    $(".new-company-add-confirm").click(doAjaxAddNewCompany);
+    $(".js-confirm-new-company").click(doAjaxAddNewCompany);
 
     $(".change-password").click(function(event) {
         event.preventDefault();

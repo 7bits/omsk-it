@@ -24,3 +24,9 @@
     outline: none;
     border-color: #1a737c;
 }
+
+.subscribe-response-top {
+    text-align: left;
+    margin-left: 315px;
+    font-size: 20px;
+}

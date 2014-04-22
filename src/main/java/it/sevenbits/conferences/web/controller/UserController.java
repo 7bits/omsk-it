@@ -304,34 +304,32 @@ public class UserController {
     @ResponseBody
     public JsonResponse changePasswordPost(@ModelAttribute final EmailForm emailForm) {
         JsonResponse jsonResponse = new JsonResponse();
-        User user;
-        try {
-            user = userService.findUserByEmail(emailForm.getEmail());
-        } catch (UsernameNotFoundException e) {
+        User user = userService.findUserByEmail(emailForm.getEmail());
+        if (user == null) {
             jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
             Map<String, String> resultMessage = new HashMap<>();
             resultMessage.put("message",  "Такого пользователя нету.");
             jsonResponse.setResult(resultMessage);
-            return jsonResponse;
+        } else {
+            String newPassword = getNewRandomPassword(DEFAULT_PASSWORD_LENGTH);
+            PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String encodedNewPassword = passwordEncoder.encode(newPassword);
+            user.setPassword(encodedNewPassword);
+            try {
+                mailSenderUtility.sendNewPassword(user.getEmail(), newPassword);
+            } catch (MailSenderException e) {
+                Map<String, String> result = new HashMap<>();
+                result.put("message", "Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
+                jsonResponse.setResult(result);
+                jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
+                return jsonResponse;
+            }
+            userService.updateUser(user);
+            jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
+            Map<String, String> resultMessage = new HashMap<>();
+            resultMessage.put("message", "Ваш пароль успешно изменен.");
+            jsonResponse.setResult(resultMessage);
         }
-        String newPassword = getNewRandomPassword(DEFAULT_PASSWORD_LENGTH);
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedNewPassword = passwordEncoder.encode(newPassword);
-        user.setPassword(encodedNewPassword);
-        try {
-            mailSenderUtility.sendNewPassword(user.getEmail(), newPassword);
-        } catch (MailSenderException e) {
-            Map<String, String> result = new HashMap<>();
-            result.put("message", "Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
-            jsonResponse.setResult(result);
-            jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
-            return jsonResponse;
-        }
-        userService.updateUser(user);
-        jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
-        Map<String, String> resultMessage = new HashMap<>();
-        resultMessage.put("message", "Ваш пароль успешно изменен.");
-        jsonResponse.setResult(resultMessage);
         return jsonResponse;
     }
 

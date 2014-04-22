@@ -1,8 +1,8 @@
 $(document).ready(function() {
-    $(".forgot-password").click(onResetPasswordFormOpen);
-    $(".cancel-reset-password").click(onResetPasswordFormCancel);
-    $(".close-reset-password-button").click(onResetPasswordFormClose)
-    $(".confirm-reset-password").click(function(event){
+    $(".js-forgot-password").click(onResetPasswordFormOpen);
+    $(".js-cancel-reset-password").click(onResetPasswordFormCancel);
+    $(".js-close-reset-password-button").click(onResetPasswordFormClose)
+    $(".js-confirm-reset-password").click(function(event){
         event.preventDefault();
         resetPasswordAjax();
     });
@@ -13,7 +13,6 @@ function onResetPasswordFormOpen() {
 }
 
 function onResetPasswordFormCancel() {
-    $(".reset-password-form-container").hide();
     clearResetPasswordFields()
 }
 

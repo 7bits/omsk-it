@@ -24,7 +24,7 @@
 .report {
     color: #2d3e50; /*colors!!!*/
 }
-/* UNUSED
+
 .report .bottom-line {
     border: none;
     background-color: #dedede;
@@ -32,7 +32,7 @@
     height: 1px;
     margin: 0 20px;
 }
-*/
+
 .report a {
     color: #2d3e50; /*colors!!!*/
 }

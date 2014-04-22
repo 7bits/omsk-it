@@ -74,7 +74,7 @@
                     <br/>
                     <input class="js-company-input js-input small-input margin-top-8" type="text" id="company" autocomplete="false" name="company"/>
                     <span class="field-info">
-                        <div class="pos-btn-add-company btn-gradient btn-add-company inline-item">Добавить</div>
+                        <div class="js-new-company-form-open pos-btn-add-company btn-gradient btn-add-company inline-item">Добавить</div>
                         <span class="js-field-info inline-item"></span>
                     </span>
                     <div class="js-field-response js-company-response attention-info attention inline-item attention-company"></div>
