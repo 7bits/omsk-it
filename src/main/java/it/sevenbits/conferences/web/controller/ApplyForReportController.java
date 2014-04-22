@@ -10,6 +10,7 @@ import it.sevenbits.conferences.service.RoleService;
 import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.utils.file.FileManager;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
+import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
 import it.sevenbits.conferences.web.form.ApplyForReportForm;
 import it.sevenbits.conferences.web.form.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -148,8 +149,6 @@ public class ApplyForReportController {
                 user.setRole(role);
                 String confirmationToken = UUID.randomUUID().toString();
                 user.setConfirmationToken(confirmationToken);
-                userService.updateUser(user);
-
                 Report report = new Report();
                 report.setTitle(applyForReportForm.getTitle());
                 report.setDescription(applyForReportForm.getDescription());
@@ -157,12 +156,20 @@ public class ApplyForReportController {
                 report.setOtherConferences(applyForReportForm.getOtherConferences());
                 report.setReporterWishes(applyForReportForm.getReporterWishes());
                 Report addedReport = reportService.addReport(report);
-                mailSenderUtility.sendConfirmationTokenAndReportStatus(user.getEmail(), confirmationToken, addedReport.getId());
+                try {
+                    mailSenderUtility.sendConfirmationTokenAndReportStatus(user.getEmail(), confirmationToken, addedReport.getId());
+                } catch (MailSenderException e) {
+                    Map<String, String> result = new HashMap<>();
+                    result.put("message","Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
+                    response.setResult(result);
+                    response.setStatus(JsonResponse.STATUS_FAIL);
+                    return response;
+                }
+                userService.updateUser(user);
                 response.setResult(Collections.singletonMap("message", "Вам на почту выслано письмо для подтверждения регистрации."));
             }
             response.setStatus("SUCCESS");
         }
-
         return response;
     }
 }

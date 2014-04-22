@@ -9,6 +9,7 @@ import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.service.VkontakteProfileService;
 import it.sevenbits.conferences.utils.file.FileManager;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
+import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
 import it.sevenbits.conferences.utils.vkontakteAuthorization.VkontakteProfile;
 import it.sevenbits.conferences.utils.vkontakteAuthorization.VkontakteProfiles;
 import it.sevenbits.conferences.web.form.JsonResponse;
@@ -195,7 +196,15 @@ public class VkAuthorizationController {
             vkontakteProfile.setVkontakteId(vkontakteUserId);
             vkontakteProfile.setUser(updatedUser);
             vkontakteProfileService.updateVkontakteProfile(vkontakteProfile);
-            mailSenderUtility.sendConfirmationToken(userSocialRegistrationForm.getEmail(), confirmationToken);
+            try {
+                mailSenderUtility.sendConfirmationToken(userSocialRegistrationForm.getEmail(), confirmationToken);
+            } catch (MailSenderException e) {
+                Map<String, String> result = new HashMap<>();
+                result.put("message","Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
+                jsonResponse.setResult(result);
+                jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
+                return jsonResponse;
+            }
             jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
             Map<String,String> result = new HashMap<>();
             result.put("message", "На Ваш email выслана ссылка для подтверждения");

@@ -1,5 +1,6 @@
 package it.sevenbits.conferences.utils.mail;
 
+import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -13,6 +14,7 @@ import java.util.Properties;
 /**
  * This class provide tools for working with mail.
  */
+
 @Service("emailService")
 public class MailSenderUtility {
 
@@ -24,10 +26,15 @@ public class MailSenderUtility {
             "Вам выслан временный пароль. Пройдите, пожалуйста, по указанной ссылке и смените его на новый."
     ;
 
+    private static final String GENERAL_EXCEPTION_TEXT = "General mail's sender error";
+
+    /** Project's logger */
     private final Logger logger = Logger.getLogger(MailSenderUtility.class);
 
+    /** Service's main domain */
     private String domain;
 
+    /** Springfraemwork's mail's sender */
     @Autowired
     private JavaMailSender mailSender;
 
@@ -38,21 +45,26 @@ public class MailSenderUtility {
     /**
      * Send common message.
      */
-    private void sendMail(final String to, final String subject, final String msg) {
+    private void sendMail(final String to, final String subject, final String msg) throws MailSenderException{
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(to);
         message.setSubject(subject);
         message.setText(msg);
-        mailSender.send(message);
+        try {
+            mailSender.send(message);
+        } catch (Exception e) {
+            throw new MailSenderException(GENERAL_EXCEPTION_TEXT, e);
+        }
     }
 
     /**
      * Send message with link for confirmation account.
      * @param login Users login
      * @param confirmationToken Users confirmation token
+     * @throws MailSenderException if mail sender isn't available or other.
      */
-    public void sendConfirmationToken(final String login, final String confirmationToken) {
+    public void sendConfirmationToken(final String login, final String confirmationToken) throws MailSenderException{
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(login);
@@ -61,15 +73,20 @@ public class MailSenderUtility {
                 confirmationToken + "&confirmation_login=" + login
         ;
         message.setText(REGISTRATION_INFO_TEXT + confirmationUrl);
-        mailSender.send(message);
+        try {
+            mailSender.send(message);
+        } catch (Exception e) {
+            throw new MailSenderException(GENERAL_EXCEPTION_TEXT, e);
+        }
     }
 
     /**
      * Send message with link for confirmation account and registration for current conference.
      * @param email Users email
      * @param confirmationToken Users confirmation token
+     * @throws MailSenderException if mail sender isn't available or other.
      */
-    public void sendConfirmationTokenAndConferenceStatus(final String email, final String confirmationToken) {
+    public void sendConfirmationTokenAndConferenceStatus(final String email, final String confirmationToken) throws MailSenderException {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(email);
@@ -78,15 +95,20 @@ public class MailSenderUtility {
                 confirmationToken + "&confirmation_login=" + email + "&conference_status=1"
         ;
         message.setText(REGISTRATION_INFO_TEXT + confirmationUrl + " Ждем Вас в субботу");
-        mailSender.send(message);
+        try {
+            mailSender.send(message);
+        } catch (Exception e) {
+            throw new MailSenderException(GENERAL_EXCEPTION_TEXT, e);
+        }
     }
 
     /**
      * Send message with link for confirmation account and consideration user as reporter.
      * @param email User's email
      * @param confirmationToken Users confirmation token
+     * @throws MailSenderException if mail sender isn't available or other.
      */
-    public void sendConfirmationTokenAndReportStatus(final String email, final String confirmationToken, final Long reportId) {
+    public void sendConfirmationTokenAndReportStatus(final String email, final String confirmationToken, final Long reportId) throws MailSenderException {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(email);
@@ -95,15 +117,20 @@ public class MailSenderUtility {
                 confirmationToken + "&confirmation_login=" + email + "&report_status=" + reportId
         ;
         message.setText(REGISTRATION_INFO_TEXT + confirmationUrl + " Ваша заявка на доклад будет рассмотрена.");
-        mailSender.send(message);
+        try {
+            mailSender.send(message);
+        } catch (Exception e) {
+            throw new MailSenderException(GENERAL_EXCEPTION_TEXT, e);
+        }
     }
 
     /**
      * Send message with new password
      * @param email User's email
      * @param password User's new password
+     * @throws MailSenderException if mail sender isn't available or other.
      */
-    public void sendNewPassword(final String email, final String password) {
+    public void sendNewPassword(final String email, final String password) throws MailSenderException {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SERVICE_MAILBOX);
         message.setTo(email);
@@ -111,7 +138,11 @@ public class MailSenderUtility {
         StringBuilder resetPasswordUrl = new StringBuilder(domain);
         resetPasswordUrl.append("user/change-password?email=").append(email).append(TEMPORARY_PASSWORD_TEXT).append(" ").append(password);
         message.setText(resetPasswordUrl.toString());
-        mailSender.send(message);
+        try {
+            mailSender.send(message);
+        } catch (Exception e) {
+            throw new MailSenderException(GENERAL_EXCEPTION_TEXT, e);
+        }
     }
 
     private String getSiteDomain() {

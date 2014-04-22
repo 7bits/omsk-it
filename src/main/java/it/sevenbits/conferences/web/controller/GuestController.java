@@ -12,6 +12,7 @@ import it.sevenbits.conferences.service.RoleService;
 import it.sevenbits.conferences.service.UserService;
 import it.sevenbits.conferences.utils.file.FileManager;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
+import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
 import it.sevenbits.conferences.web.form.AnonymousGuestForm;
 import it.sevenbits.conferences.web.form.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,7 +106,6 @@ public class GuestController {
             final BindingResult bindingResult,
             final HttpSession httpSession
     ) {
-
         JsonResponse response = new JsonResponse();
         validator.validate(guestForm, bindingResult);
         if (bindingResult.hasErrors()) {
@@ -149,8 +149,16 @@ public class GuestController {
             user.setRole(role);
             String confirmationToken = UUID.randomUUID().toString();
             user.setConfirmationToken(confirmationToken);
+            try {
+                mailSenderUtility.sendConfirmationTokenAndConferenceStatus(guestForm.getEmail(), confirmationToken);
+            } catch (MailSenderException e) {
+                Map<String, String> result = new HashMap<>();
+                result.put("message","Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
+                response.setResult(result);
+                response.setStatus(JsonResponse.STATUS_FAIL);
+                return response;
+            }
             userService.updateUser(user);
-            mailSenderUtility.sendConfirmationTokenAndConferenceStatus(guestForm.getEmail(), confirmationToken);
             response.setStatus(JsonResponse.STATUS_SUCCESS);
             response.setResult(Collections.singletonMap("message", "На Ваш email послано письмо для подтверждения регистрации и участия."));
         }

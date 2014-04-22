@@ -16,6 +16,7 @@ import it.sevenbits.conferences.service.common.CustomUserDetailsService;
 import it.sevenbits.conferences.utils.file.FileConverter;
 import it.sevenbits.conferences.utils.file.FileManager;
 import it.sevenbits.conferences.utils.mail.MailSenderUtility;
+import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
 import it.sevenbits.conferences.web.form.*;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.log4j.Logger;
@@ -198,8 +199,16 @@ public class UserController {
             user.setRole(role);
             String confirmationToken = UUID.randomUUID().toString();
             user.setConfirmationToken(confirmationToken);
+            try {
+                mailSenderUtility.sendConfirmationToken(userRegistrationForm.getEmail(), confirmationToken);
+            } catch (MailSenderException e) {
+                Map<String, String> result = new HashMap<>();
+                result.put("message","Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
+                jsonResponse.setResult(result);
+                jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
+                return jsonResponse;
+            }
             userService.updateUser(user);
-            mailSenderUtility.sendConfirmationToken(userRegistrationForm.getEmail(), confirmationToken);
             Map<String, String> result = new HashMap<>();
             result.put("message","На Ваш email выслана ссылка для подтверждения");
             jsonResponse.setResult(result);
@@ -284,12 +293,11 @@ public class UserController {
     @RequestMapping(value = "/reset-password", method = RequestMethod.POST)
     @ResponseBody
     public JsonResponse changePasswordPost(@ModelAttribute final EmailForm emailForm) {
-        JsonResponse jsonResponse;
+        JsonResponse jsonResponse = new JsonResponse();
         User user;
         try {
             user = userService.findUserByEmail(emailForm.getEmail());
         } catch (UsernameNotFoundException e) {
-            jsonResponse = new JsonResponse();
             jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
             Map<String, String> resultMessage = new HashMap<>();
             resultMessage.put("message",  "Такого пользователя нету.");
@@ -300,9 +308,16 @@ public class UserController {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedNewPassword = passwordEncoder.encode(newPassword);
         user.setPassword(encodedNewPassword);
+        try {
+            mailSenderUtility.sendNewPassword(user.getEmail(), newPassword);
+        } catch (MailSenderException e) {
+            Map<String, String> result = new HashMap<>();
+            result.put("message","Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
+            jsonResponse.setResult(result);
+            jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
+            return jsonResponse;
+        }
         userService.updateUser(user);
-        mailSenderUtility.sendNewPassword(user.getEmail(), newPassword);
-        jsonResponse = new JsonResponse();
         jsonResponse.setStatus(JsonResponse.STATUS_SUCCESS);
         Map<String, String> resultMessage = new HashMap<>();
         resultMessage.put("message", "Ваш пароль успешно изменен.");
