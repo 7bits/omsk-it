@@ -25,6 +25,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     public UserDetails loadUserByUsername(final String login) throws UsernameNotFoundException {
         it.sevenbits.conferences.domain.User domainUser = userService.findUser(login);
+        if (domainUser == null) {
+            throw new UsernameNotFoundException("User not found");
+        }
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
         boolean accountNonLocked = true;

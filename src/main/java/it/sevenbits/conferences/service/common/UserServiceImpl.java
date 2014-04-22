@@ -19,9 +19,6 @@ import java.util.Map;
 @Service
 public class UserServiceImpl implements UserService {
 
-    /** Message for UserNotFoundException */
-    private static final String USER_NOT_FOUND_EXCEPTION = "User was not found";
-
     @Autowired
     private UserDao userDao;
 
@@ -57,26 +54,26 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public User findUser(final String login) throws UsernameNotFoundException{
+    public User findUser(final String login) {
         String query = "SELECT u FROM User u WHERE u.login =:login";
         Map<String, Object> queryParams = new HashMap<>();
         queryParams.put("login", login);
         List<User> usersList = userDao.findByQuery(query, queryParams);
         if (usersList == null || usersList.isEmpty()) {
-            throw new UsernameNotFoundException(USER_NOT_FOUND_EXCEPTION);
+            return null;
         }
         return usersList.get(0);
     }
 
     @Transactional
     @Override
-    public User findUserByEmail(final String email) throws UsernameNotFoundException{
+    public User findUserByEmail(final String email) {
         String query = "SELECT u FROM User u WHERE u.email =:email";
         Map<String, Object> queryParams = new HashMap<>();
         queryParams.put("email", email);
         List<User> usersList = userDao.findByQuery(query, queryParams);
         if (usersList == null || usersList.isEmpty()) {
-            throw new UsernameNotFoundException(USER_NOT_FOUND_EXCEPTION);
+            return null;
         }
         return usersList.get(0);
     }

@@ -88,17 +88,14 @@ public class ApplyForReportController {
             final BindingResult bindingResult,
             final HttpSession httpSession
     ) {
-
         JsonResponse response = new JsonResponse();
         boolean isLogged = false;
-
         if (getLoggedUser() != null) {
             userApplyForReportValidator.validate(applyForReportForm, bindingResult);
             isLogged = true;
         } else {
             anonymousApplyForReportValidator.validate(applyForReportForm, bindingResult);
         }
-
         if (bindingResult.hasErrors()) {
             response.setStatus("FAIL");
             Map<String, String> errors = new HashMap<>();
@@ -119,7 +116,6 @@ public class ApplyForReportController {
                 report.setKeyTechnologies(applyForReportForm.getKeyTechnologies());
                 report.setOtherConferences(applyForReportForm.getOtherConferences());
                 report.setReporterWishes(applyForReportForm.getReporterWishes());
-
                 reportService.addReport(report);
                 response.setResult(Collections.singletonMap("message", "Заявка отправлена."));
             } else {

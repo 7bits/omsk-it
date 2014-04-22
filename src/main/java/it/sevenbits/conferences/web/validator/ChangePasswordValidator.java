@@ -59,13 +59,10 @@ public class ChangePasswordValidator implements Validator {
     }
 
     public boolean isUserExists(final String email) {
-        boolean isExists = true;
-        try {
-            userService.findUserByEmail(email);
-        } catch (UsernameNotFoundException e) {
-            isExists = false;
+        if (userService.findUserByEmail(email) == null) {
+            return false;
         }
-        return  isExists;
+        return true;
     }
 
 }

@@ -106,7 +106,8 @@ public class VkAuthorizationController {
             if (vkontakteProfile != null) {
                 User user = userService.findUserByVkontakteId(Long.parseLong(vkontakteProfile.getId()));
                 if (user != null && user.getEnabled()) {
-                    authorizeUser(user);
+                    UserDetails userDetails = customUserDetailsService.loadUserByUsername(user.getEmail());
+                    authorizeUser(userDetails);
                 } else if (user != null && !user.getEnabled()) {
                     modelAndView = new ModelAndView("account-not-enabled");
                 } else {
@@ -203,8 +204,7 @@ public class VkAuthorizationController {
         return jsonResponse;
     }
 
-    private void authorizeUser(final User user) {
-        UserDetails userDetails = customUserDetailsService.loadUserByUsername(user.getEmail());
+    private void authorizeUser(final UserDetails userDetails) {
         Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
         SecurityContext securityContext = SecurityContextHolder.getContext();
         securityContext.setAuthentication(authentication);

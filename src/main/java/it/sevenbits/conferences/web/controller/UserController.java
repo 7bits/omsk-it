@@ -88,6 +88,7 @@ public class UserController {
     @Qualifier("changePasswordValidator")
     private Validator changePasswordValidator;
 
+    /** Project's logger */
     private static final Logger LOGGER = Logger.getLogger(VkAuthorizationController.class);
 
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
@@ -109,7 +110,6 @@ public class UserController {
     ) {
         String additionalRegistrationInfo = null;
         User user = userService.findUser(confirmationLogin);
-
         if (user != null || (user.getConfirmationToken().equals(receivedConfirmationToken) && !user.getEnabled())) {
             user.setEnabled(true);
             user = userService.updateUser(user);
@@ -232,7 +232,7 @@ public class UserController {
             errors.put("message", "Логин или пароль введены неверно");
             response.setResult(errors);
         } else {
-            UserDetails userDetails = null;
+            UserDetails userDetails;
             try {
                 userDetails = customUserDetailsService.loadUserByUsername(loginForm.getLogin());
             } catch (UsernameNotFoundException e) {

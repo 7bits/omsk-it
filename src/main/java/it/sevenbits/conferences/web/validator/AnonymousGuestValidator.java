@@ -88,9 +88,7 @@ public class AnonymousGuestValidator implements Validator {
     }
 
     private boolean isUserExists(final String email) {
-        try {
-            userService.findUserByEmail(email);
-        } catch (UsernameNotFoundException e) {
+        if (userService.findUserByEmail(email) == null) {
             return false;
         }
         return true;
