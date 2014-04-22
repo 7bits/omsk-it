@@ -1,6 +1,8 @@
 package it.sevenbits.conferences.utils.vkontakteAuthorization;
 
-
+/**
+ * Entity class which represent profile from Vkontakte
+ */
 public class VkontakteProfile {
     private String id;
     private String first_name;

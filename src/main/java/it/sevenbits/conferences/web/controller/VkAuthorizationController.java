@@ -60,6 +60,7 @@ public class VkAuthorizationController {
     private static final String CLIENT_SECRET = "C4VA3AUYfyB5wgng2U8o";
     private static final String RESPONSE_TYPE_CODE = "code";
     private static final String REDIRECT_URI = "http://saturdays.omskit.org/social/vkAuthentication";
+    private static final String PHOTO_SIZE = "photo_200";
 
     @Autowired
     private UserService userService;
@@ -86,6 +87,9 @@ public class VkAuthorizationController {
         return "redirect:" + url;
     }
 
+    /**
+     * @param referer Address from which request was come;
+     */
     @RequestMapping(value = "vkAuthentication", method = RequestMethod.GET)
     public ModelAndView authetication(@RequestHeader(value = "referer", required = false) final String referer, HttpServletRequest request) {
         String code = request.getParameter("code");
@@ -224,7 +228,7 @@ public class VkAuthorizationController {
                 "https://api.vk.com/method/users.get?user_id=" + userId +
                 "&v=5.14" +
                 "&access_token=" + accessToken +
-                "&fields=photo_200";
+                "&fields=" + PHOTO_SIZE;
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpUriRequest getProfileRequest = new HttpPost(getProfileRequestUrl);
         Map<String, ArrayList> map = new HashMap<>();
