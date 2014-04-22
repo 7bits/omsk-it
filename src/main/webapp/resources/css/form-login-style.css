@@ -47,6 +47,7 @@
     width: 100%;
 }
 
+/* to fix*/
 a:visited .login-form-open-button {
     color:#FFFFFF;
 }
@@ -56,36 +57,6 @@ a:visited .login-form-open-button {
     font-size: 18px;
     font-family: 'PT Sans', sans-serif;
     margin-bottom: 20px;
-}
-
-.cancel-form-button {
-    font-family: 'PT Sans', sans-serif;
-    font-size: 20px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    margin-top: 8px;
-}
-
-.cancel-form-button:hover {
-    border-bottom: solid 1px;
-}
-
-.close-popup-form-button {
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 11px;
-    left: 446px;/*418px;*/
-    width: 16px;
-    height: 15px;
-    background: transparent;
-    background-image: url("../images/close.png");
-    border: none;
-    cursor: pointer;
-}
-
-.close-popup-form-button:hover {
-    background-image: url("../images/close_hover.png");
 }
 
 .login-form-plugin-container {
@@ -118,23 +89,22 @@ a:visited .login-form-open-button {
     margin-left: 150px;
 }
 
-.login-form-plugin-container .enter{
-    font-family: 'PT Sans', sans-serif;
-    color: #FFFFFF;
-    font-size: 16px;
+.login-form-plugin-container .btn-enter{
     width: 60px;
     height: 31px;
-}
-
-.login-form-plugin-container .logout{
+    padding-bottom: 2px;
     font-family: 'PT Sans', sans-serif;
-    color: #FFFFFF;
     font-size: 16px;
-    width: 60px;
+}
+.login-form-plugin-container .btn-logout{
     float: right;
-    text-align: center;
-    padding-top: 4px;
     height: 25px;
+    width: 60px;
+    padding-top: 4px;
+    color: #FFFFFF;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
 }
 
 .login-form-plugin-container a {

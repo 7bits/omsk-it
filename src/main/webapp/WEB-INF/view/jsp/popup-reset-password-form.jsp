@@ -12,8 +12,8 @@
         </div>
         <div class = "notification-field reset-password-notification"></div>
         <div class = "reset-password-response attention"></div>
-        <div class = "confirm-reset-password confirm-form-button">Сброс</div>
-        <button class = "cancel-reset-password cancel-form-button">Отмена</button>
-        <button class="close-popup-form-button close-reset-password-button"></button>
+        <div class = "confirm-reset-password pos-btn-big pos-btn-big-confirm-form btn-gradient btn-big btn-inline">Сброс</div>
+        <button class = "cancel-reset-password pos-btn-reset-form btn-reset">Отмена</button>
+        <button class="btn-close-popup pos-btn-close-popup pos-btn-reset-form btn-reset"></button>
     </div>
 </div>

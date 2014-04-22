@@ -67,7 +67,7 @@
                       <span class="js-field-response js-reporterRequest-respons attentione"></span>
                   </div>
                  <div class="field">
-                     <input class="js-suggestion-form-button button-submit" type="submit" value="Отправить">
+                     <input class="js-suggestion-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить">
                      <div class="js-suggest-response"></div>
                  </div>
              </form>

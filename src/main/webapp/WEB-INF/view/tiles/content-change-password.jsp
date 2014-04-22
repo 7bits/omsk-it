@@ -26,7 +26,7 @@
 
                 <div class = "change-password-response attention"></div>
                 <div class="field">
-                    <input class="button-submit change-password" type="submit" value="Изменить">
+                    <input class="pos-btn-submit btn-gradient btn-submit btn-bordered change-password" type="submit" value="Изменить">
                     <div class="change-password-notification"></div>
                 </div>
             </form>

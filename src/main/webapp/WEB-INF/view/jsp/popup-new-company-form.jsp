@@ -13,7 +13,7 @@
             <span class="left-label new-company-site-title">Сайт организации</span>
             <input class="new-company-input js-input small-input margin-top-8" name="site" id="company-site"placeholder="Сайт"/>
         </div>
-        <div class="new-company-add-confirm">Добавить</div>
+        <div class="pos-btn-big btn-gradient btn-big btn-inline">Добавить</div>
         <button class="close-new-company-form">Отмена</button>
     </div>
 </div>
