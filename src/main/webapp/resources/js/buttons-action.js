@@ -66,7 +66,7 @@ $(document).ready(function() {
         $(".guest-form-div").hide()
     });
 
-    $(".close-login-button").click(function() {
+    $(".js-close-login-button").click(function() {
         onPopupLoginCancel();
         $(".login-container").hide();
     })
@@ -75,7 +75,7 @@ $(document).ready(function() {
         $(".login-container").show();
     })
 
-    $(".confirm-login").click(function(event) {
+    $(".js-confirm-login").click(function(event) {
         event.preventDefault();
         doAjaxLoginPost();
     });
@@ -88,7 +88,7 @@ $(document).ready(function() {
 
     $(".js-confirm-new-company").click(doAjaxAddNewCompany);
 
-    $(".change-password").click(function(event) {
+    $(".js-change-password").click(function(event) {
         event.preventDefault();
         doAjaxChangePassword();
     });
@@ -284,22 +284,19 @@ function doAjaxUserRegistration() {
 }
 
 function doAjaxApplyForReportPost() {
-
     var formdata = $(".js-apply-form").serialize();
-
     $.ajax({
-
         url: applyForReportUrl,
         type: "POST",
         data: formdata,
         dataType: "json",
-
-        success: function(response) {
-
-            $(".js-apply-response").html(response.result.message);
+        beforeSend: function() {
             $(".js-input").css("background-color", "#ffffff");
             $(".js-field-response").empty();
-
+            $(".js-apply-response").text("Отправка...");
+        },
+        success: function(response) {
+            $(".js-apply-response").html(response.result.message);
             if (response.status == "SUCCESS") {
                 $(".js-apply-form")[0].reset();
             } else {
@@ -364,7 +361,6 @@ function doAjaxApplyForReportPost() {
                 }
             }
         },
-
         error: function(jqXHR, textStatus, errorThrown) {
 
             console.log(jqXHR);
@@ -375,22 +371,16 @@ function doAjaxApplyForReportPost() {
 }
 
 function doAjaxSuggestPost() {
-
     var formdata = $(".js-suggestion-form").serialize();
-
     $.ajax({
-
         url: suggestUrl,
         type: "POST",
         data: formdata,
         dataType: "json",
-
         success: function(response) {
-
             $(".js-suggest-response").html(response.result.message);
             $(".js-input").css("background-color", "#ffffff");
             $(".js-field-response").empty();
-
             if (response.status == "SUCCESS") {
                 $(".js-suggestion-form")[0].reset();
             } else {
@@ -413,7 +403,6 @@ function doAjaxSuggestPost() {
                 }
             }
         },
-
         error: function(jqXHR, textStatus, errorThrown) {
 
             console.log(jqXHR);
@@ -424,22 +413,19 @@ function doAjaxSuggestPost() {
 }
 
 function doAjaxGuestPost() {
-
     var formdata = $(".js-guest-form").serialize();
-
     $.ajax({
-
         url: guestUrl,
         type: "POST",
         data: formdata,
         dataType: "json",
-
-        success: function(response) {
-
-            $(".js-guest-response").html(response.result.message);
+        beforeSend: function() {
             $(".js-input").css("background-color", "#ffffff");
             $(".js-field-response").empty();
-
+            $(".js-guest-response").text("Отправка...");
+        },
+        success: function(response) {
+            $(".js-guest-response").html(response.result.message);
             if (response.status == "SUCCESS") {
                 $(".js-guest-form")[0].reset();
             } else {
@@ -469,7 +455,6 @@ function doAjaxGuestPost() {
                 }
             }
         },
-
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(jqXHR);
             console.log(jqXHR.responseText);

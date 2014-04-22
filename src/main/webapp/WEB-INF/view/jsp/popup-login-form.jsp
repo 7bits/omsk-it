@@ -14,8 +14,8 @@
         </div>
         <div class="js-field-response login-message-error attention"></div>
         <div class="js-forgot-password forgot-password margin-left-344">Забыли пароль?</div>
-        <div class="confirm-login pos-btn-big pos-btn-big-confirm-form btn-gradient btn-big btn-inline">Войти</div>
+        <div class="js-confirm-login pos-btn-big pos-btn-big-confirm-form btn-gradient btn-big btn-inline">Войти</div>
         <button class="cancel-login pos-btn-reset-form btn-reset">Отмена</button>
-        <button class="btn-close-popup pos-btn-close-popup close-login-button"></button>
+        <button class="btn-close-popup pos-btn-close-popup js-close-login-button"></button>
     </div>
 </div>
