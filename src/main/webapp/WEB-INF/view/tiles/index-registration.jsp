@@ -51,7 +51,7 @@
         </div>
 
         <div class="events-history">
-            <a href='<c:url value="/archive"/>'>Материалы предыдущих субботников</a>
+            <a class="link-light" href='<c:url value="/archive"/>'>Материалы предыдущих субботников</a>
         </div>
 
         <div class="action">

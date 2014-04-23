@@ -76,11 +76,8 @@ a:visited .login-form-open-button {
 .login-error {
     margin-left: 150px;
 }
-.login-form-plugin-container a {
-    color: #2d3e50;
-    text-decoration: underline;
-}
 
+/*signIn/signUp*/
 .login-form-plugin-container .href {
     text-align: right;
 }
@@ -89,6 +86,7 @@ a:visited .login-form-open-button {
     display: inline-block;
     vertical-align: inherit;
 }
+/**/
 
 .float-container {
     height: 53px;

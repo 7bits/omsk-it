@@ -24,8 +24,8 @@
                 </ol>
             </div>
         </div>
-        <div class="text-content-down blue-ref">
-            Заявки присылайте на <a href="mailto:admin@omskit.org">admin@omskit.org</a>
+        <div class="text-content-down">
+            Заявки присылайте на <a class="link-blue" href="mailto:admin@omskit.org">admin@omskit.org</a>
         </div>
     </div>
 </div>

@@ -22,7 +22,7 @@
                         <span class="js-field-response js-password-response attention"></span>
                         <span class="js-field-info"></span>
                     </span>
-                    <div class="js-forgot-password forgot-password">Забыли пароль?</div>
+                    <div class="js-forgot-password link-blue forgot-password">Забыли пароль?</div>
                 </div>
                 <p>
                     <c:if test="${error == 'true'}">

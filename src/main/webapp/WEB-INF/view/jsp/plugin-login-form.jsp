@@ -23,11 +23,11 @@
                 </div>
                 <div class="href">
                     <div class="inline-item">
-                        <a href="<c:url value='/user/registration'/>">
+                        <a class="link-underline" href="<c:url value='/user/registration'/>">
                             Зарегистрируйтесь
                         </a>
                         или
-                        <a href='<c:url value="/social/vkAuthorization"/>'>
+                        <a class="link-underline" href='<c:url value="/social/vkAuthorization"/>'>
                             войдите через
                         </a>
                     </div>

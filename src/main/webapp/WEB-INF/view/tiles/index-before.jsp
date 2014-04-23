@@ -3,16 +3,19 @@
 <div class="content">
     <div class="page">
         <div class="next-event">
+            <p class="event-title">
             (<c:out value="${conference.ordinalNumber}"/>-й) субботник пройдёт
             <span class="event-date"><c:out value="${conference.humanReadableDate}"/></span>
+            </p>
             <p class="next-event-text">
                 Регистрация еще не открылась, но уже совсем скоро.
-                <br>Чтобы не пропустить начало регистрации, следите за нами в <a href="https://twitter.com/OmskIT">Твиттере</a> и <a href="http://vk.com/omskit">ВКонтакте</a>.
+                <br>Чтобы не пропустить начало регистрации, следите за нами в <a class ="link-light link-bold" href="https://twitter.com/OmskIT">Твиттере</a> и <a class ="link-light link-bold" href="http://vk.com/omskit">ВКонтакте</a>.
                 <br>Или оставьте свой e-mail, мы сообщим вам сами:
             </p>
             </span>
+            <div class="subscribe-center">
             <form class="js-subscribe-form-top subscribe-form" action='<c:url value="/subscribe"/>' method="POST">
-                <input class="input" type="email" name="email" placeholder="Электронная почта">
+                <input class="input pos-email" type="email" name="email" placeholder="Электронная почта">
                 <input class="js-subscribe-button-top pos-btn-subscribe btn-gradient btn-subscribe" type="submit" value="Отправить">
             </form>
             <div class="js-subscribe-response-top subscribe-response-top response"></div>
@@ -50,7 +53,7 @@
             </c:forEach>
         </div>
         <div class="events-history">
-            <a href='<c:url value="/archive"/>'>Материалы предыдущих субботников</a>
+            <a class="link-light" href='<c:url value="/archive"/>'>Материалы предыдущих субботников</a>
         </div>
         <div class="action">
             <div class="action-text">

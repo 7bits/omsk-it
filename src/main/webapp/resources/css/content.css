@@ -2,9 +2,11 @@
 .next-event {
     padding-top: 45px;
     padding-bottom: 50px;
-    text-align: center;
-    font-size: 34px;
+    text-align: center;    
     color: #ffffff;
+}
+.event-title {
+    font-size: 34px;
 }
 .event-date {
     font-weight: 700;    
@@ -19,10 +21,11 @@
     line-height: 30px;
     margin-bottom: 30px;
 }
-.next-event-text a {
-    color: #ffffff;
-    border-bottom: solid 1px;
-    font-weight: bold;
+.subscribe-center {    
+    width: 470px;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 .box {
@@ -55,9 +58,3 @@
     padding: 25px 35px 0 35px;
     color: #ffffff;
 }
-.events-history a {    
-    text-decoration: underline;
-    color: #ffffff;
-}
-
-

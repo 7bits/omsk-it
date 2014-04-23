@@ -1,3 +1,52 @@
+/** refactoring **/
+/* links */
+
+a {
+    text-decoration: none;
+    color: #2d3e50;
+}
+
+a:hover {
+    border-bottom: solid 1px;
+}
+
+.link-blue {
+    color: #00b7c8;
+}
+
+.link-underline {
+    border-bottom: solid 1px;
+}
+
+.link-light {
+    color: #ffffff;
+    border-bottom: solid 1px;
+}
+
+.link-bold {
+    font-weight: bold;
+}
+
+.forgot-password { 
+    margin-left: 320px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 17px;    
+    text-decoration: underline;    
+}
+
+/*to fix*/
+.description-title a:hover { 
+    /*text-decoration: underline;*/
+    border-bottom: solid 1px;
+}
+/**/
+
+.reporter-reports-refs a { 
+    font-size: 20px;    
+}
+
+/***/
 body {
     margin: 0;
     padding: 0;
@@ -16,11 +65,6 @@ body {
 .inline-item {
     display: inline-block;
     vertical-align: top;
-
-}
-
-a {
-    text-decoration: none;
 
 }
 
@@ -81,14 +125,6 @@ ol {
     display: inline-block;
     vertical-align: middle;
     width: 830px;
-}
-
-.blue-ref a {
-    color: #00b7c8;
-    text-decoration: none;
-}
-.blue-ref a:hover {
-    border-bottom: solid 1px;
 }
 
 /** header **/

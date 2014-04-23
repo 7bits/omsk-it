@@ -49,7 +49,7 @@
                         <div class="reporter-reports-refs">
                             <c:forEach items="${otherReports}" var="otherReport">
                                 <c:if test="${otherReport.id != report.id}">
-                                    <p><a href='<c:url value="/report/${otherReport.id}"/>'>&laquo;<c:out value="${otherReport.title}"/>&raquo;</a> - "${otherReport.conference.humanReadableDate}"</p>
+                                    <p><a class ="link-bold" href='<c:url value="/report/${otherReport.id}"/>'>&laquo;<c:out value="${otherReport.title}"/>&raquo;</a> - "${otherReport.conference.humanReadableDate}"</p>
                                 </c:if>
                             </c:forEach>
                         </div>

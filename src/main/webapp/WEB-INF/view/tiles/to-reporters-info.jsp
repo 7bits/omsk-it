@@ -44,8 +44,8 @@
                 </a>
             </div>
         </div>
-        <div class="questions blue-ref">
-            Возникли вопросы? Читайте <a href='<c:url value="/rules"/>'>правила</a> или пишите организаторам на <a href="mailto:admin@omskit.org">admin@omskit.org</a>
+        <div class="questions">
+            Возникли вопросы? Читайте <a class="link-light" href='<c:url value="/rules"/>'>правила</a> или пишите организаторам на <a class="link-blue" href="mailto:admin@omskit.org">admin@omskit.org</a>
         </div>
     </div>
 </div>

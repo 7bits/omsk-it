@@ -51,6 +51,7 @@
     border-radius: 5px;
     -webkit-border-radius: 5px; /*Chrome 4.0, Safari 5.0, iOS*/
     -moz-border-radius: 5px 5px; /*Firefox 4.0*/
+    color: #fff;
 }
 
 /* social icons */

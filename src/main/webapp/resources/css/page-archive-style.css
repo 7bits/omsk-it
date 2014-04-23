@@ -33,18 +33,12 @@
     margin: 0 20px;
 }
 
-.report a {
-    color: #2d3e50; /*colors!!!*/
-}
-
 .reporter {
     width: 207px;
     margin-bottom: 35px;
     text-align: center;
 }
-.reporter a {
-    color: #2d3e50; /*colors!!!*/
-}
+
 .reporter-title{
     margin-bottom: 10px
 }
@@ -56,7 +50,4 @@
     margin: 0;
     margin-bottom: 10px;
     font-size: 24px; 
-}
-.description-title a:hover {
-    text-decoration: underline;
 }

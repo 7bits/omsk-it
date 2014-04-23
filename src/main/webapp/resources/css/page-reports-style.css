@@ -21,9 +21,6 @@
     margin: 0;
     font-size: 20px;
 }
-.name a:hover{
-    text-decoration: underline;
-}
 
 .report-content .description {
     font-size: 20px;
