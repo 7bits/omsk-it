@@ -32,7 +32,7 @@
 
             <div class="field">
                 <span class="left-label">Имя&nbsp;<span class="attention">*</span></span>
-                <input class="js-first-name-input js-input small-input" type="text" name="firstName">
+                <input class="js-first-name-input js-input input pos-input" type="text" name="firstName">
                         <span class="field-info">
                             <span class="js-field-info">На русском языке</span>
                         </span>
@@ -41,7 +41,7 @@
 
             <div class="field">
                 <span class="left-label">Фамилия&nbsp;<span class="attention">*</span></span>
-                <input class="js-second-name-input js-input small-input" type="text" name="secondName">
+                <input class="js-second-name-input js-input input pos-input" type="text" name="secondName">
                         <span class="field-info">
                             <span class="js-field-info">На русском языке</span>
                         </span>
@@ -50,7 +50,7 @@
 
             <div class="field">
                 <span class="left-label">E-mail&nbsp;<span class="attention">*</span></span>
-                <input class="js-email-input js-input small-input" type="text" name="email">
+                <input class="js-email-input js-input input pos-input" type="text" name="email">
                         <span class="field-info">
                         </span>
                 <div class="js-field-response js-email-response attention attention-info"></div>
@@ -58,7 +58,7 @@
 
             <div class="field">
                 <span class="left-label">Пароль&nbsp;<span class="attention">*</span></span>
-                <input class="js-password-input js-input small-input" type="password" name="password">
+                <input class="js-password-input js-input input pos-input" type="password" name="password">
                         <span class="field-info">
                         </span>
                 <div class="js-field-response js-password-response attention attention-info"></div>
@@ -66,7 +66,7 @@
 
             <div class="field">
                 <span class="left-label">Должность&nbsp;<span class="attention">*</span></span>
-                <input class="js-job-position-input js-input small-input" type="text" name="jobPosition">
+                <input class="js-job-position-input js-input input pos-input" type="text" name="jobPosition">
                         <span class="field-info">
                             <span class="js-field-info"></span>
                         </span>
@@ -76,7 +76,7 @@
             <div class="field long">
                 <span class="left-label">Место работы/учебы&nbsp;<span class="attention">*</span></span>
                 <br/>
-                <input class="js-company-input js-input small-input margin-top-8" type="text" id="company" autocomplete="false" name="company"/>
+                <input class="js-company-input js-input input pos-input margin-top-8" type="text" id="company" autocomplete="false" name="company"/>
                         <span class="field-info">
                             <div class="js-new-company-form-open pos-btn-add-company btn-gradient btn-add-company inline-item">Добавить</div>
                             <span class="js-field-info inline-item"></span>

@@ -64,18 +64,6 @@ a:visited .login-form-open-button {
     width: 450px;
 }
 
-.login-form-plugin-container .login {
-    font-family: 'PT Sans', sans-serif;
-    font-size: 16px;
-    width: 130px;
-    height: 26px;
-    border-radius: 6px;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-
-    border: solid 2px rgb(170,240,247);
-}
-
 .login-message-error {
     margin-left: 131px;
     margin-top: -20px;
@@ -88,25 +76,6 @@ a:visited .login-form-open-button {
 .login-error {
     margin-left: 150px;
 }
-
-.login-form-plugin-container .btn-enter{
-    width: 60px;
-    height: 31px;
-    padding-bottom: 2px;
-    font-family: 'PT Sans', sans-serif;
-    font-size: 16px;
-}
-.login-form-plugin-container .btn-logout{
-    float: right;
-    height: 25px;
-    width: 60px;
-    padding-top: 4px;
-    color: #FFFFFF;
-    font-family: 'PT Sans', sans-serif;
-    font-size: 16px;
-    text-align: center;
-}
-
 .login-form-plugin-container a {
     color: #2d3e50;
     text-decoration: underline;

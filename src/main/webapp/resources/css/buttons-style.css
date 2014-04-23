@@ -10,21 +10,21 @@
     text-align: center;
 }
 .button {
-    width: 310px;
+    position: relative;     
     height: 270px;
+    width: 310px;
     color: #2d3e50;
-    background-color: #ffffff;
+    border-color: transparent;
     border-radius: 5px;
     -webkit-border-radius: 5px; /*Chrome 4.0, Safari 5.0, iOS*/
     -moz-border-radius: 5px; /*Firefox 4.0*/
-    border-color: transparent;
     box-shadow: 0 0 10px;
-    position: relative;     
+    background-color: #ffffff;
 }
 .button-img {
     position: absolute;
-    width: 310px;
     height: 235px;
+    width: 310px;
     padding-top: 35px;
 }
 .button-img:hover {

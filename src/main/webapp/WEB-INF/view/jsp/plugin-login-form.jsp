@@ -17,8 +17,8 @@
             </sec:authorize>
             <sec:authorize ifNotGranted="ROLE_ADMIN, ROLE_USER, ROLE_MODERATOR">
                 <div class = "login-input-container">
-                    <input class="login" type="text" placeholder="Email" name="j_username" id="j_username" size="30" maxlength="40"/>
-                    <input class="login" type="password" placeholder="Пароль" name="j_password" id="j_password" size="30" maxlength="32"/>
+                    <input class="input input-login" type="text" placeholder="Email" name="j_username" id="j_username" size="30" maxlength="40"/>
+                    <input class="input input-login" type="password" placeholder="Пароль" name="j_password" id="j_password" size="30" maxlength="32"/>
                     <input class="btn-gradient btn-enter btn-bordered" type="submit" value="Вход"/>
                 </div>
                 <div class="href">

@@ -22,7 +22,7 @@
                      <input type="checkbox" name="senderSpecialization" value="Верстальщик">Верстальщик<br>
                      <input type="checkbox" name="senderSpecialization" value="Тестировщик">Тестировщик (инженер по качеству)<br>
                      <input type="checkbox" name="senderSpecialization" value="other">Другое:
-                     <input class="js-sender-specialization-other-input js-input small-input" type="text" name="senderSpecializationOther">
+                     <input class="js-sender-specialization-other-input js-input input pos-input" type="text" name="senderSpecializationOther">
                      <span class="js-field-response js-senderSpecialization-response attention"></span>
                      <span class="js-field-response js-senderSpecializationOther-response attention"></span>
                  </div>
@@ -42,7 +42,7 @@
                      <input type="checkbox" name="favoriteTheme" value="Управление проектами (процессы)">Управление проектами (процессы)<br>
                      <input type="checkbox" name="favoriteTheme" value="Управление людьми">Управление людьми<br>
                      <input type="checkbox" name="favoriteTheme" value="other">Другое:
-                     <input class ="js-sender-favorite-theme-input js-input small-input" type="text" name="favoriteThemeOther">
+                     <input class ="js-sender-favorite-theme-input js-input input pos-input" type="text" name="favoriteThemeOther">
                      <span class="js-field-response js-favoriteTheme-response attention"></span>
                      <span class="js-field-response js-favoriteThemeOther-response attention"></span>
                  </div>
@@ -53,7 +53,7 @@
                          <span class="js-field-info">Пожалуйста, укажите одну тему, у Вас всегда есть возможность заполнить эту форму еще раз</span>
                      </span>
                      <br>
-                     <textarea class="small-input wide-input big-input" name="themeRequest"></textarea>
+                     <textarea class="input input-wide pos-input input-big pos-input" name="themeRequest"></textarea>
                      <span class="js-field-response js-themeRequest-respons attentione"></span>
                  </div>
                  <div class="field">
@@ -63,7 +63,7 @@
                           <span class="js-field-info">Укажите фамилию, имя и место работы - все, что знаете. Расскажите нам о человеке, даже если Вы не знаете конкретной темы, но уверены, что это хороший докладчик.</span>
                       </span>
                       <br>
-                      <textarea class="small-input wide-input big-input" name="reporterRequest"></textarea>
+                      <textarea class="input input-wide pos-input input-big pos-input" name="reporterRequest"></textarea>
                       <span class="js-field-response js-reporterRequest-respons attentione"></span>
                   </div>
                  <div class="field">

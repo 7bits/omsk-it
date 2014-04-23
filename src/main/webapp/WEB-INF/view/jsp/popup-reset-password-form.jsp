@@ -8,7 +8,7 @@
         </div>
         <div class = "field">
             <span class = "left-label login-form-label">Email</span>
-            <input class = "reset-password-email-form-input small-input margin-top-8" type="text" name="email" />
+            <input class = "reset-password-email-form-input input pos-input margin-top-8" type="text" name="email" />
         </div>
         <div class = "notification-field reset-password-notification"></div>
         <div class = "reset-password-response attention"></div>

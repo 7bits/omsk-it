@@ -43,7 +43,8 @@
     height: 35px;
     width: 130px;
 
-    text-align: center;    
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;    
     font-size: 20px;
 
     -khtml-border-radius: 5px;
@@ -73,8 +74,7 @@
     padding-top: 2px;
     padding-bottom: 2px;
 
-    font-size: 18px;
-    font-family: 'PT Sans', sans-serif;
+    font-size: 18px;    
 }
 
 .btn-big{
@@ -89,7 +89,7 @@
 }
 
 .btn-subscribe {
-    height: 47px;
+    height: 46px;
     width: 156px;
     font-family: inherit;
     font-size: 21px;
@@ -113,6 +113,24 @@
 
 .btn-add-company {
     padding-top: 7px;
+}
+
+.btn-enter{
+    width: 60px;
+    height: 31px;
+    padding-bottom: 2px;    
+    font-size: 16px;
+}
+
+.btn-logout{
+    float: right;
+    height: 25px;
+    width: 60px;
+    padding-top: 4px;
+    color: #FFFFFF;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
 }
 
 .btn-bordered {
