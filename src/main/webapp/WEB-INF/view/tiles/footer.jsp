@@ -21,12 +21,12 @@
             </div>
 
             <div class="inline-item">
-                <a href="https://twitter.com/OmskIT"><img src='<c:url value="/resources/images/twitter-logo.png"/>'></a>
-                <a href="http://vk.com/omskit"><img src='<c:url value="/resources/images/vk-logo.png"/>'></a>
+                <a href="https://twitter.com/OmskIT" target="_blank"><img src='<c:url value="/resources/images/twitter-logo.png"/>'></a>
+                <a href="http://vk.com/omskit" target="_blank"><img src='<c:url value="/resources/images/vk-logo.png"/>'></a>
             </div>
         </div>
         <div class="copyright">
-            &copy; OmskIT, 2013
+            &copy; OmskIT, 2014
         </div>
     </div>
 </div>

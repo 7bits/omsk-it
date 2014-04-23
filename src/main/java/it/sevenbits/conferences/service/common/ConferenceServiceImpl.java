@@ -71,7 +71,7 @@ public class ConferenceServiceImpl implements ConferenceService {
     @Override
     public Conference findLastConference() {
         return conferenceDao.findByQuery(
-                "select c from Conference c where c.ordinalNumber = (select max(ordinalNumber) from Conference) - 1", null
+                "select c from Conference c where c.ordinalNumber < (select max(ordinalNumber) from Conference) ORDER BY ordinalNumber DESC", null
         ).iterator().next();
     }
 
