@@ -14,13 +14,17 @@ a:hover {
     color: #00b7c8;
 }
 
+.link-light {
+    color: #ffffff;
+    border-bottom: solid 1px;
+}
+
 .link-underline {
     border-bottom: solid 1px;
 }
 
-.link-light {
-    color: #ffffff;
-    border-bottom: solid 1px;
+.link-clear:hover {
+    border-bottom: none;
 }
 
 .link-bold {
@@ -46,7 +50,33 @@ a:hover {
     font-size: 20px;    
 }
 
-/***/
+/*********************************/
+
+/* photo */
+
+.photo {
+    margin: 0 auto;
+    height: 122px;
+    width: 122px;
+    padding-top: 5px;    
+    border-radius: 122px;
+    -webkit-border-radius: 122px; /*Chrome 4.0, Safari 5.0, iOS*/
+    -moz-border-radius: 122px; /*Firefox 4.0*/
+}
+
+.report-content .photo { /* photo photo-small */
+    width: 80px;
+    height: 80px;
+    float: left;
+}
+
+.reporter-about .photo { /* photo photo-big */
+    width: 190px;
+    height: 190px;
+    float: left;
+}
+
+/********************************/
 body {
     margin: 0;
     padding: 0;
@@ -70,16 +100,6 @@ body {
 
 img {
     border: 0; /* for IE hide blue border*/
-}
-
-.photo {
-    width: 122px;
-    height: 122px;
-    border-radius: 122px;
-    -webkit-border-radius: 122px; /*Chrome 4.0, Safari 5.0, iOS*/
-    -moz-border-radius: 122px; /*Firefox 4.0*/
-    margin: 0 auto;
-    padding-top: 5px;    
 }
 
 .margin-top-8 {

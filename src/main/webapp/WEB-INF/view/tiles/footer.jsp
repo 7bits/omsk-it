@@ -13,7 +13,7 @@
             <span class="js-subscribe-response response"></span>
         </div>
         <div class="site-minor-logo">
-             <a href='<c:url value="/"/>'><img src='<c:url value="/resources/images/site-minor-logo.png"/>'></a>
+             <a class="link-clear" href='<c:url value="/"/>'><img src='<c:url value="/resources/images/site-minor-logo.png"/>'></a>
         </div>
         <div class="tracking inline-item">
             <div class="tracking-title inline-item">
@@ -21,8 +21,8 @@
             </div>
 
             <div class="inline-item">
-                <a href="https://twitter.com/OmskIT"><img src='<c:url value="/resources/images/twitter-logo.png"/>'></a>
-                <a href="http://vk.com/omskit"><img src='<c:url value="/resources/images/vk-logo.png"/>'></a>
+                <a class="link-clear" href="https://twitter.com/OmskIT"><img src='<c:url value="/resources/images/twitter-logo.png"/>'></a>
+                <a class="link-clear" href="http://vk.com/omskit"><img src='<c:url value="/resources/images/vk-logo.png"/>'></a>
             </div>
         </div>
         <div class="copyright">

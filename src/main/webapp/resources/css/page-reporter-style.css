@@ -1,13 +1,10 @@
 .reporter-about {
     min-height: 200px;
-    margin-left: 60px;
     margin-top: 40px;
+    padding-left: 60px;
+    padding-right: 50px;
 }
-.reporter-about .photo {
-    width: 190px;
-    height: 190px;
-    float: left;
-}
+
 .short-description {
     font-size: 20px;
     float: left;
@@ -21,7 +18,8 @@
 
 .reports-history {
     margin-top: 50px;
-    margin-left: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .reporter-reports-title {

@@ -15,10 +15,12 @@
 
 
 .center-item {
+    margin-right: 0.539%;
+    margin-left: 0.539%;
     display: inline-block;
     vertical-align: top;
     text-align: center;
-    width: 363px;
+    width: 32%;
 }
 
 .report {
@@ -44,7 +46,7 @@
 }
 
 .description {
-    max-width: 743px;
+    /*max-width: 743px;*/
 }
 .description-title {
     margin: 0;

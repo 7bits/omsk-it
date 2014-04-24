@@ -9,7 +9,7 @@
              <h1 class="title">
                  Предложить тему доклада
              </h1>
-             <form class="js-suggestion-form form-content" action='<c:url value="/suggest"/>' method="POST">
+             <form class="js-suggestion-form box-content" action='<c:url value="/suggest"/>' method="POST">
                  <div class="form-info">
                      Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
                  </div>

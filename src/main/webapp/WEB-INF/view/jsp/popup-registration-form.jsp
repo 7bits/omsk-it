@@ -4,7 +4,7 @@
         <h1 class="title">
             Регистрация на <c:out value="${conference.ordinalNumber}"/>-й IT-субботник (<c:out value="${conference.humanReadableDate}"/>, <c:out value="${conference.company.name}"/>)
         </h1>
-        <form class="js-guest-form form-content" action='<c:url value="/register"/>' method="POST">
+        <form class="js-guest-form box-content" action='<c:url value="/register"/>' method="POST">
             <div class="login-form-open">
                 Если вы зарегистрированы, то залогиньтесь.
             </div>

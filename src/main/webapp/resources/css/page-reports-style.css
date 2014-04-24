@@ -5,11 +5,6 @@
 .report-content .reporter {
     width: 100%;
 }
-.report-content .photo {
-    width: 80px;
-    height: 80px;
-    float: left;
-}
 .personal {
     float: left;
     margin-top: 15px;
@@ -24,16 +19,35 @@
 
 .report-content .description {
     font-size: 20px;
+    text-align: justify;
 }
 
 .report-content .presentation {
+    
     margin-top: 40px;
+}
+.report-content .presentation iframe {
+
+    border-right: solid 1px #ccc;
+    border-left: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    margin-left: auto;
+    margin-right: auto;
+    width: 635px;
+    display: block;
 }
 
 .report-content .video {
     margin-top: 50px;
 }
-
+.video iframe {
+    border-top: solid 2px;
+    border-bottom: solid 2px black;
+    margin-left: auto;
+    margin-right: auto;
+    width: 635px;
+    display: block;
+}
 .report-content .reporter-other-reports {
     margin-top: 70px;
 }

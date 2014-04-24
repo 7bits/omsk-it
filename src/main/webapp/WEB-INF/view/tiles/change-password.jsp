@@ -6,7 +6,7 @@
             <h1 class="title">
                 Изменение пароля
             </h1>
-            <form class = "change-password-form form-content" method="post" action="<c:url value='/user/change-password'/>">
+            <form class = "change-password-form box-content" method="post" action="<c:url value='/user/change-password'/>">
                 <div class="field">
                     <span class="left-label">E-mail</span>
                     <input class="js-login-input js-input input pos-input" value="<c:out value = '${email}'/>" type="text" name="email" size="30" maxlength="40"/>

@@ -22,8 +22,8 @@
             </ul>
         </div>
         <div class="social-ref  inline-item">
-            <a class="twitter inline-item social-icon" href="https://twitter.com/OmskIT"></a>
-            <a class="vkontakte inline-item social-icon" href="http://vk.com/omskit"></a>
+            <a class="link-clear twitter inline-item social-icon" href="https://twitter.com/OmskIT"></a>
+            <a class="link-clear vkontakte inline-item social-icon" href="http://vk.com/omskit"></a>
         </div>
         <%@ include file="/WEB-INF/view/jsp/popup-login-form.jsp" %>
         <%@ include file="/WEB-INF/view/jsp/popup-new-company-form.jsp" %>
