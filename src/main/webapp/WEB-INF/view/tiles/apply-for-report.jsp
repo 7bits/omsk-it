@@ -19,8 +19,8 @@
                     <div class="btn-gradient btn-small btn-bordered btn-inline js-login-form-open">
                         Логин
                     </div>
-                    <a href='<c:url value="/social/vkAuthorization"/>' class="inline-item">
-                        <img class="vk-enter" src='<c:url value="/resources/images/vk-minor-logo2.png"/>'/>
+                    <a href='<c:url value="/social/vkAuthorization"/>' class="inline-item link-clear">
+                        <img class="vk-logo vk-enter" src='<c:url value="/resources/images/vk-minor-logo2.png"/>'/>
                     </a>
                 </sec:authorize>
                 <div class="form-info">
@@ -30,9 +30,9 @@
                     <div class = "photo-upload-container">
                         <div class="field">
                             <span class="left-label photo-upload-label">Фотография</span>
-                            <span class="photo-upload-info">Рекомендуемый размер 200x200 px</span>
-                            <span class="js-field-response js-photo-upload-response attention photo-upload-attention"></span>
-                            <input class="js-photo-upload-input js-input margin-top-8 image" type="file" value="Загрузить" />
+                            <span class="photo-upload-info photo-upload-text">Рекомендуемый размер 200x200 px</span>
+                            <span class="js-field-response js-photo-upload-response attention photo-upload-text"></span>
+                            <input class="js-photo-upload-input js-input image" type="file" value="Загрузить" />
                         </div>
 
                         <div class="field">
@@ -78,11 +78,11 @@
                         <div class="js-field-response js-job-position-response attention attention-info"></div>
                     </div>
                     <div class="field long">
-                        <span class="left-label">Место работы/учебы&nbsp;<span class="attention">*</span></span>
+                        <span class="top-label left-label">Место работы/учебы&nbsp;<span class="attention">*</span></span>
                         <br/>
-                        <input class="js-company-input js-input input pos-input margin-top-8" type="text" id="company" autocomplete="false" name="company"/>
+                        <input class="js-company-input js-input input pos-input" type="text" id="company" autocomplete="false" name="company"/>
+                        <div class="js-new-company-form-open btn-gradient btn-add-company inline-item">Добавить</div>
                         <span class="field-info">
-                            <div class="js-new-company-form-open pos-btn-add-company btn-gradient btn-add-company inline-item">Добавить</div>
                             <span class="js-field-info inline-item"></span>
                         </span>
                         <div class="js-field-response js-company-response attention-info attention inline-item attention-company"></div>
@@ -136,7 +136,7 @@
                     <textarea class="js-reporter-wishes-input js-input input pos-input input-wide pos-input input-big pos-input" type="text" name="reporterWishes"></textarea>
                     <div class="js-field-response js-reporter-wishes-response attention attention-info"></div>
                 </div>
-                <div class="field">
+                <div class="field field-last">
                     <input class="js-apply-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить">
                     <input class="js-apply-reset btn-reset" type="reset" value="Отмена">
                     <div class="js-apply-response apply-response"></div>

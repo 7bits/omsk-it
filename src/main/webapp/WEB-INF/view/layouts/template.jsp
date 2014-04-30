@@ -14,12 +14,12 @@
         <link rel="stylesheet" href='<c:url value="/resources/css/header.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/footer.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/content.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/reset-password-form.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/form-reset-password.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/page-reports-style.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/page-reporter-style.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/page-suggest-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/buttons-submit-style.css"/>'> 
-        <link rel="stylesheet" href='<c:url value="/resources/css/buttons-style.css"/>'>        
+        <link rel="stylesheet" href='<c:url value="/resources/css/buttons-submit.css"/>'> 
+        <!--<link rel="stylesheet" href='<c:url value="/resources/css/buttons-style.css"/>'>-->       
         <link rel="stylesheet" href='<c:url value="/resources/css/forms-style.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/form-new-company-style.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/form-guest-style.css"/>'>

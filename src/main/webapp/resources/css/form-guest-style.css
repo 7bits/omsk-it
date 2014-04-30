@@ -1,3 +1,7 @@
+/*fix*/.pos-btn-close-form {
+    float: right;
+    margin: 10px;
+} 
 .guest-form-div {
     display: none;
 }

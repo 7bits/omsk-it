@@ -11,8 +11,8 @@
 .new-company-input-container {
     left: 34%;
     top: 28%;
-    width: 555px;
-    height: 285px;
+    width: 563px;
+    height: 300px;
     position: fixed;
     background: white;
     margin-left: 5px;
@@ -21,16 +21,6 @@
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-}
-
-.new-company-site-title {
-    width: 185px;
-    margin-left: 25px;
-}
-
-.new-company-name-title {
-    width: 185px;
-    margin-left: 25px;
 }
 
 .new-company-title {
@@ -47,19 +37,6 @@
     border-radius: 5px 5px 0px 0px;
     -webkit-border-radius: 5px 5px 0px 0px;
     -moz-border-radius: 5px 5px 0px 0px;
-}
-
-.close-new-company-form {
-    font-family: 'PT Sans', sans-serif;
-    font-size: 20px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    margin-top: 8px;
-}
-
-.close-new-company-form:hover {
-    border-bottom: solid 1px;
 }
 
 .js-new-company-response {

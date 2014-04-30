@@ -6,7 +6,7 @@
             <h1 class="title">
                 Вход на сайт
             </h1>
-            <form class = "box-content" method="post" action="<c:url value='/j_spring_security_check'/>">
+            <form class = "box-content" method="post" action="<c:url value='/j_spring_security_check'/>">                
                 <div class="field">
                     <span class="left-label">E-mail</span>
                     <input class="js-login-input js-input input pos-input" type="text" name="j_username" id="j_username" size="30" maxlength="40"/>
@@ -22,7 +22,9 @@
                         <span class="js-field-response js-password-response attention"></span>
                         <span class="js-field-info"></span>
                     </span>
+                    <div class="forgot-pass-container">
                     <div class="js-forgot-password link-blue forgot-password">Забыли пароль?</div>
+                    </div>
                 </div>
                 <p>
                     <c:if test="${error == 'true'}">
@@ -31,10 +33,10 @@
                         </div>
                     </c:if>
                 </p>
-                <div class="field">
+                <div class="field field-last">
                     <input class="pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Войти">
                     <div class="js-apply-response apply-response"></div>
-                </div>
+                </div>                
             </form>
         </div>
     </div>

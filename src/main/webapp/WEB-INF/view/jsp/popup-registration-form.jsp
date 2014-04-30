@@ -11,8 +11,8 @@
             <div class="btn-gradient btn-small btn-inline btn-bordered js-login-form-open">
                 Логин
             </div>
-            <a href='<c:url value="/social/vkAuthorization"/>' class="inline-item">
-                <img class="vk-enter" src='<c:url value="/resources/images/vk-minor-logo2.png"/>'/>
+            <a href='<c:url value="/social/vkAuthorization"/>' class="inline-item link-clear">
+                <img class="vk-logo vk-enter" src='<c:url value="/resources/images/vk-minor-logo2.png"/>'/>
             </a>
             <div class="form-info">
                 Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
@@ -20,9 +20,9 @@
             <div class = "photo-upload-container">
                 <div class="field">
                     <span class="left-label photo-upload-label">Фотография</span>
-                    <span class="photo-upload-info">Рекомендуемый размер 200x200 px</span>
-                    <span class="js-field-response js-photo-upload-response attention photo-upload-attention"></span>
-                    <input class="js-photo-upload-input js-input margin-top-8 image" type="file" value="Загрузить" />
+                    <span class="photo-upload-info photo-upload-text">Рекомендуемый размер 200x200 px</span>
+                    <span class="js-field-response js-photo-upload-response attention photo-upload-text"></span>
+                    <input class="js-photo-upload-input js-input image" type="file" value="Загрузить" />
                 </div>
 
                 <div class="field">
@@ -74,18 +74,18 @@
             </div>
 
             <div class="field long">
-                <span class="left-label">Место работы/учебы&nbsp;<span class="attention">*</span></span>
+                <span class="top-label left-label">Место работы/учебы&nbsp;<span class="attention">*</span></span>
                 <br/>
-                <input class="js-company-input js-input input pos-input margin-top-8" type="text" id="company" autocomplete="false" name="company"/>
-                        <span class="field-info">
-                            <div class="js-new-company-form-open pos-btn-add-company btn-gradient btn-add-company inline-item">Добавить</div>
+                <input class="js-company-input js-input input pos-input" type="text" id="company" autocomplete="false" name="company"/>
+                        <div class="js-new-company-form-open btn-gradient btn-add-company inline-item">Добавить</div>
+                        <span class="field-info">                            
                             <span class="js-field-info inline-item"></span>
                         </span>
                 <div class="js-field-response js-company-response attention-info attention inline-item attention-company"></div>
             </div>
 
 
-            <div class="field center-div">
+            <div class="field field-last center-div">
                 <input class="js-guest-form-button pos-btn-submit btn-gradient btn-submit btn-bordered btn-popup-event-registration" type="submit" value="Зарегистрироваться">
                 <div class="js-guest-response"></div>
             </div>

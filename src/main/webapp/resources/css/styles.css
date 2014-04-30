@@ -31,52 +31,19 @@ a:hover {
     font-weight: bold;
 }
 
-.forgot-password { 
-    margin-left: 320px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    font-size: 17px;    
-    text-decoration: underline;    
-}
-
-/*to fix*/
-.description-title a:hover { 
-    /*text-decoration: underline;*/
-    border-bottom: solid 1px;
-}
-/**/
-
 .reporter-reports-refs a { 
     font-size: 20px;    
 }
 
-/*********************************/
-
-/* photo */
-
-.photo {
-    margin: 0 auto;
-    height: 122px;
-    width: 122px;
-    padding-top: 5px;    
-    border-radius: 122px;
-    -webkit-border-radius: 122px; /*Chrome 4.0, Safari 5.0, iOS*/
-    -moz-border-radius: 122px; /*Firefox 4.0*/
+    /*to fix*/
+.description-title a:hover { 
+    /*text-decoration: underline;*/
+    border-bottom: solid 1px;
 }
+    /**/
 
-.report-content .photo { /* photo photo-small */
-    width: 80px;
-    height: 80px;
-    float: left;
-}
+/*********************************/    
 
-.reporter-about .photo { /* photo photo-big */
-    width: 190px;
-    height: 190px;
-    float: left;
-}
-
-/********************************/
 body {
     margin: 0;
     padding: 0;
@@ -85,71 +52,6 @@ body {
     font-family: 'PT Sans', sans-serif;
     color: #2d3e50;
 }
-
-.page {
-    width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.inline-item {
-    display: inline-block;
-    vertical-align: top;
-
-}
-
-img {
-    border: 0; /* for IE hide blue border*/
-}
-
-.margin-top-8 {
-    margin-top: -8px;
-}
-
-.text-content-up {
-    font-size: 26px;
-    padding-top: 60px;
-    color: #ffffff;
-}
-.text-content-down {
-    font-size: 25px;
-    color: #ffffff;
-    margin-top: 65px;
-/*    margin-bottom: -40px*/
-}
-
-.list {
-    line-height: 35px;
-    font-size: 20px;
-}
-ol {
-    list-style: none;
-    padding-left: 20px;
-    padding-bottom: 35px;
-}
-.list-num {
-    border: solid 1px transparent;
-    border-radius: 35px;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-    background: #10b7c5;
-    background: linear-gradient(to top, #0ba1ae, #10b7c5);
-    color: #ffffff;
-    margin: 9px 25px 9px 9px;
-}
-.long-line {
-    display: inline-block;
-    vertical-align: middle;
-    width: 830px;
-}
-
-/** header **/
-/*по структуре - обертка для всего содержимого,
-  по смыслу - свет от заголовка*/
 .light {
     min-width: 1100px;
     height:518px;        
@@ -161,94 +63,24 @@ ol {
     left: 0;
     right: 0;
 }
-
-/** rules **/
-
-.project-name {
-    color: #06eaff;
-}
-
-/** to-companies page **/
-.advertisement {
-    padding-top: 50px;
-    color: #ffffff;
-}
-
-.advertisement-title {
-    font-size: 35px;
-}
-
-
-/** to-reporters page **/
-
-.center-div {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    text-align: center;
-}
-
-.questions {
-    font-size: 25px;
-    color: #ffffff;
-    margin-bottom: -40px;
-}
-
-/* guest form */
-.guest-form-div {
-    display: none;
-}
-
-.container-form-guest {
-    position: absolute;
-    top: 165px;
-    left: 0;
-    right: 0;
+.page {
+    width: 1100px;
     margin-left: auto;
     margin-right: auto;
-    width: 925px;
-    z-index: 100;
+}
+.inline-item {
+    display: inline-block;
+    vertical-align: top;
+
 }
 
-.overlay {
-    position: fixed;
-    z-index: 99;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #000;
-    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=25);
-    -moz-opacity: 0.25;
-    -khtml-opacity: 0.25;
-    opacity: 0.25;
+img {
+    border: 0; /* for IE hide blue border*/
 }
 
-.guest-form .field {
-    font-size: 20px;
-    line-height: 40px;
-}
-
-.container-form {
-    background-color: #ffffff;
-    border-radius: 10px 10px 5px 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-    input[type="radio"] {
-        background: url(../images/radio-button.png); /* Переключатель выключен */
-        height: 18px; /* Высота картинки */
-        width: 18px; /* Ширина картинки */
-        margin: 15px 20px;
-        vertical-align: middle;
-        -webkit-appearance: none; /* Прячем чекбокс */
-        border: none;
-        cursor: pointer; /* Курсор в виде руки */
-    }
-    input[type="radio"]:checked {
-        background-position: 0 -18px; /* Переключатель включен */
-        border: none;
-    }
+/*to fix*/
+.margin-top-8 {
+    margin-top: -8px;
 }
 
 /*Error pages*/

@@ -66,7 +66,7 @@
                       <textarea class="input input-wide pos-input input-big pos-input" name="reporterRequest"></textarea>
                       <span class="js-field-response js-reporterRequest-respons attentione"></span>
                   </div>
-                 <div class="field">
+                 <div class="field field-last">
                      <input class="js-suggestion-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить">
                      <div class="js-suggest-response"></div>
                  </div>
