@@ -1,0 +1,212 @@
+    /* inputs */
+
+.pos-input {     /*to fix*/
+    margin-left: 25px;
+    margin-bottom: 10px;    
+}
+
+.input {      
+    height: 38px;
+    width: 254px;
+    padding-left: 15px;
+    padding-right: 15px;
+    
+    font-family: 'PT Sans', sans-serif;
+    vertical-align: middle;
+    font-size: 20px;
+    color: #2d3e50;
+    border: solid 2px #aaf0f7;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: #ffffff;
+}
+.input:focus {
+    outline: none;
+    border-color: #1a737c;
+}
+.input-wide {
+    display: block;
+    width: 1042px;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.input-big {
+    height: 150px;
+}
+
+.input-login {
+    height: 26px;
+    width: 130px;    
+    font-size: 16px;
+    border: solid 2px rgb(170,240,247);    
+}
+
+    /* fields */
+
+.field {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.field-last {
+    margin-top: 30px;
+}
+
+    /* info & labels */
+
+.form-info {
+    padding-bottom: 30px;
+    font-size: 15px;
+    vertical-align: top;
+}
+.field-info {
+    max-width: 380px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: normal;
+}
+.js-field-info {
+    padding-right: 5px;
+}
+
+.left-label {
+    width: 120px;
+    
+    margin-bottom: 15px;
+    
+    font-weight: bold;
+    display: inline-block;
+}
+.top-label {
+    width: 100%;
+    margin-bottom: 0px;
+}
+.login-form-label {    
+    width: 73px;
+}
+.login-form-open-label {
+    width: 370px;     
+    font-size: 18px;    
+    margin-bottom: 20px;
+}
+.new-company-label {
+    width: 185px;    
+}
+.reset-password-label {
+    margin-left: 102px;
+    margin-top: -25px;
+    /*margin-bottom: 15px;*/
+}
+
+    /* alert */
+
+.attention {
+    color: #f06009;
+    clear: left;
+}
+.attention-info {
+    margin-top: -11px;
+    margin-bottom: 26px;
+    margin-left: 151px;
+    font-size: 15px;
+}
+.attention-long {
+    margin-left: 0px;
+}
+.attention-company {
+    margin-left: 152px;
+    width: 332px;
+}
+.attention-new-company {
+    margin-left: 215px;
+}
+.attention-reset-password {
+    margin-left: 102px;
+    /*margin-top: -25px;
+    margin-bottom: 15px;*/
+    height: 10px;
+}
+.attention-login { /* to fix */
+    font-size: medium;
+    text-align: right;
+}
+
+    /* photo-uploader */
+
+.photo-upload-container {
+    width: 400px;
+    float: right;
+}
+.js-photo-upload-input {
+    width: 280px;
+}
+.photo-upload-text { 
+    font-size: 15px;
+    font-weight: normal;
+}
+.photo-upload-info { 
+    padding-right: 140px;
+}
+.photo-upload-label {
+    width: 300px;
+}
+
+    /* field to new companies */
+
+.long .left-label {    
+    margin-bottom: 10px;
+}
+.long .input {
+    margin-left: 151px;
+}
+.long-info {
+    max-width: 1042px;
+}
+   
+    /* media-queries */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    input[type="radio"] {
+        background: url(../images/radio-button.png); /* Переключатель выключен */
+        height: 18px; /* Высота картинки */
+        width: 18px; /* Ширина картинки */
+        margin: 15px 20px;
+        vertical-align: middle;
+        -webkit-appearance: none; /* Прячем чекбокс */
+        border: none;
+        cursor: pointer; /* Курсор в виде руки */
+    }
+    input[type="radio"]:checked {
+        background-position: 0 -18px; /* Переключатель включен */
+        border: none;
+    }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    input[type="checkbox"] {
+        background: url(../images/checkbox.png); /* Переключатель выключен */
+        height: 18px; /* Высота картинки */
+        width: 18px; /* Ширина картинки */
+        margin: 15px 20px;
+        vertical-align: middle;
+        -webkit-appearance: none; /* Прячем чекбокс */
+        border: none;
+        cursor: pointer; /* Курсор в виде руки */
+    }
+    input[type="checkbox"]:checked, input[type="radio"]:checked {
+        background-position: 0 -18px; /* Переключатель включен */
+        border: none;
+    }
+}
+
+input:-moz-placeholder {
+    color: #c0c0c0;
+}
+
+.open {
+    display: block;
+}
+
+.close {
+    display: none;
+}

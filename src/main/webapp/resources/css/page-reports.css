@@ -1,0 +1,49 @@
+.report-content {
+    padding: 20px 45px;    
+}
+.report-content .reporter {
+    width: 100%;
+}
+.personal {
+    float: left;
+    margin-top: 15px;
+    padding-left: 15px;
+    text-align: left;
+}
+.name {
+    margin: 0;
+    font-size: 20px;
+}
+
+.report-content .description {
+    font-size: 20px;
+    text-align: justify;
+}
+
+.report-content .presentation {    
+    margin-top: 40px;
+}
+
+.report-content iframe {    
+    display: block;
+    width: 635px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.report-content .presentation iframe {    
+    border-bottom: solid 1px #ccc;
+    border-right: solid 1px #ccc;
+    border-left: solid 1px #ccc;
+}
+
+.report-content .video {
+    margin-top: 50px;
+}
+.video iframe {
+    border-top: solid 2px;
+    border-bottom: solid 2px black;    
+}
+.report-content .reporter-other-reports {
+    margin-top: 70px;
+}

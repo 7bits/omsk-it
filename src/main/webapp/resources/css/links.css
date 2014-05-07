@@ -1,0 +1,33 @@
+a {
+    text-decoration: none;
+    color: #2d3e50;
+}
+
+a:hover {
+    border-bottom: solid 1px;
+}
+
+.link-blue {
+    color: #00b7c8;
+}
+
+.link-light {
+    color: #ffffff;
+    border-bottom: solid 1px;
+}
+
+.link-underline {
+    border-bottom: solid 1px;
+}
+
+.link-clear:hover {
+    border-bottom: none;
+}
+
+.link-bold {
+    font-weight: bold;
+}
+
+.reporter-reports-refs a { 
+    font-size: 20px;    
+}
