@@ -26,7 +26,7 @@
 
                 <div class="field">
                     <span class="left-label">Имя&nbsp;<span class="attention">*</span></span>
-                    <input class="js-first-name-input js-input input pos-input margin-top-8" type="text" name="firstName" value='<c:out value="${userVkontakteFirstName}"/>'/>
+                    <input class="js-first-name-input js-input input pos-input  " type="text" name="firstName" value='<c:out value="${userVkontakteFirstName}"/>'/>
                     <span class="field-info">
                         <span class="js-field-info">На русском языке</span>
                     </span>
@@ -35,7 +35,7 @@
 
                 <div class="field">
                     <span class="left-label">Фамилия&nbsp;<span class="attention">*</span></span>
-                    <input class="js-second-name-input js-input input pos-input margin-top-8" type="text" name="secondName" value='<c:out value="${userVkontakteSecondName}"/>'/>
+                    <input class="js-second-name-input js-input input pos-input  " type="text" name="secondName" value='<c:out value="${userVkontakteSecondName}"/>'/>
                     <span class="field-info">
                         <span class="js-field-info">На русском языке</span>
                     </span>
@@ -44,7 +44,7 @@
 
                 <div class="field">
                     <span class="left-label">E-mail&nbsp;<span class="attention">*</span></span>
-                    <input class="js-email-input js-input input pos-input margin-top-8" type="text" name="email"/>
+                    <input class="js-email-input js-input input pos-input  " type="text" name="email"/>
                     <span class="field-info">
                         <span class="js-field-info"></span>
                     </span>
@@ -53,7 +53,7 @@
 
                 <div class="field">
                     <span class="left-label">Должность&nbsp;<span class="attention">*</span></span>
-                    <input class="js-job-position-input js-input input pos-input margin-top-8" type="text" name="jobPosition"/>
+                    <input class="js-job-position-input js-input input pos-input  " type="text" name="jobPosition"/>
                     <span class="field-info">
                         <span class="js-field-info"></span>
                     </span>

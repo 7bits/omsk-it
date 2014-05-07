@@ -26,13 +26,14 @@
 .report {
     color: #2d3e50; */
 
-.report .bottom-line {
+/*.report .bottom-line {
     border: none;
     background-color: #dedede;
     color: #dedede;
     height: 1px;
     margin: 0 20px;
 }
+*/
 
 .reporter {
     width: 207px;
@@ -44,11 +45,11 @@
     margin-bottom: 10px
 }
 
-.description {
-    /*max-width: 743px;*/
-}
+/*.description {
+    max-width: 743px;
+}*/
 .description-title {
     margin: 0;
     margin-bottom: 10px;
-    font-size: 24px; 
+    /*font-size: 24px;*/ 
 }

@@ -12,9 +12,9 @@
     margin-top: 20px;
     max-width: 450px;
 }
-.short-description .position {
+/*.short-description .position {
     color: #2d3e50;
-}
+}*/
 
 .reports-history {
     margin-top: 50px;
@@ -26,12 +26,13 @@
     font-size: 26px;
 }
 
-.reports-history .description{
-    max-width: 540px;
-    margin-left: 15px;
-}
 .reports-history .report {
     border-bottom: solid 1px #dedede;
     padding-bottom: 38px;
     padding-top: 33px;
+}
+
+.reports-history .description{
+    max-width: 540px;
+    margin-left: 15px;
 }

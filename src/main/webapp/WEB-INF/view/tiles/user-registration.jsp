@@ -26,7 +26,7 @@
 
                 <div class="field">
                     <span class="left-label">Имя&nbsp;<span class="attention">*</span></span>
-                    <input class="js-first-name-input js-input input pos-input margin-top-8" type="text" name="firstName"/>
+                    <input class="js-first-name-input js-input input pos-input  " type="text" name="firstName"/>
                     <span class="field-info">
                         <span class="js-field-info">На русском языке</span>
                     </span>
@@ -35,7 +35,7 @@
 
                 <div class="field">
                     <span class="left-label">Фамилия&nbsp;<span class="attention">*</span></span>
-                    <input class="js-second-name-input js-input input pos-input margin-top-8" type="text" name="secondName"/>
+                    <input class="js-second-name-input js-input input pos-input  " type="text" name="secondName"/>
                     <span class="field-info">
                         <span class="js-field-info">На русском языке</span>
                     </span>
@@ -44,7 +44,7 @@
 
                 <div class="field">
                     <span class="left-label">Пароль&nbsp;<span class="attention">*</span></span>
-                    <input class="js-password-input js-input input pos-input margin-top-8" type="password" name="password"/>
+                    <input class="js-password-input js-input input pos-input  " type="password" name="password"/>
                     <span class="field-info">
                         <span class="js-field-info"></span>
                     </span>
@@ -53,7 +53,7 @@
 
                 <div class="field">
                     <span class="left-label">E-mail&nbsp;<span class="attention">*</span></span>
-                    <input class="js-email-input js-input input pos-input margin-top-8" type="text" name="email"/>
+                    <input class="js-email-input js-input input pos-input  " type="text" name="email"/>
                     <span class="field-info">
                         <span class="js-field-info"></span>
                     </span>
@@ -62,7 +62,7 @@
 
                 <div class="field">
                     <span class="left-label">Должность&nbsp;<span class="attention">*</span></span>
-                    <input class="js-job-position-input js-input input pos-input margin-top-8" type="text" name="jobPosition"/>
+                    <input class="js-job-position-input js-input input pos-input  " type="text" name="jobPosition"/>
                     <span class="field-info">
                         <span class="js-field-info"></span>
                     </span>
