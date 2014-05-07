@@ -5,7 +5,7 @@
             Регистрация на <c:out value="${conference.ordinalNumber}"/>-й IT-субботник (<c:out value="${conference.humanReadableDate}"/>, <c:out value="${conference.company.name}"/>)
         </h1>
         <form class="js-guest-form box-content" action='<c:url value="/register"/>' method="POST">
-            <div class="login-form-open">
+            <div class="left-label login-form-open-label">
                 Если вы зарегистрированы, то залогиньтесь.
             </div>
             <div class="btn-gradient btn-small btn-inline btn-bordered js-login-form-open">

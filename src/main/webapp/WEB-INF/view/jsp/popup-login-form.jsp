@@ -1,8 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class="login-container">
+<div class="popup-container login-container">
     <div class="form-opacity"></div>
-    <div class="login-form-container">
-        <div class="new-company-title"> Вход на сайт</div>
+    <div class="popup-form-container">
+        <div class="title popup-title"> Вход на сайт</div>
         <div class="box-content">
             <div class="field">
                 <span class="left-label login-form-label">Email</span>

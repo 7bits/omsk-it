@@ -13,7 +13,7 @@
             </h1>
             <form class="js-apply-form box-content" action='<c:url value="/apply-for-report"/>' method="POST">
                 <sec:authorize ifNotGranted="ROLE_ADMIN, ROLE_USER, ROLE_MODERATOR">
-                    <div class="login-form-open">
+                    <div class="left-label login-form-open-label">
                         Если вы зарегистрированы, то залогиньтесь.
                     </div>
                     <div class="btn-gradient btn-small btn-bordered btn-inline js-login-form-open">

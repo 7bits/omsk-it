@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class="new-company-form-container">
+<div class="new-company-form-container popup-container">
     <div class="form-opacity"></div>
-    <div class="new-company-input-container">
-        <div class="new-company-title"> Добавить организацию</div>
+    <div class="popup-form-container popup-form-new-company">
+        <div class="title popup-title"> Добавить организацию</div>
         <div class="box-content">
             <div class="field">
                 <span class="left-label new-company-label">Название&nbsp;<span class="attention">*</span></span>
                 <input class="new-company-input js-input input pos-input margin-top-8" name="name" id="company-name" placeholder="Название"/>
-                <div class="js-field-response js-new-company-response attention attention-info"></div>
+                <div class="js-field-response js-new-company-response attention attention-info attention-new-company"></div>
             </div>
 
             <div class="field">

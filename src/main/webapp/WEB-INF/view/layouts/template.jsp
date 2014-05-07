@@ -9,22 +9,20 @@
         <meta charset="utf-8">
         <title><tiles:getAsString name="title" /></title>
         <link rel="stylesheet" href='<c:url value="/resources/css/styles.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/form-login-style.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/links.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/form-login.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/messages.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/header.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/footer.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/content.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/form-reset-password.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/page-reports-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/page-reporter-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/page-suggest-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/buttons-submit.css"/>'> 
-        <!--<link rel="stylesheet" href='<c:url value="/resources/css/buttons-style.css"/>'>-->       
-        <link rel="stylesheet" href='<c:url value="/resources/css/forms-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/form-new-company-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/form-guest-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/form-subscribe-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/page-archive-style.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/popups.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/page-reports.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/page-reporter.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/buttons-submit.css"/>'>               
+        <link rel="stylesheet" href='<c:url value="/resources/css/form-elements.css"/>'>        
+        <link rel="stylesheet" href='<c:url value="/resources/css/form-guest.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/form-subscribe.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/page-archive.css"/>'>
         <link rel="icon" href='<c:url value="/resources/images/favicon.ico"/>' type="image/x-icon">
         <link rel="shortcut icon" href='<c:url value="/resources/images/favicon.ico"/>' type="image/x-icon">
         

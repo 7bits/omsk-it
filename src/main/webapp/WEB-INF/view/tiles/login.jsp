@@ -23,16 +23,15 @@
                         <span class="js-field-info"></span>
                     </span>
                     <div class="forgot-pass-container">
-                    <div class="js-forgot-password link-blue forgot-password">Забыли пароль?</div>
-                    </div>
-                </div>
-                <p>
                     <c:if test="${error == 'true'}">
-                        <div class="attention login-error">
+                        <div class="attention attention-login">
                             Неверный email или пароль.<br />
                         </div>
                     </c:if>
-                </p>
+                    <div class="js-forgot-password link-blue forgot-password">Забыли пароль?</div>
+                    </div>
+                </div>
+                
                 <div class="field field-last">
                     <input class="pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Войти">
                     <div class="js-apply-response apply-response"></div>
