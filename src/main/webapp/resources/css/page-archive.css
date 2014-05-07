@@ -1,12 +1,10 @@
 .title-text {
-    font-size: 18px;
+    font-size: 1.125em;
     font-weight: normal;
 }
-/*.title-date {
-    font-weight: bold;
-}*/
+
 .title .event-location {
-    font-size: 18px;
+    font-size: 1.125em;
     border: none;
 }
 .title .event-location:hover {
@@ -22,9 +20,6 @@
     text-align: center;
     width: 32%;
 }
-/*
-.report {
-    color: #2d3e50; */
 
 /*.report .bottom-line {
     border: none;
@@ -45,11 +40,8 @@
     margin-bottom: 10px
 }
 
-/*.description {
-    max-width: 743px;
-}*/
 .description-title {
     margin: 0;
     margin-bottom: 10px;
-    /*font-size: 24px;*/ 
+    font-size: 1.5em; 
 }

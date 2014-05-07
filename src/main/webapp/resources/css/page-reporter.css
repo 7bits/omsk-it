@@ -6,15 +6,12 @@
 }
 
 .short-description {
-    font-size: 20px;
+    font-size: 1.25em;
     float: left;
     margin-left: 30px;
     margin-top: 20px;
     max-width: 450px;
 }
-/*.short-description .position {
-    color: #2d3e50;
-}*/
 
 .reports-history {
     margin-top: 50px;
@@ -23,7 +20,7 @@
 }
 
 .reporter-reports-title {
-    font-size: 26px;
+    font-size: 1.625em;
 }
 
 .reports-history .report {

@@ -9,26 +9,25 @@
     font-family: 'PT Sans', sans-serif;    
     font-size: 20px;
 
-    -khtml-border-radius: 5px;
-    -webkit-border-radius: 5px; /*Chrome 4.0, Safari 5.0, iOS*/
-    -moz-border-radius: 5px; /*Firefox 4.0*/
-    border-radius: 5px;
+    -webkit-border-radius:5px;
+       -moz-border-radius:5px;
+            border-radius:5px;
 
     cursor: pointer;
 
     color: #ffffff;
-    background: linear-gradient(to top, #0ba1ae, #10b7c5);
-    background: -moz-linear-gradient(to top, #0ba1ae, #10b7c5);   
+    background: -webkit-gradient(linear, left bottom, left top, from(#0ba1ae), to(#10b7c5));
+    background: -webkit-linear-gradient(bottom, #0ba1ae, #10b7c5);
+    background: -o-linear-gradient(bottom, #0ba1ae, #10b7c5);
+    background: linear-gradient(to top, #0ba1ae, #10b7c5);   
 }
 .btn-gradient:hover, .btn-gradient:active {
-    background: #18cfdf;
-    background: -moz-linear-gradient(to bottom, #18cfdf, #0ba9b7);
+    background:  #0ba9b7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#18cfdf), to(#0ba9b7));
+    background: -webkit-linear-gradient(top, #18cfdf, #0ba9b7);
+    background: -o-linear-gradient(top, #18cfdf, #0ba9b7);
     background: linear-gradient(to bottom, #18cfdf, #0ba9b7);
 }
-.btn-gradient:active {
-    background: #0ba9b7;    
-}
-
 .btn-small{
     height: 25px;
     width: 60px;
@@ -61,6 +60,9 @@
     border: outset 1px #8adde6;
     color: #2d3e50;
     background-color: #aaf0f7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#aaf0f7), to(#aaf0f7));
+    background: -webkit-linear-gradient(top, #aaf0f7, #aaf0f7);
+    background: -o-linear-gradient(top, #aaf0f7, #aaf0f7);
     background: linear-gradient(to bottom, #aaf0f7, #aaf0f7);
 }
 .btn-subscribe:hover {

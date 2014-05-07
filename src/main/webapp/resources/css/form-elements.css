@@ -1,6 +1,6 @@
     /* inputs */
 
-.pos-input {     /*to fix*/
+.pos-input {     
     margin-left: 25px;
     margin-bottom: 10px;    
 }
@@ -13,12 +13,12 @@
     
     font-family: 'PT Sans', sans-serif;
     vertical-align: middle;
-    font-size: 20px;
+    font-size: 1.25em;
     color: #2d3e50;
     border: solid 2px #aaf0f7;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
     background-color: #ffffff;
 }
 .input:focus {
@@ -39,15 +39,13 @@
 
 .input-login {
     height: 26px;
-    width: 130px;    
-    font-size: 16px;
+    width: 130px;     
     border: solid 2px rgb(170,240,247);    
 }
 
     /* fields */
 
-.field {
-    font-size: 20px;
+.field {    
     margin-bottom: 10px;
 }
 .field-last {
@@ -58,13 +56,13 @@
 
 .form-info {
     padding-bottom: 30px;
-    font-size: 15px;
+    font-size: 0.9375em;
     vertical-align: top;
 }
 .field-info {
     max-width: 380px;
     display: inline-block;
-    font-size: 15px;
+    font-size: 0.9375em;
     font-weight: normal;
 }
 .js-field-info {
@@ -75,7 +73,7 @@
     width: 120px;
     
     margin-bottom: 15px;
-    
+    font-size: 1.25em;    
     font-weight: bold;
     display: inline-block;
 }
@@ -88,7 +86,7 @@
 }
 .login-form-open-label {
     width: 370px;     
-    font-size: 18px;    
+    font-size: 1.125em;    
     margin-bottom: 20px;
 }
 .new-company-label {
@@ -96,8 +94,7 @@
 }
 .reset-password-label {
     margin-left: 102px;
-    margin-top: -25px;
-    /*margin-bottom: 15px;*/
+    margin-top: -25px;    /*!!!!*/
 }
 
     /* alert */
@@ -110,7 +107,7 @@
     margin-top: -11px;
     margin-bottom: 18px;
     margin-left: 151px;
-    font-size: 15px;
+    font-size: 0.9375em;
 }
 .attention-long {
     margin-left: 0px;
@@ -123,9 +120,7 @@
     margin-left: 215px;
 }
 .attention-reset-password {
-    margin-left: 102px;
-    /*margin-top: -25px;
-    margin-bottom: 15px;*/
+    margin-left: 102px;    
     height: 10px;
 }
 .attention-login { /* to fix */
@@ -143,7 +138,7 @@
     width: 280px;
 }
 .photo-upload-text { 
-    font-size: 15px;
+    font-size: 0.9375em;
     font-weight: normal;
 }
 .photo-upload-info { 

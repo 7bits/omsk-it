@@ -2,12 +2,12 @@
     /* text-content */
 
 .text-content-up {
-    font-size: 26px;
+    font-size: 1.625em;
     padding-top: 60px;
     color: #ffffff;
 }
 .text-content-down {
-    font-size: 25px;
+    font-size: 1.5625em;
     color: #ffffff;
     margin-top: 65px;
 }
@@ -15,11 +15,12 @@
     /* boxeses */
 
 .box {
-    background-color: #ffffff;
-    border-radius: 10px 10px 5px 5px;
-    -webkit-border-radius: 10px 10px 5px 5px; /*Chrome 4.0, Safari 5.0, iOS*/
-    -moz-border-radius: 10px 10px 5px 5px; /*Firefox 4.0*/
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    background-color: #ffffff;    
+    -webkit-border-radius:10px 10px 5px 5px;
+       -moz-border-radius:10px 10px 5px 5px;
+            border-radius:10px 10px 5px 5px;
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
     margin-top: 60px;
     min-height: 370px;
     padding-bottom: 10px;
@@ -37,12 +38,15 @@
     padding-bottom: 10px;
     padding-left: 33px;
     padding-right: 33px;
-    font-size: 29px;
+    font-size: 1.8125em;
     color: #fefcf9;
-    border-radius: 5px 5px 0 0;
-    -webkit-border-radius: 5px 5px 0 0; /*Chrome 4.0, Safari 5.0, iOS*/
-    -moz-border-radius: 5px 5px 0 0; /*Firefox 4.0*/
+    -webkit-border-radius:5px 5px 0 0;
+       -moz-border-radius:5px 5px 0 0;
+            border-radius:5px 5px 0 0;
     background: #10b7c5;
+    background: -webkit-gradient(linear, left bottom, left top, from(#0ba1ae), to(#10b7c5));
+    background: -webkit-linear-gradient(bottom, #0ba1ae, #10b7c5);
+    background: -o-linear-gradient(bottom, #0ba1ae, #10b7c5);
     background: linear-gradient(to top, #0ba1ae, #10b7c5);
 }
 
@@ -56,7 +60,7 @@
 
 .list {
     line-height: 35px;
-    font-size: 20px;
+    font-size: 1.25em;
 }
 ol {
     list-style: none;
@@ -65,7 +69,9 @@ ol {
 }
 .list-num {
     border: solid 1px transparent;
-    border-radius: 35px;
+    -webkit-border-radius:35px;
+       -moz-border-radius:35px;
+            border-radius:35px;
     width: 35px;
     height: 35px;
     line-height: 35px;
@@ -73,6 +79,9 @@ ol {
     vertical-align: middle;
     text-align: center;
     background: #10b7c5;
+    background: -webkit-gradient(linear, left bottom, left top, from(#0ba1ae), to(#10b7c5));
+    background: -webkit-linear-gradient(bottom, #0ba1ae, #10b7c5);
+    background: -o-linear-gradient(bottom, #0ba1ae, #10b7c5);
     background: linear-gradient(to top, #0ba1ae, #10b7c5);
     color: #ffffff;
     margin: 9px 25px 9px 9px;
@@ -85,9 +94,9 @@ ol {
     height: 122px;
     width: 122px;
     padding-top: 5px;    
-    border-radius: 122px;
-    -webkit-border-radius: 122px; /*Chrome 4.0, Safari 5.0, iOS*/
-    -moz-border-radius: 122px; /*Firefox 4.0*/
+    -webkit-border-radius:122px;
+       -moz-border-radius:122px;
+            border-radius:122px;
 }
 
 .report-content .photo { /* photo photo-small */
@@ -105,7 +114,7 @@ ol {
     /* actions */
 
 .action {
-    font-size: 27px;
+    font-size: 1.6875em;
     color: #ffffff;
 }
 .action-text {
@@ -121,15 +130,15 @@ ol {
     width: 310px;
     color: #2d3e50;
     border-color: transparent;
-    border-radius: 5px;
-    -webkit-border-radius: 5px; /*Chrome 4.0, Safari 5.0, iOS*/
-    -moz-border-radius: 5px; /*Firefox 4.0*/
-    box-shadow: 0 0 10px;
+    -webkit-border-radius:5px;
+       -moz-border-radius:5px;
+            border-radius:5px;
+    -webkit-box-shadow: 0 0 10px;
+            box-shadow: 0 0 10px;
     background-color: #ffffff;
 }
 .button-img {
-    position: absolute;
-    /*height: 235px;*/
+    position: absolute;    
     width: 310px;
     padding-top: 35px;
 }
@@ -152,7 +161,7 @@ ol {
     color: #ffffff;
 }
 .event-title {
-    font-size: 34px;
+    font-size: 2.125em;
 }
 .event-date {
     font-weight: 700;    
@@ -163,7 +172,7 @@ ol {
     border-bottom: dashed 2px;
 }
 .next-event-text {    
-    font-size: 20px;
+    font-size: 1.25em;
     line-height: 30px;
 }
 
@@ -174,7 +183,7 @@ ol {
 
 }
 .events-history {
-    font-size: 24px;
+    font-size: 1.5em;
     padding: 25px 35px 0 35px;
     color: #ffffff;
 }
@@ -194,7 +203,7 @@ ol {
 }
 
 .questions {
-    font-size: 25px;
+    font-size: 1.5625em;
     color: #ffffff;
     margin-bottom: -40px;
 }
@@ -207,7 +216,7 @@ ol {
 }
 
 .advertisement-title {
-    font-size: 35px;
+    font-size: 2.1875em;
 }
 
     

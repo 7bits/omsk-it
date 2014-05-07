@@ -6,9 +6,9 @@
 .vk-logo {
     width: 30px;
     height: 30px;
-    border-radius: 17px;
-    -moz-border-radius: 17px;
-    -webkit-border-radius: 17px;
+    -webkit-border-radius:17px;
+       -moz-border-radius:17px;
+            border-radius:17px;
     margin-top: 8px;
     margin-bottom: -10px;
     margin-left: 4px;
@@ -60,7 +60,7 @@
     text-align: right;
     margin-bottom: 8px;
     cursor: pointer;
-    font-size: 17px;    
+    font-size: 1.0625em;    
     text-decoration: underline;    
 }
 
@@ -75,7 +75,7 @@
 }
 
 .registration-confirm-text {
-    font-size: 25px;
+    font-size: 1.5625em;
     top: 40%;
 }
 

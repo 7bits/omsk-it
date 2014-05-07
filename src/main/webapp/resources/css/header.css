@@ -1,7 +1,8 @@
 .header {
     height: 160px;
     background-color: #fdfaf5;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
 .header .page {
     padding-top: 1px;
@@ -20,11 +21,11 @@
 }
 .logo-title-top {
     color: #0eaebb;
-    font-size: 25px;
+    font-size: 1.5625em;
     margin-top: 12px;
 }
 .logo-title-bottom {
-    font-size: 13px;
+    font-size: 0.8125em;
     color: #000000;
 }
 .logo-img {
@@ -41,17 +42,20 @@
     height: 54px;
     line-height: 52px;
     padding: 0 27px;
-    font-size: 20px;
+    font-size: 1.25em;
     color: #2d3e50;
 }
 .menu-item:hover {
+    color: #fff;
     background: #10b7c5;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0ba1ae), to(#10b7c5));
+    background: -webkit-linear-gradient(top, #0ba1ae, #10b7c5);
+    background: -o-linear-gradient(top, #0ba1ae, #10b7c5);
     background: linear-gradient(to bottom, #0ba1ae, #10b7c5);
     border-color: #0faebd;
-    border-radius: 5px;
-    -webkit-border-radius: 5px; /*Chrome 4.0, Safari 5.0, iOS*/
-    -moz-border-radius: 5px 5px; /*Firefox 4.0*/
-    color: #fff;
+    -webkit-border-radius:5px;
+       -moz-border-radius:5px;
+            border-radius:5px;
 }
 
 /* social icons */

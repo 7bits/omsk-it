@@ -10,8 +10,7 @@
         <title><tiles:getAsString name="title" /></title>
         <link rel="stylesheet" href='<c:url value="/resources/css/styles.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/links.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/form-login.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/messages.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/form-login.css"/>'>        
         <link rel="stylesheet" href='<c:url value="/resources/css/header.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/footer.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/content.css"/>'>

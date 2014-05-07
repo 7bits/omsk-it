@@ -5,6 +5,7 @@ body {
     background-image: url(../images/pattern.jpg);
     font-family: 'PT Sans', sans-serif;
     color: #2d3e50;
+    font-size: 16px;
 }
 .light {
     min-width: 1100px;
@@ -31,15 +32,10 @@ img {
     border: 0; /* for IE hide blue border*/
 }
 
-/*to fix*/
-.margin-top-8 {
-    margin-top: -8px;
-}
-
 /*Error pages*/
 .error-message {
     color: #2d3e50;
-    font-size: 22px;
+    font-size: 1.375em;
     text-align: center;
 }
 
