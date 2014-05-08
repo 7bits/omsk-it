@@ -37,25 +37,31 @@
     margin-left: 150px;
     float:left;
 }
-.menu-item {
+.menu-item {    
     list-style-type: none;
     height: 54px;
     line-height: 52px;
     padding: 0 27px;
     font-size: 1.25em;
     color: #2d3e50;
-}
-.menu-item:hover {
-    color: #fff;
-    background: #10b7c5;
-    background: -webkit-gradient(linear, left top, left bottom, from(#0ba1ae), to(#10b7c5));
-    background: -webkit-linear-gradient(top, #0ba1ae, #10b7c5);
-    background: -o-linear-gradient(top, #0ba1ae, #10b7c5);
-    background: linear-gradient(to bottom, #0ba1ae, #10b7c5);
-    border-color: #0faebd;
     -webkit-border-radius:5px;
        -moz-border-radius:5px;
             border-radius:5px;
+    behavior: url( /omsk-it/resources/css/pie.htc);
+    position: relative;  
+    zoom: 1;    
+}
+.menu-item:hover {
+    color: #fff;     
+    background: #10b7c5;   
+    background: -webkit-gradient(linear, left top, left bottom, from(#0ba1ae), to(#10b7c5));
+    background: -webkit-linear-gradient(top, #0ba1ae, #10b7c5);
+    background: -o-linear-gradient(top, #0ba1ae, #10b7c5);
+    /*filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#0ba1ae', endColorstr='#10b7c5'); /* IE6 & IE7 */
+    /*-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#0ba1ae', endColorstr='#10b7c5')"; /* IE8 */
+    background: linear-gradient(to bottom, #0ba1ae, #10b7c5);
+    //border-color: #0faebd;
+    
 }
 
 /* social icons */

@@ -19,6 +19,9 @@
     -webkit-border-radius:10px 10px 5px 5px;
        -moz-border-radius:10px 10px 5px 5px;
             border-radius:10px 10px 5px 5px;
+    behavior: url(/omsk-it/resources/css/pie.htc);
+    position: relative;  
+    zoom: 1; 
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
             box-shadow: 0 0 10px rgba(0,0,0,0.3);
     margin-top: 60px;
@@ -43,7 +46,12 @@
     -webkit-border-radius:5px 5px 0 0;
        -moz-border-radius:5px 5px 0 0;
             border-radius:5px 5px 0 0;
+    behavior: url(/omsk-it/resources/css/pie.htc);
+    position: relative;  
+    zoom: 1; 
     background: #10b7c5;
+    /*filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#0ba1ae', endColorstr='#10b7c5'); /* IE6 & IE7 */
+    /*-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#0ba1ae', endColorstr='#10b7c5')"; /* IE8 */
     background: -webkit-gradient(linear, left bottom, left top, from(#0ba1ae), to(#10b7c5));
     background: -webkit-linear-gradient(bottom, #0ba1ae, #10b7c5);
     background: -o-linear-gradient(bottom, #0ba1ae, #10b7c5);
@@ -72,6 +80,9 @@ ol {
     -webkit-border-radius:35px;
        -moz-border-radius:35px;
             border-radius:35px;
+    behavior: url( /omsk-it/resources/css/pie.htc);
+    position: relative;  
+    zoom: 1;  
     width: 35px;
     height: 35px;
     line-height: 35px;
@@ -97,6 +108,9 @@ ol {
     -webkit-border-radius:122px;
        -moz-border-radius:122px;
             border-radius:122px;
+    behavior: url( /omsk-it/resources/css/pie.htc);
+    position: relative;  
+    zoom: 1;  
 }
 
 .report-content .photo { /* photo photo-small */
@@ -133,6 +147,9 @@ ol {
     -webkit-border-radius:5px;
        -moz-border-radius:5px;
             border-radius:5px;
+    behavior: url( /omsk-it/resources/css/pie.htc);
+    position: relative;  
+    zoom: 1;  
     -webkit-box-shadow: 0 0 10px;
             box-shadow: 0 0 10px;
     background-color: #ffffff;

@@ -1,8 +1,7 @@
     /* inputs */
 
 .pos-input {     
-    margin-left: 25px;
-    margin-bottom: 10px;    
+    margin-left: 25px;       
 }
 
 .input {      
@@ -19,6 +18,9 @@
     -webkit-border-radius: 5px;
        -moz-border-radius: 5px;
             border-radius: 5px;
+    behavior: url( /omsk-it/resources/css/tricks-for-ie/pie.htc);
+    position: relative;  
+    zoom: 1; 
     background-color: #ffffff;
 }
 .input:focus {
@@ -46,8 +48,9 @@
     /* fields */
 
 .field {    
-    margin-bottom: 10px;
+   
 }
+
 .field-last {
     margin-top: 30px;
 }
@@ -64,15 +67,14 @@
     display: inline-block;
     font-size: 0.9375em;
     font-weight: normal;
+    padding-right: 5px;
 }
 .js-field-info {
-    padding-right: 5px;
+    //padding-right: 5px;
 }
 
 .left-label {
-    width: 120px;
-    
-    margin-bottom: 15px;
+    width: 120px;    
     font-size: 1.25em;    
     font-weight: bold;
     display: inline-block;
@@ -93,8 +95,7 @@
     width: 185px;    
 }
 .reset-password-label {
-    margin-left: 102px;
-    margin-top: -25px;    /*!!!!*/
+    margin-left: 102px;    
 }
 
     /* alert */
@@ -103,9 +104,8 @@
     color: #f06009;
     clear: left;
 }
-.attention-info {
-    margin-top: -11px;
-    margin-bottom: 18px;
+.attention-info {    
+    margin-bottom: 20px;
     margin-left: 151px;
     font-size: 0.9375em;
 }

@@ -6,14 +6,14 @@
         <div class="box-content">
             <div class="field">
                 <span class="left-label login-form-label">Email</span>
-                <input class="login-form-input input pos-input margin-top-8" type="text" name="login" />
+                <input class="login-form-input input pos-input  " type="text" name="login" />
             </div>
 
             <div class="field">
                 <span class="left-label login-form-label">Пароль</span>
-                <input class="login-form-input input pos-input margin-top-8" type="password" name="password" />
-            </div>
-            <div class="js-field-response login-message-error attention"></div>
+                <input class="login-form-input input pos-input  " type="password" name="password" />
+                <div class="js-field-response login-message-error attention"></div>
+            </div>            
             <div class="js-forgot-password link-blue forgot-password">Забыли пароль?</div>
             <div class="js-confirm-login pos-btn-big pos-btn-big-confirm-form btn-gradient btn-big btn-inline">Войти</div>
             <button class="cancel-login btn-reset">Отмена</button>
