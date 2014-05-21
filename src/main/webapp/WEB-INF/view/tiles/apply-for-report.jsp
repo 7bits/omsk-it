@@ -11,7 +11,7 @@
             <h1 class="title">
                 Подать заявку на выступление
             </h1>
-            <form class="js-apply-form box-content" action='<c:url value="/apply-for-report"/>' method="POST">
+            <form class="js-applyForReport-form box-content" action='<c:url value="/apply-for-report"/>' method="POST">
                 <sec:authorize ifNotGranted="ROLE_ADMIN, ROLE_USER, ROLE_MODERATOR">
                     <div class="left-label login-form-open-label">
                         Если вы зарегистрированы, то залогиньтесь.
@@ -41,19 +41,19 @@
                     </div>
                     <div class="field">
                         <span class="left-label">Имя&nbsp;<span class="attention">*</span></span>
-                        <input class="js-first-name-input js-input input pos-input" type="text" name="firstName">
+                        <input class="js-firstName-input js-input input pos-input" type="text" name="firstName">
                         <span class="field-info">
                             <span class="js-field-info">На русском языке</span>
                         </span>
-                        <div class="js-field-response js-first-name-response attention attention-info"></div>
+                        <div class="js-field-response js-firstName-response attention attention-info"></div>
                     </div>
                     <div class="field">
                         <span class="left-label">Фамилия&nbsp;<span class="attention">*</span></span>
-                        <input class="js-second-name-input js-input input pos-input" type="text" name="secondName">
+                        <input class="js-secondName-input js-input input pos-input" type="text" name="secondName">
                         <span class="field-info">
                             <span class="js-field-info">На русском языке</span>
                         </span>
-                        <div class="js-field-response js-second-name-response attention attention-info"></div>
+                        <div class="js-field-response js-secondName-response attention attention-info"></div>
                     </div>
                     <div class="field">
                         <span class="left-label">E-mail&nbsp;<span class="attention">*</span></span>
@@ -71,11 +71,11 @@
                     </div>
                     <div class="field">
                         <span class="left-label">Должность&nbsp;<span class="attention">*</span></span>
-                        <input class="js-job-position-input js-input input pos-input" type="text" name="jobPosition">
+                        <input class="js-jobPosition-input js-input input pos-input" type="text" name="jobPosition">
                         <span class="field-info">
                             <span class="js-field-info"></span>
                         </span>
-                        <div class="js-field-response js-job-position-response attention attention-info"></div>
+                        <div class="js-field-response js-jobPosition-response attention attention-info"></div>
                     </div>
                     <div class="field long">
                         <span class="top-label left-label">Место работы/учебы&nbsp;<span class="attention">*</span></span>
@@ -109,37 +109,37 @@
                     <span class="field-info long-info">
                         <span class="js-field-info">Это очень важно. Пример: web, nosql, нагрузочное тестирование, менеджмент, стартап, mobile, ios, java, ...</span>
                     </span>
-                    <input class="js-key-technologies-input js-input input pos-input input-wide pos-input" type="text" name="keyTechnologies">
-                    <div class="js-field-response js-key-technologies-response attention attention-info attention-long"></div>
+                    <input class="js-keyTechnologies-input js-input input pos-input input-wide pos-input" type="text" name="keyTechnologies">
+                    <div class="js-field-response js-keyTechnologies-response attention attention-info attention-long"></div>
                 </div>
                 <div class="field">
                     <span class="left-label top-label">Рассказывали ли вы уже этот доклад на других мероприятиях? Если да, то на каких?</span>
                     <span class="field-info long-info">
                         <span class="js-field-info"></span>
                     </span>
-                    <input class="js-other-conferences-input js-input input pos-input input-wide pos-input" type="text" name="otherConferences">
-                    <div class="js-field-response js-other-conferences-response attention attention-info"></div>
+                    <input class="js-otherConferences-input js-input input pos-input input-wide pos-input" type="text" name="otherConferences">
+                    <div class="js-field-response js-otherConferences-response attention attention-info"></div>
                 </div>
                 <div class="field">
                     <span class="left-label top-label">Есть ли у вас опыт выступлений на каких-либо мероприятиях? Перечислите таковые.</span>
                     <span class="field-info long-info">
                         <span class="js-field-info">Нет ничего страшного в том, если у вас нет опыта. В этом случае мы поможем вам подготовить доклад.</span>
                     </span>
-                    <textarea class="js-speech-experience-input js-input input pos-input input-wide pos-input input-big pos-input" type="text" name="speechExperience"></textarea>
-                    <div class="js-field-response js-speech-experience-response attention attention-info"></div>
+                    <textarea class="js-speechExperience-input js-input input pos-input input-wide pos-input input-big pos-input" type="text" name="speechExperience"></textarea>
+                    <div class="js-field-response js-speechExperience-response attention attention-info"></div>
                 </div>
                 <div class="field">
                     <span class="left-label top-label">Напишите, пожалуйста, свои - как докладчика - пожелания организаторам</span>
                     <span class="field-info long-info">
                         <span class="js-field-info">Постарайтесь написать все, что поможет нам организовать ваш доклад наилучшим образом.</span>
                     </span>
-                    <textarea class="js-reporter-wishes-input js-input input pos-input input-wide pos-input input-big pos-input" type="text" name="reporterWishes"></textarea>
-                    <div class="js-field-response js-reporter-wishes-response attention attention-info"></div>
+                    <textarea class="js-reporterWishes-input js-input input pos-input input-wide pos-input input-big pos-input" type="text" name="reporterWishes"></textarea>
+                    <div class="js-field-response js-reporterWishes-response attention attention-info"></div>
                 </div>
                 <div class="field field-last">
-                    <input class="js-apply-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить">
+                    <input class="js-applyForReport-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить">
                     <input class="js-apply-reset btn-reset" type="reset" value="Отмена">
-                    <div class="js-apply-response apply-response"></div>
+                    <div class="js-applyForReport-response apply-response"></div>
                 </div>
             </form>
         </div>

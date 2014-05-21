@@ -22,7 +22,7 @@ function onResetPasswordFormClose() {
 }
 
 function clearResetPasswordFields() {
-    $(".reset-password-notification").empty();
+    $(".reset-password-notification").empty(); //класс отсутствует в коде
     $(".reset-password-response").empty();
     $(".reset-password-email-form-input").val("");
 }

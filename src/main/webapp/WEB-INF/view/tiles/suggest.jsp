@@ -9,7 +9,7 @@
              <h1 class="title">
                  Предложить тему доклада
              </h1>
-             <form class="js-suggestion-form box-content" action='<c:url value="/suggest"/>' method="POST">
+             <form class="js-suggest-form box-content" action='<c:url value="/suggest"/>' method="POST">
                  <div class="form-info">
                      Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
                  </div>
@@ -22,9 +22,8 @@
                      <input type="checkbox" name="senderSpecialization" value="Верстальщик">Верстальщик<br>
                      <input type="checkbox" name="senderSpecialization" value="Тестировщик">Тестировщик (инженер по качеству)<br>
                      <input type="checkbox" name="senderSpecialization" value="other">Другое:
-                     <input class="js-sender-specialization-other-input js-input input pos-input" type="text" name="senderSpecializationOther">
+                     <input class="js-senderSpecialization-input js-input input pos-input" type="text" name="senderSpecializationOther">
                      <span class="js-field-response js-senderSpecialization-response attention"></span>
-                     <span class="js-field-response js-senderSpecializationOther-response attention"></span>
                  </div>
                  <div class="field ">
                      <span class="left-label top-label">По каким темам Вы хотели бы получать дополнительную информацию в виде докладов на ИТ-субботнике?<span class="attention">*</span></span>
@@ -42,9 +41,9 @@
                      <input type="checkbox" name="favoriteTheme" value="Управление проектами (процессы)">Управление проектами (процессы)<br>
                      <input type="checkbox" name="favoriteTheme" value="Управление людьми">Управление людьми<br>
                      <input type="checkbox" name="favoriteTheme" value="other">Другое:
-                     <input class ="js-sender-favorite-theme-input js-input input pos-input" type="text" name="favoriteThemeOther">
+                     <input class ="js-favoriteTheme-input js-input input pos-input" type="text" name="favoriteThemeOther">
                      <span class="js-field-response js-favoriteTheme-response attention"></span>
-                     <span class="js-field-response js-favoriteThemeOther-response attention"></span>
+                     <span class="js-field-response js-favoriteTheme-other-response attention"></span>
                  </div>
                  <div class="field">
                      <span class="top-label">По какой теме Вы хотели бы услышать доклад в ближайшее время?</span>
@@ -54,7 +53,7 @@
                      </span>
                      <br>
                      <textarea class="input input-wide pos-input input-big pos-input" name="themeRequest"></textarea>
-                     <span class="js-field-response js-themeRequest-respons attentione"></span>
+                     <span class="js-field-response js-themeRequest-response attentione"></span>
                  </div>
                  <div class="field">
                       <span class="top-label">Кого Вы хотели бы услышать на ИТ-субботнике в качестве докладчика?</span>
@@ -64,12 +63,11 @@
                       </span>
                       <br>
                       <textarea class="input input-wide pos-input input-big pos-input" name="reporterRequest"></textarea>
-                      <span class="js-field-response js-reporterRequest-respons attentione"></span>
+                      <span class="js-field-response js-reporterRequest-response attentione"></span>
                   </div>
                  <div class="field field-last">
-                     <input class="js-suggestion-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить">
+                     <input class="js-suggest-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить">
                      <div class="js-suggest-response"></div>
-                 </div>
              </form>
          </div>
      </div>

@@ -1,19 +1,19 @@
-    
+
     /* submit buttons */
 
 .btn-gradient {
     height: 35px;
     width: 130px;
     text-align: center;
-    font-family: 'PT Sans', sans-serif;    
+    font-family: 'PT Sans', sans-serif;
     font-size: 20px;
     -khtml-border-radius: 5px;
     -webkit-border-radius:5px;
        -moz-border-radius:5px;
             border-radius:5px;
-    behavior: url( /omsk-it/resources/css/pie.htc);           
-    position: relative;  
-    zoom: 1; 
+    behavior: url( /omsk-it/resources/css/pie.htc);
+    position: relative;
+    zoom: 1;
     cursor: pointer;
 
     color: #ffffff;
@@ -42,7 +42,7 @@
     padding-top: 2px;
     padding-bottom: 2px;
 
-    font-size: 18px;    
+    font-size: 18px;
 }
 
 .btn-big{
@@ -53,7 +53,7 @@
 
     vertical-align: top;
     line-height: 2em;
-    font-size: 20px;    
+    font-size: 20px;
 }
 
 .btn-subscribe {
@@ -64,7 +64,7 @@
 
     font-family: inherit;
     font-size: 21px;
-    border: outset 1px #8adde6;    
+    border: outset 1px #8adde6;
     color: #2d3e50;
     background-color: #aaf0f7;
     /*filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#aaf0f7', endColorstr='#aaf0f7'); /* IE6 & IE7 */
@@ -94,7 +94,7 @@
 .btn-enter{
     width: 60px;
     height: 31px;
-    padding-bottom: 3px;    
+    padding-bottom: 3px;
     font-size: 16px;
 }
 

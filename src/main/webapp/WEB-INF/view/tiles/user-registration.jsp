@@ -6,7 +6,7 @@
             <h1 class="title">
                 Регистрация на сайте
             </h1>
-            <form class="js-apply-user-registration-form box-content" action='<c:url value="/user/registration"/>' method="POST">
+            <form class="js-userRegistration-form box-content" action='<c:url value="/user/registration"/>' method="POST">
                 <div class="form-info">
                     Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
                 </div>
@@ -26,20 +26,20 @@
 
                 <div class="field">
                     <span class="left-label">Имя&nbsp;<span class="attention">*</span></span>
-                    <input class="js-first-name-input js-input input pos-input  " type="text" name="firstName"/>
+                    <input class="js-firstName-input js-input input pos-input  " type="text" name="firstName"/>
                     <span class="field-info">
                         <span class="js-field-info">На русском языке</span>
                     </span>
-                    <div class="js-field-response js-first-name-response attention-info attention"></div>
+                    <div class="js-field-response js-firstName-response attention-info attention"></div>
                 </div>
 
                 <div class="field">
                     <span class="left-label">Фамилия&nbsp;<span class="attention">*</span></span>
-                    <input class="js-second-name-input js-input input pos-input  " type="text" name="secondName"/>
+                    <input class="js-secondName-input js-input input pos-input  " type="text" name="secondName"/>
                     <span class="field-info">
                         <span class="js-field-info">На русском языке</span>
                     </span>
-                    <div class="js-field-response js-second-name-response attention-info attention"></div>
+                    <div class="js-field-response js-secondName-response attention-info attention"></div>
                 </div>
 
                 <div class="field">
@@ -62,11 +62,11 @@
 
                 <div class="field">
                     <span class="left-label">Должность&nbsp;<span class="attention">*</span></span>
-                    <input class="js-job-position-input js-input input pos-input  " type="text" name="jobPosition"/>
+                    <input class="js-jobPosition-input js-input input pos-input  " type="text" name="jobPosition"/>
                     <span class="field-info">
                         <span class="js-field-info"></span>
                     </span>
-                    <div class="js-field-response js-job-position-response attention-info attention"></div>
+                    <div class="js-field-response js-jobPosition-response attention-info attention"></div>
                 </div>
 
                 <div class="field long">
@@ -81,9 +81,9 @@
                 </div>
 
                 <div class="field field-last">
-                    <input class="js-apply-user-registration-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить" />
+                    <input class="js-userRegistration-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить" />
                     <input class="js-apply-reset btn-reset" type="reset" value="Отмена">
-                    <div class="js-apply-response apply-response"></div>
+                    <div class="js-userRegistration-response apply-response"></div>
                 </div>
             </form>
         </div>

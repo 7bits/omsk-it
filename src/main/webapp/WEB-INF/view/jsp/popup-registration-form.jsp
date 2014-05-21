@@ -32,20 +32,20 @@
 
             <div class="field">
                 <span class="left-label">Имя&nbsp;<span class="attention">*</span></span>
-                <input class="js-first-name-input js-input input pos-input" type="text" name="firstName">
+                <input class="js-firstName-input js-input input pos-input" type="text" name="firstName">
                         <span class="field-info">
                             <span class="js-field-info">На русском языке</span>
                         </span>
-                <div class="js-field-response js-first-name-response attention attention-info"></div>
+                <div class="js-field-response js-firstName-response attention attention-info"></div>
             </div>
 
             <div class="field">
                 <span class="left-label">Фамилия&nbsp;<span class="attention">*</span></span>
-                <input class="js-second-name-input js-input input pos-input" type="text" name="secondName">
+                <input class="js-secondName-input js-input input pos-input" type="text" name="secondName">
                         <span class="field-info">
                             <span class="js-field-info">На русском языке</span>
                         </span>
-                <div class="js-field-response js-second-name-response attention attention-info"></div>
+                <div class="js-field-response js-secondName-response attention attention-info"></div>
             </div>
 
             <div class="field">
@@ -66,11 +66,11 @@
 
             <div class="field">
                 <span class="left-label">Должность&nbsp;<span class="attention">*</span></span>
-                <input class="js-job-position-input js-input input pos-input" type="text" name="jobPosition">
+                <input class="js-jobPosition-input js-input input pos-input" type="text" name="jobPosition">
                         <span class="field-info">
                             <span class="js-field-info"></span>
                         </span>
-                <div class="js-field-response js-job-position-response attention attention-info"></div>
+                <div class="js-field-response js-jobPosition-response attention attention-info"></div>
             </div>
 
             <div class="field long">

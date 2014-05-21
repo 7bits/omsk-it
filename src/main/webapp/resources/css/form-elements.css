@@ -1,15 +1,15 @@
     /* inputs */
 
-.pos-input {     
-    margin-left: 25px;       
+.pos-input {
+    margin-left: 25px;
 }
 
-.input {      
+.input {
     height: 38px;
     width: 254px;
     padding-left: 15px;
     padding-right: 15px;
-    
+
     font-family: 'PT Sans', sans-serif;
     vertical-align: middle;
     font-size: 1.25em;
@@ -19,7 +19,7 @@
        -moz-border-radius: 5px;
             border-radius: 5px;
     behavior: url( /omsk-it/resources/css/tricks-for-ie/pie.htc);
-    position: relative;  
+    position: relative;
     zoom: 1; 
     background-color: #ffffff;
 }
@@ -41,14 +41,23 @@
 
 .input-login {
     height: 26px;
-    width: 130px;     
-    border: solid 2px rgb(170,240,247);    
+    width: 130px;
+    border: solid 2px rgb(170,240,247);
+}
+
+.input-error {
+    background-color: #fff5e5;
 }
 
     /* fields */
 
-.field {    
-   
+
+.login-container .field {
+    margin-bottom: 15px;
+}
+
+.field {
+
 }
 
 .field-last {
@@ -74,8 +83,8 @@
 }
 
 .left-label {
-    width: 120px;    
-    font-size: 1.25em;    
+    width: 120px;
+    font-size: 1.25em;
     font-weight: bold;
     display: inline-block;
 }
@@ -83,19 +92,19 @@
     width: 100%;
     margin-bottom: 0px;
 }
-.login-form-label {    
+.login-form-label {
     width: 73px;
 }
 .login-form-open-label {
     width: 370px;     
-    font-size: 1.125em;    
+    font-size: 1.125em;
     margin-bottom: 20px;
 }
 .new-company-label {
-    width: 185px;    
+    width: 185px;
 }
 .reset-password-label {
-    margin-left: 102px;    
+    margin-left: 102px;
 }
 
     /* alert */
@@ -104,7 +113,7 @@
     color: #f06009;
     clear: left;
 }
-.attention-info {    
+.attention-info {
     margin-bottom: 20px;
     margin-left: 151px;
     font-size: 0.9375em;
@@ -120,7 +129,7 @@
     margin-left: 215px;
 }
 .attention-reset-password {
-    margin-left: 102px;    
+    margin-left: 102px;
     height: 10px;
 }
 .attention-login { /* to fix */
@@ -137,7 +146,7 @@
 .js-photo-upload-input {
     width: 280px;
 }
-.photo-upload-text { 
+.photo-upload-text {
     font-size: 0.9375em;
     font-weight: normal;
 }
@@ -150,7 +159,7 @@
 
     /* field to new companies */
 
-.long .left-label {    
+.long .left-label {
     margin-bottom: 10px;
 }
 .long .input {

@@ -44,12 +44,16 @@
             var temporaryImage = '<c:url value="/resources/temporary/photos"/>';
             var nophotoUrl = '<c:url value="/resources/images/photos/nophoto.png" />';
             var resetPassword = '<c:url value="/user/reset-password" />';
-
         </script>
 
         <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.10.2.min.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/buttons-action.js"/>'></script>
-        <script type="text/javascript" src='<c:url value="/resources/js/password-restoration.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/image-uploading.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/image-uploading.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/companies-actions.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/subscribing.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/login.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/password-change.js"/>'></script>
 
         <script type="text/javascript" src='<c:url value="/resources/js/jquery-ui-1.10.4.custom.min.js"/>'></script>
         <link rel="stylesheet" href='<c:url value="/resources/css/jquery-ui-1.10.4.custom.min.css"/>'>

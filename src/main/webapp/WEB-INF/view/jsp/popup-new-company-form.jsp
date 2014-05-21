@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class="new-company-form-container popup-container">
+<div class="js-new-company-form-container popup-container">
     <div class="form-opacity"></div>
     <div class="popup-form-container popup-form-new-company-container">
         <div class="title popup-title"> Добавить организацию</div>
