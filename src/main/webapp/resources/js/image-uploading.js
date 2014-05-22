@@ -30,7 +30,7 @@ function onImageUploaded(event) {
             }
         })
     }
-}
+};
 
 function imageUploadError(message) {
     //Reload input:file's container
@@ -40,4 +40,4 @@ function imageUploadError(message) {
     setTimeout(function() {
         $(".js-photo-upload-response").text("");
     },3000);
-}
+};

@@ -87,7 +87,7 @@
 
             <div class="field field-last center-div">
                 <input class="js-guest-form-button pos-btn-submit btn-gradient btn-submit btn-bordered btn-popup-event-registration" type="submit" value="Зарегистрироваться">
-                <div class="js-guest-response"></div>
+                <div class="js-form-response"></div>
             </div>
         </form>
     </div>

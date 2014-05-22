@@ -1,13 +1,11 @@
 $(document).ready(function() {
 
     var maxHeight = 0;
-
-    $(".reporter-title").each(function(){
+    $(".js-reporter-title").each(function() {
         if ($(this).height() > maxHeight) {
             maxHeight = $(this).height();
         }
     });
-
-    $(".reporter-title").height(maxHeight);
+    $(".js-reporter-title").height(maxHeight);
 });
 

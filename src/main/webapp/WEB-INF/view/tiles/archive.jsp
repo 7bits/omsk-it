@@ -17,7 +17,7 @@
                         <c:if test="${report.conference.id == conference.id}">
                             <div class="center-item">
                                 <div class="reporter inline-item">
-                                    <div class="reporter-title">
+                                    <div class="js-reporter-title reporter-title">
                                         <h3 class="name">
                                             <a href='<c:url value="/user/${report.user.id}"/>'><c:out value="${report.user.firstName}"/>&nbsp;<c:out value="${report.user.secondName}"/></a>
                                         </h3>

@@ -1,20 +1,4 @@
-$(document).ready(function() {
-    
-    $(".js-company-input").focus(doAjaxGetCompanies);
-    //List of available companies 
-
-    $(".js-new-company-form-open").click(function() {
-        $(".js-new-company-form-container").show();
-    });
-    //Opening popups to add a new company
-
-    $(".js-confirm-new-company").click(doAjaxAddNewCompany);
-    //Submitting to add a new company
-
-    $(".close-new-company-form").click(onNewCompanyFormClose);
-    //Closing popups 
-});
-function doAjaxGetCompanies() {
+var doAjaxGetCompanies = function() {
     $.ajax({
         url: companiesUrl,
         type: "POST",
@@ -31,9 +15,9 @@ function doAjaxGetCompanies() {
         error: function() {
         }
     });
-}
+};
 
-function doAjaxAddNewCompany() {
+var doAjaxAddNewCompany = function() {
     newCompanyData = $(".new-company-input").serialize();
     $.ajax({
         url: companyAddUrl,
@@ -54,11 +38,27 @@ function doAjaxAddNewCompany() {
         error: function() {
         }
     });
-}
+};
 
-function onNewCompanyFormClose() {
+var onNewCompanyFormClose = function() {
     $("#company-name").val("");
     $("#company-site").val("");
     $(".js-new-company-response").text("");
     $(".js-new-company-form-container").hide();
-}
+};
+
+$(document).ready(function() {
+    $(document).on('focus', '.js-company-input', doAjaxGetCompanies);
+    //Showing a list of companies
+
+    $(document).on('click', '.js-new-company-form-open', function() {
+        $('.js-new-company-form-container').show();
+    });
+    //Opening popups to add a new company
+
+    $(document).on('click', '.js-confirm-new-company', doAjaxAddNewCompany);
+    //Submitting to add a new company
+
+    $(document).on('click', '.js-close-new-company-form', onNewCompanyFormClose);
+    //Closing popups 
+});

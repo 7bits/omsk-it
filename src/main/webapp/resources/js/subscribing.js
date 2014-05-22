@@ -1,16 +1,17 @@
 $(document).ready(function() {
-
-    $(".js-subscribe-button").click(function(event) {
+    $(document).on('click', '.js-subscribe-button', function(event) {
     event.preventDefault();
-    doAjaxSubscriptionPost($(".js-subscribe-form"));
-    });    //Subscription
-
-    $(".js-subscribe-button-top").click(function(event) {
+    doAjaxSubscriptionPost($('.js-subscribe-form'));
+    });
+    //Subscription
+    $(document).on('click', '.js-subscribe-button-top',function(event) {
         event.preventDefault();
-        doAjaxSubscriptionPost($(".js-subscribe-form-top"));
-    });    //Subscription
+    doAjaxSubscriptionPost($(".js-subscribe-form-top"));
+    });
+    //Subscription
 });
-function doAjaxSubscriptionPost(form) {
+
+var doAjaxSubscriptionPost = function(form) {
     responseField = form.hasClass("js-subscribe-form-top") ? $(".js-subscribe-response-top") : $(".js-subscribe-response");
     $.ajax({
         url: subscribeUrl,
@@ -32,10 +33,8 @@ function doAjaxSubscriptionPost(form) {
         },
 
         error: function(jqXHR, textStatus, errorThrown) {
-
-            console.log(jqXHR);
-            console.log(jqXHR.responseText);
-            $(".js-subscribe-response").html(textStatus + ": " + errorThrown + "; see console logs");
+            responseField.empty();
+            responseField.html.html("Сервер не отвечает.");
         }
     });
-}
+};

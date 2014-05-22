@@ -6,7 +6,7 @@
             <h1 class="title">
                 Вход на сайт
             </h1>
-            <form class = "box-content login-container" method="post" action="<c:url value='/j_spring_security_check'/>">                
+            <form class = "js-login-container box-content login-container" method="post" action="<c:url value='/j_spring_security_check'/>">                
                 <div class="field">
                     <span class="left-label">E-mail</span>
                     <input class="js-login-input js-input input pos-input" type="text" name="j_username" id="j_username" size="30" maxlength="40"/>

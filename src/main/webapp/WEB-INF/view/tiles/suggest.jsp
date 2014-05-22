@@ -67,7 +67,7 @@
                   </div>
                  <div class="field field-last">
                      <input class="js-suggest-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить">
-                     <div class="js-suggest-response"></div>
+                     <div class="js-form-response"></div>
              </form>
          </div>
      </div>

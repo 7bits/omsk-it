@@ -1,16 +1,7 @@
-$(document).ready(function() {
-
-    $(".js-change-password").click(function(event) {
-        event.preventDefault();
-        doAjaxChangePassword();
-    });
-    //Submitting form to change the password
-});
-
-function doAjaxChangePassword() {
-    changePasswordFormData = $(".change-password-form").serialize();
-    notificationField = $(".change-password-notification");
-    errorField = $(".change-password-response");
+var doAjaxChangePassword = function() {
+    changePasswordFormData = $(".js-change-password-form").serialize();
+    notificationField = $(".js-change-password-notification");
+    errorField = $(".js-change-password-response");
     $.ajax({
         url: changePasswordUrl,
         type: "POST",
@@ -34,4 +25,12 @@ function doAjaxChangePassword() {
             errorField.text("Сервер не отвечает.");
         }
     })
-}
+};
+
+$(document).ready(function() {
+    $(document).on('click', '.js-change-password', function(event) {
+        event.preventDefault();
+        doAjaxChangePassword();
+    });
+    //Submitting form to change the password
+});

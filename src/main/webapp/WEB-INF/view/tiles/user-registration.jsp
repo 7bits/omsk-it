@@ -83,7 +83,7 @@
                 <div class="field field-last">
                     <input class="js-userRegistration-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить" />
                     <input class="js-apply-reset btn-reset" type="reset" value="Отмена">
-                    <div class="js-userRegistration-response apply-response"></div>
+                    <div class="js-form-response apply-response"></div>
                 </div>
             </form>
         </div>

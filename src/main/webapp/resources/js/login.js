@@ -1,33 +1,10 @@
-$(document).ready(function() {
-    
-    $(".js-close-login-button").click(function() {
-        onPopupLoginCancel();
-        $(".login-container").hide();
-    })
-    //Closing the login popups
+var onPopupLoginCancel = function() {
+    $(".js-login-form-input").val("");
+    $(".js-login-message-error").text("");
+};
 
-        $(".js-login-form-open").click(function() {
-        $(".login-container").show();
-    })
-    //Opening the login popups
-
-    $(".js-confirm-login").click(function(event) {
-        event.preventDefault();
-        doAjaxLoginPost();
-    });
-    //Submitting to the login popups
-
-    $(".cancel-login").click(onPopupLoginCancel);
-    //Cancel to the login popups
-});
-
-function onPopupLoginCancel() {
-    $(".login-form-input").val("");
-    $(".login-message-error ").text("");
-}
-
-function doAjaxLoginPost() {
-    var loginFormData = $(".login-form-input").serialize();
+var doAjaxLoginPost = function() {
+    var loginFormData = $(".js-login-form-input").serialize();
     $.ajax({
         url: loginUrl,
         type: "POST",
@@ -35,11 +12,34 @@ function doAjaxLoginPost() {
         dataType: "json",
         success: function(response) {
             if (response.status == "SUCCESS") {
-                $(".login-container").css("display", "none");
+                $(".js-login-container").css("display", "none");
                 window.location.reload();
             } else {
-                $(".login-message-error").html(response.result.message);
+                $(".js-login-message-error").html(response.result.message);
             }
         }
     })
-}
+};
+
+$(document).ready(function() {
+    $(document).on('click', '.js-close-login-button', function() {
+        onPopupLoginCancel();
+        $('.js-login-container').hide();
+    });
+    //Closing the login popups
+
+    $(document).on('click', '.js-login-form-open', function() {
+        onPopupLoginCancel();
+        $('.js-login-container').show();
+    });
+    //Opening the login popups
+
+    $(document).on('click', '.js-confirm-login', function(event) {
+        event.preventDefault();
+        doAjaxLoginPost();
+    });
+    //Submitting to the login popups
+
+    $(document).on('click', '.js-cancel-login', onPopupLoginCancel);
+    //Cancel to the login popups
+});

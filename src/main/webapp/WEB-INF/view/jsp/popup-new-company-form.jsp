@@ -16,7 +16,7 @@
             </div>
             <div class="popup-btn-container">
                 <div class="js-confirm-new-company btn-gradient btn-big btn-inline">Добавить</div>
-                <button class="btn-reset close-new-company-form">Отмена</button>
+                <button class="btn-reset js-close-new-company-form">Отмена</button>
             </div>
         </div>
     </div>
