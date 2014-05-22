@@ -1,20 +1,20 @@
 var doAjaxChangePassword = function() {
-    changePasswordFormData = $(".js-change-password-form").serialize();
-    notificationField = $(".js-change-password-notification");
-    errorField = $(".js-change-password-response");
+    changePasswordFormData = $('.js-change-password-form').serialize();
+    notificationField = $('.js-change-password-notification');
+    errorField = $('.js-change-password-response');
     $.ajax({
         url: changePasswordUrl,
-        type: "POST",
+        type: 'POST',
         data: changePasswordFormData,
-        dataType: "json",
+        dataType: 'json',
         beforeSend: function() {
             errorField.empty();
-            notificationField.text("Изменение...");
+            notificationField.text('Изменение...');
         },
         success: function(response) {
             notificationField.empty();
-            if (response.status == "SUCCESS") {
-                $(".js-input").val("");
+            if (response.status == 'SUCCESS') {
+                $('.js-input').val('');
                 notificationField.text(response.result.message);
             } else {
                 errorField.text(response.result.message);
@@ -22,7 +22,7 @@ var doAjaxChangePassword = function() {
         },
         error: function() {
             notificationField.empty();
-            errorField.text("Сервер не отвечает.");
+            errorField.text('Сервер не отвечает.');
         }
     })
 };

@@ -1,21 +1,21 @@
 var onPopupLoginCancel = function() {
-    $(".js-login-form-input").val("");
-    $(".js-login-message-error").text("");
+    $('.js-login-form-input').val('');
+    $('.js-login-message-error').text('');
 };
 
 var doAjaxLoginPost = function() {
-    var loginFormData = $(".js-login-form-input").serialize();
+    var loginFormData = $('.js-login-form-input').serialize();
     $.ajax({
         url: loginUrl,
-        type: "POST",
+        type: 'POST',
         data: loginFormData,
-        dataType: "json",
+        dataType: 'json',
         success: function(response) {
-            if (response.status == "SUCCESS") {
-                $(".js-login-container").css("display", "none");
+            if (response.status == 'SUCCESS') {
+                $('.js-login-container').css('display', 'none');
                 window.location.reload();
             } else {
-                $(".js-login-message-error").html(response.result.message);
+                $('.js-login-message-error').html(response.result.message);
             }
         }
     })

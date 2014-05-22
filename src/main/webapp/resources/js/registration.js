@@ -9,30 +9,30 @@ var doValidate = function(response) {
 
 var doAjaxQuery = function(url,data,noticeField,regType) {
     var typeOfReg = regType;
-    responseField = $(".js-field-response");
+    responseField = $('.js-field-response');
     $.ajax({
         url: url,
-        type: "POST",
+        type: 'POST',
         data: data,
-        dataType: "json",
+        dataType: 'json',
         beforeSend: function() {
-            $(".js-input").toggleClass( 'input-error',false );
+            $('.js-input').toggleClass( 'input-error',false );
             responseField.empty();
-            noticeField.html("Отправка...");
+            noticeField.html('Отправка...');
         },
         success: function(response) {
                     if(typeOfReg === 'socialReg') {
                         notificationField.html(response.result.message);
-                        if (response.status == "FAIL") {
+                        if (response.status == 'FAIL') {
                             doValidate(response);
                         }
                     }
                     else{
-                        $(".js-input").toggleClass( 'input-error',false );
+                        $('.js-input').toggleClass( 'input-error',false );
                         noticeField.html(response.result.message);
-                        responseField.text("");
-                        if (response.status == "SUCCESS") {
-                            $(".js-userRegistration-form")[0].reset();
+                        responseField.text('');
+                        if (response.status == 'SUCCESS') {
+                            $('.js-userRegistration-form')[0].reset();
                         } else {
                             doValidate(response);
                         }
@@ -40,7 +40,7 @@ var doAjaxQuery = function(url,data,noticeField,regType) {
         },
         error: function() {
             notificationField.empty();
-            noticeField.html.html("Сервер не отвечает.");
+            noticeField.html.html('Сервер не отвечает.');
         }
     })
 };
@@ -65,18 +65,18 @@ var doSubmit = function(buttonTitle) {
 var doAjaxGuestCheck = function() {
     $.ajax({
         url: guestCheckUrl,
-        type: "POST",
-        data: "",
-        dataType: "json",
+        type: 'POST',
+        data: '',
+        dataType: 'json',
         success: function(response) {
-            if (response.status == "SUCCESS") {
-                $(".success-guest-notification-container").show();
+            if (response.status == 'SUCCESS') {
+                $('.js-success-guest-notification-container').show();
                 setTimeout(function() {
-                    $(".success-guest-notification-container").hide('slow',function() {});
+                    $('.js-success-guest-notification-container').hide('slow',function() {});
                 },2000);
             } else {
-                $(".guest-form-div").css("display", "block");
-                $(".guest-form-div").append("<div class='overlay'></div>");
+                $('.js-guest-form-div').css('display', 'block');
+                $('.js-guest-form-div').append("<div class='overlay'></div>");
             }
         }
     })
@@ -100,11 +100,11 @@ $(document).ready(function() {
     };
     buttons.forEach(doAction);
 
-    $(document).on('click', ".js-apply-reset", function() {
-        $(".js-form-response").empty();
-        $(".js-input").toggleClass('input-error', false);
-        $(".js-field-response").empty();
-        $("#image-view").attr('src',nophotoUrl);
+    $(document).on('click', '.js-apply-reset', function() {
+        $('.js-form-response').empty();
+        $('.js-input').toggleClass('input-error', false);
+        $('.js-field-response').empty();
+        $('#image-view').attr('src',nophotoUrl);
     });
     //Resetting the fields on the form
 
@@ -114,7 +114,7 @@ $(document).ready(function() {
     //Registration
 
     $(document).on('click', '.js-form-close-button',function() {
-        $(".guest-form-div").hide();
+        $('.js-guest-form-div').hide();
     });
     //Closing of registration popups
 });

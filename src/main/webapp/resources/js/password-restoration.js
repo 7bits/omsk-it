@@ -7,40 +7,40 @@ var onResetPasswordFormCancel = function() {
 };
 
 var onResetPasswordFormClose = function() {
-    $(".js-reset-password-form-container").hide();
+    $('.js-reset-password-form-container').hide();
     clearResetPasswordFields();
 };
 
 var clearResetPasswordFields = function() {
-    $(".js-reset-password-notification").empty();
-    $(".js-reset-password-response").empty();
-    $(".js-reset-password-email-form-input").val("");
+    $('.js-reset-password-notification').empty();
+    $('.js-reset-password-response').empty();
+    $('.js-reset-password-email-form-input').val('');
 };
 
 var resetPasswordAjax = function() {
-    changePasswordEmail = $(".js-reset-password-email-form-input").serialize();
-    notificationField = $(".js-reset-password-notification");
-    errorField = $(".js-reset-password-response");
+    changePasswordEmail = $('.js-reset-password-email-form-input').serialize();
+    notificationField = $('.js-reset-password-notification');
+    errorField = $('.js-reset-password-response');
     $.ajax({
         url: resetPassword,
-        type: "POST",
+        type: 'POST',
         data: changePasswordEmail,
-        dataType: "json",
+        dataType: 'json',
         beforeSend: function() {
             errorField.empty();
-            notificationField .text("Сброс...");
+            notificationField .text('Сброс...');
         },
         success: function(response) {
             clearResetPasswordFields()
-            if (response.status == "SUCCESS") {
+            if (response.status == 'SUCCESS') {
                 notificationField.text(response.result.message);
             } else {
                 errorField.text(response.result.message);
             }
         },
         error: function() {
-            $(".js-reset-password-notification").empty();
-            errorField.text("Сервер не отвечает.");
+            $('.js-reset-password-notification').empty();
+            errorField.text('Сервер не отвечает.');
         }
     })
 };

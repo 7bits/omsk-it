@@ -6,22 +6,22 @@ $(document).ready(function() {
     //Subscription
     $(document).on('click', '.js-subscribe-button-top',function(event) {
         event.preventDefault();
-    doAjaxSubscriptionPost($(".js-subscribe-form-top"));
+    doAjaxSubscriptionPost($('.js-subscribe-form-top'));
     });
     //Subscription
 });
 
 var doAjaxSubscriptionPost = function(form) {
-    responseField = form.hasClass("js-subscribe-form-top") ? $(".js-subscribe-response-top") : $(".js-subscribe-response");
+    responseField = form.hasClass('js-subscribe-form-top') ? $('.js-subscribe-response-top') : $('.js-subscribe-response');
     $.ajax({
         url: subscribeUrl,
-        type: "POST",
+        type: 'POST',
         data: form.serialize(),
-        dataType: "json",
+        dataType: 'json',
 
         success: function(response) {
 
-            if (response.status == "SUCCESS") {
+            if (response.status == 'SUCCESS') {
                 responseField.html(response.result.message);
                 form[0].reset();
                 setTimeout(function() {
@@ -34,7 +34,7 @@ var doAjaxSubscriptionPost = function(form) {
 
         error: function(jqXHR, textStatus, errorThrown) {
             responseField.empty();
-            responseField.html.html("Сервер не отвечает.");
+            responseField.html.html('Сервер не отвечает.');
         }
     });
 };

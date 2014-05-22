@@ -1,13 +1,13 @@
 var doAjaxGetCompanies = function() {
     $.ajax({
         url: companiesUrl,
-        type: "POST",
+        type: 'POST',
         data: null,
-        dataType: "json",
+        dataType: 'json',
         success: function(response) {
-            if (response.status == "SUCCESS") {
+            if (response.status == 'SUCCESS') {
                 companies = [].concat(response.result);
-                $( ".js-company-input" ).autocomplete({
+                $( '.js-company-input' ).autocomplete({
                     source: companies
                 });
             }
@@ -18,20 +18,20 @@ var doAjaxGetCompanies = function() {
 };
 
 var doAjaxAddNewCompany = function() {
-    newCompanyData = $(".new-company-input").serialize();
+    newCompanyData = $('.new-company-input').serialize();
     $.ajax({
         url: companyAddUrl,
-        type: "POST",
+        type: 'POST',
         data: newCompanyData,
-        dataType: "json",
+        dataType: 'json',
         success: function(response) {
-            if (response.status == "SUCCESS") {
-                nameOfAddedCompany = $("#company-name").val();
-                $( ".js-company-input" ).val(nameOfAddedCompany);
-                $(".js-new-company-form-container").hide();
+            if (response.status == 'SUCCESS') {
+                nameOfAddedCompany = $('#company-name').val();
+                $( '.js-company-input' ).val(nameOfAddedCompany);
+                $('.js-new-company-form-container').hide();
             } else {
                 if(response.result.name != null) {
-                    $(".js-new-company-response").text(response.result.name);
+                    $('.js-new-company-response').text(response.result.name);
                 }
             }
         },
@@ -41,10 +41,10 @@ var doAjaxAddNewCompany = function() {
 };
 
 var onNewCompanyFormClose = function() {
-    $("#company-name").val("");
-    $("#company-site").val("");
-    $(".js-new-company-response").text("");
-    $(".js-new-company-form-container").hide();
+    $('#company-name').val('');
+    $('#company-site').val('');
+    $('.js-new-company-response').text('');
+    $('.js-new-company-form-container').hide();
 };
 
 $(document).ready(function() {
