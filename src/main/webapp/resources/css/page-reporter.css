@@ -1,0 +1,35 @@
+.reporter-about {
+    min-height: 200px;
+    margin-top: 40px;
+    padding-left: 60px;
+    padding-right: 50px;
+}
+
+.short-description {
+    font-size: 1.25em;
+    float: left;
+    margin-left: 30px;
+    margin-top: 20px;
+    max-width: 450px;
+}
+
+.reports-history {
+    margin-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.reporter-reports-title {
+    font-size: 1.625em;
+}
+
+.reports-history .report {
+    border-bottom: solid 1px #dedede;
+    padding-bottom: 38px;
+    padding-top: 33px;
+}
+
+.reports-history .description{
+    max-width: 540px;
+    margin-left: 15px;
+}

@@ -1,0 +1,17 @@
+.pos-email {    
+    float: left;
+} 
+.subscription {
+    margin-top: 15px;
+    float: left;
+}
+.subscription-title {
+    font-size: 1.5em;
+    padding-bottom: 12px;
+}
+
+.subscribe-response-top {
+    text-align: left;
+    margin-left: 315px;
+    font-size: 1.25em;
+}

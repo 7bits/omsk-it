@@ -30,7 +30,7 @@
             </div>
         </div>
         <a name="suggest"></a>
-        <div class="request">
+        <!--<div class="request">-->
             <div class="text-content-down">
                 Если вы хотите услышать доклад по определенной теме, но не знаете, кто мог бы об этом
                 рассказать, предложите тему. Мы не обещаем, что удовлетворим абсолютно все заявки, но это
@@ -43,9 +43,9 @@
                     </span>
                 </a>
             </div>
-        </div>
-        <div class="questions blue-ref">
-            Возникли вопросы? Читайте <a href='<c:url value="/rules"/>'>правила</a> или пишите организаторам на <a href="mailto:admin@omskit.org">admin@omskit.org</a>
+        <!--</div>-->
+        <div class="questions">
+            Возникли вопросы? Читайте <a class="link-light" href='<c:url value="/rules"/>'>правила</a> или пишите организаторам на <a class="link-blue" href="mailto:admin@omskit.org">admin@omskit.org</a>
         </div>
     </div>
 </div>

@@ -7,13 +7,11 @@
 }
 
 .tracking {
-    float: right;
-    font-size: 16px;
+    float: right;    
 }
 .tracking-title {
     line-height: 61px;
-    margin-right: 20px;
-    font-size: 16px;
+    margin-right: 20px;    
 }
 
 .site-minor-logo {
