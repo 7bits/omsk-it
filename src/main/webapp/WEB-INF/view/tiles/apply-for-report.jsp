@@ -11,7 +11,7 @@
             <h1 class="title">
                 Подать заявку на выступление
             </h1>
-            <form class="js-applyForReport-form box-content" action='<c:url value="/apply-for-report"/>' method="POST">
+            <form class="js-form box-content" action='applyForReportUrl' method="POST">
                 <sec:authorize ifNotGranted="ROLE_ADMIN, ROLE_USER, ROLE_MODERATOR">
                     <div class="left-label login-form-open-label">
                         Если вы зарегистрированы, то залогиньтесь.
@@ -137,7 +137,7 @@
                     <div class="js-field-response js-reporterWishes-response attention attention-info"></div>
                 </div>
                 <div class="field field-last">
-                    <input class="js-applyForReport-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить">
+                    <input class="js-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить">
                     <input class="js-apply-reset btn-reset" type="reset" value="Отмена">
                     <div class="js-form-response apply-response"></div>
                 </div>

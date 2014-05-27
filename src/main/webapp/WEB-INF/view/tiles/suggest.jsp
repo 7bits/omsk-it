@@ -9,7 +9,7 @@
              <h1 class="title">
                  Предложить тему доклада
              </h1>
-             <form class="js-suggest-form box-content" action='<c:url value="/suggest"/>' method="POST">
+             <form class="js-form box-content" action='suggestUrl' method="POST">
                  <div class="form-info">
                      Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
                  </div>
@@ -66,7 +66,7 @@
                       <span class="js-field-response js-reporterRequest-response attentione"></span>
                   </div>
                  <div class="field field-last">
-                     <input class="js-suggest-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить">
+                     <input class="js-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить">
                      <div class="js-form-response"></div>
              </form>
          </div>

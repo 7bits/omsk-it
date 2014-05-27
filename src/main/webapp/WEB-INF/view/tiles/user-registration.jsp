@@ -6,7 +6,7 @@
             <h1 class="title">
                 Регистрация на сайте
             </h1>
-            <form class="js-userRegistration-form box-content" action='<c:url value="/user/registration"/>' method="POST">
+            <form class="js-form box-content" action='userRegistrationUrl' method="POST">
                 <div class="form-info">
                     Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
                 </div>
@@ -81,7 +81,7 @@
                 </div>
 
                 <div class="field field-last">
-                    <input class="js-userRegistration-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить" />
+                    <input class="js-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить" />
                     <input class="js-apply-reset btn-reset" type="reset" value="Отмена">
                     <div class="js-form-response apply-response"></div>
                 </div>

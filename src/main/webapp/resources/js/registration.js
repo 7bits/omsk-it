@@ -45,20 +45,15 @@ var doAjaxQuery = function(url,data,noticeField,regType) {
     })
 };
 
-var doSubmit = function(buttonTitle) {
-    var title = buttonTitle;
-    title = title.replace('-button','');
-    var formdata = $(title).serialize();
-    var url = title.replace('-form','');
-    url = title.replace('.js-','') + 'Url';
+var doSubmit = function() {
+    var formdata = $('.js-form').serialize();
     var noticeField = $('.js-form-response');
-    
+    url = $('.js-form').attr('action');
     //Trick for Social Registration
     var regType = '';
-    if (url === 'userSocialRegistration') {
-        var regType = socialReg;
-    }
-    
+    if (url === 'userSocialRegistrationUrl') {
+        var regType = 'socialReg';
+    }   
     doAjaxQuery([url].value, formdata, noticeField, regType);
 };
 
@@ -83,23 +78,10 @@ var doAjaxGuestCheck = function() {
 };
 
 $(document).ready(function() {
-
-    var buttons = [
-    '.js-applyForReport-form-button',
-    '.js-suggest-form-button',
-    '.js-guest-form-button',
-    '.js-userRegistration-form-button',
-    '.js-userSocialRegistration-form-button'
-    ];
-
-    var doAction = function(element, index, ar) {
-        $(document).on('click', element, function() {
+    $(document).on('click', '.js-form-button', function() {
             event.preventDefault();
-            doSubmit(element);
+            doSubmit();
         });
-    };
-    buttons.forEach(doAction);
-
     $(document).on('click', '.js-apply-reset', function() {
         $('.js-form-response').empty();
         $('.js-input').toggleClass('input-error', false);
@@ -107,12 +89,10 @@ $(document).ready(function() {
         $('#image-view').attr('src',nophotoUrl);
     });
     //Resetting the fields on the form
-
     $(document).on('click','.js-guest-register-button', function() {
         doAjaxGuestCheck();
     });
     //Registration
-
     $(document).on('click', '.js-form-close-button',function() {
         $('.js-guest-form-div').hide();
     });
