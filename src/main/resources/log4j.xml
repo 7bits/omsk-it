@@ -10,7 +10,7 @@
     </appender>
 
     <appender name="appender2" class="org.apache.log4j.FileAppender">
-        <param name="file" value="./logs/project.log"/>
+        <param name="file" value="./logs/omsk-it/project.log"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="conversionPattern" value="%d{ISO8601} %t/%c{1}:%M:%L %5p: %m%n"/>
         </layout>
