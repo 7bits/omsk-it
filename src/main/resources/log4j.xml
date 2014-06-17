@@ -2,36 +2,36 @@
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
-    <appender name="appender1" class="org.apache.log4j.ConsoleAppender">
+    <appender name="console-appender" class="org.apache.log4j.ConsoleAppender">
         <param name="target" value="System.out"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="conversionPattern" value="%d{ABSOLUTE} %t/%c{1}:%M:%L %5p: %m%n"/>
         </layout>
     </appender>
 
-    <appender name="appender2" class="org.apache.log4j.FileAppender">
-        <param name="file" value="./logs/omsk-it/project.log"/>
+    <appender name="info-appender" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="./logs/omsk-it/info.log"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="conversionPattern" value="%d{ISO8601} %t/%c{1}:%M:%L %5p: %m%n"/>
         </layout>
     </appender>
 
-    <appender name="web-appender" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="file" value="./logs/omsk-it/web.log"/>
+    <appender name="error-appender" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="./logs/omsk-it/error.log"/>
         <param name="DatePattern" value="'.'yyyy-MM-dd"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="conversionPattern" value="%d{ISO8601} %t/%c{1}:%M:%L %5p: %m%n"/>
         </layout>
     </appender>
 
-    <logger name="it.sevenbits.conferences.web">
-        <level value="DEBUG"/>
-        <appender-ref ref="web-appender"/>
-    </logger>
-
     <root>
         <level value="INFO" />
-        <appender-ref ref="appender1"/>
-        <appender-ref ref="appender2"/>
+        <appender-ref ref="console-appender"/>
+        <appender-ref ref="info-appender"/>
+    </root>
+    <root>
+        <level value="ERROR" />
+        <appender-ref ref="console-appender"/>
+        <appender-ref ref="error-appender"/>
     </root>
 </log4j:configuration>
