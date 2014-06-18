@@ -9,15 +9,8 @@
         </layout>
     </appender>
 
-    <appender name="info-appender" class="org.apache.log4j.DailyRollingFileAppender">
+    <appender name="file-appender" class="org.apache.log4j.DailyRollingFileAppender">
         <param name="file" value="./logs/omsk-it/info.log"/>
-        <layout class="org.apache.log4j.PatternLayout">
-            <param name="conversionPattern" value="%d{ISO8601} %t/%c{1}:%M:%L %5p: %m%n"/>
-        </layout>
-    </appender>
-
-    <appender name="error-appender" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="file" value="./logs/omsk-it/error.log"/>
         <param name="DatePattern" value="'.'yyyy-MM-dd"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="conversionPattern" value="%d{ISO8601} %t/%c{1}:%M:%L %5p: %m%n"/>
@@ -27,11 +20,6 @@
     <root>
         <level value="INFO" />
         <appender-ref ref="console-appender"/>
-        <appender-ref ref="info-appender"/>
-    </root>
-    <root>
-        <level value="ERROR" />
-        <appender-ref ref="console-appender"/>
-        <appender-ref ref="error-appender"/>
+        <appender-ref ref="file-appender"/>
     </root>
 </log4j:configuration>
