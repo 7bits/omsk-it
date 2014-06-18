@@ -4,7 +4,6 @@ import it.sevenbits.conferences.domain.Conference;
 import it.sevenbits.conferences.domain.Report;
 import it.sevenbits.conferences.service.ConferenceService;
 import it.sevenbits.conferences.service.ReportService;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +19,6 @@ import static it.sevenbits.conferences.utils.date.NextDateConference.getNextDate
  */
 @Controller
 public class WelcomeController {
-    private static final Logger LOGGER = Logger.getLogger(WelcomeController.class);
-
     @Autowired
     private ConferenceService conferenceService;
 
@@ -30,7 +27,6 @@ public class WelcomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView showIndex() {
-        LOGGER.error("start");
         Conference conference = conferenceService.findNextConference();
         long today = System.currentTimeMillis() / 1000;
 
@@ -60,7 +56,6 @@ public class WelcomeController {
             modelAndView.addObject("conference", conference);
             modelAndView.addObject("reports", reportService.findAllReportsByConference(conference));
         }
-        LOGGER.error("end");
         return modelAndView;
     }
 
