@@ -9,22 +9,19 @@
         <meta charset="utf-8">
         <title><tiles:getAsString name="title" /></title>
         <link rel="stylesheet" href='<c:url value="/resources/css/styles.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/form-login-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/messages.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/links.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/form-login.css"/>'>        
         <link rel="stylesheet" href='<c:url value="/resources/css/header.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/footer.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/content.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/reset-password-form.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/page-reports-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/page-reporter-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/page-suggest-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/buttons-submit-style.css"/>'> 
-        <link rel="stylesheet" href='<c:url value="/resources/css/buttons-style.css"/>'>        
-        <link rel="stylesheet" href='<c:url value="/resources/css/forms-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/form-new-company-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/form-guest-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/form-subscribe-style.css"/>'>
-        <link rel="stylesheet" href='<c:url value="/resources/css/page-archive-style.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/popups.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/page-reports.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/page-reporter.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/buttons-submit.css"/>'>               
+        <link rel="stylesheet" href='<c:url value="/resources/css/form-elements.css"/>'>        
+        <link rel="stylesheet" href='<c:url value="/resources/css/form-guest.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/form-subscribe.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/page-archive.css"/>'>
         <link rel="icon" href='<c:url value="/resources/images/favicon.ico"/>' type="image/x-icon">
         <link rel="shortcut icon" href='<c:url value="/resources/images/favicon.ico"/>' type="image/x-icon">
         
@@ -47,11 +44,16 @@
             var temporaryImage = '<c:url value="/resources/temporary/photos"/>';
             var nophotoUrl = '<c:url value="/resources/images/photos/nophoto.png" />';
             var resetPassword = '<c:url value="/user/reset-password" />';
-
         </script>
 
         <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.10.2.min.js"/>'></script>
-        <script type="text/javascript" src='<c:url value="/resources/js/buttons-action.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/registration.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/image-uploading.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/image-center.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/companies-actions.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/subscribing.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/login.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/password-change.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/password-restoration.js"/>'></script>
 
         <script type="text/javascript" src='<c:url value="/resources/js/jquery-ui-1.10.4.custom.min.js"/>'></script>

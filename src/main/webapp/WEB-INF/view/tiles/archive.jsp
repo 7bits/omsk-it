@@ -10,14 +10,14 @@
                     <span class="title-text">прошел</span>
                     <span class="title-date"><c:out value="${conference.humanReadableDate}"/></span>
                     <span>в компании</span>
-                    <a href='<c:url value="${conference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${conference.company.name}"/></span></a>
+                    <a class="link-clear" href='<c:url value="${conference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${conference.company.name}"/></span></a>
                 </h1>
-                <div class="program-content">
+                <div class="box-content">
                     <c:forEach items="${reports}" var="report">
                         <c:if test="${report.conference.id == conference.id}">
-                            <div class="report center-item">
+                            <div class="center-item">
                                 <div class="reporter inline-item">
-                                    <div class="reporter-title">
+                                    <div class="js-reporter-title reporter-title">
                                         <h3 class="name">
                                             <a href='<c:url value="/user/${report.user.id}"/>'><c:out value="${report.user.firstName}"/>&nbsp;<c:out value="${report.user.secondName}"/></a>
                                         </h3>

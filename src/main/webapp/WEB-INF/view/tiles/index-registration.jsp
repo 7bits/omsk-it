@@ -3,7 +3,7 @@
 <%@ include file="/WEB-INF/view/jsp/guest-registration-response.jsp" %>
 <div class="content">
     <div class="page">
-        <div class="guest-form-div">
+        <div class="js-guest-form-div guest-form-div">
             <%@ include file="/WEB-INF/view/jsp/popup-registration-form.jsp" %>
         </div>
         <div class="next-event">
@@ -51,7 +51,7 @@
         </div>
 
         <div class="events-history">
-            <a href='<c:url value="/archive"/>'>Материалы предыдущих субботников</a>
+            <a class="link-light" href='<c:url value="/archive"/>'>Материалы предыдущих субботников</a>
         </div>
 
         <div class="action">

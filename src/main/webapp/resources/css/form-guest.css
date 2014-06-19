@@ -1,0 +1,45 @@
+.guest-form-div {
+    display: none;
+}
+
+.container-form-guest {
+    position: absolute;
+    top: 165px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 925px;
+    z-index: 100;
+}
+
+.guest-form .field {
+    font-size: 1.25em;
+    line-height: 40px;
+}
+
+.container-form {
+    background-color: #ffffff;
+    -webkit-border-radius:10px 10px 5px 5px;
+       -moz-border-radius:10px 10px 5px 5px;
+            border-radius:10px 10px 5px 5px;
+    behavior: url( /omsk-it/resources/css/pie.htc);  
+    zoom: 1; 
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/*.overlay {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=25);
+    -moz-opacity: 0.25;
+    -khtml-opacity: 0.25;
+    opacity: 0.25;
+}*/
+

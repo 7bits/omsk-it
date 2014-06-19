@@ -19,7 +19,6 @@ import static it.sevenbits.conferences.utils.date.NextDateConference.getNextDate
  */
 @Controller
 public class WelcomeController {
-
     @Autowired
     private ConferenceService conferenceService;
 
@@ -28,7 +27,6 @@ public class WelcomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView showIndex() {
-
         Conference conference = conferenceService.findNextConference();
         long today = System.currentTimeMillis() / 1000;
 

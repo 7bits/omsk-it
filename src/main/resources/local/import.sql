@@ -52,7 +52,7 @@ insert into `report`(id, conference_id, user_id, title, description, presentatio
 insert into `conference`(id, company_id, ordinal_number, date, registration) values(10, 7, 10, 1378547430, false);
 
 insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (2,'zinoviev@gmail.com','111111','Алексей','Зиновьев','zinoviev@gmail.com',null,null,true,'azinoviev.png',2,null);
-insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (26,'nazarenko@gmail.com','111111','Сергей','Назаренко','nazarenko@gmail.com',null,null,true,'snazarenko.png',7,null)
+insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (26,'nazarenko@gmail.com','111111','Сергей','Назаренко','nazarenko@gmail.com',null,null,true,'snazarenko.png',7,null);
 insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (1,'annie.tarasenko@7bits.it','111111','Анна','Тарасенко','annie.tarasenko@7bits.it','Директор',null,true,'atarasenko.png',1,null);
 INSERT INTO user_roles (user_id, role_id) VALUES (2, 3);
 INSERT INTO user_roles (user_id, role_id) VALUES (26, 3);
@@ -65,9 +65,9 @@ insert into `report`(id, conference_id, user_id, title, description, presentatio
 -- 9 IT-субботник
 insert into `conference`(id, company_id, ordinal_number, date, registration) values(9, 1, 9, 1375523430, false);
 
-insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (23,'podgurski@gmail.com','111111','Михаил','Подгурский','podgurski@gmail.com','начальник отдела банковских систем УБСДИТ',null,true,'mpodgurskiy.png',8,null)
-insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (24,'shipovalov@gmail.com','111111','Александр','Шиповалов','shipovalov@gmail.com','Инженер по тестированию',null,true,'ashipovalov.png',2,null)
-insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (25,'kudiarov@gmail.com','111111','Роман','Кудияров','kudiarov@gmail.com','Соучредитель',null,true,'rkudiyarov.png',9,null)
+insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (23,'podgurski@gmail.com','111111','Михаил','Подгурский','podgurski@gmail.com','начальник отдела банковских систем УБСДИТ',null,true,'mpodgurskiy.png',8,null);
+insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (24,'shipovalov@gmail.com','111111','Александр','Шиповалов','shipovalov@gmail.com','Инженер по тестированию',null,true,'ashipovalov.png',2,null);
+insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (25,'kudiarov@gmail.com','111111','Роман','Кудияров','kudiarov@gmail.com','Соучредитель',null,true,'rkudiyarov.png',9,null);
 INSERT INTO user_roles (user_id, role_id) VALUES (23, 3);
 INSERT INTO user_roles (user_id, role_id) VALUES (24, 3);
 INSERT INTO user_roles (user_id, role_id) VALUES (25, 3);
@@ -165,7 +165,7 @@ insert into `report`(id, conference_id, user_id, title, description, presentatio
 -- 1 IT-субботник
 insert into `conference`(id, company_id, ordinal_number, date, registration) values(1, 1, 1, 1354355430, false);
 
-insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values(3,'beisenov@gmail.com','111111','Серик', 'Бейсенов','beisenov@gmail.com',null,null,true,'beisenov.png',7,null)
+insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values(3,'beisenov@gmail.com','111111','Серик', 'Бейсенов','beisenov@gmail.com',null,null,true,'beisenov.png',7,null);
 INSERT INTO user_roles (user_id, role_id) VALUES (3, 3);
 
 insert into `report`(id, conference_id, user_id, title, description, presentation, video, other_conferences, key_technologies, reporter_wishes) values(1, 1, 1, "Про ИТ-экосистему Омска, энтузиастов, сообщества и конференции", "В докладе будет сделана попытка классификации компаний Омска и причин ее неполноты, тенденций упадка последних лет и наметившегося перелома в этом направлении, призыв к действию и указание конкретных точек приложения сил.", 'http://www.slideshare.net/slideshow/embed_code/15448176', '//player.vimeo.com/video/54912917', null, null, null);
