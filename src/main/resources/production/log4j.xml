@@ -17,6 +17,23 @@
         </layout>
     </appender>
 
+    <appender name="db-appender" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="./logs/omsk-it/access-db.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="conversionPattern" value="%d{ISO8601} %t/%c{1}:%M:%L %5p: %m%n"/>
+        </layout>
+    </appender>
+
+
+    <logger name="org.hibernate.SQL" additivity="false">
+        <level value="DEBUG"/>
+        <appender-ref ref="db-appender"/>
+    </logger>
+
+    <logger name="it.sevenbits.conferences">
+    </logger>
+
     <root>
         <level value="ERROR" />
         <appender-ref ref="console-appender"/>
