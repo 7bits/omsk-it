@@ -22,6 +22,7 @@ import it.sevenbits.conferences.web.form.JsonResponse;
 import it.sevenbits.conferences.web.form.LoginForm;
 import it.sevenbits.conferences.web.form.UserRegistrationForm;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -62,6 +63,7 @@ import java.util.UUID;
 @RequestMapping(value = "user")
 public class UserController {
 
+    private static final Logger LOGGER = Logger.getLogger(VkAuthorizationController.class);
     private static final int DEFAULT_PASSWORD_LENGTH = 10;
 
     @Autowired
@@ -210,6 +212,7 @@ public class UserController {
             try {
                 mailSenderUtility.sendConfirmationToken(userRegistrationForm.getEmail(), confirmationToken);
             } catch (MailSenderException e) {
+                LOGGER.error("Send mail error " + e);
                 Map<String, String> result = new HashMap<>();
                 result.put("message", "Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
                 jsonResponse.setResult(result);
