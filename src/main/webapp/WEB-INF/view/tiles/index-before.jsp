@@ -25,7 +25,7 @@
                 <c:out value="${nextConference.ordinalNumber}"/>-й IT-субботник
                 <span class="title-text">пройдет</span>
                 <span class="title-date"><c:out value="${nextConference.humanReadableDate}"/></span>
-                <span>в компании</span>
+                <span>,</span>
                 <a href='<c:url value="${nextConference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${nextConference.company.name}"/></span></a>
             </h1>
             <c:forEach items="${reports}" var="report">

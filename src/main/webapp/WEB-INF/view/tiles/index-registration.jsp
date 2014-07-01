@@ -12,8 +12,12 @@
                 <c:out value="${nextConference.ordinalNumber}"/>-й IT-субботник пройдет
             <span class="event-date"><c:out value="${nextConference.humanReadableDate}"/></span>
             <c:if test="${nextConference.company != null}">
-                <br>в компании
-                <a href='<c:url value="${nextConference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${nextConference.company.name}"/></span></a>
+                <br>
+                <a href='<c:url value="${nextConference.company.site}"/>' target="_blank">
+                    <span class="event-location">
+                        <c:out value="${nextConference.company.name}"/>
+                    </span>
+                </a>
             </c:if>
             </p>
             <div class="js-guest-register-button pos-btn-submit btn-gradient btn-submit btn-bordered btn-event-registration">
