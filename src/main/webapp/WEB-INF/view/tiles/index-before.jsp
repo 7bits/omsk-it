@@ -14,11 +14,12 @@
             </p>
             </span>
             <div class="subscribe-center">
-            <form class="js-subscribe-form-top subscribe-form" action='<c:url value="/subscribe"/>' method="POST">
-                <input class="input pos-email" type="email" name="email" placeholder="Электронная почта">
-                <input class="js-subscribe-button-top pos-btn-subscribe btn-gradient btn-subscribe" type="submit" value="Отправить">
-            </form>
-            <div class="js-subscribe-response-top subscribe-response-top response"></div>
+                <form class="js-subscribe-form-top subscribe-form" action='<c:url value="/subscribe"/>' method="POST">
+                    <input class="input pos-email" type="email" name="email" placeholder="Электронная почта">
+                    <input class="js-subscribe-button-top pos-btn-subscribe btn-gradient btn-subscribe" type="submit" value="Отправить">
+                </form>
+                <div class="js-subscribe-response-top subscribe-response-top response"></div>
+            </div>
         </div>
         <div class="box">
             <h1 class="title">
