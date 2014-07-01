@@ -15,6 +15,7 @@
         <link rel="stylesheet" href='<c:url value="/resources/css/footer.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/content.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/popups.css"/>'>
+        <link rel="stylesheet" href='<c:url value="/resources/css/page-main.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/page-reports.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/page-reporter.css"/>'>
         <link rel="stylesheet" href='<c:url value="/resources/css/buttons-submit.css"/>'>               
