@@ -12,8 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-import static it.sevenbits.conferences.utils.date.NextDateConference.getNextDate;
-
 /**
  * Controller for main page.
  */
@@ -27,34 +25,34 @@ public class WelcomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView showIndex() {
-        Conference conference = conferenceService.findNextConference();
+        ModelAndView modelAndView;
+        Conference lastConferenceWithReports = conferenceService.findLastConferenceWithReports();
+        List<Report> reports = reportService.findAllReportsByConference(lastConferenceWithReports);
         long today = System.currentTimeMillis() / 1000;
 
-        if (conference.getDate() < today) {
-            Conference newConference = new Conference();
-            newConference.setDate(getNextDate(today));
-            newConference.setOrdinalNumber(conference.getOrdinalNumber() + 1);
-            conferenceService.addConference(newConference);
-            conference = newConference;
-        }
-
-        List<Report> reports = reportService.findAllReportsByConference(conference);
-        ModelAndView modelAndView;
-
-        if (reports.isEmpty()) {
-            modelAndView = new ModelAndView("index-after");
-            Conference pastConference = conferenceService.findLastConference();
-            modelAndView.addObject("pastConference", pastConference);
-            modelAndView.addObject("reports", reportService.findAllReportsByConference(pastConference));
-            modelAndView.addObject("conference", conference);
-        } else {
-            if (conference.isRegistration()) {
+        if (lastConferenceWithReports.getDate() >= today) {
+            if (lastConferenceWithReports.isRegistration()) {
                 modelAndView = new ModelAndView("index-reg");
-            }   else {
+            } else {
                 modelAndView = new ModelAndView("index-before");
             }
-            modelAndView.addObject("conference", conference);
-            modelAndView.addObject("reports", reportService.findAllReportsByConference(conference));
+            modelAndView.addObject("reports", reports);
+            modelAndView.addObject("nextConference", lastConferenceWithReports);
+        } else {
+            Conference lastConference = conferenceService.findLastConference();
+            if (lastConference == lastConferenceWithReports) {
+                modelAndView = new ModelAndView("index-after");
+
+                modelAndView.addObject("reports", reports);
+                modelAndView.addObject("lastConference", lastConferenceWithReports);
+            } else {
+                if (lastConference.isRegistration()) {
+                    modelAndView = new ModelAndView("index-reg");
+                } else {
+                    modelAndView = new ModelAndView("index-after");
+                }
+            }
+            modelAndView.addObject("nextConference", lastConference);
         }
         return modelAndView;
     }

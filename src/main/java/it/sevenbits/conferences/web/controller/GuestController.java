@@ -86,7 +86,7 @@ public class GuestController {
             response.setStatus(JsonResponse.STATUS_FAIL);
         } else {
             String userLogin = SecurityContextHolder.getContext().getAuthentication().getName();
-            Conference currentConference = conferenceService.findNextConference();
+            Conference currentConference = conferenceService.findLastConference();
             if (!isUserIsGuestOnConference(userLogin, currentConference.getId())) {
                 Guest guest = new Guest();
                 User currentUser = userService.findUser(userLogin);

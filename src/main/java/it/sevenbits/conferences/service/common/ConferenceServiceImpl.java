@@ -61,7 +61,7 @@ public class ConferenceServiceImpl implements ConferenceService {
     }
 
     @Override
-    public Conference findNextConference() {
+    public Conference findLastConference() {
 
         return conferenceDao.findByQuery(
                 "select c from Conference c where c.ordinalNumber = (select max(ordinalNumber) from Conference)", null
@@ -69,9 +69,9 @@ public class ConferenceServiceImpl implements ConferenceService {
     }
 
     @Override
-    public Conference findLastConference() {
+    public Conference findLastConferenceWithReports() {
         return conferenceDao.findByQuery(
-                "select c from Conference c where c.ordinalNumber < (select max(ordinalNumber) from Conference) ORDER BY ordinalNumber DESC", null
+                "SELECT c FROM Report as r INNER JOIN r.conference as c GROUP BY c.id ORDER BY date desc", null
         ).iterator().next();
     }
 

@@ -127,7 +127,7 @@ public class UserController {
             if (conferenceStatus != null && conferenceStatus == 1) {
                 Guest guest = new Guest();
                 guest.setUser(user);
-                Conference currentConference = conferenceService.findNextConference();
+                Conference currentConference = conferenceService.findLastConference();
                 guest.setConference(currentConference);
                 guestService.addGuest(guest);
                 additionalRegistrationInfo = "Так же, Вы зарегистрированы на текущий субботник.";
