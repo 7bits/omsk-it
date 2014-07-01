@@ -21,7 +21,7 @@ insert into `company`(id, name, site, location) values(18, "Собака Пав�
 INSERT INTO role (role) VALUES ('looser'),('cruser'),('user');
 
 -- 13 IT-субботник
-insert into `conference`(id, company_id, ordinal_number, date, registration) values(13, 1, 13, 1388833200, true);
+# insert into `conference`(id, company_id, ordinal_number, date, registration) values(13, 1, 13, 1404518400, true);
 
 -- 12 IT-субботник
 insert into `conference`(id, company_id, ordinal_number, date, registration) values(12, 1, 12, 1383994800, false);
