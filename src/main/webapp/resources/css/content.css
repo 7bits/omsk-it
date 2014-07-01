@@ -113,6 +113,10 @@ ol {
     zoom: 1;  
 }
 
+.report {
+    margin: 20px;
+}
+
 .report-content .photo { /* photo photo-small */
     width: 80px;
     height: 80px;
@@ -236,4 +240,25 @@ ol {
     font-size: 2.1875em;
 }
 
-    
+.like-button {
+    position: absolute;
+    right: 40px;
+}
+
+.like-button .vk-like {
+    margin-top: 10px;
+}
+
+.main-like-button {
+    float: right;
+}
+
+.main-like-button .vk-like {
+    float: right;
+    margin-right: 10px;
+}
+
+.main-like-button .tweet-like {
+    float: right;
+    margin-right: 10px;
+}
