@@ -41,25 +41,31 @@ public class WelcomeController {
         } else {
             Conference lastConference = conferenceService.findLastConference();
 
-            if (lastConference.getDate() >= today) {
+            if (lastConference == lastConferenceWithReports) {
                 modelAndView = new ModelAndView("index-after");
-                
+
                 modelAndView.addObject("reports", reports);
                 modelAndView.addObject("lastConference", lastConferenceWithReports);
+                modelAndView.addObject("nextConference", lastConference);
             } else {
-                if (lastConference == lastConferenceWithReports) {
+                if (lastConference.getDate() >= today) {
+                    if (lastConference.isRegistration()) {
+                        modelAndView = new ModelAndView("index-reg");
+
+                        modelAndView.addObject("nextConference", lastConference);
+                    } else {
+                        modelAndView = new ModelAndView("index-after");
+
+                        modelAndView.addObject("reports", reports);
+                        modelAndView.addObject("lastConference", lastConferenceWithReports);
+                        modelAndView.addObject("nextConference", lastConference);
+                    }
+                } else {
                     modelAndView = new ModelAndView("index-after");
 
                     modelAndView.addObject("reports", reports);
                     modelAndView.addObject("lastConference", lastConferenceWithReports);
-                } else {
-                    if (lastConference.isRegistration()) {
-                        modelAndView = new ModelAndView("index-reg");
-                    } else {
-                        modelAndView = new ModelAndView("index-after");
-                    }
                 }
-                modelAndView.addObject("nextConference", lastConference);
             }
         }
         return modelAndView;

@@ -1,54 +1,57 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@ include file="/WEB-INF/view/jsp/guest-registration-response.jsp" %>
+
 <div class="content">
     <div class="page">
         <div class="js-guest-form-div guest-form-div">
             <%@ include file="/WEB-INF/view/jsp/popup-registration-form.jsp" %>
         </div>
         <div class="next-event">
-            <c:out value="${conference.ordinalNumber}"/>-й IT-субботник пройдет
-            <span class="event-date"><c:out value="${conference.humanReadableDate}"/></span>
-            <c:if test="${conference.company != null}">
+            <c:out value="${nextConference.ordinalNumber}"/>-й IT-субботник пройдет
+            <span class="event-date"><c:out value="${nextConference.humanReadableDate}"/></span>
+            <c:if test="${nextConference.company != null}">
                 <br>в компании
-                <a href='<c:url value="${conference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${conference.company.name}"/></span></a>
+                <a href='<c:url value="${nextConference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${nextConference.company.name}"/></span></a>
             </c:if>
             <div class="js-guest-register-button pos-btn-submit btn-gradient btn-submit btn-bordered btn-event-registration">
                 Зарегистрироваться
             </div>
         </div>
 
-        <div class="box">
-            <h1 class="title">
-                Программа <c:out value="${conference.ordinalNumber}"/>-го IT-субботника
-            </h1>
-            <c:forEach items="${reports}" var="report">
-                <div class="report">
-                    <div class="reporter inline-item">
-                        <div class="name">
-                            <a href='<c:url value="/reporter/${report.user.id}"/>'><c:out value="${report.user.firstName}"/>&nbsp;<c:out value="${report.user.secondName}"/></a>
+        <c:if test="${reports != null}">
+            <div class="box">
+                <h1 class="title">
+                    Программа <c:out value="${nextConference.ordinalNumber}"/>-го IT-субботника
+                </h1>
+                <c:forEach items="${reports}" var="report">
+                    <div class="report">
+                        <div class="reporter inline-item">
+                            <div class="name">
+                                <a href='<c:url value="/reporter/${report.user.id}"/>'><c:out value="${report.user.firstName}"/>&nbsp;<c:out value="${report.user.secondName}"/></a>
+                            </div>
+
+                            <div class="position">
+                                <%@ include file="/WEB-INF/view/jsp/job-position-viewing.jsp" %>
+                            </div>
+                            <%@ include file="/WEB-INF/view/jsp/photo-viewing.jsp" %>
                         </div>
 
-                        <div class="position">
-                            <%@ include file="/WEB-INF/view/jsp/job-position-viewing.jsp" %>
+                        <div class="description inline-item">
+                            <h2 class="description-title">
+                                <a href='<c:url value="/report/${report.id}"/>'>&laquo;<c:out value="${report.title}"/>&raquo;</a>
+                            </h2>
+
+                            <div class="text">
+                                <c:out value="${report.description}"/>
+                            </div>
                         </div>
-                        <%@ include file="/WEB-INF/view/jsp/photo-viewing.jsp" %>
+
+                        <hr class="bottom-line">
                     </div>
-
-                    <div class="description inline-item">
-                        <h2 class="description-title">
-                            <a href='<c:url value="/report/${report.id}"/>'>&laquo;<c:out value="${report.title}"/>&raquo;</a>
-                        </h2>
-
-                        <div class="text">
-                            <c:out value="${report.description}"/>
-                        </div>
-                    </div>
-
-                    <hr class="bottom-line">
-                </div>
-            </c:forEach>
-        </div>
+                </c:forEach>
+            </div>
+        </c:if>
 
         <div class="events-history">
             <a class="link-light" href='<c:url value="/archive"/>'>Материалы предыдущих субботников</a>

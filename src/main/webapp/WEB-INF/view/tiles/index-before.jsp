@@ -4,8 +4,8 @@
     <div class="page">
         <div class="next-event">
             <p class="event-title">
-            (<c:out value="${conference.ordinalNumber}"/>-й) субботник пройдёт
-            <span class="event-date"><c:out value="${conference.humanReadableDate}"/></span>
+            (<c:out value="${nextConference.ordinalNumber}"/>-й) субботник пройдёт
+            <span class="event-date"><c:out value="${nextConference.humanReadableDate}"/></span>
             </p>
             <p class="next-event-text">
                 Регистрация еще не открылась, но уже совсем скоро.
@@ -22,11 +22,11 @@
         </div>
         <div class="box">
             <h1 class="title">
-                <c:out value="${conference.ordinalNumber}"/>-й IT-субботник
+                <c:out value="${nextConference.ordinalNumber}"/>-й IT-субботник
                 <span class="title-text">пройдет</span>
-                <span class="title-date"><c:out value="${conference.humanReadableDate}"/></span>
+                <span class="title-date"><c:out value="${nextConference.humanReadableDate}"/></span>
                 <span>в компании</span>
-                <a href='<c:url value="${conference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${conference.company.name}"/></span></a>
+                <a href='<c:url value="${nextConference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${nextConference.company.name}"/></span></a>
             </h1>
             <c:forEach items="${reports}" var="report">
                 <div class="report">

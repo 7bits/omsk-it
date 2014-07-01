@@ -3,10 +3,12 @@
 <div class="content">
     <div class="page">
         <div class="next-event">
-            <p class="event-title">
-            Следующий (<c:out value="${conference.ordinalNumber}"/>-й) субботник пройдёт
-            <span class="event-date"><c:out value="${conference.humanReadableDate}"/></span>
-            </p>
+            <c:if test="${nextConference != null}">
+                <p class="event-title">
+                Следующий (<c:out value="${nextConference.ordinalNumber}"/>-й) субботник пройдёт
+                <span class="event-date"><c:out value="${nextConference.humanReadableDate}"/></span>
+                </p>
+            </c:if>
             <p class="next-event-text">
                 Чтобы не пропустить начало регистрации, следите за нами в <a class ="link-light link-bold" href="https://twitter.com/OmskIT">Твиттере</a> и <a class ="link-light link-bold" href="http://vk.com/omskit">ВКонтакте</a>.
                 <br>Или оставьте свой e-mail, мы сообщим вам сами:
@@ -22,11 +24,11 @@
         </div>
         <div class="box">
             <h1 class="title">
-                <c:out value="${pastConference.ordinalNumber}"/>-й IT-субботник
+                <c:out value="${lastConference.ordinalNumber}"/>-й IT-субботник
                 <span class="title-text">прошел</span>
-                <span class="title-date"><c:out value="${pastConference.humanReadableDate}"/></span>
+                <span class="title-date"><c:out value="${lastConference.humanReadableDate}"/></span>
                 <span>в компании</span>
-                <a href='<c:url value="${pastConference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${pastConference.company.name}"/></span></a>
+                <a href='<c:url value="${lastConference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${lastConference.company.name}"/></span></a>
             </h1>
             <c:forEach items="${reports}" var="report">
                 <div class="report">
