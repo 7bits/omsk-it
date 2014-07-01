@@ -13,7 +13,7 @@
             <span class="event-date"><c:out value="${nextConference.humanReadableDate}"/></span>
             <c:if test="${nextConference.company != null}">
                 <br>
-                <a href='<c:url value="${nextConference.company.site}"/>' target="_blank">
+                <a class="link-clear" href='<c:url value="${nextConference.company.site}"/>' target="_blank">
                     <span class="event-location">
                         <c:out value="${nextConference.company.name}"/>
                     </span>

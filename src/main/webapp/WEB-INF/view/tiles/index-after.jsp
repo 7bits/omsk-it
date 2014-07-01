@@ -28,7 +28,7 @@
                 <span class="title-text">прошел</span>
                 <span class="title-date"><c:out value="${lastConference.humanReadableDate}"/></span>
                 <span>,</span>
-                <a href='<c:url value="${lastConference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${lastConference.company.name}"/></span></a>
+                <a class="link-clear" href='<c:url value="${lastConference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${lastConference.company.name}"/></span></a>
             </h1>
             <c:forEach items="${reports}" var="report">
                 <div class="report">
