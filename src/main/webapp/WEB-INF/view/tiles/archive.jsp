@@ -9,7 +9,7 @@
                     <c:out value="${conference.ordinalNumber}"/>-й IT-субботник
                     <span class="title-text">прошел</span>
                     <span class="title-date"><c:out value="${conference.humanReadableDate}"/></span>
-                    <span>в компании</span>
+                    <span>,</span>
                     <a class="link-clear" href='<c:url value="${conference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${conference.company.name}"/></span></a>
                 </h1>
                 <div class="box-content">
