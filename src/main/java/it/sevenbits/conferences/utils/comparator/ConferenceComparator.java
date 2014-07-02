@@ -1,8 +1,8 @@
 package it.sevenbits.conferences.utils.comparator;
 
-import it.sevenbits.conferences.domain.Conference;
-
 import java.util.Comparator;
+
+import it.sevenbits.conferences.domain.Conference;
 
 /**
  * Compares two Conferences by their ordinal number.

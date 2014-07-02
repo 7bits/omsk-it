@@ -1,18 +1,12 @@
 package it.sevenbits.conferences.web.controller;
 
-import it.sevenbits.conferences.domain.Company;
-import it.sevenbits.conferences.domain.Report;
-import it.sevenbits.conferences.domain.Role;
-import it.sevenbits.conferences.domain.User;
-import it.sevenbits.conferences.service.CompanyService;
-import it.sevenbits.conferences.service.ReportService;
-import it.sevenbits.conferences.service.RoleService;
-import it.sevenbits.conferences.service.UserService;
-import it.sevenbits.conferences.utils.file.FileManager;
-import it.sevenbits.conferences.utils.mail.MailSenderUtility;
-import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
-import it.sevenbits.conferences.web.form.ApplyForReportForm;
-import it.sevenbits.conferences.web.form.JsonResponse;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,11 +22,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import it.sevenbits.conferences.domain.Company;
+import it.sevenbits.conferences.domain.Report;
+import it.sevenbits.conferences.domain.Role;
+import it.sevenbits.conferences.domain.User;
+import it.sevenbits.conferences.service.CompanyService;
+import it.sevenbits.conferences.service.ReportService;
+import it.sevenbits.conferences.service.RoleService;
+import it.sevenbits.conferences.service.UserService;
+import it.sevenbits.conferences.utils.file.FileManager;
+import it.sevenbits.conferences.utils.mail.MailSenderUtility;
+import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
+import it.sevenbits.conferences.web.form.ApplyForReportForm;
+import it.sevenbits.conferences.web.form.JsonResponse;
 
 /**
  * Controller for /apply-for-report page.

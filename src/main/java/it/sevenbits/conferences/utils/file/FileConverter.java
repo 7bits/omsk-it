@@ -1,10 +1,12 @@
 package it.sevenbits.conferences.utils.file;
 
-import org.apache.log4j.Logger;
-import org.springframework.web.multipart.MultipartFile;
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+import org.apache.log4j.Logger;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Files converter

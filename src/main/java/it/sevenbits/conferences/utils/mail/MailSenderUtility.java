@@ -1,15 +1,16 @@
 package it.sevenbits.conferences.utils.mail;
 
-import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
+import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
 
 /**
  * This class provide tools for working with mail.

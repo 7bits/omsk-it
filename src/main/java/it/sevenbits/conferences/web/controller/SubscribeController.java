@@ -1,9 +1,9 @@
 package it.sevenbits.conferences.web.controller;
 
-import it.sevenbits.conferences.domain.Subscription;
-import it.sevenbits.conferences.service.SubscriptionService;
-import it.sevenbits.conferences.web.form.JsonResponse;
-import it.sevenbits.conferences.web.form.SubscriptionForm;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+
+import it.sevenbits.conferences.domain.Subscription;
+import it.sevenbits.conferences.service.SubscriptionService;
+import it.sevenbits.conferences.web.form.JsonResponse;
+import it.sevenbits.conferences.web.form.SubscriptionForm;
 
 /**
  * Controller for subscription.

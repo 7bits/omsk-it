@@ -1,13 +1,15 @@
 package it.sevenbits.conferences.dao.dbbased;
 
-import it.sevenbits.conferences.dao.EntityDao;
-import org.apache.log4j.Logger;
+import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import java.util.List;
-import java.util.Map;
+
+import org.apache.log4j.Logger;
+
+import it.sevenbits.conferences.dao.EntityDao;
 
 /**
  * Java Persistence API based implementation of the EntityDao.

@@ -1,8 +1,9 @@
 package it.sevenbits.conferences.dao.dbbased;
 
+import org.springframework.stereotype.Repository;
+
 import it.sevenbits.conferences.dao.UserDao;
 import it.sevenbits.conferences.domain.User;
-import org.springframework.stereotype.Repository;
 
 /**
  * Java Persistence API based implementation of the UserDao.

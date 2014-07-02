@@ -1,7 +1,11 @@
 package it.sevenbits.conferences.dao.dbbased;
 
-import it.sevenbits.conferences.dao.CompanyDao;
-import it.sevenbits.conferences.domain.Company;
+import static org.junit.Assert.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,11 +15,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import static org.junit.Assert.*;
+import it.sevenbits.conferences.dao.CompanyDao;
+import it.sevenbits.conferences.domain.Company;
 
 /**
  * Integration Test for it.sevenbits.conferences.dao.dbbased.JpaCompanyDao

@@ -1,14 +1,15 @@
 package it.sevenbits.conferences.web.validator;
 
-import it.sevenbits.conferences.service.CompanyService;
-import it.sevenbits.conferences.service.UserService;
-import it.sevenbits.conferences.web.form.AnonymousGuestForm;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+
+import it.sevenbits.conferences.service.CompanyService;
+import it.sevenbits.conferences.service.UserService;
+import it.sevenbits.conferences.web.form.AnonymousGuestForm;
 
 /**
  *  Validator for guest's form.

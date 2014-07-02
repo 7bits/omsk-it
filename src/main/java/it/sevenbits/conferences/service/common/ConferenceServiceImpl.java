@@ -1,17 +1,19 @@
 package it.sevenbits.conferences.service.common;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Vector;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import it.sevenbits.conferences.dao.ConferenceDao;
 import it.sevenbits.conferences.dao.ReportDao;
 import it.sevenbits.conferences.domain.Company;
 import it.sevenbits.conferences.domain.Conference;
 import it.sevenbits.conferences.service.ConferenceService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Vector;
 
 /**
  * Simple implementation of the ConferenceService.

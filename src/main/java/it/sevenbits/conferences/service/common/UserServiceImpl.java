@@ -1,15 +1,16 @@
 package it.sevenbits.conferences.service.common;
 
-import it.sevenbits.conferences.dao.UserDao;
-import it.sevenbits.conferences.domain.User;
-import it.sevenbits.conferences.service.UserService;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import it.sevenbits.conferences.dao.UserDao;
+import it.sevenbits.conferences.domain.User;
+import it.sevenbits.conferences.service.UserService;
 
 /**
  * Simple implementation of the UserService.

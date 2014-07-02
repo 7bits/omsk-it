@@ -1,20 +1,12 @@
 package it.sevenbits.conferences.web.controller;
 
-import it.sevenbits.conferences.domain.Company;
-import it.sevenbits.conferences.domain.Conference;
-import it.sevenbits.conferences.domain.Guest;
-import it.sevenbits.conferences.domain.Role;
-import it.sevenbits.conferences.domain.User;
-import it.sevenbits.conferences.service.CompanyService;
-import it.sevenbits.conferences.service.ConferenceService;
-import it.sevenbits.conferences.service.GuestService;
-import it.sevenbits.conferences.service.RoleService;
-import it.sevenbits.conferences.service.UserService;
-import it.sevenbits.conferences.utils.file.FileManager;
-import it.sevenbits.conferences.utils.mail.MailSenderUtility;
-import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
-import it.sevenbits.conferences.web.form.AnonymousGuestForm;
-import it.sevenbits.conferences.web.form.JsonResponse;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -29,11 +21,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpSession;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import it.sevenbits.conferences.domain.*;
+import it.sevenbits.conferences.service.*;
+import it.sevenbits.conferences.utils.file.FileManager;
+import it.sevenbits.conferences.utils.mail.MailSenderUtility;
+import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
+import it.sevenbits.conferences.web.form.AnonymousGuestForm;
+import it.sevenbits.conferences.web.form.JsonResponse;
 
 /**
  *  Controller for /reg page

@@ -1,10 +1,11 @@
 package it.sevenbits.conferences.web.validator;
 
-import it.sevenbits.conferences.web.form.ApplyForReportForm;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+
+import it.sevenbits.conferences.web.form.ApplyForReportForm;
 
 /**
  * Validator for apply-for-report form.

@@ -1,12 +1,14 @@
 package it.sevenbits.conferences.service.common;
 
-import it.sevenbits.conferences.dao.SubscriptionDao;
-import it.sevenbits.conferences.domain.Subscription;
-import it.sevenbits.conferences.service.SubscriptionService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.List;
+
+import it.sevenbits.conferences.dao.SubscriptionDao;
+import it.sevenbits.conferences.domain.Subscription;
+import it.sevenbits.conferences.service.SubscriptionService;
 
 /**
  * Simple implementation of the SubscriptionService.

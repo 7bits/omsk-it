@@ -1,8 +1,8 @@
 package it.sevenbits.conferences.service;
 
-import it.sevenbits.conferences.domain.VkontakteProfile;
-
 import java.util.List;
+
+import it.sevenbits.conferences.domain.VkontakteProfile;
 
 /**
  * Interface for service layer, which works with VkontakteProfileDao.

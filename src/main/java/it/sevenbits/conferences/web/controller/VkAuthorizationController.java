@@ -1,19 +1,16 @@
 package it.sevenbits.conferences.web.controller;
 
-import it.sevenbits.conferences.domain.Company;
-import it.sevenbits.conferences.domain.Role;
-import it.sevenbits.conferences.domain.User;
-import it.sevenbits.conferences.service.CompanyService;
-import it.sevenbits.conferences.service.RoleService;
-import it.sevenbits.conferences.service.UserService;
-import it.sevenbits.conferences.service.VkontakteProfileService;
-import it.sevenbits.conferences.utils.file.FileManager;
-import it.sevenbits.conferences.utils.mail.MailSenderUtility;
-import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
-import it.sevenbits.conferences.utils.vkontakteAuthorization.VkontakteProfile;
-import it.sevenbits.conferences.utils.vkontakteAuthorization.VkontakteProfiles;
-import it.sevenbits.conferences.web.form.JsonResponse;
-import it.sevenbits.conferences.web.form.UserRegistrationForm;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -37,22 +34,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.Validator;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import it.sevenbits.conferences.domain.Company;
+import it.sevenbits.conferences.domain.Role;
+import it.sevenbits.conferences.domain.User;
+import it.sevenbits.conferences.service.CompanyService;
+import it.sevenbits.conferences.service.RoleService;
+import it.sevenbits.conferences.service.UserService;
+import it.sevenbits.conferences.service.VkontakteProfileService;
+import it.sevenbits.conferences.utils.file.FileManager;
+import it.sevenbits.conferences.utils.mail.MailSenderUtility;
+import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
+import it.sevenbits.conferences.utils.vkontakteAuthorization.VkontakteProfile;
+import it.sevenbits.conferences.utils.vkontakteAuthorization.VkontakteProfiles;
+import it.sevenbits.conferences.web.form.JsonResponse;
+import it.sevenbits.conferences.web.form.UserRegistrationForm;
 
 /**
  * Controller which provide access to vkontakte's API.

@@ -1,17 +1,18 @@
 package it.sevenbits.conferences.web.controller;
 
-import it.sevenbits.conferences.domain.Conference;
-import it.sevenbits.conferences.service.ConferenceService;
-import it.sevenbits.conferences.service.ReportService;
-import it.sevenbits.conferences.utils.comparator.ConferenceComparator;
+import java.util.Collections;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Collections;
-import java.util.List;
+import it.sevenbits.conferences.domain.Conference;
+import it.sevenbits.conferences.service.ConferenceService;
+import it.sevenbits.conferences.service.ReportService;
+import it.sevenbits.conferences.utils.comparator.ConferenceComparator;
 
 /**
  * Controller for /archive page.

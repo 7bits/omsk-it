@@ -1,13 +1,14 @@
 package it.sevenbits.conferences.service.common;
 
-import it.sevenbits.conferences.dao.SuggestionDao;
-import it.sevenbits.conferences.domain.Suggestion;
-import it.sevenbits.conferences.service.SuggestionService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import it.sevenbits.conferences.dao.SuggestionDao;
+import it.sevenbits.conferences.domain.Suggestion;
+import it.sevenbits.conferences.service.SuggestionService;
 
 /**
  * Simple implementation of the SuggestionService.

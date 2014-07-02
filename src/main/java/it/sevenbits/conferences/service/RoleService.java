@@ -1,8 +1,8 @@
 package it.sevenbits.conferences.service;
 
-import it.sevenbits.conferences.domain.Role;
-
 import java.util.List;
+
+import it.sevenbits.conferences.domain.Role;
 
 /**
  * Interface for service layer, which works with EntityDao.

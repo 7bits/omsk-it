@@ -1,8 +1,9 @@
 package it.sevenbits.conferences.dao.dbbased;
 
+import org.springframework.stereotype.Repository;
+
 import it.sevenbits.conferences.dao.ReportDao;
 import it.sevenbits.conferences.domain.Report;
-import org.springframework.stereotype.Repository;
 
 /**
  * Java Persistence API based implementation of the ReportDao.

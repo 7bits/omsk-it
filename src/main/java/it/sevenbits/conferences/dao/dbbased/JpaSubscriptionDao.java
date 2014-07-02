@@ -1,8 +1,9 @@
 package it.sevenbits.conferences.dao.dbbased;
 
+import org.springframework.stereotype.Repository;
+
 import it.sevenbits.conferences.dao.SubscriptionDao;
 import it.sevenbits.conferences.domain.Subscription;
-import org.springframework.stereotype.Repository;
 
 /**
  * Java Persistence API based implementation of the SubscriptionDao.

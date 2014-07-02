@@ -1,16 +1,18 @@
 package it.sevenbits.conferences.service.common;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import it.sevenbits.conferences.dao.ReportDao;
 import it.sevenbits.conferences.domain.Conference;
 import it.sevenbits.conferences.domain.Report;
 import it.sevenbits.conferences.domain.User;
 import it.sevenbits.conferences.service.ReportService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Simple implementation of the ReportService.

@@ -1,14 +1,16 @@
 package it.sevenbits.conferences.service.common;
 
-import it.sevenbits.conferences.dao.CompanyDao;
-import it.sevenbits.conferences.domain.Company;
-import it.sevenbits.conferences.service.CompanyService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import it.sevenbits.conferences.dao.CompanyDao;
+import it.sevenbits.conferences.domain.Company;
+import it.sevenbits.conferences.service.CompanyService;
 
 /**
  * Simple implementation of the CompanyService.

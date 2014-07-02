@@ -1,14 +1,15 @@
 package it.sevenbits.conferences.utils.file;
 
-import org.apache.log4j.Logger;
-
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.UUID;
+
+import javax.imageio.ImageIO;
+
+import org.apache.log4j.Logger;
 
 /**
  * The class is provide possibilities for work with files

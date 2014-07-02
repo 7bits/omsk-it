@@ -1,10 +1,11 @@
 package it.sevenbits.conferences.web.validator;
 
-import it.sevenbits.conferences.web.form.SuggestionForm;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+
+import it.sevenbits.conferences.web.form.SuggestionForm;
 
 /**
  *  Validator for suggestion form
@@ -67,4 +68,3 @@ public class SuggestionValidator implements Validator {
 //        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "themeRequest", "themeRequest.empty", "Поле должно быть заполнено.");
 //    }
 }
-

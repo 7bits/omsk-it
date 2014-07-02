@@ -1,26 +1,10 @@
 package it.sevenbits.conferences.web.controller;
 
-import it.sevenbits.conferences.domain.Company;
-import it.sevenbits.conferences.domain.Conference;
-import it.sevenbits.conferences.domain.Guest;
-import it.sevenbits.conferences.domain.Report;
-import it.sevenbits.conferences.domain.Role;
-import it.sevenbits.conferences.domain.User;
-import it.sevenbits.conferences.service.CompanyService;
-import it.sevenbits.conferences.service.ConferenceService;
-import it.sevenbits.conferences.service.GuestService;
-import it.sevenbits.conferences.service.ReportService;
-import it.sevenbits.conferences.service.RoleService;
-import it.sevenbits.conferences.service.UserService;
-import it.sevenbits.conferences.utils.file.FileConverter;
-import it.sevenbits.conferences.utils.file.FileManager;
-import it.sevenbits.conferences.utils.mail.MailSenderUtility;
-import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
-import it.sevenbits.conferences.web.form.ChangePasswordForm;
-import it.sevenbits.conferences.web.form.EmailForm;
-import it.sevenbits.conferences.web.form.JsonResponse;
-import it.sevenbits.conferences.web.form.LoginForm;
-import it.sevenbits.conferences.web.form.UserRegistrationForm;
+import java.awt.image.BufferedImage;
+import java.util.*;
+
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,23 +22,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.Validator;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
-import java.awt.image.BufferedImage;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import it.sevenbits.conferences.domain.*;
+import it.sevenbits.conferences.service.*;
+import it.sevenbits.conferences.utils.file.FileConverter;
+import it.sevenbits.conferences.utils.file.FileManager;
+import it.sevenbits.conferences.utils.mail.MailSenderUtility;
+import it.sevenbits.conferences.utils.mail.exception.MailSenderException;
+import it.sevenbits.conferences.web.form.*;
 
 /**
  * Controller for /user pages.

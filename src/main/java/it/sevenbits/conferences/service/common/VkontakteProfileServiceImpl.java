@@ -1,13 +1,14 @@
 package it.sevenbits.conferences.service.common;
 
-import it.sevenbits.conferences.dao.VkontakteProfileDao;
-import it.sevenbits.conferences.domain.VkontakteProfile;
-import it.sevenbits.conferences.service.VkontakteProfileService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import it.sevenbits.conferences.dao.VkontakteProfileDao;
+import it.sevenbits.conferences.domain.VkontakteProfile;
+import it.sevenbits.conferences.service.VkontakteProfileService;
 
 /**
  * Simple implementation of the VkontakteProfileService.
