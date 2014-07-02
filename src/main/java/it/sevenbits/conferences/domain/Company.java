@@ -1,11 +1,7 @@
 package it.sevenbits.conferences.domain;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * POJO class for Companies model.
@@ -55,5 +51,10 @@ public class Company {
 
     public void setLocation(final String location) {
         this.location = location;
+    }
+
+    @Transient
+    public Boolean isHaveLink(){
+        return  !((site == null) || (site.replaceAll("\\s+", "").equals("")));
     }
 }

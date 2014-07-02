@@ -13,11 +13,20 @@
             <span class="event-date"><c:out value="${nextConference.humanReadableDate}"/></span>
             <c:if test="${nextConference.company != null}">
                 <br>
-                <a class="link-clear" href='<c:url value="${nextConference.company.site}"/>' target="_blank">
-                    <span class="event-location">
-                        <c:out value="${nextConference.company.name}"/>
-                    </span>
-                </a>
+                <c:choose>
+                    <c:when test="${nextConference.company.isHaveLink()}">
+                        <a class="link-clear" href='<c:url value="${nextConference.company.site}"/>' target="_blank">
+                            <span class="event-location">
+                                <c:out value="${nextConference.company.name}"/>
+                            </span>
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <span>
+                            <c:out value="${nextConference.company.name}"/>
+                        </span>
+                    </c:otherwise>
+                </c:choose>
             </c:if>
             </p>
             <div class="js-guest-register-button pos-btn-submit btn-gradient btn-submit btn-bordered btn-event-registration">

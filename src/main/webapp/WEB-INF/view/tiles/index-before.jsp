@@ -27,7 +27,20 @@
                 <span class="title-text">пройдет</span>
                 <span class="title-date"><c:out value="${nextConference.humanReadableDate}"/></span>
                 <span>,</span>
-                <a class="link-clear" href='<c:url value="${nextConference.company.site}"/>' target="_blank"><span class="event-location"><c:out value="${nextConference.company.name}"/></span></a>
+                <c:choose>
+                    <c:when test="${nextConference.company.isHaveLink()}">
+                        <a class="link-clear" href='<c:url value="${nextConference.company.site}"/>' target="_blank">
+                            <span class="event-location">
+                                <c:out value="${nextConference.company.name}"/>
+                            </span>
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <span>
+                            <c:out value="${nextConference.company.name}"/>
+                        </span>
+                    </c:otherwise>
+                </c:choose>
             </h1>
             <c:forEach items="${reports}" var="report">
                 <div class="report">
