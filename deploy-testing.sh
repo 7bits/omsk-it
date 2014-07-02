@@ -21,17 +21,17 @@ echo "Create war..."
 mvn clean package -P test
 
 echo "Copy war to the testing server..."
-scp target/omsk-it.war root@192.168.1.228:/root
+scp target/ROOT.war root@192.168.1.228:/root
 
 echo "Deploy war to the CATALINA_HOME/webapps/ROOT.war..."
 ssh root@192.168.1.228 '
     echo "copy war";
-    cp omsk-it.war $CATALINA_HOME/webapps/ROOT.war;
+    cp ROOT.war $CATALINA_HOME/webapps/ROOT.war;
     echo "start tomcat";
     /etc/init.d/tomcat7 start;
 '
 
-echo "Deploy rails_admin"
-pwd
-cd rails-admin/
-cap deploy
+#echo "Deploy rails_admin"
+#pwd
+#cd rails-admin/
+#cap deploy staging

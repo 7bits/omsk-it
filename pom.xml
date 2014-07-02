@@ -299,6 +299,13 @@
                             <include>*.*</include>
                         </includes>
                     </resource>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <includes>
+                            <include>*.properties*</include>
+                            <include>*.xml*</include>
+                        </includes>
+                    </resource>
                 </resources>
             </build>
         </profile>
