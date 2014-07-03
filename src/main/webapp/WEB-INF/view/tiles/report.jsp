@@ -11,12 +11,14 @@
             <div class="report-content">
                 <div class="like-button">
                     <div class="tweet-like">
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="ru" data-text="${report.title}">Tweet</a>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="ru" data-text="<c:out value="${report.description}"/>">Tweet</a>
                     </div>
                     <div class="vk-like">
-                        <script type="text/javascript"><!--
-                        document.write(VK.Share.button({title: "${report.title}", description: "${report.description}"},{type: "round", text: "Мне нравится", eng: 1}));
-                        --></script>
+                        <script type="text/javascript">
+                            document.write(VK.Share.button({
+                                title: "<c:out value="${report.title}"/>",
+                                description: "<c:out value="${report.description}"/>"},{type: "round", text: "Мне нравится", eng: 1}));
+                        </script>
                     </div>
                 </div>
                 <div class="reporter inline-item">
