@@ -30,13 +30,10 @@ public class ArchiveController {
 
     @RequestMapping(value = "/archive", method = RequestMethod.GET)
     public ModelAndView showArchive() {
-
         ModelAndView modelAndView = new ModelAndView("archive");
 
-        List<Conference> pastConferences = conferenceService.findPastConference();
-        Collections.sort(pastConferences, Collections.reverseOrder(CONFERENCE_COMPARATOR));
-        modelAndView.addObject("conferences", pastConferences);
-        modelAndView.addObject("reports", reportService.findAllReports());
+        List<Conference> conferences = conferenceService.findConferenceWithReports();
+        modelAndView.addObject("conferences", conferences);
 
         return modelAndView;
     }

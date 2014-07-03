@@ -105,4 +105,11 @@ public class ConferenceServiceImpl implements ConferenceService {
         }
         return companies;
     }
+
+    @Override
+    public List<Conference> findConferenceWithReports() {
+        return conferenceDao.findByQuery(
+                "SELECT c FROM Report as r INNER JOIN r.conference as c GROUP BY c.id ORDER BY date desc", null
+        );
+    }
 }

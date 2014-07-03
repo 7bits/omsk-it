@@ -44,8 +44,8 @@ public interface ConferenceService {
     Conference findLastConference();
 
     /**
-     * Finds an last Conference
-     * @return the found last Conference, or null if the Conference does not exist or an error occurs.
+     * Finds an last Conference with reports
+     * @return the found last Conference with any reports, or null if the Conference does not exist or an error occurs.
      * @see it.sevenbits.conferences.dao.EntityDao#findByQuery(String, java.util.Map)
      */
     Conference findLastConferenceWithReports();
@@ -63,4 +63,10 @@ public interface ConferenceService {
      * @see it.sevenbits.conferences.dao.EntityDao#findByQuery(String, java.util.Map)
      */
     List<Company> findAllCompany();
+
+    /**
+     * Find an all Conference with reports
+     * @return List of Conference with any reports
+     */
+    List<Conference> findConferenceWithReports();
 }

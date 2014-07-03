@@ -4,6 +4,8 @@ import javax.persistence.*;
 
 import it.sevenbits.conferences.utils.converter.DateTimeConverter;
 
+import java.util.List;
+
 /**
  * POJO class for Conferences model.
  */
@@ -16,6 +18,7 @@ public class Conference {
     private Long ordinalNumber;
     private Long date;
     private boolean registration;
+    private List<Report> reports;
 
     @Id
     @GeneratedValue
@@ -70,5 +73,15 @@ public class Conference {
     public String getHumanReadableDate() {
 
         return DateTimeConverter.fromLong(date);
+    }
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "conference")
+    public List<Report> getReports() {
+        return reports;
+    }
+
+
+    public void setReports(List<Report> reports) {
+        this.reports = reports;
     }
 }

@@ -26,28 +26,26 @@
                     </c:choose>
                 </h1>
                 <div class="box-content">
-                    <c:forEach items="${reports}" var="report">
-                        <c:if test="${report.conference.id == conference.id}">
-                            <div class="center-item">
-                                <div class="reporter inline-item">
-                                    <div class="js-reporter-title reporter-title">
-                                        <h3 class="name">
-                                            <a href='<c:url value="/user/${report.user.id}"/>'><c:out value="${report.user.firstName}"/>&nbsp;<c:out value="${report.user.secondName}"/></a>
-                                        </h3>
+                    <c:forEach items="${conference.reports}" var="report">
+                        <div class="center-item">
+                            <div class="reporter inline-item">
+                                <div class="js-reporter-title reporter-title">
+                                    <h3 class="name">
+                                        <a href='<c:url value="/user/${report.user.id}"/>'><c:out value="${report.user.firstName}"/>&nbsp;<c:out value="${report.user.secondName}"/></a>
+                                    </h3>
 
-                                        <div class="position">
-                                            <%@ include file="/WEB-INF/view/jsp/job-position-viewing.jsp" %>
-                                        </div>
+                                    <div class="position">
+                                        <%@ include file="/WEB-INF/view/jsp/job-position-viewing.jsp" %>
                                     </div>
-                                    <%@ include file="/WEB-INF/view/jsp/photo-viewing.jsp" %>
                                 </div>
-                                <div class="description">
-                                    <h2 class="description-title">
-                                        <a href='<c:url value="/report/${report.id}"/>'>&laquo;<c:out value="${report.title}"/>&raquo;</a>
-                                    </h2>
-                                </div>
+                                <%@ include file="/WEB-INF/view/jsp/photo-viewing.jsp" %>
                             </div>
-                        </c:if>
+                            <div class="description">
+                                <h2 class="description-title">
+                                    <a href='<c:url value="/report/${report.id}"/>'>&laquo;<c:out value="${report.title}"/>&raquo;</a>
+                                </h2>
+                            </div>
+                        </div>
                     </c:forEach>
                 </div>
             </div>
