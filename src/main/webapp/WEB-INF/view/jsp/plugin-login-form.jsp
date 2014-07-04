@@ -2,7 +2,7 @@
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<form method="post" action="<c:url value='/j_spring_security_check'/>">
+<form class="js-login-form" method="post" action="<c:url value='/j_spring_security_check'/>">
     <div class="float-container">
         <div class="login-form-plugin-container">
             <sec:authorize  ifAnyGranted="ROLE_ADMIN, ROLE_USER, ROLE_MODERATOR" >
@@ -17,6 +17,7 @@
             </sec:authorize>
             <sec:authorize ifNotGranted="ROLE_ADMIN, ROLE_USER, ROLE_MODERATOR">
                 <div class = "login-input-container">
+                    <div class="js-login-message-error login-message-error attention inline-item"></div>
                     <input class="input input-login" type="text" placeholder="Email" name="j_username" id="j_username" size="30" maxlength="40"/>
                     <input class="input input-login" type="password" placeholder="Пароль" name="j_password" id="j_password" size="30" maxlength="32"/>
                     <input class="btn-gradient btn-enter btn-bordered" type="submit" value="Вход"/>
