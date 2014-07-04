@@ -6,7 +6,7 @@
             <h1 class="title">
                 Регистрация на сайте
             </h1>
-            <form class="js-form box-content" action='userRegistrationUrl' method="POST">
+            <form class="js-form box-content-left" action='userRegistrationUrl' method="POST">
                 <div class="form-info">
                     Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
                 </div>

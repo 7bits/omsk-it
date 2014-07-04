@@ -2,9 +2,9 @@
     <div class="box container-form js-container-form-guest ">
         <div class="pos-btn-close-form btn-close-form js-form-close-button"></div>
         <h1 class="title">
-            Регистрация на <c:out value="${conference.ordinalNumber}"/>-й IT-субботник (<c:out value="${conference.humanReadableDate}"/>, <c:out value="${conference.company.name}"/>)
+            Регистрация на <c:out value="${nextConference.ordinalNumber}"/>-й IT-субботник (<c:out value="${nextConference.humanReadableDate}"/>, <c:out value="${nextConference.company.name}"/>)
         </h1>
-        <form class="js-form box-content" action='guestUrl' method="POST">
+        <form class="js-form box-content-left" action='guestUrl' method="POST">
             <div class="left-label login-form-open-label">
                 Если вы зарегистрированы, то залогиньтесь.
             </div>

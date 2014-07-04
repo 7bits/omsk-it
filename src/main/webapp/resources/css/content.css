@@ -34,6 +34,14 @@
     padding-top: 10px;
     text-align: center;
 }
+.box-content-left {
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    text-align: left;
+}
+
 .title {
     height: auto;
     line-height: 200%;
