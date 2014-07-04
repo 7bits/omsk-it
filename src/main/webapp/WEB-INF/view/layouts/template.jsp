@@ -47,7 +47,7 @@
             var resetPassword = '<c:url value="/user/reset-password" />';
         </script>
 
-        <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.10.2.min.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/lib/jquery-1.10.2.min.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/registration.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/image-uploading.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/image-center.js"/>'></script>
@@ -56,10 +56,10 @@
         <script type="text/javascript" src='<c:url value="/resources/js/login.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/password-change.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/password-restoration.js"/>'></script>
-        <script type="text/javascript" src='<c:url value="/resources/js/twitter.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/lib/twitter.js"/>'></script>
         <script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>
 
-        <script type="text/javascript" src='<c:url value="/resources/js/jquery-ui-1.10.4.custom.min.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/lib/jquery-ui-1.10.4.custom.min.js"/>'></script>
         <link rel="stylesheet" href='<c:url value="/resources/css/jquery-ui-1.10.4.custom.min.css"/>'>
         
     </head>
