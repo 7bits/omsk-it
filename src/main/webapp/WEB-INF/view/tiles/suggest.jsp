@@ -9,7 +9,7 @@
              <h1 class="title">
                  Предложить тему доклада
              </h1>
-             <form class="js-form box-content" action='suggestUrl' method="POST">
+             <form class="js-form box-content-left" action='suggestUrl' method="POST">
                  <div class="form-info">
                      Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
                  </div>

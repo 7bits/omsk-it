@@ -11,7 +11,7 @@
             <h1 class="title">
                 Подать заявку на выступление
             </h1>
-            <form class="js-form box-content" action='applyForReportUrl' method="POST">
+            <form class="js-form box-content-left" action='applyForReportUrl' method="POST">
                 <sec:authorize ifNotGranted="ROLE_ADMIN, ROLE_USER, ROLE_MODERATOR">
                     <div class="left-label login-form-open-label">
                         Если вы зарегистрированы, то залогиньтесь.
