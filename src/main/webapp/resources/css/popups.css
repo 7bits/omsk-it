@@ -80,8 +80,9 @@
 
 .pos-btn-close-popup {
     position: absolute;
-    top: 13px;
-    left: 420px;
+    z-index: 200;
+    top: 15px;
+    right: 15px;
 }
 
 .pos-btn-close-form {

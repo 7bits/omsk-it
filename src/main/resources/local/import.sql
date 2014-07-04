@@ -24,7 +24,7 @@ INSERT INTO role (role) VALUES ('looser'),('cruser'),('user');
 insert into `conference`(id, company_id, ordinal_number, date, registration) values(13, 1, 13, 1388833200, true);
 
 -- 12 IT-субботник
-insert into `conference`(id, company_id, ordinal_number, date, registration) values(12, 1, 12, 1383994800, false);
+insert into `conference`(id, company_id, ordinal_number, date, registration) values(12, 1, 12, 1404518400, true);
 
 insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (10, 'golush@gmail.com', '111111', 'Дмитрий', 'Голушко', 'golush@gmail.com', 'Java Developer', 1111111, true, 'dgolushko.png', 3, null);
 insert into user(id, login, password, first_name, second_name, email, job_position, confirmation_token, enabled, photo, company_id, self_description) values (30, 'samol@gmail.com', '111111', 'Александр', 'Самолов', 'samol@gmail.com', 'Технический директор', 1111111, true, 'Samolov.png', 4, null);
