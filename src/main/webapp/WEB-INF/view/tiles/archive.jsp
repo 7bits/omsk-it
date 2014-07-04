@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<script type="text/javascript" src='<c:url value="/resources/js/image-center.js"/>'></script>
 <div class="content">
     <div class="page">
         <c:forEach items="${conferences}" var="conference">
@@ -25,11 +24,11 @@
                         </c:otherwise>
                     </c:choose>
                 </h1>
-                <div class="box-content">
+                <div class="box-content js-same-height-container">
                     <c:forEach items="${conference.reports}" var="report">
                         <div class="center-item">
                             <div class="reporter inline-item">
-                                <div class="js-reporter-title reporter-title">
+                                <div class="js-same-height reporter-title">
                                     <h3 class="name">
                                         <a href='<c:url value="/user/${report.user.id}"/>'><c:out value="${report.user.firstName}"/>&nbsp;<c:out value="${report.user.secondName}"/></a>
                                     </h3>
@@ -52,3 +51,6 @@
         </c:forEach>
     </div>
 </div>
+
+<script type="text/javascript" src='<c:url value="/resources/js/component_ui/same_height_component.js"/>'></script>
+<script type="text/javascript" src='<c:url value="/resources/js/init/archive_init.js"/>'></script>
