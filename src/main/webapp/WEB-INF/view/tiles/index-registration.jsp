@@ -4,9 +4,7 @@
 
 <div class="content">
     <div class="page">
-        <div class="js-guest-form-div guest-form-div">
-            <%@ include file="/WEB-INF/view/jsp/popup-registration-form.jsp" %>
-        </div>
+        <%@ include file="/WEB-INF/view/jsp/popup-registration-form.jsp" %>
         <div class="next-event">
             <p class="event-title">
                 <c:out value="${nextConference.ordinalNumber}"/>-й IT-субботник пройдет
@@ -29,7 +27,7 @@
                 </c:choose>
             </c:if>
             </p>
-            <div class="js-guest-register-button pos-btn-submit btn-gradient btn-submit btn-bordered btn-event-registration">
+            <div class="js-show-popup js-guest-register-button pos-btn-submit btn-gradient btn-submit btn-bordered btn-event-registration">
                 Зарегистрироваться
             </div>
         </div>
@@ -82,3 +80,7 @@
 
     </div>
 </div>
+
+
+<script type="text/javascript" src='<c:url value="/resources/js/init/index_reg_init.js"/>'></script>
+<script type="text/javascript" src='<c:url value="/resources/js/component_ui/popup_window_component_ui.js"/>'></script>
