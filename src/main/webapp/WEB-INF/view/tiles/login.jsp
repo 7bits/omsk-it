@@ -6,36 +6,35 @@
             <h1 class="title">
                 Вход на сайт
             </h1>
-            <form class = "js-login-form box-content login-container" method="post" action="<c:url value='/j_spring_security_check'/>">
+            <form class = "js-form js-form-redirect box-content-left login-container" method="post" action="<c:url value="/user/login"/>">
+                <div class="js-field-error js-base-error login-message-error attention">
+                    <c:if test="${error == 'true'}">
+                        Неверный email или пароль.<br />
+                    </c:if>
+                </div>
                 <div class="field">
                     <span class="left-label">E-mail</span>
-                    <input class="js-login-input js-input input pos-input" type="text" name="j_username" id="j_username" size="30" maxlength="40"/>
+                    <input class="input pos-input" type="text" name="login" size="30" maxlength="40"/>
                     <span class="field-info">
-                        <span class="js-field-response js-email-response attention"></span>
-                        <span class="js-field-info"></span>
+                        <span class="js-field-error js-login-error attention"></span>
                     </span>
                 </div>
                 <div class="field">
                     <span class="left-label">Пароль</span>
-                    <input class="js-password-input js-input input pos-input" type="password" name="j_password" id="j_password" size="30" maxlength="32"/>
+                    <input class="input pos-input" type="password" name="password" size="30" maxlength="32"/>
                     <span class="field-info">
-                        <span class="js-field-response js-password-response attention"></span>
-                        <span class="js-field-info"></span>
+                        <span class="js-field-error js-password-error attention"></span>
                     </span>
-                    <div class="js-login-message-error login-message-error attention">
-                        <c:if test="${error == 'true'}">
-                                Неверный email или пароль.<br />
-                        </c:if>
-                    </div>
+
                     <div class="forgot-pass-container">
-                        <div class="js-forgot-password link-blue forgot-password">Забыли пароль?</div>
+                        <div class="link-blue forgot-password">Забыли пароль?</div>
                     </div>
                 </div>
-                
+
                 <div class="field field-last">
                     <input class="pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Войти">
-                    <div class="js-apply-response apply-response"></div>
-                </div>                
+                    <input class="btn-reset" type="reset" value="Отмена">
+                </div>
             </form>
         </div>
     </div>

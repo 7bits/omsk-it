@@ -1,18 +1,20 @@
 'use strict';
 
-window.loginFormComponent = flight.component(function() {
+window.formComponentData = flight.component(function() {
     this.defaultAttrs({
     });
 
     this.submitLoginForm = function(e) {
         e.preventDefault();
+        this.trigger('submit-form');
+        var submitUrl = this.$node.attr('action');
         var that = this;
-        $.post(loginUrl, this.$node.serialize())
+        $.post(submitUrl, this.$node.serialize())
             .done(function(response){
                 if (response.status == 'SUCCESS') {
-                    that.trigger('login-done');
+                    that.trigger('submit-done', response.result);
                 } else {
-                    that.trigger('login-error',response.result);
+                    that.trigger('submit-error',response.result);
                 }
             });
     };

@@ -188,16 +188,16 @@ public class UserController {
             user.setRole(role);
             String confirmationToken = UUID.randomUUID().toString();
             user.setConfirmationToken(confirmationToken);
-            try {
-                mailSenderUtility.sendConfirmationToken(userRegistrationForm.getEmail(), confirmationToken);
-            } catch (MailSenderException e) {
-                LOGGER.error("Send mail error " + e);
-                Map<String, String> result = new HashMap<>();
-                result.put("message", "Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
-                jsonResponse.setResult(result);
-                jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
-                return jsonResponse;
-            }
+//            try {
+//                mailSenderUtility.sendConfirmationToken(userRegistrationForm.getEmail(), confirmationToken);
+//            } catch (MailSenderException e) {
+//                LOGGER.error("Send mail error " + e);
+//                Map<String, String> result = new HashMap<>();
+//                result.put("message", "Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
+//                jsonResponse.setResult(result);
+//                jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
+//                return jsonResponse;
+//            }
             userService.updateUser(user);
             Map<String, String> result = new HashMap<>();
             result.put("message", "На Ваш email выслана ссылка для подтверждения");
@@ -228,7 +228,7 @@ public class UserController {
                     errors.put(fieldError.getField(), fieldError.getDefaultMessage());
                 }
             }
-            errors.put("message", "Логин или пароль введены неверно");
+            errors.put("base", "Логин или пароль введены неверно");
             response.setResult(errors);
         } else {
             UserDetails userDetails;
@@ -236,19 +236,19 @@ public class UserController {
                 userDetails = customUserDetailsService.loadUserByUsername(loginForm.getLogin());
             } catch (UsernameNotFoundException e) {
                 Map<String, String> errors = new HashMap<>();
-                errors.put("message", "Логин или пароль введены неверно");
+                errors.put("base", "Логин или пароль введены неверно");
                 response.setResult(errors);
                 response.setStatus(JsonResponse.STATUS_FAIL);
                 return response;
             }
             if (!userDetails.isEnabled()) {
                 Map<String, String> errors = new HashMap<>();
-                errors.put("message", "Вам необходимо активировать Ваш аккаунт.");
+                errors.put("base", "Вам необходимо активировать Ваш аккаунт.");
                 response.setResult(errors);
                 response.setStatus(JsonResponse.STATUS_FAIL);
             } else if (!isPasswordValid(loginForm.getPassword(), userDetails)) {
                 Map<String, String> errors = new HashMap<>();
-                errors.put("message", "Логин или пароль введены неверно");
+                errors.put("base", "Логин или пароль введены неверно");
                 response.setResult(errors);
                 response.setStatus(JsonResponse.STATUS_FAIL);
             } else {

@@ -1,6 +1,7 @@
 'use strict';
 
 $(function() {
-    window.loginFormComponent.attachTo('.js-login-form');
-    window.loginFormComponentUI.attachTo('.js-login-form');
+    window.formComponentData.attachTo('.js-form');
+    window.formComponentUI.attachTo('.js-form');
+    window.relaodPageFormComponentUI.attachTo('.js-form-reload-page');
 });
