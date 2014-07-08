@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<form class="js-form box-content-left" action='userRegistrationUrl' method="POST">
+<form class="js-form box-content-left" action='<c:url value="/user/registration"/>' method="POST">
     <div class="form-info">
         Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
     </div>
@@ -8,9 +8,9 @@
     <div class = "photo-upload-container">
         <div class="field">
             <span class="left-label photo-upload-label">Фотография</span>
-            <span class="js-field-info photo-upload-info photo-upload-text">Рекомендуемый размер 200x200 px</span>
-            <span class="js-field-response js-photo-upload-response attention photo-upload-text"></span>
-            <input class="js-photo-upload-input js-input image" type="file" value="Загрузить" />
+            <span class="photo-upload-info photo-upload-text">Рекомендуемый размер 200x200 px</span>
+            <span class="attention photo-upload-text"></span>
+            <input class="image" type="file" value="Загрузить" />
         </div>
 
         <div class="field">
@@ -20,63 +20,62 @@
 
     <div class="field">
         <span class="left-label">Имя&nbsp;<span class="attention">*</span></span>
-        <input class="js-firstName-input js-input input pos-input  " type="text" name="firstName"/>
+        <input class="input pos-input" type="text" name="firstName"/>
                     <span class="field-info">
-                        <span class="js-field-info">На русском языке</span>
+                        <span class="">На русском языке</span>
                     </span>
-        <div class="js-field-response js-firstName-response attention-info attention"></div>
+        <div class="js-field-error js-firstName-error attention-info attention"></div>
     </div>
 
     <div class="field">
         <span class="left-label">Фамилия&nbsp;<span class="attention">*</span></span>
-        <input class="js-secondName-input js-input input pos-input  " type="text" name="secondName"/>
+        <input class="input pos-input" type="text" name="secondName"/>
                     <span class="field-info">
-                        <span class="js-field-info">На русском языке</span>
+                        <span class="">На русском языке</span>
                     </span>
-        <div class="js-field-response js-secondName-response attention-info attention"></div>
+        <div class="js-field-error js-secondName-error attention-info attention"></div>
     </div>
 
     <div class="field">
         <span class="left-label">Пароль&nbsp;<span class="attention">*</span></span>
-        <input class="js-password-input js-input input pos-input  " type="password" name="password"/>
+        <input class="input pos-input" type="password" name="password"/>
                     <span class="field-info">
-                        <span class="js-field-info"></span>
+                        <span class=""></span>
                     </span>
-        <div class="js-field-response js-password-response attention-info attention"></div>
+        <div class="js-field-error js-password-error attention-info attention"></div>
     </div>
 
     <div class="field">
         <span class="left-label">E-mail&nbsp;<span class="attention">*</span></span>
-        <input class="js-email-input js-input input pos-input  " type="text" name="email"/>
+        <input class="input pos-input" type="text" name="email"/>
                     <span class="field-info">
-                        <span class="js-field-info"></span>
+                        <span class=""></span>
                     </span>
-        <div class="js-field-response js-email-response attention-info attention"></div>
+        <div class="js-field-error js-email-error attention-info attention"></div>
     </div>
 
     <div class="field">
         <span class="left-label">Должность&nbsp;<span class="attention">*</span></span>
-        <input class="js-jobPosition-input js-input input pos-input  " type="text" name="jobPosition"/>
+        <input class="input pos-input" type="text" name="jobPosition"/>
                     <span class="field-info">
-                        <span class="js-field-info"></span>
+                        <span class=""></span>
                     </span>
-        <div class="js-field-response js-jobPosition-response attention-info attention"></div>
+        <div class="js-field-error js-jobPosition-error attention-info attention"></div>
     </div>
 
     <div class="field long">
         <span class="top-label left-label">Место работы/учебы&nbsp;<span class="attention">*</span></span>
         <br/>
-        <input class="js-company-input js-input input pos-input" type="text" id="company" autocomplete="false" name="company"/>
+        <input class="js-autocomplete-filed input pos-input" type="text" id="company" autocomplete="false" name="company" data-source-url="<c:url value="/company/getCompanies"/>"/>
         <div class="js-new-company-form-open btn-gradient btn-add-company inline-item">Добавить</div>
-                    <span class="field-info">                        
-                        <span class="js-field-info inline-item"></span>
-                    </span>
-        <div class="js-field-response js-company-response attention-info attention inline-item attention-company"></div>
+        <span class="field-info">
+            <span class=" inline-item"></span>
+        </span>
+        <div class="js-field-error js-company-error attention-info attention inline-item attention-company"></div>
     </div>
 
     <div class="field field-last">
-        <input class="js-form-button pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить" />
-        <input class="js-apply-reset btn-reset" type="reset" value="Отмена">
-        <div class="js-form-response apply-response"></div>
+        <input class="pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Отправить" />
+        <input class=" btn-reset" type="reset" value="Отмена">
     </div>
 </form>

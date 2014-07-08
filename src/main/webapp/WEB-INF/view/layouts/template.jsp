@@ -56,8 +56,14 @@
         <script type="text/javascript" src='<c:url value="/resources/js/component_ui/popup_window_component_ui.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/init/general_init.js"/>'></script>
 
+
+        <script type="text/javascript" src='<c:url value="/resources/js/component_data/ajax_search_component_data.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/component_ui/autocomplete_component_ui.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/init/reg_init.js"/>'></script>
+
+
         <script type="text/javascript" src='<c:url value="/resources/js/image-uploading.js"/>'></script>
-        <script type="text/javascript" src='<c:url value="/resources/js/companies-actions.js"/>'></script>
+        <%--<script type="text/javascript" src='<c:url value="/resources/js/companies-actions.js"/>'></script>--%>
         <script type="text/javascript" src='<c:url value="/resources/js/subscribing.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/password-change.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/password-restoration.js"/>'></script>
