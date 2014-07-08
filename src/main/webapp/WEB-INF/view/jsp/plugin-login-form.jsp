@@ -16,22 +16,19 @@
                 </div>
             </sec:authorize>
             <sec:authorize ifNotGranted="ROLE_ADMIN, ROLE_USER, ROLE_MODERATOR">
-                <div class = "login-input-container">
-                    <input class="input input-login" type="text" placeholder="Email" name="j_username" id="j_username" size="30" maxlength="40"/>
-                    <input class="input input-login" type="password" placeholder="Пароль" name="j_password" id="j_password" size="30" maxlength="32"/>
-                    <input class="btn-gradient btn-enter btn-bordered" type="submit" value="Вход"/>
-                </div>
                 <div class="href">
                     <div class="inline-item">
                         <a class="link-underline" href="<c:url value='/user/registration'/>">
                             Зарегистрируйтесь
                         </a>
                         или
-                        <a class="link-underline" href='<c:url value="/social/vkAuthorization"/>'>
-                            войдите через
+                        <div class="js-open-login-form btn-gradient btn-middle btn-inline btn-bordered">
+                            войдите
+                        </div>
+                        <a class="link-clear" href='<c:url value="/social/vkAuthorization"/>'>
+                            <img class="vk-logo" src='<c:url value="/resources/images/vk-minor-logo2.png"/>'/>
                         </a>
                     </div>
-                    <img class="vk-logo" src='<c:url value="/resources/images/vk-minor-logo2.png"/>'/>
                 </div>
             </sec:authorize>
         </div>

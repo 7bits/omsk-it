@@ -16,7 +16,7 @@
                     <div class="left-label login-form-open-label">
                         Если вы зарегистрированы, то залогиньтесь.
                     </div>
-                    <div class="btn-gradient btn-small btn-bordered btn-inline js-login-form-open">
+                    <div class="btn-gradient btn-small btn-bordered btn-inline js-open-login-form">
                         Логин
                     </div>
                     <a href='<c:url value="/social/vkAuthorization"/>' class="inline-item link-clear">

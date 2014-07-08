@@ -57,7 +57,3 @@
 
     </div>
 </div>
-
-
-<script type="text/javascript" src='<c:url value="/resources/js/init/index_reg_init.js"/>'></script>
-<script type="text/javascript" src='<c:url value="/resources/js/component_ui/popup_window_component_ui.js"/>'></script>

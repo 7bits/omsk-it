@@ -1,7 +1,7 @@
-<div class="js-popup-window js-guest-form-div guest-form-div" data-button-selector=".js-show-popup">
+<div class="js-popup-window guest-form-div" data-button-selector=".js-show-popup">
     <div class="container-form-guest">
-        <div class="box container-form js-container-form-guest ">
-            <button class="js-close-popup btn-close-popup pos-btn-close-popup js-form-close-button"></button>
+        <div class="box container-form">
+            <div class="js-close-popup btn-close-popup pos-btn-close-popup"></div>
             <h1 class="title">
                 Регистрация на <c:out value="${nextConference.ordinalNumber}"/>-й IT-субботник (<c:out value="${nextConference.humanReadableDate}"/>, <c:out value="${nextConference.company.name}"/>)
             </h1>
@@ -10,7 +10,7 @@
                 <div class="left-label login-form-open-label">
                     Если вы зарегистрированы, то залогиньтесь.
                 </div>
-                <div class="btn-gradient btn-small btn-inline btn-bordered js-login-form-open">
+                <div class="js-open-login-form btn-gradient btn-small btn-inline btn-bordered">
                     Логин
                 </div>
                 <a href='<c:url value="/social/vkAuthorization"/>' class="inline-item link-clear">

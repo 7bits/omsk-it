@@ -53,7 +53,9 @@
         <script type="text/javascript" src='<c:url value="/resources/js/component_data/form_component_data.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/component_ui/form_component_ui.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/component_ui/reload_page_component_ui.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/component_ui/popup_window_component_ui.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/init/general_init.js"/>'></script>
+
         <script type="text/javascript" src='<c:url value="/resources/js/image-uploading.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/companies-actions.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/subscribing.js"/>'></script>
