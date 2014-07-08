@@ -5,16 +5,13 @@
         Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
     </div>
 
-    <div class = "photo-upload-container">
+    <div class = "js-upload-image-container photo-upload-container">
         <div class="field">
+            <img class="js-img-preview photo image-view" src='<c:url value="/resources/images/photos/nophoto.png" />'/>
             <span class="left-label photo-upload-label">Фотография</span>
             <span class="photo-upload-info photo-upload-text">Рекомендуемый размер 200x200 px</span>
-            <span class="attention photo-upload-text"></span>
-            <input class="image" type="file" value="Загрузить" />
-        </div>
-
-        <div class="field">
-            <img class="photo image-view" src='<c:url value="/resources/images/photos/nophoto.png" />'/>
+            <span class="js-field-error js-message-error attention photo-upload-text"></span>
+            <input class="js-upload-image" type="file" accept="image/*" value="Загрузить" data-source-url="<c:url value="/user/upload/photo" />"/>
         </div>
     </div>
 
@@ -82,5 +79,7 @@
 
 
 <script type="text/javascript" src='<c:url value="/resources/js/component_data/ajax_search_component_data.js"/>'></script>
+<script type="text/javascript" src='<c:url value="/resources/js/component_data/upload_file_component_data.js"/>'></script>
 <script type="text/javascript" src='<c:url value="/resources/js/component_ui/autocomplete_component_ui.js"/>'></script>
+<script type="text/javascript" src='<c:url value="/resources/js/component_ui/image_preview_component_ui.js"/>'></script>
 <script type="text/javascript" src='<c:url value="/resources/js/init/reg_init.js"/>'></script>

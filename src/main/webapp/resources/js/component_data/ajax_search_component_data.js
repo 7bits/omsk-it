@@ -4,7 +4,6 @@ window.ajaxSearchComponentData = flight.component(function() {
     this.searchData = function(e) {
         e.preventDefault();
         var submitUrl = this.$node.data('source-url');
-        console.log("url: ", submitUrl);
         var that = this;
         $.post(submitUrl, this.$node.val())
             .done(function(response){

@@ -57,7 +57,6 @@
         <script type="text/javascript" src='<c:url value="/resources/js/component_ui/message_instead_from_component_ui.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/init/general_init.js"/>'></script>
 
-        <script type="text/javascript" src='<c:url value="/resources/js/image-uploading.js"/>'></script>
         <script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>
 
         <script type="text/javascript" src='<c:url value="/resources/js/lib/jquery-ui-1.10.4.custom.min.js"/>'></script>
