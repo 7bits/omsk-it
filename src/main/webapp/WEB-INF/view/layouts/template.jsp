@@ -54,10 +54,10 @@
         <script type="text/javascript" src='<c:url value="/resources/js/component_ui/form_component_ui.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/component_ui/reload_page_component_ui.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/component_ui/popup_window_component_ui.js"/>'></script>
+        <script type="text/javascript" src='<c:url value="/resources/js/component_ui/message_instead_from_component_ui.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/init/general_init.js"/>'></script>
 
         <script type="text/javascript" src='<c:url value="/resources/js/image-uploading.js"/>'></script>
-        <script type="text/javascript" src='<c:url value="/resources/js/subscribing.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/password-change.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/password-restoration.js"/>'></script>
         <script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>
