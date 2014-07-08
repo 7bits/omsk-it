@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<form class="js-form box-content-left" action='<c:url value="/user/registration"/>' method="POST">
+<form class="js-form js-show-message box-content-left" action='<c:url value="/user/registration"/>' method="POST">
     <div class="form-info">
         Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
     </div>

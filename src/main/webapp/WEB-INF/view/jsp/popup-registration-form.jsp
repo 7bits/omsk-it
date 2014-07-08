@@ -1,4 +1,4 @@
-<div class="js-popup-window guest-form-div" data-button-selector=".js-show-popup">
+<div class="js-popup-window js-show-message guest-form-div" data-button-selector=".js-show-popup">
     <div class="container-form-guest">
         <div class="box container-form">
             <div class="js-close-popup btn-close-popup pos-btn-close-popup"></div>
