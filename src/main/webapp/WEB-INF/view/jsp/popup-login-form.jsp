@@ -20,7 +20,7 @@
                 <input class="input pos-input  " type="password" name="password"/>
             </div>
 
-            <div class="link-blue forgot-password">Забыли пароль?</div>
+            <div class="js-open-reset-password link-blue forgot-password">Забыли пароль?</div>
             <input class="pos-btn-big pos-btn-big-confirm-form btn-gradient btn-big btn-inline" type="submit" value="Войти"/>
             <input class="btn-reset" type="reset" value="Отмена"/>
         </div>

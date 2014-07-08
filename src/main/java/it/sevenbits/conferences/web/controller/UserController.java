@@ -290,7 +290,7 @@ public class UserController {
         if (user == null) {
             jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
             Map<String, String> resultMessage = new HashMap<>();
-            resultMessage.put("message",  "Такого пользователя нету.");
+            resultMessage.put("base",  "Такого пользователя нету.");
             jsonResponse.setResult(resultMessage);
         } else {
             String newPassword = getNewRandomPassword(DEFAULT_PASSWORD_LENGTH);
@@ -301,7 +301,7 @@ public class UserController {
                 mailSenderUtility.sendNewPassword(user.getEmail(), newPassword);
             } catch (MailSenderException e) {
                 Map<String, String> result = new HashMap<>();
-                result.put("message", "Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
+                result.put("base", "Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
                 jsonResponse.setResult(result);
                 jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
                 return jsonResponse;
