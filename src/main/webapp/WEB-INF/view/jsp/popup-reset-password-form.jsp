@@ -10,7 +10,7 @@
             <div class = "js-field-error js-base-error attention"></div>
             <div class = "field">
                 <span class = "left-label login-form-label">Email</span>
-                <input class = "js1-reset-password-email-form-input input pos-input" type="text" name="email" />
+                <input class = "input pos-input" type="text" name="email" />
                 <div class="js-field-error js-email-error attention"></div>
             </div>
             <div class = "popup-btn-container" >
