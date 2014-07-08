@@ -59,7 +59,6 @@
 
         <script type="text/javascript" src='<c:url value="/resources/js/image-uploading.js"/>'></script>
         <script type="text/javascript" src='<c:url value="/resources/js/password-change.js"/>'></script>
-        <script type="text/javascript" src='<c:url value="/resources/js/password-restoration.js"/>'></script>
         <script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>
 
         <script type="text/javascript" src='<c:url value="/resources/js/lib/jquery-ui-1.10.4.custom.min.js"/>'></script>
