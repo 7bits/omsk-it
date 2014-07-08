@@ -6,25 +6,37 @@
             <h1 class="title">
                 Изменение пароля
             </h1>
-            <form class = "js-change-password-form box-content" method="post" action="<c:url value='/user/change-password'/>">
+
+            <form class="js-form js-show-message box-content-left" method="post" action="<c:url value='/user/change-password'/>">
+                <div class="form-info">
+                    Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
+                </div>
+
+                <div class="js-field-error js-message-error attention"></div>
+
                 <div class="field">
-                    <span class="left-label">E-mail</span>
-                    <input class="js-login-input js-input input pos-input" value="<c:out value = '${email}'/>" type="text" name="email" size="30" maxlength="40"/>
+                    <span class="left-label">E-mail&nbsp;<span class="attention">*</span></span>
+                    <input class="input pos-input" value="<c:out value = '${email}'/>" type="text" name="email"
+                           size="30" maxlength="40"/>
+                    <span class="js-field-error js-email-error attention-info attention"></span>
                 </div>
+
                 <div class="field long">
-                    <span class="left-label">Старый пароль</span>
+                    <span class="top-label left-label">Старый пароль&nbsp;<span class="attention">*</span></span>
                     <br>
-                    <input class="js-password-input js-input input pos-input" type="password" name="oldPassword" size="30" maxlength="32"/>
+                    <input class="input pos-input" type="password" name="oldPassword" size="30" maxlength="32"/>
+                    <span class="js-field-error js-oldPassword-error attention-info attention"></span>
                 </div>
+
                 <div class="field long">
-                    <span class="left-label">Новый пароль</span>
+                    <span class="top-label left-label">Новый пароль&nbsp;<span class="attention">*</span></span>
                     <br>
-                    <input class="js-password-input js-input input pos-input" type="password" name="newPassword"  size="30" maxlength="32"/>
+                    <input class="input pos-input" type="password" name="newPassword" size="30" maxlength="32"/>
+                    <span class="js-field-error js-newPassword-error attention-info attention"></span>
                 </div>
-                <div class = "js-change-password-response attention"></div>
+
                 <div class="field field-last">
-                    <input class="js-change-password pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Изменить">
-                    <div class="js-change-password-notification"></div>
+                    <input class="pos-btn-submit btn-gradient btn-submit btn-bordered" type="submit" value="Изменить">
                 </div>
             </form>
         </div>
