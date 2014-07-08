@@ -79,3 +79,8 @@
         <input class=" btn-reset" type="reset" value="Отмена">
     </div>
 </form>
+
+
+<script type="text/javascript" src='<c:url value="/resources/js/component_data/ajax_search_component_data.js"/>'></script>
+<script type="text/javascript" src='<c:url value="/resources/js/component_ui/autocomplete_component_ui.js"/>'></script>
+<script type="text/javascript" src='<c:url value="/resources/js/init/reg_init.js"/>'></script>
