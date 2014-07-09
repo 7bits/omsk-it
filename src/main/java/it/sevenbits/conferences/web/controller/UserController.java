@@ -188,16 +188,16 @@ public class UserController {
             user.setRole(role);
             String confirmationToken = UUID.randomUUID().toString();
             user.setConfirmationToken(confirmationToken);
-//            try {
-//                mailSenderUtility.sendConfirmationToken(userRegistrationForm.getEmail(), confirmationToken);
-//            } catch (MailSenderException e) {
-//                LOGGER.error("Send mail error " + e);
-//                Map<String, String> result = new HashMap<>();
-//                result.put("message", "Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
-//                jsonResponse.setResult(result);
-//                jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
-//                return jsonResponse;
-//            }
+            try {
+                mailSenderUtility.sendConfirmationToken(userRegistrationForm.getEmail(), confirmationToken);
+            } catch (MailSenderException e) {
+                LOGGER.error("Send mail error " + e);
+                Map<String, String> result = new HashMap<>();
+                result.put("message", "Произошла ошибка на сервере, пожалуйста, повторите Ваши действия.");
+                jsonResponse.setResult(result);
+                jsonResponse.setStatus(JsonResponse.STATUS_FAIL);
+                return jsonResponse;
+            }
             userService.updateUser(user);
             Map<String, String> result = new HashMap<>();
             result.put("message", "На Ваш email выслана ссылка для подтверждения");
