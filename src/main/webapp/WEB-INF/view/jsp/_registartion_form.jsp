@@ -5,6 +5,7 @@
         Обязательные для заполнения поля отмечены звездочкой (<span class="attention">*</span>)
     </div>
 
+    <div class="js-field-error js-message-error attention-info attention inline-item attention-company"></div>
     <div class = "js-upload-image-container photo-upload-container">
         <div class="field">
             <img class="js-img-preview photo image-view" src='<c:url value="/resources/images/photos/nophoto.png" />'/>
