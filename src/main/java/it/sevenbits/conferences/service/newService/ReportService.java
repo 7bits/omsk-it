@@ -18,7 +18,7 @@ public class ReportService {
     private static final String SERVICE_EXCEPTION_MESSAGE = "Report Service general exception. ";
 
     /** Logger */
-    private static final Logger LOG = Logger.getLogger(UserService.class);
+    private static final Logger LOG = Logger.getLogger(ReportService.class);
 
     @Autowired
     private ReportRepository reportRepository;

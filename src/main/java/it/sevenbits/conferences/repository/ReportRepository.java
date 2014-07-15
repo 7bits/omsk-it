@@ -18,7 +18,7 @@ import java.util.List;
 public class ReportRepository {
 
     /** Logger */
-    private static final Logger LOG = Logger.getLogger(UserRepository.class);
+    private static final Logger LOG = Logger.getLogger(ReportRepository.class);
 
     /** Message for RepositoryException */
     private static final String REPOSITORY_USER_IS_NULL_MESSAGE = "User is null";
