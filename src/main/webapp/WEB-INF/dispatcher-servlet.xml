@@ -13,7 +13,7 @@
 
     <mvc:annotation-driven/>
 
-    <context:component-scan base-package="it.sevenbits.conferences.web.controller"/>
+    <context:component-scan base-package="it.sevenbits.conferences"/>
 
     <mvc:default-servlet-handler />
     <mvc:resources mapping="/resources/**" location="/resources/" />

@@ -13,6 +13,7 @@
                 <value>classpath:hibernate.properties</value>
                 <value>classpath:password.properties</value>
                 <value>classpath:common.properties</value>
+                <value>classpath:jdbc.properties</value>
             </list>
         </property>
     </bean>

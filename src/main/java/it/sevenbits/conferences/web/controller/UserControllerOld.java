@@ -40,7 +40,7 @@ import it.sevenbits.conferences.web.form.*;
  */
 @Controller
 @RequestMapping(value = "user")
-public class UserController {
+public class UserControllerOld {
 
     private static final Logger LOGGER = Logger.getLogger(VkAuthorizationController.class);
     private static final int DEFAULT_PASSWORD_LENGTH = 10;
@@ -81,15 +81,15 @@ public class UserController {
     @Qualifier("changePasswordValidator")
     private Validator changePasswordValidator;
 
-    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
-    public ModelAndView getUserInformation(@PathVariable(value = "userId") final Long userId) {
-        ModelAndView modelAndView = new ModelAndView("user-information");
-        User user = userService.findUserById(userId);
-        List<Report> reports = reportService.findAllPresentedReportsByUser(user);
-        modelAndView.addObject("reports", reports);
-        modelAndView.addObject("user", user);
-        return  modelAndView;
-    }
+//    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+//    public ModelAndView getUserInformation(@PathVariable(value = "userId") final Long userId) {
+//        ModelAndView modelAndView = new ModelAndView("user-information");
+//        User user = userService.findUserById(userId);
+//        List<Report> reports = reportService.findAllPresentedReportsByUser(user);
+//        modelAndView.addObject("reports", reports);
+//        modelAndView.addObject("user", user);
+//        return  modelAndView;
+//    }
 
     @RequestMapping(value = "/confirmation", method = RequestMethod.GET)
     public ModelAndView confirmUser(

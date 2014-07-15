@@ -19,12 +19,15 @@
                     </c:choose>
                     <div class="short-description">
                         <span class="position">
+                            <c:if test="${user.jobPosition != null}">
+                                <c:out value="${user.jobPosition}"/>,&nbsp;
+                            </c:if>
                             <c:choose>
-                                <c:when test="${user.jobPosition == null}">
-                                    <a href='<c:url value="${user.company.site}"/>' target="_blank"><c:out value="${user.company.name}"/></a>
+                                <c:when test="${user.company.site == null}">
+                                    <c:out value="${user.company.name}"/>
                                 </c:when>
                                 <c:otherwise>
-                                    <c:out value="${user.jobPosition}"/>, <a href='<c:url value="${user.company.site}"/>' target="_blank"><c:out value="${user.company.name}"/></a>
+                                    <a href='<c:url value="${user.company.site}"/>' target="_blank"><c:out value="${user.company.name}"/></a>
                                 </c:otherwise>
                             </c:choose>
                         </span>

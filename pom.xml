@@ -27,6 +27,9 @@
         <joda.time.version>2.3</joda.time.version>
         <apache.tiles.version>3.0.1</apache.tiles.version>
         <jackson.version>1.9.13</jackson.version>
+        <mybatis.version>3.2.3</mybatis.version>
+        <mybatis-spring.version>1.2.1</mybatis-spring.version>
+        <flyway.version>3.0</flyway.version>
     </properties>
 
     <dependencies>
@@ -110,6 +113,34 @@
             <version>${spring-security.version}</version>
         </dependency>
 
+        <!-- MyBatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis-spring.version}</version>
+        </dependency>
+
+        <!-- FlyWay -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${flyway.version}</version>
+        </dependency>
+
+        <!--    apache-common   -->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <!-- Hibernate -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>

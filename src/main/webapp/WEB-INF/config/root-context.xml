@@ -1,18 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:annotation-config/>
+    <mvc:annotation-driven />
 
-    <context:component-scan base-package="it.sevenbits.conferences.dao"/>
-    <context:component-scan base-package="it.sevenbits.conferences.service"/>
-    <context:component-scan base-package="it.sevenbits.conferences.web.validator"/>
-    <context:component-scan base-package="it.sevenbits.conferences.utils.mail"/>
-    <context:component-scan base-package="it.sevenbits.conferences.schedules" />
+    <context:component-scan base-package="it.sevenbits.conferences"/>
+
+    <!-- DB related beans -->
+    <!-- DataSource setup -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClassName}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="initialSize" value="100" />
+        <property name="maxActive" value="${jdbc.max-active}" />
+        <property name="maxWait" value="${jdbc.max-wait}" />
+        <property name="poolPreparedStatements" value="true" />
+        <property name="defaultAutoCommit" value="true" />
+        <property name="validationQuery" value="SELECT 1 FROM DUAL" />
+        <property name="testOnBorrow" value="true" />
+        <property name="removeAbandonedTimeout" value="10" />
+        <property name="removeAbandoned" value="true" />
+    </bean>
+
+    <!-- SQL Session Factory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" depends-on="flyway">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="WEB-INF/config/mybatis-config.xml" />
+    </bean>
+
+    <!-- Migration related beans -->
+    <bean id="flyway" class="org.flywaydb.core.Flyway" >
+        <property name="dataSource" ref="dataSource"/>
+        <property name="initOnMigrate" value="true"/>
+        <property name="validateOnMigrate" value="true"/>
+        <property name="locations" value="filesystem:/db/migration" />
+    </bean>
+
+    <!-- MyBatis Mappers -->
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="it.sevenbits.conferences.repository.mapper.UserMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+    <bean id="companyMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="it.sevenbits.conferences.repository.mapper.CompanyMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+    <!--<bean id="merchantMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
+        <!--<property name="mapperInterface" value="com.imgl.voucher.api.repository.mapper.MerchantMapper" />-->
+        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory" />-->
+    <!--</bean>-->
+
+    <!-- Repositories -->
+    <bean name="userRepository" class="it.sevenbits.conferences.repository.UserRepository">
+        <property name="userMapper" ref="userMapper"/>
+    </bean>
+    <bean name="companyRepository" class="it.sevenbits.conferences.repository.CompanyRepository">
+        <property name="companyMapper" ref="companyMapper"/>
+    </bean>
+    <!--<bean id="merchantRepository" class="com.imgl.voucher.api.repository.MerchantRepository" >-->
+        <!--<property name="merchantMapper" ref="merchantMapper" />-->
+    <!--</bean>-->
+
+     <!--Services -->
+    <bean id="userService" class="it.sevenbits.conferences.service.newService.UserService" />
+    <bean id="companyService" class="it.sevenbits.conferences.service.newService.CompanyService" />
+    <!--<bean id="configurationService" class="com.imgl.voucher.api.service.utils.ConfigurationService" />-->
 </beans>
