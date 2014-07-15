@@ -24,7 +24,7 @@ public class ReportService {
     private ReportRepository reportRepository;
 
     public List<Report> findAllByUser (final User user) throws ServiceException {
-        LOG.info("Searching for report with user: " + user);
+        LOG.info("Searching for reports with user: " + user);
         try {
             return reportRepository.findAllByUser(user);
         } catch (RepositoryException e) {
