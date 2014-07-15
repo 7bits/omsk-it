@@ -49,8 +49,8 @@
         <property name="mapperInterface" value="it.sevenbits.conferences.repository.mapper.UserMapper" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
-    <bean id="companyMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="it.sevenbits.conferences.repository.mapper.CompanyMapper" />
+    <bean id="reportMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="it.sevenbits.conferences.repository.mapper.ReportMapper" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
     <!--<bean id="merchantMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
@@ -62,8 +62,8 @@
     <bean name="userRepository" class="it.sevenbits.conferences.repository.UserRepository">
         <property name="userMapper" ref="userMapper"/>
     </bean>
-    <bean name="companyRepository" class="it.sevenbits.conferences.repository.CompanyRepository">
-        <property name="companyMapper" ref="companyMapper"/>
+    <bean name="reportRepository" class="it.sevenbits.conferences.repository.ReportRepository">
+        <property name="reportMapper" ref="reportMapper"/>
     </bean>
     <!--<bean id="merchantRepository" class="com.imgl.voucher.api.repository.MerchantRepository" >-->
         <!--<property name="merchantMapper" ref="merchantMapper" />-->
@@ -71,6 +71,6 @@
 
      <!--Services -->
     <bean id="userService" class="it.sevenbits.conferences.service.newService.UserService" />
-    <bean id="companyService" class="it.sevenbits.conferences.service.newService.CompanyService" />
+    <bean id="reportService" class="it.sevenbits.conferences.service.newService.ReportService" />
     <!--<bean id="configurationService" class="com.imgl.voucher.api.service.utils.ConfigurationService" />-->
 </beans>

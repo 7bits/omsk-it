@@ -1,5 +1,8 @@
 package it.sevenbits.conferences.model;
 
+import it.sevenbits.conferences.utils.converter.DateTimeConverter;
+import sun.rmi.runtime.Log;
+
 import java.util.List;
 
 /**
@@ -45,6 +48,10 @@ public class Conference {
         return date;
     }
 
+    public void setDate(final Long date) {
+        this.date = date;
+    }
+
 
     public boolean isRegistration() {
         return registration;
@@ -54,7 +61,8 @@ public class Conference {
         this.registration = registration;
     }
 
-    public void setDate(final Long date) {
-        this.date = date;
+
+    public String getHumanReadableDate() {
+        return DateTimeConverter.fromLong(date);
     }
 }
