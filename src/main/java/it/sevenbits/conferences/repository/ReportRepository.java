@@ -28,7 +28,7 @@ public class ReportRepository {
 
 
     public List<Report> findAllByUser (final User user) throws RepositoryException {
-        LOG.info("Searching in database for report with user:" + user);
+        LOG.info("Searching in database for reports with user:" + user);
         if (user == null || user.getId() == null) {
             LOG.error("Cannot lookup report with null user in database");
             throw new RepositoryException(REPOSITORY_USER_IS_NULL_MESSAGE);
