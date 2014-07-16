@@ -1,7 +1,6 @@
 package it.sevenbits.conferences.model;
 
 import it.sevenbits.conferences.utils.converter.DateTimeConverter;
-import sun.rmi.runtime.Log;
 
 import java.util.List;
 
@@ -15,6 +14,7 @@ public class Conference {
     private Long ordinalNumber;
     private Long date;
     private boolean registration;
+    private List<Report> reports;
 
 
     public Long getId() {
@@ -59,6 +59,15 @@ public class Conference {
 
     public void setRegistration(final boolean registration) {
         this.registration = registration;
+    }
+
+
+    public List<Report> getReports() {
+        return reports;
+    }
+
+    public void setReports(List<Report> reports) {
+        this.reports = reports;
     }
 
 

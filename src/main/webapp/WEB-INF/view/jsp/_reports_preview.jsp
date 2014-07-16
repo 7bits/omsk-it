@@ -1,4 +1,6 @@
-<c:forEach items="${reports}" var="report">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<c:forEach items="${conference.reports}" var="report">
     <div class="report">
         <div class="reporter inline-item">
             <div class="name">

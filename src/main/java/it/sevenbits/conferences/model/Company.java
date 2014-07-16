@@ -46,4 +46,8 @@ public class Company {
     public void setLocation(final String location) {
         this.location = location;
     }
+
+    public Boolean isHaveLink() {
+        return  !((site == null) || (site.replaceAll("\\s+", "").equals("")));
+    }
 }
