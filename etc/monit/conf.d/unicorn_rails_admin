@@ -1,0 +1,4 @@
+check process unicorn_rails_admin with pidfile /home/www/omsk-it/rails_admin/shared/pids/unicorn.pid
+ group unicorn
+ start program = "/bin/su - root -c 'cd /home/www/omsk-it/rails_admin/current && bundle exec unicorn_rails -c /home/www/omsk-it/rails_admin/current/config/unicorn.rb -E production -D'"
+ stop program  = "/bin/su - root -c 'kill -s QUIT `cat /home/www/omsk-it/rails_admin/shared/pids/unicorn.pid`'"
